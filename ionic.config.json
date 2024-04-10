@@ -1,0 +1,7 @@
+{
+  "name": "megashark-lib",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
