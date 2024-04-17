@@ -1,8 +1,11 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
 import router from './router';
+import appEnUS from '@/locales/en-US.json';
+import appFrFR from '@/locales/fr-FR.json';
 
 import { IonicVue } from '@ionic/vue';
+import { TranslationPlugin, I18n } from '@lib/services/translation';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -21,11 +24,20 @@ import '@ionic/vue/css/flex-utils.css';
 import '@ionic/vue/css/display.css';
 
 /* Theme variables */
-import './theme/variables.css';
+import '@lib/theme/global.scss';
+
+I18n.init({
+  defaultLocale: 'en-US',
+  customAssets: {
+    'fr-FR': appFrFR,
+    'en-US': appEnUS
+  },
+});
 
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
+  .use(router)
+  .use(TranslationPlugin);
   
 router.isReady().then(() => {
   app.mount('#app');

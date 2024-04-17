@@ -1,0 +1,54 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+/* **** Parsec tags **** */
+
+.tag {
+  padding: 0.25rem 0.5rem;
+  min-height: auto;
+  margin: 0;
+  cursor: default;
+}
+
+.label-role {
+  .owner {
+    border: 1px solid var(--parsec-color-tags-blue500);
+    color: var(--parsec-color-tags-blue500);
+    background: none;
+  }
+
+  .manager {
+    border: 1px solid var(--parsec-color-tags-indigo500);
+    color: var(--parsec-color-tags-indigo500);
+    background: none;
+  }
+
+  .contributor {
+    border: 1px solid var(--parsec-color-tags-green500);
+    color: var(--parsec-color-tags-green500);
+    background: none;
+  }
+
+  .reader {
+    border: 1px solid var(--parsec-color-tags-orange500);
+    color: var(--parsec-color-tags-orange500);
+    background: none;
+  }
+}
+
+.profile {
+  pointer-events: none;
+  .admin {
+    background-color: var(--parsec-color-tags-indigo100);
+    color: var(--parsec-color-tags-indigo500);
+  }
+
+  .standard {
+    background-color: var(--parsec-color-tags-green100);
+    color: var(--parsec-color-tags-green500);
+  }
+
+  .outsider {
+    background-color: var(--parsec-color-tags-orange100);
+    color: var(--parsec-color-tags-orange500);
+  }
+}

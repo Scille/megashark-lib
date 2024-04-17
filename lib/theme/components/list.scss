@@ -1,0 +1,190 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+/* **** List of workspaces, files/folder, users **** */
+
+.workspace-list-item,
+ion-item:has(.file-list-item),
+.user-list-item {
+  border-radius: var(--parsec-radius-4);
+  --show-full-highlight: 0;
+  display: flex;
+  --padding-start: 0px;
+  --inner-padding-end: 0px;
+  --background-hover: var(--parsec-color-light-primary-30);
+  --background-hover-opacity: 1;
+
+  &::part(native) {
+    border: none;
+    width: 100%;
+    cursor: default;
+  }
+
+  &.item-disabled {
+    &::after {
+      opacity: 0 !important;
+    }
+  }
+
+  &:not(.selected)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--parsec-color-light-secondary-medium);
+    z-index: 1;
+    cursor: default;
+  }
+
+  &.selected {
+    --background: var(--parsec-color-light-primary-100);
+    --background-hover: var(--parsec-color-light-primary-100);
+    --border-width: 0;
+
+    &:hover {
+      .cell,
+      .options-button__icon,
+      .person-name {
+        color: var(--parsec-color-light-secondary-text) !important;
+      }
+      &::part(native) {
+        --padding-start: 0px;
+      }
+    }
+  }
+
+  &.item-checkbox-checked {
+    --background: var(--parsec-color-light-primary-100);
+    --background-checked-opacity: 1;
+
+    .cell,
+    .options-button__icon,
+    .person-name {
+      color: var(--parsec-color-light-secondary-text);
+    }
+  }
+}
+
+.user-list-item,
+.user-card-item {
+  &.item-disabled {
+    opacity: 1;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.4;
+      background: var(--parsec-color-light-secondary-disabled);
+      z-index: 1;
+    }
+  }
+}
+
+.user-list-item:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--parsec-color-light-secondary-medium);
+  z-index: 2;
+}
+
+.revoked {
+  --background: var(--parsec-color-light-secondary-premiere) !important;
+
+  .user-name,
+  .user-card-avatar {
+    filter: grayscale(100%);
+
+    .person-name,
+    .user-card-info__name {
+      color: var(--parsec-color-light-secondary-grey) !important;
+    }
+  }
+  .tag {
+    background: var(--parsec-color-light-secondary-disabled) !important;
+    color: var(--parsec-color-light-secondary-grey) !important;
+  }
+}
+
+.workspace-list-item > [class^='workspace-'],
+.file-list-item > [class^='file-'],
+.user-list-item > [class^='user-'] {
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  --background-hover-opacity: 1;
+  --background-hover: var(--parsec-color-light-primary-30);
+  cursor: default !important;
+}
+
+// List of files/folders
+.folder-container {
+  .file-list-item {
+    display: flex;
+    width: 100%;
+  }
+
+  .label-selected,
+  .file-selected,
+  .file-loading {
+    min-width: 4rem;
+    width: 4rem;
+    justify-content: end;
+  }
+
+  .label-name,
+  .file-name {
+    min-width: 16.25rem;
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
+
+  .label-updatedBy,
+  .file-updatedBy {
+    min-width: 14rem;
+    max-width: 15%;
+    flex-grow: 2;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .label-lastUpdate,
+  .file-lastUpdate {
+    min-width: 11.25rem;
+    flex-shrink: 1;
+  }
+
+  .label-size,
+  .file-size {
+    min-width: 8.25rem;
+    flex-shrink: 1;
+  }
+
+  .label-size,
+  .label-last-update {
+    color: var(--parsec-color-light-secondary-grey);
+  }
+
+  .label-space,
+  .file-options,
+  .file-empty {
+    min-width: 4rem;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+}
+
+.workspace-list-item > [class^='workspace-'],
+.workspace-list-item::part(native) {
+  cursor: pointer !important;
+}

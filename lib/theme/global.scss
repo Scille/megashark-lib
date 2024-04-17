@@ -1,0 +1,137 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+/* Ionic Variables and Theming. For more info, please see:
+http://ionicframework.com/docs/theming/ */
+
+//import variables
+@import 'variables/colors';
+@import 'variables/colorsIonic';
+@import 'variables/fonts';
+@import 'variables/radius';
+@import 'variables/shadows';
+@import 'variables/spacing';
+@import 'variables/width';
+
+// import components
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/inputs';
+@import 'components/list';
+@import 'components/lottie';
+@import 'components/modals';
+@import 'components/notifications';
+@import 'components/toasts';
+@import 'components/popovers';
+@import 'components/scrollbars';
+@import 'components/contextual-menu';
+@import 'components/tags';
+@import 'components/toggles';
+
+/**** Global CSS overloads ****/
+
+/* fix issue on global */
+* {
+  --inner-border-width: 0px;
+  --box-shadow: var(--parsec-shadow-light);
+  --min-height: 0;
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.header-md,
+.footer-md {
+  -webkit-box-shadow: inherit;
+  box-shadow: inherit;
+}
+
+ion-list.container {
+  margin-top: 0;
+}
+
+.header-md::after {
+  background-image: none;
+}
+
+ion-grid.md {
+  padding: 0;
+}
+
+ion-item > .ion-item-child-clickable {
+  z-index: 2;
+  position: relative;
+}
+
+ion-icon {
+  margin-inline: 0;
+}
+
+// fix issue with offset on checkbox
+.in-item:is(ion-checkbox) {
+  width: fit-content;
+}
+
+a {
+  text-decoration: none;
+  color: var(--parsec-color-light-primary-500);
+}
+
+// scroll behavior: user(revoked, active, invitation)/folder/workspace
+.content-scroll {
+  --overflow: hidden;
+}
+
+.scroll {
+  overflow-y: auto;
+  padding: 0 2rem;
+  margin-bottom: 3rem;
+  height: -webkit-fill-available;
+
+  .list,
+  .users-container-grid,
+  .workspaces-container-grid,
+  .folders-container-grid,
+  .invitation-container-grid {
+    padding-top: 2rem;
+  }
+}
+
+.user-list-header,
+.workspace-list-header,
+.folder-list-header,
+.invitation-list-header {
+  color: var(--parsec-color-light-secondary-grey);
+  padding-inline-start: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--parsec-color-light-secondary-opacity30);
+  backdrop-filter: blur(10px);
+}
+
+/* ----- item counter ------ */
+.counter {
+  color: var(--parsec-color-light-secondary-text);
+  display: flex;
+  align-items: center;
+
+  &::after {
+    margin-left: 1rem;
+    content: '';
+    display: block;
+    width: 1.5px;
+    height: 1.5rem;
+    background: var(--parsec-color-light-secondary-light);
+    border-radius: var(--parsec-radius-8);
+  }
+}
+
+// temporary fix for password input
+.recovery-content {
+  .ms-password-inputs {
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
