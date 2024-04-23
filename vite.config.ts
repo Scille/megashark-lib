@@ -11,7 +11,6 @@ export default defineConfig({
     libInjectCss(),
     dts({
       include: ['lib'],
-      tsconfigPath: path.resolve(__dirname, 'tsconfig.lib.json'),
       rollupTypes: true,
     })
   ],
