@@ -17,6 +17,7 @@
   "types": "./dist/main.d.ts",
   "scripts": {
     "dev": "vite",
+    "web:open": "vite --open",
     "build": "npm run lint && vite build",
     "build:lib": "vite build",
     "lint": "eslint . --max-warnings=0 && vue-tsc --noEmit",
