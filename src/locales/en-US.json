@@ -1,1097 +1,1097 @@
 {
-    "usage": {
-        "components": {
-            "actionBar": {
-                "title": "Action bar (with buttons)",
-                "buttons": {
-                    "settings": {
-                        "title": "Settings"
-                    },
-                    "alert": {
-                        "title": "Alert"
-                    },
-                    "getPassword": {
-                        "title": "Get password"
-                    },
-                    "askQuestion": {
-                        "title": "Ask a question"
-                    },
-                    "getText": {
-                        "title": "Get text"
-                    }
-                }
-            },
-            "dropdown": {
-                "title": "Dropdown"
-            },
-            "image": {
-                "title": "Image"
-            },
-            "inputs": {
-                "title": "Inputs",
-                "msInput": {
-                    "title": "Basic input"
-                },
-                "msPasswordInput": {
-                    "title": "Password input"
-                },
-                "msChoosePasswordInput": {
-                    "title": "Choose password input"
-                },
-                "msSearchInput": {
-                    "title": "Search input"
-                }
-            },
-            "sorter": {
-                "title": "Sorter"
-            },
-            "spinner": {
-                "title": "Spinner"
-            },
-            "stepper": {
-                "title": "Stepper"
-            },
-            "informativeText": {
-                "title": "Informative text"
-            },
-            "reportText": {
-                "title": "Report text"
-            },
-            "informationTooltip": {
-                "title": "Information tooltip"
-            },
-            "gridListToggle": {
-                "title": "Grid list toggle"
-            }
-        }
-    },
-    "app": {
-        "name": "Parsec Cloud",
-        "developer": "Parsec Cloud",
-        "developerLink": "https://parsec.cloud",
-        "projectSources": "https://github.com/Scille/parsec-cloud",
-        "issueUrl": "https://github.com/Scille/parsec-cloud/issues/{issue}",
-        "license": "BUSL-1.1",
-        "licenseLink": "https://github.com/Scille/parsec-cloud/blob/master/LICENSE",
-        "history": "https://docs.parsec.cloud/en/stable/history.html"
-    },
-    "quit": {
-        "title": "Exit Parsec",
-        "subtitle": "Are you sure you want to exit the application? Mounted workspaces will be unmounted and any import in progress will be cancelled.",
-        "yes": "Exit",
-        "no": "Cancel"
-    },
-    "globalErrors": {
-        "openFileFailed": "Failed to open entry at `{path}`.",
-        "incompatibleServer": "Your application and the server are not compatible. Online features will not be available. Please check that your application is up-to-date, and if so, contact an administrator.",
-        "clientRevoked": "You have been revoked from this organization. You can still see some of the data you had access to, but most features of Parsec will not work.",
-        "expiredOrganization": "This organization has expired. Please contact an administrator."
-    },
-    "workspaceRoles": {
-        "updateRejectedReasons": {
-            "outsiderProfile": "Outsiders cannot change roles",
-            "outsiderLimitedRole": "Outsiders can only be Readers or Contributors",
-            "insufficientRole": "Only Managers and Owners can change roles",
-            "ownerImmunity": "Cannot change the role of an Owner",
-            "managerCannotUpdateManagers": "Managers cannot change the role of other managers",
-            "managerCannotPromoteToManager": "Managers cannot promote to Manager",
-            "managerCannotPromoteToOwner": "Managers cannot promote to Owner"
-        },
-        "reader": {
-            "label": "Reader",
-            "description": "Can view and open files."
-        },
-        "contributor": {
-            "label": "Contributor",
-            "description": "Can view, open and upload files."
-        },
-        "manager": {
-            "label": "Manager",
-            "description": "Manages the workspace and its users."
-        },
-        "owner": {
-            "label": "Owner",
-            "description": "Owns the workspace, can manage user rights and re-encrypt the workspace."
-        },
-        "none": "Not shared"
-    },
-    "link": {
-        "invalid": "The provided link is invalid.",
-        "orgNotFound": "You do not have access to the organization {organization} in which this file is stored.",
-        "appIsBusy": "Parsec is busy. Please close any opened window before clicking on the link again.",
-        "invalidFileLink": "The link provided is not a valid file link.",
-        "workspaceNotFound": "Failed to find the workspace this file belongs to. Maybe it has not been shared with you.",
-        "fileNotFound": "Failed to find the file associated with this link."
-    },
-    "notificationCenter": {
-        "title": "Notifications",
-        "readOnly": "Only unread",
-        "goToWorkspace": "Go to this workspace",
-        "openImportedMenu": "Open imported files menu",
-        "viewJoinedUsers": "View users",
-        "goToDevices": "Go to my devices",
-        "openEnclosingFolder": "Open enclosing folder",
-        "noNotification": "You are up to date!"
-    },
-    "invitationList": {
-        "title": "Invitations",
-        "invite": "Invite a new user",
-        "noInvitations": "No invitations"
-    },
-    "notification": {
-        "changeRole": "Your role a been changed to {role} on the workspace {workspace}",
-        "workspaceAccess": "You have access to the workspace {workspace}",
-        "userJoinWorkspace": "{name} has joined the workspace {workspace}",
-        "multipleUsersJoinWorkspace": "{count} have joined the workspace {workspace}",
-        "users": "users",
-        "userSharedDocument": "{name} shared a new document",
-        "allImportedElements": "All your elements have been imported",
-        "newDeviceAdded": "A new device has been added to the organization",
-        "serverOnline": "You are connected to the Parsec server",
-        "serverOffline": "You are not connected to the Parsec server",
-        "incompatibleServer": "Your application is not compatible with the server.",
-        "nextButton": "close",
-        "clientRevoked": "You have been revoked from this organization.",
-        "expiredOrganization": "This organization has expired."
-    },
-    "HomePage": {
-        "topbar": {
-            "settings": "Settings",
-            "contactUs": "Contact us",
-            "logout": "Log out",
-            "help": "Help and feedback",
-            "myProfile": "My profile",
-            "logoutConfirmTitle": "Log out",
-            "logoutConfirmQuestion": "Are you sure you want to log out?",
-            "logoutImportsConfirmQuestion": "All imports will be cancelled. Are you sure you want to log out?",
-            "logoutYes": "Log out",
-            "logoutNo": "Stay connected",
-            "logoutFailed": "An error occured while logging out."
-        },
-        "organizationList": {
-            "title": "Your organizations",
-            "sortOrderAsc": "Ascending",
-            "sortOrderDesc": "Descending",
-            "sortByOrganization": "Organization",
-            "sortByUserName": "User Name",
-            "sortByLastLogin": "Last login",
-            "labelSortBy": "Sort by",
-            "search": "Search",
-            "loggedIn": "Logged in"
-        },
-        "noExistingOrganization": {
-            "createOrJoin": "Create or join",
-            "createOrganization": "Create an organization",
-            "createOrganizationTitle": "Create",
-            "createOrganizationSubtitle": "I want to create an organization",
-            "joinOrganization": "Join an organization",
-            "joinOrganizationTitle": "Join",
-            "joinOrganizationSubtitle": "I received an invitation to join an organization"
-        },
-        "organizationLogin": {
-            "backToList": "Return to organizations",
-            "forgottenPassword": "Forgot your password?",
-            "emailLabel": "Email",
-            "passwordLabel": "Password",
-            "passwordError": "Incorrect password.",
-            "login": "Log in",
-            "loading": "Loading..."
-        },
-        "organizationActionSheet": "Organization",
-        "keyringFailed": "Could not log in",
-        "noDevices": {
-            "titleCreateOrga": "New to Parsec Cloud ?",
-            "titleInvitation": "You have received an invitation link?",
-            "invitationLink": "Enter the invitation link",
-            "invitationJoin": "Join",
-            "subtitle": "Enjoy a cloud experience with the guarantee that your data belongs to you."
-        }
-    },
-    "CreateOrganization": {
-        "fullname": "Full name",
-        "fullnamePlaceholder": "John Smith",
-        "email": "Email",
-        "emailPlaceholder": "john.smith{'@'}example.com",
-        "organizationName": "Organization name",
-        "organizationNameCriteria": "Letters, digits, underscores and hyphens only. No spaces. Limited to 32 characters.",
-        "organizationNamePlaceholder": "MyOrganization",
-        "serverDescription": "Organization server",
-        "useParsecServer": "Use the main PARSEC server",
-        "useMyOwnServer": "I have my own PARSEC server",
-        "saas": "Parsec SaaS",
-        "keyringChoice": "System authentication",
-        "passwordChoice": "Password",
-        "acceptTOS": {
-            "label": "I accept PARSEC's ",
-            "tos": "Terms and Conditions ",
-            "tosLink": "https://my.parsec.cloud/assets/pdf/Parsec-CGVU-en.pdf",
-            "and": "and ",
-            "privacyPolicy": "Privacy Policy",
-            "privacyPolicyLink": "https://parsec.cloud/en/politique-de-confidentialite/"
-        },
-        "parsecServerUrl": "URL of your PARSEC server",
-        "loading": "Just a moment, we are setting up your organization",
-        "organizationCreated": "You can access your new organization",
-        "title": {
-            "create": "Create an organization",
-            "personalDetails": "Enter your personal information",
-            "server": "Choose the server you need",
-            "authentication": "Authentication",
-            "overview": "Overview of your organization",
-            "done": "Your organization has been created!"
-        },
-        "subtitle": {
-            "nameYourOrg": "Choose your organization name.",
-            "personalDetails": "Fill in your name and email.",
-            "server": "Choose your desired server type.",
-            "authentication": "Lastly, choose an authentication method.",
-            "overview": "Verify that the information is correct."
-        },
-        "overview": {
-            "organization": "Organization",
-            "fullname": "Full name",
-            "email": "Email",
-            "server": "Server choice",
-            "authentication": "Authentication method"
-        },
-        "button": {
-            "next": "Next",
-            "previous": "Previous",
-            "create": "Create organization",
-            "done": "Let's go!",
-            "modify": "Edit"
-        },
-        "errors": {
-            "timestampOutOfBallpark": "Your device time differs from the server time. Please check your device clock and make sure it is up-to-date (your device time is {clientTime}, server time is {serverTime}).",
-            "offline": "Failed to contact server. Please make sure you are online.",
-            "alreadyExists": "This organization name is not available, please choose another one.",
-            "generic": "Failed to create the organization (reason: {reason})."
-        },
-        "cancelConfirm": "Cancel organization creation",
-        "cancelConfirmSubtitle": "Are you sure you want to cancel the process? Information will not be saved, you will have to restart.",
-        "cancelYes": "Cancel process",
-        "cancelNo": "Resume"
-    },
-    "JoinByLinkModal": {
-        "pageTitle": "Join by link",
-        "pleaseEnterUrl": "Please enter the organization URL",
-        "join": "Join"
-    },
-    "QuestionModal": {
-        "yes": "Yes",
-        "no": "No"
-    },
-    "TextInputModal": {
-        "moveHere": "Move here",
-        "cancel": "Cancel"
-    },
-    "MenuPage": {
-        "about": "About",
-        "helpLink": "https://my.parsec.cloud/help"
-    },
-    "HeaderPage": {
-        "titles": {
-            "workspaces": "My workspaces",
-            "about": "About",
-            "users": "Users",
-            "organization": {
-                "storage": "Storage",
-                "information": "Information"
-            },
-            "myProfile": "My profile",
-            "recoveryExport": "Recovery files"
-        },
-        "previous": "Go back",
-        "invitations": {
-            "title": "No invitations | One invitation | {count} invitations"
-        }
-    },
-    "WorkspaceSharing": {
-        "title": "Share this workspace",
-        "searchPlaceholder": "e.g.: John Smith",
-        "currentUserLabel": "Me",
-        "unshareSuccess": "The workspace is no longer shared with {user}.",
-        "updateRoleSuccess": "{user}'s role has been updated to {role}.",
-        "updateRoleFailure": "Please make sure you are online.",
-        "listFailure": {
-            "message": "Failed to get sharing information for this workspace.",
-            "alreadyNotShared": "This workspace is not shared with {user}.",
-            "alreadyHasRole": "{user} is already {role} on this workspace."
-        }
-    },
-    "SettingsModal": {
-        "pageTitle": "Settings",
-        "general": "General",
-        "advanced": "Advanced",
-        "enableTelemetry": {
-            "label": "Enable telemetry",
-            "description": "Automatically send error reports"
-        },
-        "minimizeToSystemTray": {
-            "label": "Minimize to system tray",
-            "description": "When the window is closed, Parsec will continue to run in the background"
-        },
-        "unsyncFiles": {
-            "label": "Show files excluded from synchronization",
-            "description": "Show files excluded from synchronization in the file explorer"
-        },
-        "meteredConnection": {
-            "label": "Metered connection",
-            "description": "The application will reduce data synchronization when you are connected to a metered connection"
-        },
-        "language": {
-            "label": "Language",
-            "description": "Choose application language",
-            "values": {
-                "frFR": "Français",
-                "enUS": "English"
-            }
-        },
-        "theme": {
-            "label": "Theme",
-            "description": "Choose application theme",
-            "values": {
-                "dark": "Dark",
-                "light": "Light",
-                "system": "System"
-            }
-        }
-    },
-    "WorkspacesPage": {
-        "createWorkspace": "New workspace",
-        "itemCount": "No items | 1 item | {count} items",
-        "noWorkspaces": "You do not have access to any workspace yet. Workspaces that you create or have been shared with you will be listed here.",
-        "listError": "Failed to list the workspaces.",
-        "newWorkspaceError": "Failed to create a new workspace.",
-        "newWorkspaceSuccess": "The workspace '{workspace}' has been created!",
-        "workspaceContextMenu": {
-            "titleOffline": "Offline",
-            "titleManage": "Manage workspace",
-            "titleCollaboration": "Collaboration",
-            "actionOffline": "Enable offline availability",
-            "actionRename": "Rename",
-            "actionOpenInExplorer": "Open in explorer",
-            "actionHistory": "History",
-            "actionShare": "Sharing and roles",
-            "actionDetails": "Details",
-            "actionCopyLink": "Copy link"
-        },
-        "CreateWorkspaceModal": {
-            "pageTitle": "Create a new workspace",
-            "label": "Workspace name",
-            "placeholder": "My space",
-            "create": "Create"
-        },
-        "RenameWorkspaceModal": {
-            "pageTitle": "Rename workspace",
-            "label": "New workspace name",
-            "placeholder": "My space",
-            "rename": "Rename",
-            "success": "Workspace has been successfully renamed to {newName}.",
-            "errors": {
-                "permission": "You do not have the permission to rename this workspace.",
-                "offline": "Failed to connect to the server. Please make sure you are online.",
-                "generic": "An error has occurred, please try again."
-            }
-        },
-        "Workspace": {
-            "lastUpdate": "Last updated:",
-            "notShared": "Not shared"
-        },
-        "listDisplayTitles": {
-            "name": "Name",
-            "role": "Role",
-            "sharedWith": "Users",
-            "lastUpdate": "Last updated",
-            "size": "Size"
-        },
-        "sort": {
-            "sortByName": "Name",
-            "sortBySize": "Size",
-            "sortByLastUpdated": "Last updated"
-        },
-        "getLinkError": "Failed to get a link to the workspace",
-        "linkCopiedToClipboard": "Workspace link has been copied to clipboard.",
-        "linkNotCopiedToClipboard": "Failed to copy the link. Your browser or device does not seem to support copy/paste."
-    },
-    "FoldersPage": {
-        "createFolder": "New folder",
-        "import": "Import",
-        "itemCount": "No items | 1 item | {count} items",
-        "itemSelectedCount": "No selected items | 1 selected item | {count} selected items",
-        "emptyFolder": "This folder is empty.",
-        "listDisplayTitles": {
-            "name": "Name",
-            "updatedBy": "Updated By",
-            "lastUpdate": "Last Updated",
-            "size": "Size"
-        },
-        "sort": {
-            "byName": "Name",
-            "byLastUpdate": "Last update",
-            "bySize": "Size",
-            "asc": "Ascending",
-            "desc": "Descending"
-        },
-        "File": {
-            "lastUpdate": "Last updated:",
-            "importing": "Importing..."
-        },
-        "fileContextMenu": {
-            "titleManage": "Manage file",
-            "titleCollaboration": "Collaboration",
-            "actionRename": "Rename",
-            "actionMoveTo": "Move to",
-            "actionMakeACopy": "Make a copy",
-            "actionOpen": "Open",
-            "actionHistory": "History",
-            "actionDownload": "Download",
-            "actionDetails": "Details",
-            "actionCopyLink": "Copy link",
-            "actionDelete": "Delete"
-        },
-        "importModal": {
-            "title": "Upload your files",
-            "dragAndDrop": "Drag and drop your files here",
-            "or": "or",
-            "browse": "Browse",
-            "replaceTitle": "Replace or skip file | Replace or skip files",
-            "replaceQuestion": "A file named `{file}` already exists, would you like to replace it? | {count} files already exist, would you like to replace them?",
-            "skipText": "Skip | Skip all",
-            "replaceText": "Replace | Replace all"
-        },
-        "errors": {
-            "deleteFailed": "Failed to delete file `{name}`, please try again.",
-            "renameFailed": "Failed to rename file `{name}`, please try again.",
-            "renameFailedAlreadyExists": "A file with the same name already exists in this folder.",
-            "createFolderFailed": "Failed to create folder `{name}`, please try again.",
-            "listFailed": "Failed to list content of folder `{path}`",
-            "deleteMultipleAllFailed": "Failed to delete any entry.",
-            "deleteMultipleSomeFailed": "Some entries could not be deleted.",
-            "moveOneFailed": "Failed to move file `{name}`, please try again.",
-            "moveMultipleAllFailed": "Failed to move any entry.",
-            "moveMultipleSomeFailed": "Some entries could not be moved.",
-            "copyOneFailed": "Failed to copy file `{name}`, please try again.",
-            "copyMultipleAllFailed": "Failed to copy any entry.",
-            "copyMultipleSomeFailed": "Some entries could not be copied."
-        },
-        "CreateFolderModal": {
-            "title": "Create a new folder",
-            "label": "Folder name",
-            "placeholder": "My folder",
-            "create": "Create"
-        },
-        "RenameModal": {
-            "fileTitle": "Rename a file",
-            "fileLabel": "File name",
-            "filePlaceholder": "My file",
-            "rename": "Rename",
-            "folderTitle": "Rename a folder",
-            "folderLabel": "Folder name",
-            "folderPlaceholder": "My folder"
-        },
-        "deleteOneFileQuestionTitle": "Delete one file",
-        "deleteOneFileQuestionSubtitle": "Are you sure you want to delete file `{name}`?",
-        "deleteOneFolderQuestionTitle": "Delete one folder",
-        "deleteOneFolderQuestionSubtitle": "Are you sure you want to delete folder `{name}`?",
-        "deleteMultipleQuestionTitle": "Delete multiple items",
-        "deleteMultipleQuestionSubtitle": "Are you sure you want to delete these {count} items?",
-        "deleteOneFileYes": "Delete file",
-        "deleteOneFileNo": "Keep file",
-        "deleteOneFolderYes": "Delete folder",
-        "deleteOneFolderNo": "Keep folder",
-        "deleteMultipleYes": "Delete {count} items",
-        "deleteMultipleNo": "Keep items",
-        "copySelectFolderTitle": "Copy one item | Copy {count} items",
-        "copySelectFolderSubtitle": "Current location: {location}",
-        "moveSelectFolderTitle": "Move one item | Move {count} items",
-        "moveSuccess": "The entry has been moved to the desired folder. | All entries have been moved to the desired folder.",
-        "copySuccess": "The entry has been copied to the desired folder. | All entries have been copied to the desired folder.",
-        "open": {
-            "fileFailed": "Failed to open file `{name}`",
-            "folderFailed": "Failed to open folder `{name}`",
-            "unavailableOnWeb": "This feature is not yet available in web mode."
-        },
-        "linkNotCopiedToClipboard": "Failed to copy link. Your browser or device does not seem to support copy/paste.",
-        "linkCopiedToClipboard": "Link has been copied to clipboard.",
-        "getLinkError": "Failed to get a link to the file",
-        "ImportFile": {
-            "title": "Importation",
-            "waiting": "waiting",
-            "cancelled": "cancelled",
-            "failed": "failed",
-            "failedDetails": "Please make sure you are online.",
-            "browse": "Go to location",
-            "tabs": {
-                "inProgress": "In progress",
-                "done": "Done",
-                "failed": "Failed"
-            },
-            "noImportInProgress": "No import in progress",
-            "noImportDone": "No import done",
-            "noImportFailed": "No import failed"
-        }
-    },
-    "FileDetails": {
-        "title": "Details on {name}",
-        "stats": {
-            "file": "File",
-            "folder": "Folder",
-            "created": "Created",
-            "updated": "Updated: ",
-            "version": "Version",
-            "size": "Size",
-            "path": "Path",
-            "linkCopied": "Copied"
-        }
-    },
-    "OrganizationPage": {
-        "infoPage": {
-            "getInfoFailed": "Failed to retrieve organization information. Please make sure you are online.",
-            "users": {
-                "revokedUsers": "Revoked",
-                "activeUsers": "Active",
-                "title": "Users",
-                "seeUsers": "See users"
-            },
-            "size": {
-                "metadata": "Meta-data",
-                "total": "Global data",
-                "title": "Storage",
-                "unavailable": "Unavailable"
-            },
-            "configuration": {
-                "outsidersAllowed": "Outsider profile",
-                "userLimit": "User limit",
-                "unlimited": "Unlimited",
-                "allowed": "Enabled",
-                "forbidden": "Disabled",
-                "title": "Configuration",
-                "serverAddr": "Server address",
-                "copyPath": "Copied",
-                "copyFailed": "Failed to copy the organization address. Your browser or device does not seem to support copy/paste."
-            }
-        }
-    },
-    "common": {
-        "date": {
-            "fewSeconds": "now",
-            "lessThanAMinute": "< 1 minute",
-            "lastLoginMinutes": "one minute ago | {minutes} minutes ago",
-            "lastLoginHours": "one hour ago | {hours} hours ago",
-            "lastLoginDays": "Today | Yesterday | {days} days ago"
-        },
-        "filesize": {
-            "bytes": "{size} B",
-            "kilobytes": "{size} KB",
-            "megabytes": "{size} MB",
-            "gigabytes": "{size} GB",
-            "terabytes": "{size} TB"
-        },
-        "deviceTypes": {
-            "web": "Web",
-            "windows": "Windows",
-            "macos": "MacOS",
-            "linux": "Linux",
-            "android": "Android",
-            "unknown": "Unknown"
-        },
-        "sortBy": "Sort by:"
-    },
-    "SideMenu": {
-        "workspaces": "Workspaces",
-        "noWorkspace": "No workspaces",
-        "users": "Users",
-        "storage": "Storage",
-        "manageOrganization": "Manage my organization",
-        "organizationInfo": "Information",
-        "back": "Back"
-    },
-    "DevicesPage": {
-        "addDevice": "Add",
-        "noDevices": "No devices.",
-        "activeDeviceBadge": "Current",
-        "joinedOn": "Joined:",
-        "now": "Now",
-        "restorePassword": {
-            "title": "Password recovery files",
-            "done": {
-                "subtitle": "Password recovery files have been created and downloaded.",
-                "label": "Files already downloaded",
-                "button": "Re-download recovery files"
-            },
-            "notDone": {
-                "label": "Action required",
-                "subtitle": "Parsec does not store your password.",
-                "subtitle2": "These files can be used to reset your password on a device if you forget it.",
-                "button": "Create recovery files"
-            }
-        },
-        "greet": {
-            "steps": {
-                "hostCode": "Host code",
-                "guestCode": "Guest code"
-            },
-            "titles": {
-                "waitForGuest": "Create a new device",
-                "provideHostCode": "Share your code",
-                "getGuestCode": "Get guest code",
-                "deviceDetails": "Waiting for device information",
-                "summary": "New device added",
-                "cancelGreet": "Cancel"
-            },
-            "subtitles": {
-                "provideHostCode": "Click on the code below on the guest device.",
-                "getGuestCode": "Click on the code that appears on the guest device.",
-                "summary": "The device {label} has been added to your profile.",
-                "getDeviceInfo": "Waiting for you to fill the information on the guest device.",
-                "waitForGuest": "Parsec must be open on both devices during the onboarding process.",
-                "scanOrShare1": "Scan the QR Code ",
-                "scanOrShare2": "or ",
-                "scanOrShare3": "share the link",
-                "cancelGreet": "Are you sure you want to cancel the onboarding process?",
-                "copiedToClipboard": "Link has been copied to clipboard"
-            },
-            "errors": {
-                "retrieveDeviceInfoFailed": "Failed to retrieve device information.",
-                "unexpected": "An unexpected error occured",
-                "createDeviceFailed": "Failed to create device.",
-                "startFailed": "Failed to start the onboarding process. Please make sure you are online.",
-                "invalidCodeSelected": "You did not select the correct code. Please restart the onboarding process.",
-                "noneCodeSelected": "If you did not see the correct code, this could be a sign of a security issue during the onboarding. Please restart the process.",
-                "emailFailed": "An error occurred when trying to send the email. Please check your Internet connection."
-            },
-            "actions": {
-                "finish": "Finish",
-                "start": "Start",
-                "sendEmail": "Send link by email",
-                "reSendEmail": "Resend email",
-                "waitBeforeResending": "Wait {seconds}s",
-                "cancelGreet": {
-                    "yes": "Cancel process",
-                    "no": "Resume"
-                }
-            },
-            "success": "You can connect to this organisation from your new device.",
-            "linkCopiedToClipboard": "Invitation link has been copied to clipboard.",
-            "emailSent": "Email sent!"
-        }
-    },
-    "Password": {
-        "password": "Password",
-        "currentPassword": "Current password",
-        "newPassword": "New password",
-        "confirmPassword": "Confirm password",
-        "passwordInfo": "Your password must be secure and you must remember it. We advise you to create several devices if possible and to share workspaces.",
-        "passwordLevelLow": "Low",
-        "passwordLevelMedium": "Moderate",
-        "passwordLevelHigh": "Strong",
-        "passwordCriteria": "Make sure it corresponds to a strong level: avoid repetitions, overly common words and sequences.",
-        "noMatch": "Do not match"
-    },
-    "Authentication": {
-        "keyringInfo": "Authentication will be handled through your system, so you do not have to remember an additional password. Just do not forget to lock your session when you are not in front of your computer!",
-        "useKeyring": "Use System Authentication",
-        "usePassword": "Use Password",
-        "description": "Authentication method",
-        "keyringUnavailableOnSystem": "Unavailable on your system",
-        "keyringUnavailableOnWeb": "Unavailable on web"
-    },
-    "PasswordInputModal": {
-        "passwordNeeded": "Password needed",
-        "enterPassword": "Please enter the password for {org} to continue.",
-        "password": "Password",
-        "validate": "Validate",
-        "invalid": "Invalid password.",
-        "otherError": "An error has occurred."
-    },
-    "ImportRecoveryDevicePage": {
-        "titles": {
-            "forgottenPassword": "Forgotten password",
-            "recoveryFile": "Recovery file",
-            "recoveryKey": "Secret key",
-            "setNewPassword": "Choose a new password",
-            "passwordChanged": "Password was successfully changed!"
-        },
-        "subtitles": {
-            "recoveryFilesMustExistWarning": "You must have created recovery files in order to reset your password.",
-            "password": "Password",
-            "passwordModified": "You can now login with your new password.",
-            "noFileSelected": "No file selected"
-        },
-        "actions": {
-            "browse": "Browse",
-            "next": "Next",
-            "validatePassword": "Validate password",
-            "goBackToLogin": "Go back to login"
-        },
-        "errors": {
-            "fileErrorMessage": "Invalid recovery file.",
-            "keyErrorMessage": "The secret key does not match the recovery file.",
-            "passwordErrorMessage": "Passwords do not match or are not strong enough.",
-            "saveDeviceErrorMessage": "An error has occurred, the device recovery failed.",
-            "internalErrorMessage": "An error has occurred"
-        }
-    },
-    "ExportRecoveryDevicePage": {
-        "titles": {
-            "recoveryFile": "Recovery File",
-            "recoveryKey": "Secret Key"
-        },
-        "subtitles": {
-            "newPassword": "Recovery files let you create a new password in the event that you forget it on this device.",
-            "twoFilesToKeep": "You will then have to keep two separate files:",
-            "keepFilesSeparate": "Please make sure both files are not stored in the same folder.",
-            "fileExplanation": "This file will allow you to reset your password using the secret key.",
-            "keyExplanation": "The secret key is a code to use with the recovery file to create a new password.",
-            "fileDownloaded": "File downloaded"
-        },
-        "actions": {
-            "understand": "I understand",
-            "download": "Download",
-            "downloadAgain": "Download again",
-            "backToDevices": "Back to my devices"
-        },
-        "toasts": {
-            "fileDownloadOk": "The recovery file was successfully downloaded",
-            "keyDownloadOk": "The secret key was successfully downloaded"
-        },
-        "filenames": {
-            "recoveryFile": "Parsec_Recovery_File_{org}.data",
-            "recoveryKey": "Parsec_Recovery_Code_{org}.txt"
-        }
-    },
-    "SasCodeChoice": {
-        "noneOfTheChoices": "None shown"
-    },
-    "JoinOrganization": {
-        "logIn": "Log In",
-        "createDevice": "Join the organization",
-        "validateUserInfo": "Validate my information",
-        "understand": "I understand!",
-        "waitingForHost": "(Waiting for the host)",
-        "linkFormLabel": "Invitation link",
-        "linkFormPlaceholder": "parsec3://example.com/Org?...",
-        "successMessage": "You successfully joined the organization.",
-        "stepTitles": {
-            "GetHostCode": "Host code",
-            "ProvideGuestCode": "Guest code",
-            "ContactDetails": "Contact details",
-            "Authentication": "Authentication"
-        },
-        "instructions": {
-            "start": {
-                "first": "In order to avoid any attack, you will have to be in direct contact with the host during the whole onboarding process.",
-                "second": "The host will have to go to Users, then Pending invitation to start the process.",
-                "greeter": "You will be welcomed into the organization by {greeter} <{greeterEmail}>."
-            },
-            "finish": {
-                "first": "You can now log in to Parsec.",
-                "second": "We advise that you create a recovery file in the event that you forget your password or log in to your session."
-            }
-        },
-        "titles": {
-            "waitForHost": "Welcome to Parsec!",
-            "getHostCode": "Get host code",
-            "provideGuestCode": "Share your code",
-            "getUserInfo": "Your contact details",
-            "getAuthentication": "Authentication",
-            "finish": "You have joined the organization {org}!"
-        },
-        "subtitles": {
-            "waitForHost": "",
-            "getHostCode": "Click on the code given to you by the host.",
-            "provideGuestCode": "Give the code below to the host.",
-            "getUserInfo": "Please enter your contact details to access the organization.",
-            "getAuthentication": "Choose an authentication method to complete the onboarding.",
-            "finish": ""
-        },
-        "errors": {
-            "saveDeviceFailed": "Failed to save device",
-            "tokenAlreadyUsed": "This invitation link has already been used and is no longer valid.",
-            "invitationNotFound": "No invitation found, make sure the link is correct.",
-            "offline": "Failed to contact the server. Make sure that you are online.",
-            "sendUserInfoFailed": "Failed to send information to the host, please restart the onboarding process.",
-            "noneCodeSelected": "If you did not see the correct code, this could be a sign of a security issue during the onboarding. Please restart the process.",
-            "unexpected": "An unexpected error occured (reason: {reason}).",
-            "invalidCodeSelected": "You did not select the correct code. Please restart the onboarding process.",
-            "usersLimitReached": "The user limit for this organization has been reached."
-        },
-        "cancelConfirm": "Cancel the onboarding",
-        "cancelConfirmSubtitle": "Are you sure you want to cancel the onboarding process? Information will not be saved, you will have to restart.",
-        "cancelYes": "Cancel process",
-        "cancelNo": "Resume"
-    },
-    "UsersPage": {
-        "listDisplayTitles": {
-            "name": "Name",
-            "email": "Email",
-            "status": "Status",
-            "profile": "Profile",
-            "joinedOn": "Joined On"
-        },
-        "currentUser": "(You)",
-        "inviteUser": "Invite a user",
-        "itemCount": "No user | One user | {count} users",
-        "profile": {
-            "admin": {
-                "label": "Administrator",
-                "description": "Can manage the organization"
-            },
-            "standard": {
-                "label": "Standard",
-                "description": "Can create workspaces."
-            },
-            "outsider": {
-                "label": "Outsider",
-                "description": "Can only access shared workspaces."
-            }
-        },
-        "status": {
-            "active": "Active",
-            "revoked": "Revoked"
-        },
-        "success": {
-            "email": "Email address:",
-            "profile": "Profile choice:"
-        },
-        "emptyList": "No user to display.",
-        "listUsersFailed": "Failed to retrieve the users list. Please make sure you are online.",
-        "userSelectedCount": "No user selected | One user selected | {count} users selected",
-        "userContextMenu": {
-            "titleRemove": "Deletion",
-            "titleDetails": "User details",
-            "actionRevoke": "Revoke this user | Revoke these users",
-            "actionDetails": "View details"
-        },
-        "greet": {
-            "titles": {
-                "waitForGuest": "Onboard a new user",
-                "provideHostCode": "Share your code",
-                "getGuestCode": "Get guest code",
-                "contactDetails": "Contact details",
-                "summary": "User has been added successfully!"
-            },
-            "subtitles": {
-                "waitForGuest1": "To onboard a new user, you have to be in direct contact with them during the onboarding process (around 2 minutes).",
-                "waitForGuest2": "Please do not close this window during the onboarding process.",
-                "provideHostCode": "Give the code below to the guest.",
-                "getGuestCode": "Click on the code given to you by the guest.",
-                "getUserInfo": "Please wait while the guest enters their contact details. You will have to review them.",
-                "checkUserInfo": "You can update the user name, device and profile."
-            },
-            "steps": {
-                "hostCode": "Host code",
-                "guestCode": "Guest code",
-                "contactDetails": "Contact details"
-            },
-            "actions": {
-                "start": "Start",
-                "finish": "Finish",
-                "approve": "Approve"
-            },
-            "profileDropdownPlaceholder": "Choose a profile",
-            "profileDropdownTitle": "Profile",
-            "errors": {
-                "noneCodeSelected": "If you did not see the correct code, this could be a sign of a security issue during the onboarding. Please restart the process.",
-                "invalidCodeSelected": "You did not select the correct code. Please restart the onboarding process.",
-                "unexpected": "An unexpected error occured (reason: {reason}).",
-                "startFailed": "Failed to start the onboarding process. Please make sure you are online.",
-                "retrieveUserInfoFailed": "Failed to retrieve guest's information. Please restart the onboarding process."
-            },
-            "success": "{user} can now access to the organization.",
-            "cancelConfirm": "Cancel the onboarding",
-            "cancelConfirmSubtitle": "Are you sure you want to cancel the onboarding process? Information will not be saved, you will have to restart.",
-            "cancelYes": "Cancel process",
-            "cancelNo": "Resume"
-        },
-        "invitation": {
-            "greetUser": "Greet",
-            "rejectUser": "Cancel",
-            "inviteSuccessMailSent": "An invitation to join the organization has been sent to {email}.",
-            "inviteSuccessNoMail": "The invitation was successfully created but we failed to send an email to {email}. Please send the invitation link yourself or try again.",
-            "inviteFailedAlreadyMember": "This email is already used by a member of this organization.",
-            "inviteFailedOffline": "Failed to connect to the server. Please make sure you are online.",
-            "inviteFailedNotAllowed": "Only an administrator can invite new users into the organization.",
-            "inviteFailedUnknown": "An unexpected error occured, please try again (reason: {reason}).",
-            "cancelSuccess": "Invitation has been cancelled.",
-            "cancelFailed": "Failed to cancel invitation",
-            "linkCopiedToClipboard": "Invitation link has been copied to clipboard.",
-            "linkNotCopiedToClipboard": "Failed to copy the link. Your browser or device does not seem to support copy/paste.",
-            "copyLink": "Copy link",
-            "cancelInvitation": {
-                "title": "Cancel invitation",
-                "message": "The invitation sent to {email} and the invitation link will no longer be valid. Are you sure you want to continue?",
-                "yes": "Cancel invitation",
-                "no": "Keep invitation"
-            },
-            "status": {
-                "ready": "Ready",
-                "idle": "Idle",
-                "finished": "Finished",
-                "cancelled": "Cancelled"
-            }
-        },
-        "CreateUserInvitationModal": {
-            "pageTitle": "Invite a new user",
-            "label": "User's email",
-            "placeholder": "john.smith{'@'}example.com",
-            "create": "Invite"
-        },
-        "UserDetailsModal": {
-            "title": "User details",
-            "subtitles": {
-                "name": "Name",
-                "joined": "Joined",
-                "commonWorkspaces": "Shared workspaces",
-                "revoked": "Revoked"
-            },
-            "actions": {
-                "close": "Close"
-            },
-            "noSharedWorkspaces": "You have no workspaces in common with this user.",
-            "failedToListWorkspaces": "Failed to list workspaces."
-        },
-        "revocation": {
-            "revokeTitle": "Revoke this user? | Revoke these users?",
-            "revokeQuestion": "This will revoke {user}, preventing them from accessing this organization. Are you sure you want to proceed? | This will revoke these {count} users, preventing them from accessing this organization. Are you sure you want to proceed?",
-            "revokeYes": "Revoke",
-            "revokeNo": "Cancel",
-            "revokeFailed": "Failed to revoke this user | Failed to revoke any user",
-            "revokeSuccess": "{user} has been revoked. They can no longer access this organization. | {count} users have been revoked, they can no longer access this organization.",
-            "revokeSomeFailed": "Some users could not be revoked"
-        },
-        "sort": {
-            "byName": "Name",
-            "byJoined": "Date joined",
-            "byProfile": "Profile",
-            "byStatus": "Status",
-            "asc": "Ascending",
-            "desc": "Descending"
-        },
-        "filter": {
-            "title": "Filter",
-            "status": "Status",
-            "role": "Role",
-            "admin": "Administrator",
-            "standard": "Standard",
-            "outsider": "Outsider"
-        }
-    },
-    "AboutPage": {
-        "appInfo": {
-            "version": "Version",
-            "developer": "Developer",
-            "license": "License",
-            "project": "Project"
-        },
-        "update": {
-            "notUpToDate": "A new version is available.",
-            "update": "Update",
-            "showChangelog": "Show changelog"
-        }
-    },
-    "ClaimDeviceModal": {
-        "stepper": {
-            "GetHostCode": "Host code",
-            "ProvideGuestCode": "Guest code",
-            "Authentication": "Authentication"
-        },
-        "titles": {
-            "claimDevice": "Add a new device",
-            "getCode": "Get host code",
-            "provideCode": "Share guest code",
-            "authentication": "Authentication",
-            "done": "Device has been added!"
-        },
-        "subtitles": {
-            "claimDevice": "You must have Parsec open on both devices during the onboarding process.",
-            "getCode": "Click on the code you see on the main device.",
-            "provideCode": "On the main device, click on the code you see below.",
-            "authentication": "Lastly, choose an authentication method for your new device.",
-            "done": "The device has been created and added to this organization. You can now use it to connect to Parsec."
-        },
+  "usage": {
+    "components": {
+      "actionBar": {
+        "title": "Action bar (with buttons)",
         "buttons": {
-            "understand": "I understand!",
-            "password": "Confirm password",
-            "login": "Log in"
-        },
-        "currentDevice": "Current device",
-        "newDevice": "Your new device",
-        "connected": "Connected",
-        "cancelConfirm": "Cancel the process",
-        "cancelConfirmSubtitle": "Are you sure you want to cancel the process? Information will not be saved, you will have to restart.",
-        "cancelYes": "Cancel process",
-        "cancelNo": "Resume",
-        "successMessage": "You can now access your organization from your new device.",
-        "errors": {
-            "unexpected": "An unexpected error occured (reason: {reason}).",
-            "saveDeviceFailed": "Failed to save the information, please try again",
-            "sendDeviceInfoFailed": "Failed to send information to the host, please restart the onboarding process.",
-            "invalidCodeSelected": "You did not select the correct code. Please restart the onboarding process.",
-            "noneCodeSelected": "If you did not see the correct code, this could be a sign of a security issue during the onboarding. Please restart the process."
+          "settings": {
+            "title": "Settings"
+          },
+          "alert": {
+            "title": "Alert"
+          },
+          "getPassword": {
+            "title": "Get password"
+          },
+          "askQuestion": {
+            "title": "Ask a question"
+          },
+          "getText": {
+            "title": "Get text"
+          }
         }
-    },
-    "Changelog": {
-        "features": "Features",
-        "fixes": "Bug fixes",
-        "misc": "Miscellaneous",
-        "title": "Changes"
-    },
-    "MyProfilePage": {
-        "titleActualPassword": "Enter your current password",
-        "titleNewPassword": "Choose a new password",
-        "password": "Password",
-        "systemAuthentication": "TBW",
-        "cancelButton": "Cancel",
-        "nextButton": "Confirm",
-        "passwordPlaceholder": "••••••••••",
-        "changePasswordButton": "Update",
-        "passwordUpdated": "Password has been updated. You can log in with your new password.",
-        "tabs": {
-            "devices": "My devices",
-            "authentication": "Authentication"
+      },
+      "dropdown": {
+        "title": "Dropdown"
+      },
+      "image": {
+        "title": "Image"
+      },
+      "inputs": {
+        "title": "Inputs",
+        "msInput": {
+          "title": "Basic input"
         },
-        "errors": {
-            "wrongPassword": "Wrong password. Please try again.",
-            "cannotChangePassword": "Failed to update password",
-            "failedToRetrieveInformation": "Failed to retrieve information. Please make sure you are online."
+        "msPasswordInput": {
+          "title": "Password input"
+        },
+        "msChoosePasswordInput": {
+          "title": "Choose password input"
+        },
+        "msSearchInput": {
+          "title": "Search input"
         }
-    },
-    "validators": {
-        "organizationName": {
-            "tooLong": "Name is too long, limit is 32 characters.",
-            "forbiddenCharacters": "Only letters, digits, underscores and hyphens. No spaces."
-        },
-        "claimLink": {
-            "invalidProtocol": "Link should start with 'parsec3://'.",
-            "missingAction": "Link does not include an action.",
-            "invalidAction": "Link contains an invalid action.",
-            "missingToken": "Link does not include a token.",
-            "invalidToken": "Link contains an invalid token."
-        },
-        "claimUserLink": {
-            "invalidProtocol": "Link should start with 'parsec3://'.",
-            "missingAction": "Link does not include an action.",
-            "invalidAction": "Link contains an invalid action.",
-            "missingToken": "Link does not include a token.",
-            "invalidToken": "Link contains an invalid token."
-        },
-        "claimDeviceLink": {
-            "invalidProtocol": "Link should start with 'parsec3://'.",
-            "missingAction": "Link does not include an action.",
-            "invalidAction": "Link contains an invalid action.",
-            "missingToken": "Link does not include a token.",
-            "invalidToken": "Link contains an invalid token."
-        },
-        "userInfo": {
-            "name": "Name contains invalid characters.",
-            "email": "Wrong email address format."
-        }
-    },
-    "OrganizationSwitch": {
-        "loggedInOrgs": "Connected organizations",
-        "myOrgs": "My organizations",
-        "active": "Active"
+      },
+      "sorter": {
+        "title": "Sorter"
+      },
+      "spinner": {
+        "title": "Spinner"
+      },
+      "stepper": {
+        "title": "Stepper"
+      },
+      "informativeText": {
+        "title": "Informative text"
+      },
+      "reportText": {
+        "title": "Report text"
+      },
+      "informationTooltip": {
+        "title": "Information tooltip"
+      },
+      "gridListToggle": {
+        "title": "Grid list toggle"
+      }
     }
+  },
+  "app": {
+    "name": "Parsec Cloud",
+    "developer": "Parsec Cloud",
+    "developerLink": "https://parsec.cloud",
+    "projectSources": "https://github.com/Scille/parsec-cloud",
+    "issueUrl": "https://github.com/Scille/parsec-cloud/issues/{issue}",
+    "license": "BUSL-1.1",
+    "licenseLink": "https://github.com/Scille/parsec-cloud/blob/master/LICENSE",
+    "history": "https://docs.parsec.cloud/en/stable/history.html"
+  },
+  "quit": {
+    "title": "Exit Parsec",
+    "subtitle": "Are you sure you want to exit the application? Mounted workspaces will be unmounted and any import in progress will be cancelled.",
+    "yes": "Exit",
+    "no": "Cancel"
+  },
+  "globalErrors": {
+    "openFileFailed": "Failed to open entry at `{path}`.",
+    "incompatibleServer": "Your application and the server are not compatible. Online features will not be available. Please check that your application is up-to-date, and if so, contact an administrator.",
+    "clientRevoked": "You have been revoked from this organization. You can still see some of the data you had access to, but most features of Parsec will not work.",
+    "expiredOrganization": "This organization has expired. Please contact an administrator."
+  },
+  "workspaceRoles": {
+    "updateRejectedReasons": {
+      "outsiderProfile": "Outsiders cannot change roles",
+      "outsiderLimitedRole": "Outsiders can only be Readers or Contributors",
+      "insufficientRole": "Only Managers and Owners can change roles",
+      "ownerImmunity": "Cannot change the role of an Owner",
+      "managerCannotUpdateManagers": "Managers cannot change the role of other managers",
+      "managerCannotPromoteToManager": "Managers cannot promote to Manager",
+      "managerCannotPromoteToOwner": "Managers cannot promote to Owner"
+    },
+    "reader": {
+      "label": "Reader",
+      "description": "Can view and open files."
+    },
+    "contributor": {
+      "label": "Contributor",
+      "description": "Can view, open and upload files."
+    },
+    "manager": {
+      "label": "Manager",
+      "description": "Manages the workspace and its users."
+    },
+    "owner": {
+      "label": "Owner",
+      "description": "Owns the workspace, can manage user rights and re-encrypt the workspace."
+    },
+    "none": "Not shared"
+  },
+  "link": {
+    "invalid": "The provided link is invalid.",
+    "orgNotFound": "You do not have access to the organization {organization} in which this file is stored.",
+    "appIsBusy": "Parsec is busy. Please close any opened window before clicking on the link again.",
+    "invalidFileLink": "The link provided is not a valid file link.",
+    "workspaceNotFound": "Failed to find the workspace this file belongs to. Maybe it has not been shared with you.",
+    "fileNotFound": "Failed to find the file associated with this link."
+  },
+  "notificationCenter": {
+    "title": "Notifications",
+    "readOnly": "Only unread",
+    "goToWorkspace": "Go to this workspace",
+    "openImportedMenu": "Open imported files menu",
+    "viewJoinedUsers": "View users",
+    "goToDevices": "Go to my devices",
+    "openEnclosingFolder": "Open enclosing folder",
+    "noNotification": "You are up to date!"
+  },
+  "invitationList": {
+    "title": "Invitations",
+    "invite": "Invite a new user",
+    "noInvitations": "No invitations"
+  },
+  "notification": {
+    "changeRole": "Your role a been changed to {role} on the workspace {workspace}",
+    "workspaceAccess": "You have access to the workspace {workspace}",
+    "userJoinWorkspace": "{name} has joined the workspace {workspace}",
+    "multipleUsersJoinWorkspace": "{count} have joined the workspace {workspace}",
+    "users": "users",
+    "userSharedDocument": "{name} shared a new document",
+    "allImportedElements": "All your elements have been imported",
+    "newDeviceAdded": "A new device has been added to the organization",
+    "serverOnline": "You are connected to the Parsec server",
+    "serverOffline": "You are not connected to the Parsec server",
+    "incompatibleServer": "Your application is not compatible with the server.",
+    "nextButton": "close",
+    "clientRevoked": "You have been revoked from this organization.",
+    "expiredOrganization": "This organization has expired."
+  },
+  "HomePage": {
+    "topbar": {
+      "settings": "Settings",
+      "contactUs": "Contact us",
+      "logout": "Log out",
+      "help": "Help and feedback",
+      "myProfile": "My profile",
+      "logoutConfirmTitle": "Log out",
+      "logoutConfirmQuestion": "Are you sure you want to log out?",
+      "logoutImportsConfirmQuestion": "All imports will be cancelled. Are you sure you want to log out?",
+      "logoutYes": "Log out",
+      "logoutNo": "Stay connected",
+      "logoutFailed": "An error occured while logging out."
+    },
+    "organizationList": {
+      "title": "Your organizations",
+      "sortOrderAsc": "Ascending",
+      "sortOrderDesc": "Descending",
+      "sortByOrganization": "Organization",
+      "sortByUserName": "User Name",
+      "sortByLastLogin": "Last login",
+      "labelSortBy": "Sort by",
+      "search": "Search",
+      "loggedIn": "Logged in"
+    },
+    "noExistingOrganization": {
+      "createOrJoin": "Create or join",
+      "createOrganization": "Create an organization",
+      "createOrganizationTitle": "Create",
+      "createOrganizationSubtitle": "I want to create an organization",
+      "joinOrganization": "Join an organization",
+      "joinOrganizationTitle": "Join",
+      "joinOrganizationSubtitle": "I received an invitation to join an organization"
+    },
+    "organizationLogin": {
+      "backToList": "Return to organizations",
+      "forgottenPassword": "Forgot your password?",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "passwordError": "Incorrect password.",
+      "login": "Log in",
+      "loading": "Loading..."
+    },
+    "organizationActionSheet": "Organization",
+    "keyringFailed": "Could not log in",
+    "noDevices": {
+      "titleCreateOrga": "New to Parsec Cloud ?",
+      "titleInvitation": "You have received an invitation link?",
+      "invitationLink": "Enter the invitation link",
+      "invitationJoin": "Join",
+      "subtitle": "Enjoy a cloud experience with the guarantee that your data belongs to you."
+    }
+  },
+  "CreateOrganization": {
+    "fullname": "Full name",
+    "fullnamePlaceholder": "John Smith",
+    "email": "Email",
+    "emailPlaceholder": "john.smith{'@'}example.com",
+    "organizationName": "Organization name",
+    "organizationNameCriteria": "Letters, digits, underscores and hyphens only. No spaces. Limited to 32 characters.",
+    "organizationNamePlaceholder": "MyOrganization",
+    "serverDescription": "Organization server",
+    "useParsecServer": "Use the main PARSEC server",
+    "useMyOwnServer": "I have my own PARSEC server",
+    "saas": "Parsec SaaS",
+    "keyringChoice": "System authentication",
+    "passwordChoice": "Password",
+    "acceptTOS": {
+      "label": "I accept PARSEC's ",
+      "tos": "Terms and Conditions ",
+      "tosLink": "https://my.parsec.cloud/assets/pdf/Parsec-CGVU-en.pdf",
+      "and": "and ",
+      "privacyPolicy": "Privacy Policy",
+      "privacyPolicyLink": "https://parsec.cloud/en/politique-de-confidentialite/"
+    },
+    "parsecServerUrl": "URL of your PARSEC server",
+    "loading": "Just a moment, we are setting up your organization",
+    "organizationCreated": "You can access your new organization",
+    "title": {
+      "create": "Create an organization",
+      "personalDetails": "Enter your personal information",
+      "server": "Choose the server you need",
+      "authentication": "Authentication",
+      "overview": "Overview of your organization",
+      "done": "Your organization has been created!"
+    },
+    "subtitle": {
+      "nameYourOrg": "Choose your organization name.",
+      "personalDetails": "Fill in your name and email.",
+      "server": "Choose your desired server type.",
+      "authentication": "Lastly, choose an authentication method.",
+      "overview": "Verify that the information is correct."
+    },
+    "overview": {
+      "organization": "Organization",
+      "fullname": "Full name",
+      "email": "Email",
+      "server": "Server choice",
+      "authentication": "Authentication method"
+    },
+    "button": {
+      "next": "Next",
+      "previous": "Previous",
+      "create": "Create organization",
+      "done": "Let's go!",
+      "modify": "Edit"
+    },
+    "errors": {
+      "timestampOutOfBallpark": "Your device time differs from the server time. Please check your device clock and make sure it is up-to-date (your device time is {clientTime}, server time is {serverTime}).",
+      "offline": "Failed to contact server. Please make sure you are online.",
+      "alreadyExists": "This organization name is not available, please choose another one.",
+      "generic": "Failed to create the organization (reason: {reason})."
+    },
+    "cancelConfirm": "Cancel organization creation",
+    "cancelConfirmSubtitle": "Are you sure you want to cancel the process? Information will not be saved, you will have to restart.",
+    "cancelYes": "Cancel process",
+    "cancelNo": "Resume"
+  },
+  "JoinByLinkModal": {
+    "pageTitle": "Join by link",
+    "pleaseEnterUrl": "Please enter the organization URL",
+    "join": "Join"
+  },
+  "QuestionModal": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "TextInputModal": {
+    "moveHere": "Move here",
+    "cancel": "Cancel"
+  },
+  "MenuPage": {
+    "about": "About",
+    "helpLink": "https://my.parsec.cloud/help"
+  },
+  "HeaderPage": {
+    "titles": {
+      "workspaces": "My workspaces",
+      "about": "About",
+      "users": "Users",
+      "organization": {
+        "storage": "Storage",
+        "information": "Information"
+      },
+      "myProfile": "My profile",
+      "recoveryExport": "Recovery files"
+    },
+    "previous": "Go back",
+    "invitations": {
+      "title": "No invitations | One invitation | {count} invitations"
+    }
+  },
+  "WorkspaceSharing": {
+    "title": "Share this workspace",
+    "searchPlaceholder": "e.g.: John Smith",
+    "currentUserLabel": "Me",
+    "unshareSuccess": "The workspace is no longer shared with {user}.",
+    "updateRoleSuccess": "{user}'s role has been updated to {role}.",
+    "updateRoleFailure": "Please make sure you are online.",
+    "listFailure": {
+      "message": "Failed to get sharing information for this workspace.",
+      "alreadyNotShared": "This workspace is not shared with {user}.",
+      "alreadyHasRole": "{user} is already {role} on this workspace."
+    }
+  },
+  "SettingsModal": {
+    "pageTitle": "Settings",
+    "general": "General",
+    "advanced": "Advanced",
+    "enableTelemetry": {
+      "label": "Enable telemetry",
+      "description": "Automatically send error reports"
+    },
+    "minimizeToSystemTray": {
+      "label": "Minimize to system tray",
+      "description": "When the window is closed, Parsec will continue to run in the background"
+    },
+    "unsyncFiles": {
+      "label": "Show files excluded from synchronization",
+      "description": "Show files excluded from synchronization in the file explorer"
+    },
+    "meteredConnection": {
+      "label": "Metered connection",
+      "description": "The application will reduce data synchronization when you are connected to a metered connection"
+    },
+    "language": {
+      "label": "Language",
+      "description": "Choose application language",
+      "values": {
+        "frFR": "Français",
+        "enUS": "English"
+      }
+    },
+    "theme": {
+      "label": "Theme",
+      "description": "Choose application theme",
+      "values": {
+        "dark": "Dark",
+        "light": "Light",
+        "system": "System"
+      }
+    }
+  },
+  "WorkspacesPage": {
+    "createWorkspace": "New workspace",
+    "itemCount": "No items | 1 item | {count} items",
+    "noWorkspaces": "You do not have access to any workspace yet. Workspaces that you create or have been shared with you will be listed here.",
+    "listError": "Failed to list the workspaces.",
+    "newWorkspaceError": "Failed to create a new workspace.",
+    "newWorkspaceSuccess": "The workspace '{workspace}' has been created!",
+    "workspaceContextMenu": {
+      "titleOffline": "Offline",
+      "titleManage": "Manage workspace",
+      "titleCollaboration": "Collaboration",
+      "actionOffline": "Enable offline availability",
+      "actionRename": "Rename",
+      "actionOpenInExplorer": "Open in explorer",
+      "actionHistory": "History",
+      "actionShare": "Sharing and roles",
+      "actionDetails": "Details",
+      "actionCopyLink": "Copy link"
+    },
+    "CreateWorkspaceModal": {
+      "pageTitle": "Create a new workspace",
+      "label": "Workspace name",
+      "placeholder": "My space",
+      "create": "Create"
+    },
+    "RenameWorkspaceModal": {
+      "pageTitle": "Rename workspace",
+      "label": "New workspace name",
+      "placeholder": "My space",
+      "rename": "Rename",
+      "success": "Workspace has been successfully renamed to {newName}.",
+      "errors": {
+        "permission": "You do not have the permission to rename this workspace.",
+        "offline": "Failed to connect to the server. Please make sure you are online.",
+        "generic": "An error has occurred, please try again."
+      }
+    },
+    "Workspace": {
+      "lastUpdate": "Last updated:",
+      "notShared": "Not shared"
+    },
+    "listDisplayTitles": {
+      "name": "Name",
+      "role": "Role",
+      "sharedWith": "Users",
+      "lastUpdate": "Last updated",
+      "size": "Size"
+    },
+    "sort": {
+      "sortByName": "Name",
+      "sortBySize": "Size",
+      "sortByLastUpdated": "Last updated"
+    },
+    "getLinkError": "Failed to get a link to the workspace",
+    "linkCopiedToClipboard": "Workspace link has been copied to clipboard.",
+    "linkNotCopiedToClipboard": "Failed to copy the link. Your browser or device does not seem to support copy/paste."
+  },
+  "FoldersPage": {
+    "createFolder": "New folder",
+    "import": "Import",
+    "itemCount": "No items | 1 item | {count} items",
+    "itemSelectedCount": "No selected items | 1 selected item | {count} selected items",
+    "emptyFolder": "This folder is empty.",
+    "listDisplayTitles": {
+      "name": "Name",
+      "updatedBy": "Updated By",
+      "lastUpdate": "Last Updated",
+      "size": "Size"
+    },
+    "sort": {
+      "byName": "Name",
+      "byLastUpdate": "Last update",
+      "bySize": "Size",
+      "asc": "Ascending",
+      "desc": "Descending"
+    },
+    "File": {
+      "lastUpdate": "Last updated:",
+      "importing": "Importing..."
+    },
+    "fileContextMenu": {
+      "titleManage": "Manage file",
+      "titleCollaboration": "Collaboration",
+      "actionRename": "Rename",
+      "actionMoveTo": "Move to",
+      "actionMakeACopy": "Make a copy",
+      "actionOpen": "Open",
+      "actionHistory": "History",
+      "actionDownload": "Download",
+      "actionDetails": "Details",
+      "actionCopyLink": "Copy link",
+      "actionDelete": "Delete"
+    },
+    "importModal": {
+      "title": "Upload your files",
+      "dragAndDrop": "Drag and drop your files here",
+      "or": "or",
+      "browse": "Browse",
+      "replaceTitle": "Replace or skip file | Replace or skip files",
+      "replaceQuestion": "A file named `{file}` already exists, would you like to replace it? | {count} files already exist, would you like to replace them?",
+      "skipText": "Skip | Skip all",
+      "replaceText": "Replace | Replace all"
+    },
+    "errors": {
+      "deleteFailed": "Failed to delete file `{name}`, please try again.",
+      "renameFailed": "Failed to rename file `{name}`, please try again.",
+      "renameFailedAlreadyExists": "A file with the same name already exists in this folder.",
+      "createFolderFailed": "Failed to create folder `{name}`, please try again.",
+      "listFailed": "Failed to list content of folder `{path}`",
+      "deleteMultipleAllFailed": "Failed to delete any entry.",
+      "deleteMultipleSomeFailed": "Some entries could not be deleted.",
+      "moveOneFailed": "Failed to move file `{name}`, please try again.",
+      "moveMultipleAllFailed": "Failed to move any entry.",
+      "moveMultipleSomeFailed": "Some entries could not be moved.",
+      "copyOneFailed": "Failed to copy file `{name}`, please try again.",
+      "copyMultipleAllFailed": "Failed to copy any entry.",
+      "copyMultipleSomeFailed": "Some entries could not be copied."
+    },
+    "CreateFolderModal": {
+      "title": "Create a new folder",
+      "label": "Folder name",
+      "placeholder": "My folder",
+      "create": "Create"
+    },
+    "RenameModal": {
+      "fileTitle": "Rename a file",
+      "fileLabel": "File name",
+      "filePlaceholder": "My file",
+      "rename": "Rename",
+      "folderTitle": "Rename a folder",
+      "folderLabel": "Folder name",
+      "folderPlaceholder": "My folder"
+    },
+    "deleteOneFileQuestionTitle": "Delete one file",
+    "deleteOneFileQuestionSubtitle": "Are you sure you want to delete file `{name}`?",
+    "deleteOneFolderQuestionTitle": "Delete one folder",
+    "deleteOneFolderQuestionSubtitle": "Are you sure you want to delete folder `{name}`?",
+    "deleteMultipleQuestionTitle": "Delete multiple items",
+    "deleteMultipleQuestionSubtitle": "Are you sure you want to delete these {count} items?",
+    "deleteOneFileYes": "Delete file",
+    "deleteOneFileNo": "Keep file",
+    "deleteOneFolderYes": "Delete folder",
+    "deleteOneFolderNo": "Keep folder",
+    "deleteMultipleYes": "Delete {count} items",
+    "deleteMultipleNo": "Keep items",
+    "copySelectFolderTitle": "Copy one item | Copy {count} items",
+    "copySelectFolderSubtitle": "Current location: {location}",
+    "moveSelectFolderTitle": "Move one item | Move {count} items",
+    "moveSuccess": "The entry has been moved to the desired folder. | All entries have been moved to the desired folder.",
+    "copySuccess": "The entry has been copied to the desired folder. | All entries have been copied to the desired folder.",
+    "open": {
+      "fileFailed": "Failed to open file `{name}`",
+      "folderFailed": "Failed to open folder `{name}`",
+      "unavailableOnWeb": "This feature is not yet available in web mode."
+    },
+    "linkNotCopiedToClipboard": "Failed to copy link. Your browser or device does not seem to support copy/paste.",
+    "linkCopiedToClipboard": "Link has been copied to clipboard.",
+    "getLinkError": "Failed to get a link to the file",
+    "ImportFile": {
+      "title": "Importation",
+      "waiting": "waiting",
+      "cancelled": "cancelled",
+      "failed": "failed",
+      "failedDetails": "Please make sure you are online.",
+      "browse": "Go to location",
+      "tabs": {
+        "inProgress": "In progress",
+        "done": "Done",
+        "failed": "Failed"
+      },
+      "noImportInProgress": "No import in progress",
+      "noImportDone": "No import done",
+      "noImportFailed": "No import failed"
+    }
+  },
+  "FileDetails": {
+    "title": "Details on {name}",
+    "stats": {
+      "file": "File",
+      "folder": "Folder",
+      "created": "Created",
+      "updated": "Updated: ",
+      "version": "Version",
+      "size": "Size",
+      "path": "Path",
+      "linkCopied": "Copied"
+    }
+  },
+  "OrganizationPage": {
+    "infoPage": {
+      "getInfoFailed": "Failed to retrieve organization information. Please make sure you are online.",
+      "users": {
+        "revokedUsers": "Revoked",
+        "activeUsers": "Active",
+        "title": "Users",
+        "seeUsers": "See users"
+      },
+      "size": {
+        "metadata": "Meta-data",
+        "total": "Global data",
+        "title": "Storage",
+        "unavailable": "Unavailable"
+      },
+      "configuration": {
+        "outsidersAllowed": "Outsider profile",
+        "userLimit": "User limit",
+        "unlimited": "Unlimited",
+        "allowed": "Enabled",
+        "forbidden": "Disabled",
+        "title": "Configuration",
+        "serverAddr": "Server address",
+        "copyPath": "Copied",
+        "copyFailed": "Failed to copy the organization address. Your browser or device does not seem to support copy/paste."
+      }
+    }
+  },
+  "common": {
+    "date": {
+      "fewSeconds": "now",
+      "lessThanAMinute": "< 1 minute",
+      "lastLoginMinutes": "one minute ago | {minutes} minutes ago",
+      "lastLoginHours": "one hour ago | {hours} hours ago",
+      "lastLoginDays": "Today | Yesterday | {days} days ago"
+    },
+    "filesize": {
+      "bytes": "{size} B",
+      "kilobytes": "{size} KB",
+      "megabytes": "{size} MB",
+      "gigabytes": "{size} GB",
+      "terabytes": "{size} TB"
+    },
+    "deviceTypes": {
+      "web": "Web",
+      "windows": "Windows",
+      "macos": "MacOS",
+      "linux": "Linux",
+      "android": "Android",
+      "unknown": "Unknown"
+    },
+    "sortBy": "Sort by:"
+  },
+  "SideMenu": {
+    "workspaces": "Workspaces",
+    "noWorkspace": "No workspaces",
+    "users": "Users",
+    "storage": "Storage",
+    "manageOrganization": "Manage my organization",
+    "organizationInfo": "Information",
+    "back": "Back"
+  },
+  "DevicesPage": {
+    "addDevice": "Add",
+    "noDevices": "No devices.",
+    "activeDeviceBadge": "Current",
+    "joinedOn": "Joined:",
+    "now": "Now",
+    "restorePassword": {
+      "title": "Password recovery files",
+      "done": {
+        "subtitle": "Password recovery files have been created and downloaded.",
+        "label": "Files already downloaded",
+        "button": "Re-download recovery files"
+      },
+      "notDone": {
+        "label": "Action required",
+        "subtitle": "Parsec does not store your password.",
+        "subtitle2": "These files can be used to reset your password on a device if you forget it.",
+        "button": "Create recovery files"
+      }
+    },
+    "greet": {
+      "steps": {
+        "hostCode": "Host code",
+        "guestCode": "Guest code"
+      },
+      "titles": {
+        "waitForGuest": "Create a new device",
+        "provideHostCode": "Share your code",
+        "getGuestCode": "Get guest code",
+        "deviceDetails": "Waiting for device information",
+        "summary": "New device added",
+        "cancelGreet": "Cancel"
+      },
+      "subtitles": {
+        "provideHostCode": "Click on the code below on the guest device.",
+        "getGuestCode": "Click on the code that appears on the guest device.",
+        "summary": "The device {label} has been added to your profile.",
+        "getDeviceInfo": "Waiting for you to fill the information on the guest device.",
+        "waitForGuest": "Parsec must be open on both devices during the onboarding process.",
+        "scanOrShare1": "Scan the QR Code ",
+        "scanOrShare2": "or ",
+        "scanOrShare3": "share the link",
+        "cancelGreet": "Are you sure you want to cancel the onboarding process?",
+        "copiedToClipboard": "Link has been copied to clipboard"
+      },
+      "errors": {
+        "retrieveDeviceInfoFailed": "Failed to retrieve device information.",
+        "unexpected": "An unexpected error occured",
+        "createDeviceFailed": "Failed to create device.",
+        "startFailed": "Failed to start the onboarding process. Please make sure you are online.",
+        "invalidCodeSelected": "You did not select the correct code. Please restart the onboarding process.",
+        "noneCodeSelected": "If you did not see the correct code, this could be a sign of a security issue during the onboarding. Please restart the process.",
+        "emailFailed": "An error occurred when trying to send the email. Please check your Internet connection."
+      },
+      "actions": {
+        "finish": "Finish",
+        "start": "Start",
+        "sendEmail": "Send link by email",
+        "reSendEmail": "Resend email",
+        "waitBeforeResending": "Wait {seconds}s",
+        "cancelGreet": {
+          "yes": "Cancel process",
+          "no": "Resume"
+        }
+      },
+      "success": "You can connect to this organisation from your new device.",
+      "linkCopiedToClipboard": "Invitation link has been copied to clipboard.",
+      "emailSent": "Email sent!"
+    }
+  },
+  "Password": {
+    "password": "Password",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm password",
+    "passwordInfo": "Your password must be secure and you must remember it. We advise you to create several devices if possible and to share workspaces.",
+    "passwordLevelLow": "Low",
+    "passwordLevelMedium": "Moderate",
+    "passwordLevelHigh": "Strong",
+    "passwordCriteria": "Make sure it corresponds to a strong level: avoid repetitions, overly common words and sequences.",
+    "noMatch": "Do not match"
+  },
+  "Authentication": {
+    "keyringInfo": "Authentication will be handled through your system, so you do not have to remember an additional password. Just do not forget to lock your session when you are not in front of your computer!",
+    "useKeyring": "Use System Authentication",
+    "usePassword": "Use Password",
+    "description": "Authentication method",
+    "keyringUnavailableOnSystem": "Unavailable on your system",
+    "keyringUnavailableOnWeb": "Unavailable on web"
+  },
+  "PasswordInputModal": {
+    "passwordNeeded": "Password needed",
+    "enterPassword": "Please enter the password for {org} to continue.",
+    "password": "Password",
+    "validate": "Validate",
+    "invalid": "Invalid password.",
+    "otherError": "An error has occurred."
+  },
+  "ImportRecoveryDevicePage": {
+    "titles": {
+      "forgottenPassword": "Forgotten password",
+      "recoveryFile": "Recovery file",
+      "recoveryKey": "Secret key",
+      "setNewPassword": "Choose a new password",
+      "passwordChanged": "Password was successfully changed!"
+    },
+    "subtitles": {
+      "recoveryFilesMustExistWarning": "You must have created recovery files in order to reset your password.",
+      "password": "Password",
+      "passwordModified": "You can now login with your new password.",
+      "noFileSelected": "No file selected"
+    },
+    "actions": {
+      "browse": "Browse",
+      "next": "Next",
+      "validatePassword": "Validate password",
+      "goBackToLogin": "Go back to login"
+    },
+    "errors": {
+      "fileErrorMessage": "Invalid recovery file.",
+      "keyErrorMessage": "The secret key does not match the recovery file.",
+      "passwordErrorMessage": "Passwords do not match or are not strong enough.",
+      "saveDeviceErrorMessage": "An error has occurred, the device recovery failed.",
+      "internalErrorMessage": "An error has occurred"
+    }
+  },
+  "ExportRecoveryDevicePage": {
+    "titles": {
+      "recoveryFile": "Recovery File",
+      "recoveryKey": "Secret Key"
+    },
+    "subtitles": {
+      "newPassword": "Recovery files let you create a new password in the event that you forget it on this device.",
+      "twoFilesToKeep": "You will then have to keep two separate files:",
+      "keepFilesSeparate": "Please make sure both files are not stored in the same folder.",
+      "fileExplanation": "This file will allow you to reset your password using the secret key.",
+      "keyExplanation": "The secret key is a code to use with the recovery file to create a new password.",
+      "fileDownloaded": "File downloaded"
+    },
+    "actions": {
+      "understand": "I understand",
+      "download": "Download",
+      "downloadAgain": "Download again",
+      "backToDevices": "Back to my devices"
+    },
+    "toasts": {
+      "fileDownloadOk": "The recovery file was successfully downloaded",
+      "keyDownloadOk": "The secret key was successfully downloaded"
+    },
+    "filenames": {
+      "recoveryFile": "Parsec_Recovery_File_{org}.data",
+      "recoveryKey": "Parsec_Recovery_Code_{org}.txt"
+    }
+  },
+  "SasCodeChoice": {
+    "noneOfTheChoices": "None shown"
+  },
+  "JoinOrganization": {
+    "logIn": "Log In",
+    "createDevice": "Join the organization",
+    "validateUserInfo": "Validate my information",
+    "understand": "I understand!",
+    "waitingForHost": "(Waiting for the host)",
+    "linkFormLabel": "Invitation link",
+    "linkFormPlaceholder": "parsec3://example.com/Org?...",
+    "successMessage": "You successfully joined the organization.",
+    "stepTitles": {
+      "GetHostCode": "Host code",
+      "ProvideGuestCode": "Guest code",
+      "ContactDetails": "Contact details",
+      "Authentication": "Authentication"
+    },
+    "instructions": {
+      "start": {
+        "first": "In order to avoid any attack, you will have to be in direct contact with the host during the whole onboarding process.",
+        "second": "The host will have to go to Users, then Pending invitation to start the process.",
+        "greeter": "You will be welcomed into the organization by {greeter} <{greeterEmail}>."
+      },
+      "finish": {
+        "first": "You can now log in to Parsec.",
+        "second": "We advise that you create a recovery file in the event that you forget your password or log in to your session."
+      }
+    },
+    "titles": {
+      "waitForHost": "Welcome to Parsec!",
+      "getHostCode": "Get host code",
+      "provideGuestCode": "Share your code",
+      "getUserInfo": "Your contact details",
+      "getAuthentication": "Authentication",
+      "finish": "You have joined the organization {org}!"
+    },
+    "subtitles": {
+      "waitForHost": "",
+      "getHostCode": "Click on the code given to you by the host.",
+      "provideGuestCode": "Give the code below to the host.",
+      "getUserInfo": "Please enter your contact details to access the organization.",
+      "getAuthentication": "Choose an authentication method to complete the onboarding.",
+      "finish": ""
+    },
+    "errors": {
+      "saveDeviceFailed": "Failed to save device",
+      "tokenAlreadyUsed": "This invitation link has already been used and is no longer valid.",
+      "invitationNotFound": "No invitation found, make sure the link is correct.",
+      "offline": "Failed to contact the server. Make sure that you are online.",
+      "sendUserInfoFailed": "Failed to send information to the host, please restart the onboarding process.",
+      "noneCodeSelected": "If you did not see the correct code, this could be a sign of a security issue during the onboarding. Please restart the process.",
+      "unexpected": "An unexpected error occured (reason: {reason}).",
+      "invalidCodeSelected": "You did not select the correct code. Please restart the onboarding process.",
+      "usersLimitReached": "The user limit for this organization has been reached."
+    },
+    "cancelConfirm": "Cancel the onboarding",
+    "cancelConfirmSubtitle": "Are you sure you want to cancel the onboarding process? Information will not be saved, you will have to restart.",
+    "cancelYes": "Cancel process",
+    "cancelNo": "Resume"
+  },
+  "UsersPage": {
+    "listDisplayTitles": {
+      "name": "Name",
+      "email": "Email",
+      "status": "Status",
+      "profile": "Profile",
+      "joinedOn": "Joined On"
+    },
+    "currentUser": "(You)",
+    "inviteUser": "Invite a user",
+    "itemCount": "No user | One user | {count} users",
+    "profile": {
+      "admin": {
+        "label": "Administrator",
+        "description": "Can manage the organization"
+      },
+      "standard": {
+        "label": "Standard",
+        "description": "Can create workspaces."
+      },
+      "outsider": {
+        "label": "Outsider",
+        "description": "Can only access shared workspaces."
+      }
+    },
+    "status": {
+      "active": "Active",
+      "revoked": "Revoked"
+    },
+    "success": {
+      "email": "Email address:",
+      "profile": "Profile choice:"
+    },
+    "emptyList": "No user to display.",
+    "listUsersFailed": "Failed to retrieve the users list. Please make sure you are online.",
+    "userSelectedCount": "No user selected | One user selected | {count} users selected",
+    "userContextMenu": {
+      "titleRemove": "Deletion",
+      "titleDetails": "User details",
+      "actionRevoke": "Revoke this user | Revoke these users",
+      "actionDetails": "View details"
+    },
+    "greet": {
+      "titles": {
+        "waitForGuest": "Onboard a new user",
+        "provideHostCode": "Share your code",
+        "getGuestCode": "Get guest code",
+        "contactDetails": "Contact details",
+        "summary": "User has been added successfully!"
+      },
+      "subtitles": {
+        "waitForGuest1": "To onboard a new user, you have to be in direct contact with them during the onboarding process (around 2 minutes).",
+        "waitForGuest2": "Please do not close this window during the onboarding process.",
+        "provideHostCode": "Give the code below to the guest.",
+        "getGuestCode": "Click on the code given to you by the guest.",
+        "getUserInfo": "Please wait while the guest enters their contact details. You will have to review them.",
+        "checkUserInfo": "You can update the user name, device and profile."
+      },
+      "steps": {
+        "hostCode": "Host code",
+        "guestCode": "Guest code",
+        "contactDetails": "Contact details"
+      },
+      "actions": {
+        "start": "Start",
+        "finish": "Finish",
+        "approve": "Approve"
+      },
+      "profileDropdownPlaceholder": "Choose a profile",
+      "profileDropdownTitle": "Profile",
+      "errors": {
+        "noneCodeSelected": "If you did not see the correct code, this could be a sign of a security issue during the onboarding. Please restart the process.",
+        "invalidCodeSelected": "You did not select the correct code. Please restart the onboarding process.",
+        "unexpected": "An unexpected error occured (reason: {reason}).",
+        "startFailed": "Failed to start the onboarding process. Please make sure you are online.",
+        "retrieveUserInfoFailed": "Failed to retrieve guest's information. Please restart the onboarding process."
+      },
+      "success": "{user} can now access to the organization.",
+      "cancelConfirm": "Cancel the onboarding",
+      "cancelConfirmSubtitle": "Are you sure you want to cancel the onboarding process? Information will not be saved, you will have to restart.",
+      "cancelYes": "Cancel process",
+      "cancelNo": "Resume"
+    },
+    "invitation": {
+      "greetUser": "Greet",
+      "rejectUser": "Cancel",
+      "inviteSuccessMailSent": "An invitation to join the organization has been sent to {email}.",
+      "inviteSuccessNoMail": "The invitation was successfully created but we failed to send an email to {email}. Please send the invitation link yourself or try again.",
+      "inviteFailedAlreadyMember": "This email is already used by a member of this organization.",
+      "inviteFailedOffline": "Failed to connect to the server. Please make sure you are online.",
+      "inviteFailedNotAllowed": "Only an administrator can invite new users into the organization.",
+      "inviteFailedUnknown": "An unexpected error occured, please try again (reason: {reason}).",
+      "cancelSuccess": "Invitation has been cancelled.",
+      "cancelFailed": "Failed to cancel invitation",
+      "linkCopiedToClipboard": "Invitation link has been copied to clipboard.",
+      "linkNotCopiedToClipboard": "Failed to copy the link. Your browser or device does not seem to support copy/paste.",
+      "copyLink": "Copy link",
+      "cancelInvitation": {
+        "title": "Cancel invitation",
+        "message": "The invitation sent to {email} and the invitation link will no longer be valid. Are you sure you want to continue?",
+        "yes": "Cancel invitation",
+        "no": "Keep invitation"
+      },
+      "status": {
+        "ready": "Ready",
+        "idle": "Idle",
+        "finished": "Finished",
+        "cancelled": "Cancelled"
+      }
+    },
+    "CreateUserInvitationModal": {
+      "pageTitle": "Invite a new user",
+      "label": "User's email",
+      "placeholder": "john.smith{'@'}example.com",
+      "create": "Invite"
+    },
+    "UserDetailsModal": {
+      "title": "User details",
+      "subtitles": {
+        "name": "Name",
+        "joined": "Joined",
+        "commonWorkspaces": "Shared workspaces",
+        "revoked": "Revoked"
+      },
+      "actions": {
+        "close": "Close"
+      },
+      "noSharedWorkspaces": "You have no workspaces in common with this user.",
+      "failedToListWorkspaces": "Failed to list workspaces."
+    },
+    "revocation": {
+      "revokeTitle": "Revoke this user? | Revoke these users?",
+      "revokeQuestion": "This will revoke {user}, preventing them from accessing this organization. Are you sure you want to proceed? | This will revoke these {count} users, preventing them from accessing this organization. Are you sure you want to proceed?",
+      "revokeYes": "Revoke",
+      "revokeNo": "Cancel",
+      "revokeFailed": "Failed to revoke this user | Failed to revoke any user",
+      "revokeSuccess": "{user} has been revoked. They can no longer access this organization. | {count} users have been revoked, they can no longer access this organization.",
+      "revokeSomeFailed": "Some users could not be revoked"
+    },
+    "sort": {
+      "byName": "Name",
+      "byJoined": "Date joined",
+      "byProfile": "Profile",
+      "byStatus": "Status",
+      "asc": "Ascending",
+      "desc": "Descending"
+    },
+    "filter": {
+      "title": "Filter",
+      "status": "Status",
+      "role": "Role",
+      "admin": "Administrator",
+      "standard": "Standard",
+      "outsider": "Outsider"
+    }
+  },
+  "AboutPage": {
+    "appInfo": {
+      "version": "Version",
+      "developer": "Developer",
+      "license": "License",
+      "project": "Project"
+    },
+    "update": {
+      "notUpToDate": "A new version is available.",
+      "update": "Update",
+      "showChangelog": "Show changelog"
+    }
+  },
+  "ClaimDeviceModal": {
+    "stepper": {
+      "GetHostCode": "Host code",
+      "ProvideGuestCode": "Guest code",
+      "Authentication": "Authentication"
+    },
+    "titles": {
+      "claimDevice": "Add a new device",
+      "getCode": "Get host code",
+      "provideCode": "Share guest code",
+      "authentication": "Authentication",
+      "done": "Device has been added!"
+    },
+    "subtitles": {
+      "claimDevice": "You must have Parsec open on both devices during the onboarding process.",
+      "getCode": "Click on the code you see on the main device.",
+      "provideCode": "On the main device, click on the code you see below.",
+      "authentication": "Lastly, choose an authentication method for your new device.",
+      "done": "The device has been created and added to this organization. You can now use it to connect to Parsec."
+    },
+    "buttons": {
+      "understand": "I understand!",
+      "password": "Confirm password",
+      "login": "Log in"
+    },
+    "currentDevice": "Current device",
+    "newDevice": "Your new device",
+    "connected": "Connected",
+    "cancelConfirm": "Cancel the process",
+    "cancelConfirmSubtitle": "Are you sure you want to cancel the process? Information will not be saved, you will have to restart.",
+    "cancelYes": "Cancel process",
+    "cancelNo": "Resume",
+    "successMessage": "You can now access your organization from your new device.",
+    "errors": {
+      "unexpected": "An unexpected error occured (reason: {reason}).",
+      "saveDeviceFailed": "Failed to save the information, please try again",
+      "sendDeviceInfoFailed": "Failed to send information to the host, please restart the onboarding process.",
+      "invalidCodeSelected": "You did not select the correct code. Please restart the onboarding process.",
+      "noneCodeSelected": "If you did not see the correct code, this could be a sign of a security issue during the onboarding. Please restart the process."
+    }
+  },
+  "Changelog": {
+    "features": "Features",
+    "fixes": "Bug fixes",
+    "misc": "Miscellaneous",
+    "title": "Changes"
+  },
+  "MyProfilePage": {
+    "titleActualPassword": "Enter your current password",
+    "titleNewPassword": "Choose a new password",
+    "password": "Password",
+    "systemAuthentication": "TBW",
+    "cancelButton": "Cancel",
+    "nextButton": "Confirm",
+    "passwordPlaceholder": "••••••••••",
+    "changePasswordButton": "Update",
+    "passwordUpdated": "Password has been updated. You can log in with your new password.",
+    "tabs": {
+      "devices": "My devices",
+      "authentication": "Authentication"
+    },
+    "errors": {
+      "wrongPassword": "Wrong password. Please try again.",
+      "cannotChangePassword": "Failed to update password",
+      "failedToRetrieveInformation": "Failed to retrieve information. Please make sure you are online."
+    }
+  },
+  "validators": {
+    "organizationName": {
+      "tooLong": "Name is too long, limit is 32 characters.",
+      "forbiddenCharacters": "Only letters, digits, underscores and hyphens. No spaces."
+    },
+    "claimLink": {
+      "invalidProtocol": "Link should start with 'parsec3://'.",
+      "missingAction": "Link does not include an action.",
+      "invalidAction": "Link contains an invalid action.",
+      "missingToken": "Link does not include a token.",
+      "invalidToken": "Link contains an invalid token."
+    },
+    "claimUserLink": {
+      "invalidProtocol": "Link should start with 'parsec3://'.",
+      "missingAction": "Link does not include an action.",
+      "invalidAction": "Link contains an invalid action.",
+      "missingToken": "Link does not include a token.",
+      "invalidToken": "Link contains an invalid token."
+    },
+    "claimDeviceLink": {
+      "invalidProtocol": "Link should start with 'parsec3://'.",
+      "missingAction": "Link does not include an action.",
+      "invalidAction": "Link contains an invalid action.",
+      "missingToken": "Link does not include a token.",
+      "invalidToken": "Link contains an invalid token."
+    },
+    "userInfo": {
+      "name": "Name contains invalid characters.",
+      "email": "Wrong email address format."
+    }
+  },
+  "OrganizationSwitch": {
+    "loggedInOrgs": "Connected organizations",
+    "myOrgs": "My organizations",
+    "active": "Active"
+  }
 }

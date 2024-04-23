@@ -1,0 +1,78 @@
+default_language_version:
+  node: 18.12.0
+
+repos:
+  ##############
+  # Common stuff
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0 # Use the ref you want to point at
+    hooks:
+      - id: mixed-line-ending
+        alias: eol
+      - id: trailing-whitespace
+        exclude_types: [svg]
+      - id: end-of-file-fixer
+        alias: eof
+        exclude_types: [svg]
+
+  # - repo: https://github.com/streetsidesoftware/cspell-cli
+  #   rev: v6.30.1
+  #   hooks:
+  #     - id: cspell
+  #       stages:
+  #         - manual
+  #       args:
+  #         - --config=./.cspell/cspell.config.yml
+  #         - --no-progress
+  #         - --dot
+  #         - --no-must-find-files
+  #         - --no-summary
+  #         - --gitignore
+  #       additional_dependencies:
+  #         - "@cspell/dict-en_us"
+  #         - "@cspell/dict-fr-fr"
+  #         - "@cspell/dict-fr-reforme"
+  #         - "@cspell/dict-bash"
+  #         - "@cspell/dict-shell"
+  #         - "@cspell/dict-win32"
+
+  ####
+  # Js
+
+  - repo: local
+    hooks:
+      - id: eslint
+        name: eslint
+        entry: eslint
+        language: node
+        # see: https://github.com/pre-commit/identify/blob/master/identify/extensions.py
+        types_or: [vue, ts, tsx, javascript, jsx]
+        args: [--config=.eslintrc.cjs]
+        # Deps should be kept updated with `client/package-lock.json` !
+        additional_dependencies:
+          - "@intlify/eslint-plugin-vue-i18n@2.0.0"
+          - "@typescript-eslint/eslint-plugin@5.55.0"
+          - "@typescript-eslint/parser@5.55.0"
+          - "@vue/eslint-config-typescript@10.0.0"
+          - eslint@8.36.0
+          - eslint-config-standard-with-typescript@34.0.1
+          - eslint-plugin-cypress@2.12.1
+          - eslint-plugin-import@2.27.5
+          - eslint-plugin-n@15.6.1
+          - eslint-plugin-promise@6.1.1
+          - eslint-plugin-vue@8.7.1
+
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier
+        entry: >-
+          npx prettier
+          --config=.prettierrc.json5
+          --ignore-path=.prettierignore
+          --check
+        language: node
+        types_or: [vue, ts, tsx, javascript, jsx, html]
+        additional_dependencies:
+          - prettier@3.0.3

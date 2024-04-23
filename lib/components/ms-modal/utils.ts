@@ -1,11 +1,11 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
+import { modalController } from '@ionic/vue';
 import MsPasswordInputModal from '@lib/components/ms-modal/MsPasswordInputModal.vue';
 import MsQuestionModal from '@lib/components/ms-modal/MsQuestionModal.vue';
 import MsTextInputModal from '@lib/components/ms-modal/MsTextInputModal.vue';
 import { Answer, GetPasswordOptions, GetTextOptions, MsModalResult } from '@lib/components/ms-modal/types';
 import { Translatable } from '@lib/services/translation';
-import { modalController } from '@ionic/vue';
 
 export interface QuestionOptions {
   yesText?: Translatable;

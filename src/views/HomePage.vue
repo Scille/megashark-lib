@@ -103,7 +103,10 @@
             @change="onSortChange($event)"
           />
           <div class="example-data">
-            <div v-for="item in msSorterExampleData" :key="item.name">
+            <div
+              v-for="item in msSorterExampleData"
+              :key="item.name"
+            >
               <ion-label>name: {{ item.name }}</ion-label>
               <ion-label>birth date: {{ I18n.formatDate(item.birthDate, 'short') }}</ion-label>
               <ion-label>age: {{ item.age }}</ion-label>
@@ -180,7 +183,7 @@ import {
   MsSorterChangeEvent,
   NoNotification,
   NoImportInProgress,
-  SwapArrows
+  SwapArrows,
 } from '@lib/components';
 import { I18n } from '@lib/services/translation';
 import { DateTime } from 'luxon';
@@ -281,10 +284,10 @@ async function openPasswordInputModal(): Promise<void> {
 
 async function openQuestionModal(): Promise<void> {
   await askQuestion('title', 'subtitle', {
-      yesIsDangerous: true,
-      yesText: 'yes',
-      noText: 'no',
-    });
+    yesIsDangerous: true,
+    yesText: 'yes',
+    noText: 'no',
+  });
 }
 
 async function openTextInputModal(): Promise<void> {

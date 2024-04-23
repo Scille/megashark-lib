@@ -1,7 +1,7 @@
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
-import dts from 'vite-plugin-dts';
 import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
 // https://vitejs.dev/config/
@@ -12,17 +12,17 @@ export default defineConfig({
     dts({
       include: ['lib'],
       rollupTypes: true,
-    })
+    }),
   ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@lib': path.resolve(__dirname, './lib'),
-    }
+    },
   },
   test: {
     globals: true,
-    environment: 'jsdom'
+    environment: 'jsdom',
   },
   build: {
     manifest: true,
@@ -47,4 +47,4 @@ export default defineConfig({
       },
     },
   },
-})
+});

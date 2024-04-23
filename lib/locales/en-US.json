@@ -1,24 +1,24 @@
 {
-    "lib": {
-        "components": {
-            "msActionBar": {},
-            "msDropdown": {},
-            "msImage": {},
-            "msSearchInput": {
-                "placeholder": "Search"
-            },
-            "msPasswordInput": {},
-            "msChoosePasswordInput": {},
-            "msInput": {},
-            "msModal": {},
-            "msSorter": {},
-            "msSpinner": {
-                "loading": "Loading..."
-            },
-            "msStepper": {},
-            "msText": {},
-            "msToggle": {},
-            "msTooltip": {}
-        }
+  "lib": {
+    "components": {
+      "msActionBar": {},
+      "msDropdown": {},
+      "msImage": {},
+      "msSearchInput": {
+        "placeholder": "Search"
+      },
+      "msPasswordInput": {},
+      "msChoosePasswordInput": {},
+      "msInput": {},
+      "msModal": {},
+      "msSorter": {},
+      "msSpinner": {
+        "loading": "Loading..."
+      },
+      "msStepper": {},
+      "msText": {},
+      "msToggle": {},
+      "msTooltip": {}
     }
+  }
 }
