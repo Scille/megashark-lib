@@ -31,7 +31,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'lib/main.ts'),
       fileName: 'main',
-      name: 'MegaShark-Lib',
+      name: 'megashark-lib',
     },
     rollupOptions: {
       external: ['vue', '@ionic/vue', 'vue-i18n', '@capacitor/core'],

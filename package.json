@@ -18,8 +18,8 @@
   "scripts": {
     "dev": "vite",
     "web:open": "vite --open",
-    "build": "npm run lint && vite build",
-    "build:lib": "vite build",
+    "web:release": "npm run lint && vite build",
+    "build": "vite build",
     "lint": "eslint . --max-warnings=0 && vue-tsc --noEmit",
     "prepublishOnly": "npm run build",
     "prepare": "npm run build",
