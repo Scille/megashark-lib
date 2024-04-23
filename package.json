@@ -14,7 +14,7 @@
   "files": [
     "dist"
   ],
-  "types": "./dist/main.d.ts",
+  "types": "./dist/typings.d.ts",
   "scripts": {
     "dev": "vite",
     "web:open": "vite --open",

@@ -12,6 +12,7 @@ export default defineConfig({
     dts({
       include: ['lib'],
       rollupTypes: true,
+      copyDtsFiles: true,
     }),
   ],
   resolve: {
