@@ -13,13 +13,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@lib/*": ["./lib/*"],
+      "@lib/*": ["./lib/*"]
     },
     "outDir": "./dist",
-    "types": [
-      "node",
-      "vite/client"
-    ],
+    "types": ["node", "vite/client"],
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,

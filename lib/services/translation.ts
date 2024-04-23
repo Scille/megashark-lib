@@ -9,7 +9,7 @@ import { createI18n } from 'vue-i18n';
 let i18n: any | null = null;
 const assets: Record<Locale, object> = {
   'fr-FR': libFrFR,
-  'en-US': libEnUS
+  'en-US': libEnUS,
 };
 
 export interface TranslationData {

@@ -1,8 +1,8 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
-import { MsReportTheme } from '@lib/components';
-import { Translatable, I18n } from '@lib/services/translation';
 import { toastController } from '@ionic/vue';
+import { MsReportTheme } from '@lib/components';
+import { I18n, Translatable } from '@lib/services/translation';
 import { checkmark, closeCircle, information, warning } from 'ionicons/icons';
 
 const DEFAULT_TOAST_DURATION = 5000;
@@ -11,7 +11,6 @@ interface HTMLIonToastElement extends HTMLElement {
   duration: number;
   present: () => Promise<void>;
 }
-
 
 export class ToastManager {
   toasts: HTMLIonToastElement[];
