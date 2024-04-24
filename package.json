@@ -35,10 +35,9 @@
     "vue-i18n": "^9.6.5"
   },
   "devDependencies": {
-    "@ionic/vue-router": "^7.0.0",
-    "vue-router": "^4.2.0",
     "@intlify/eslint-plugin-vue-i18n": "^2.0.0",
     "@ionic/cli": "^7.2.0",
+    "@ionic/vue-router": "^7.0.0",
     "@rollup/plugin-typescript": "^8.2.1",
     "@types/luxon": "^3.3.4",
     "@types/node": "^20.9.0",
@@ -74,6 +73,8 @@
     "vite": "^5.0.0",
     "vite-plugin-dts": "^3.8.3",
     "vite-plugin-lib-inject-css": "^2.0.1",
+    "vitest": "^1.5.1",
+    "vue-router": "^4.2.0",
     "vue-tsc": "^1.0.24"
   },
   "description": "MegaShark-Lib"
