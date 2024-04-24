@@ -1,5 +1,8 @@
 {
   "lib": {
+    "date": {
+      "asIs": "{date}"
+    },
     "components": {
       "msActionBar": {},
       "msDropdown": {},
