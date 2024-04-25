@@ -40,8 +40,6 @@ jobs:
         timeout-minutes: 2
 
   test:
-    # Currently disable the tests since they are not configured in the repository.
-    if: false
     name: Test
     runs-on: ubuntu-22.04
     steps:
