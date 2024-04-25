@@ -1,11 +1,14 @@
+// Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
+/// <reference types="vitest" />
+
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
-import { defineConfig } from 'vite';
+import { defineConfig, UserConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
 // https://vitejs.dev/config/
-export default defineConfig({
+const config: UserConfig = {
   plugins: [
     vue(),
     libInjectCss(),
@@ -22,8 +25,13 @@ export default defineConfig({
     },
   },
   test: {
+    setupFiles: [path.resolve(__dirname, './tests/support/setup.ts')],
     globals: true,
-    environment: 'jsdom',
+    alias: {
+      '@lib': path.resolve(__dirname, './lib'),
+      '@tests': path.resolve(__dirname, './tests'),
+    },
+    environment: 'happy-dom',
   },
   build: {
     manifest: true,
@@ -48,4 +56,6 @@ export default defineConfig({
       },
     },
   },
-});
+};
+
+export default defineConfig(config);
