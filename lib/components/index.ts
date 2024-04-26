@@ -18,6 +18,9 @@ export * from '@lib/components/ms-input';
 // ** ms-modal ** //
 export * from '@lib/components/ms-modal';
 
+// ** ms-animation ** //
+export * from '@lib/components/ms-animation';
+
 // ** ms-sorter ** //
 export * from '@lib/components/ms-sorter';
 

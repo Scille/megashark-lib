@@ -16,11 +16,19 @@
       :speed="speed || 1"
       :loop="true"
     />
+    <ms-animation
+      class="container-spinner"
+      src="/lib/assets/spinner.riv"
+      :height="height || 24"
+      :width="width || 24"
+      :speed="speed || 1"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import SpinnerJSON from '@lib/assets/spinner.json';
+import MsAnimation from '@lib/components/ms-animation/MsAnimation.vue';
 import { Translatable } from '@lib/services/translation';
 import { IonText } from '@ionic/vue';
 
