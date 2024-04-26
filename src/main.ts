@@ -5,7 +5,7 @@ import App from './App.vue';
 import router from './router';
 
 import { IonicVue } from '@ionic/vue';
-import MegaShark, { I18n } from '@megashark';
+import { I18n, MegaSharkPlugin } from '@megashark';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -35,7 +35,7 @@ I18n.init({
   },
 });
 
-const app = createApp(App).use(IonicVue).use(router).use(MegaShark);
+const app = createApp(App).use(IonicVue).use(router).use(MegaSharkPlugin);
 
 router.isReady().then(() => {
   app.mount('#app');
