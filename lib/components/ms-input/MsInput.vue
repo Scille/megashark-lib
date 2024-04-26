@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import { IValidator, Validity } from '@lib/common/validators';
+import { IValidator, Validity } from '@lib/common/validation';
 import { Translatable } from '@lib/services/translation';
 import { IonIcon, IonInput, IonItem } from '@ionic/vue';
 import { warning } from 'ionicons/icons';

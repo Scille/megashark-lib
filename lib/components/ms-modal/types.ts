@@ -1,6 +1,6 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
-import { IValidator } from '@lib/common/validators';
+import { IValidator } from '@lib/common/validation';
 import { MsReportTheme } from '@lib/components/ms-types';
 import { Translatable } from '@lib/services/translation';
 
