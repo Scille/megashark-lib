@@ -43,7 +43,10 @@
         }
       },
       "sorter": {
-        "title": "Sorter"
+        "title": "Sorter",
+        "name": "Nom",
+        "birthDate": "Date de naissance",
+        "age": "Âge"
       },
       "spinner": {
         "title": "Spinner"
@@ -62,6 +65,12 @@
       },
       "gridListToggle": {
         "title": "Grid list toggle"
+      },
+      "msReportTheme": {
+        "info": "Info",
+        "warning": "Alerte",
+        "error": "Erreur",
+        "success": "Succès"
       }
     }
   },

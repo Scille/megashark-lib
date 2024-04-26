@@ -31,7 +31,6 @@
   "dependencies": {
     "@ionic/vue": "^7.0.0",
     "ionicons": "^7.0.0",
-    "lottie-web": "^5.12.2",
     "luxon": "^3.4.4",
     "vue": "^3.3.0",
     "vue-i18n": "^9.6.5",
