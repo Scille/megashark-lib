@@ -48,7 +48,7 @@
           <div class="bar-item" />
         </div>
         <ion-text class="subtitles-sm password-level__text">
-          {{ $msTranslate(getPasswordStrengthText(passwordStrength)) }}
+          {{ $msTranslate(passwordStrength.label) }}
         </ion-text>
       </div>
       <ion-text class="subtitles-sm password-criteria">
@@ -59,16 +59,19 @@
 </template>
 
 <script setup lang="ts">
-import { PasswordStrength, getPasswordStrength, getPasswordStrengthText } from '@lib/common/passwordValidation';
+import { PasswordStrength, PasswordValidation } from '@lib/common/validation';
 import { MsImage, PasswordLock } from '@lib/components/ms-image';
 import MsPasswordInput from '@lib/components/ms-input/MsPasswordInput.vue';
 import { Translatable } from '@lib/services/translation';
 import { IonText } from '@ionic/vue';
-import { ref } from 'vue';
+import { Ref, ref } from 'vue';
 
 const password = ref('');
 const passwordConfirm = ref('');
-const passwordStrength = ref(PasswordStrength.None);
+const passwordStrength: Ref<PasswordStrength> = ref({
+  level: PasswordValidation.StrengthLevel.None,
+  label: '',
+});
 const firstInputFieldRef = ref();
 
 defineEmits<{
@@ -93,28 +96,33 @@ function setFocus(): void {
 }
 
 async function areFieldsCorrect(): Promise<boolean> {
-  return passwordStrength.value === PasswordStrength.High && password.value === passwordConfirm.value;
+  return passwordStrength.value.level === PasswordValidation.StrengthLevel.High && password.value === passwordConfirm.value;
 }
 
 function clear(): void {
   password.value = '';
   passwordConfirm.value = '';
-  passwordStrength.value = PasswordStrength.None;
+  passwordStrength.value = {
+    level: PasswordValidation.StrengthLevel.None,
+    label: '',
+  };
 }
 
 function onPasswordChange(): void {
-  passwordStrength.value = getPasswordStrength(password.value);
+  passwordStrength.value = PasswordValidation.getStrength(password.value);
 }
 
 function getPasswordLevelClass(): string {
-  if (passwordStrength.value === PasswordStrength.Low) {
-    return 'password-level-low';
-  } else if (passwordStrength.value === PasswordStrength.Medium) {
-    return 'password-level-medium';
-  } else if (passwordStrength.value === PasswordStrength.High) {
-    return 'password-level-high';
+  switch (passwordStrength.value.level) {
+    case PasswordValidation.StrengthLevel.Low:
+      return 'password-level-low';
+    case PasswordValidation.StrengthLevel.Medium:
+      return 'password-level-medium';
+    case PasswordValidation.StrengthLevel.High:
+      return 'password-level-high';
+    default:
+      return '';
   }
-  return '';
 }
 </script>
 
