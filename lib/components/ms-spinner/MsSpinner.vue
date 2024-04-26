@@ -2,7 +2,10 @@
 
 <template>
   <div class="container">
-    <ion-text class="subtitles-normal container-text">
+    <ion-text
+      v-if="title"
+      class="subtitles-normal container-text"
+    >
       {{ $msTranslate(title) }}
     </ion-text>
     <vue3-lottie
@@ -22,7 +25,7 @@ import { Translatable } from '@lib/services/translation';
 import { IonText } from '@ionic/vue';
 
 defineProps<{
-  title: Translatable;
+  title?: Translatable;
   height?: number;
   width?: number;
   speed?: number;
