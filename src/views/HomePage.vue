@@ -107,9 +107,12 @@
               v-for="item in msSorterExampleData"
               :key="item.name"
             >
-              <ion-label>name: {{ item.name }}</ion-label>
-              <ion-label>birth date: {{ I18n.formatDate(item.birthDate, 'short') }}</ion-label>
-              <ion-label>age: {{ item.age }}</ion-label>
+              <ion-label>{{ $msTranslate('usage.components.sorter.name') }}: {{ item.name }}</ion-label>
+              <ion-label
+                >{{ $msTranslate('usage.components.sorter.birthDate') }}:
+                {{ $msTranslate(I18n.formatDate(item.birthDate, 'short')) }}</ion-label
+              >
+              <ion-label>{{ $msTranslate('usage.components.sorter.age') }}: {{ item.age }}</ion-label>
             </div>
           </div>
         </ion-item-divider>
@@ -154,7 +157,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonPage, IonItemDivider, modalController } from '@ionic/vue';
+import { IonContent, IonLabel, IonPage, IonItemDivider, modalController } from '@ionic/vue';
 import { cog, create, lockClosed, helpCircle, warning } from 'ionicons/icons';
 import {
   MsActionBar,
@@ -193,19 +196,19 @@ import SettingsModal from './settings/SettingsModal.vue';
 const msDropdownOptions: MsOptions = new MsOptions([
   {
     key: MsReportTheme.Info,
-    label: 'MsReportTheme.Info',
+    label: 'usage.components.msReportTheme.info',
   },
   {
     key: MsReportTheme.Warning,
-    label: 'MsReportTheme.Warning',
+    label: 'usage.components.msReportTheme.warning',
   },
   {
     key: MsReportTheme.Error,
-    label: 'MsReportTheme.Error',
+    label: 'usage.components.msReportTheme.error',
   },
   {
     key: MsReportTheme.Success,
-    label: 'MsReportTheme.Success',
+    label: 'usage.components.msReportTheme.success',
   },
 ]);
 
@@ -216,9 +219,9 @@ const displayView = ref(DisplayState.List);
 const msReportTheme = ref(MsReportTheme.Info);
 
 const msSorterOptions: MsOptions = new MsOptions([
-  { label: 'name', key: 'name' },
-  { label: 'birth date', key: 'birthDate' },
-  { label: 'age', key: 'age' },
+  { label: 'usage.components.sorter.name', key: 'name' },
+  { label: 'usage.components.sorter.birthDate', key: 'birthDate' },
+  { label: 'usage.components.sorter.age', key: 'age' },
 ]);
 
 const msSorterLabels = {
