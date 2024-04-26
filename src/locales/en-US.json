@@ -63,8 +63,8 @@
       "informationTooltip": {
         "title": "Information tooltip"
       },
-      "gridListToggle": {
-        "title": "Grid list toggle"
+      "toggle": {
+        "title": "Toggle"
       },
       "msReportTheme": {
         "info": "Info",
