@@ -154,7 +154,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonPage, IonItemDivider, modalController } from '@ionic/vue';
+import { IonContent, IonLabel, IonPage, IonItemDivider, modalController } from '@ionic/vue';
 import { cog, create, lockClosed, helpCircle, warning } from 'ionicons/icons';
 import {
   MsActionBar,

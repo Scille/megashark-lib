@@ -5,19 +5,27 @@
     <ion-text class="subtitles-normal container-text">
       {{ $msTranslate(title) }}
     </ion-text>
-    <ion-spinner
-      name="crescent"
+    <vue3-lottie
       class="container-spinner"
+      :animation-data="SpinnerJSON"
+      :height="height || 24"
+      :width="width || 24"
+      :speed="speed || 1"
+      :loop="true"
     />
   </div>
 </template>
 
 <script setup lang="ts">
+import SpinnerJSON from '@lib/assets/spinner.json';
 import { Translatable } from '@lib/services/translation';
-import { IonSpinner, IonText } from '@ionic/vue';
+import { IonText } from '@ionic/vue';
 
 defineProps<{
   title: Translatable;
+  height?: number;
+  width?: number;
+  speed?: number;
 }>();
 </script>
 
