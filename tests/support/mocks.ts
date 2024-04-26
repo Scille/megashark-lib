@@ -2,6 +2,7 @@
 
 import { I18n, Translatable } from '@lib';
 import { config } from '@vue/test-utils';
+import { vi } from 'vitest';
 
 function mockI18n(): void {
   config.global.mocks = {
@@ -9,4 +10,12 @@ function mockI18n(): void {
   };
 }
 
-export { mockI18n };
+function mockLottie(): void {
+  vi.mock('vue3-lottie', async () => {
+    return {
+      Vue3Lottie: {},
+    };
+  });
+}
+
+export { mockI18n, mockLottie };

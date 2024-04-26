@@ -13,7 +13,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@lib/*": ["./lib/*"]
+      "@lib/*": ["./lib/*"],
+      "@megashark": ["./lib"]
     },
     "outDir": "./dist",
     "types": ["node", "vite/client"],

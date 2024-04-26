@@ -5,8 +5,7 @@ import App from './App.vue';
 import router from './router';
 
 import { IonicVue } from '@ionic/vue';
-import { I18n, TranslationPlugin } from '@lib/services/translation';
-import Vue3Lottie from 'vue3-lottie';
+import MegaShark, { I18n } from '@megashark';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -25,6 +24,7 @@ import '@ionic/vue/css/text-alignment.css';
 import '@ionic/vue/css/text-transformation.css';
 
 /* Theme variables */
+// Manual import since we're not using the built library
 import '@lib/theme/global.scss';
 
 I18n.init({
@@ -35,7 +35,7 @@ I18n.init({
   },
 });
 
-const app = createApp(App).use(IonicVue).use(router).use(TranslationPlugin).use(Vue3Lottie);
+const app = createApp(App).use(IonicVue).use(router).use(MegaShark);
 
 router.isReady().then(() => {
   app.mount('#app');
