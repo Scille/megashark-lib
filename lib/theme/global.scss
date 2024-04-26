@@ -3,7 +3,10 @@
 /* Ionic Variables and Theming. For more info, please see:
 http://ionicframework.com/docs/theming/ */
 
-//import variables
+// Ionic imports
+@import 'ionic';
+
+// import variables
 @import 'variables/colors';
 @import 'variables/colorsIonic';
 @import 'variables/fonts';
