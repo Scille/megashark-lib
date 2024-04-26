@@ -22,6 +22,7 @@ const config: UserConfig = {
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@lib': path.resolve(__dirname, './lib'),
+      '@megashark': path.resolve(__dirname, './lib'),
     },
   },
   test: {
