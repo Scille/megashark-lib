@@ -18,8 +18,8 @@
 
 :root {
   /* ** title ** */
-  .title-h1-lg {
-    font-size: 2.5rem;
+  .title-h1-xl {
+    font-size: 2rem;
     line-height: 120%;
     font-weight: 600;
   }
@@ -55,37 +55,42 @@
   }
 
   /* ** subtitle ** */
+  .subtitles-lg {
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.15px;
+  }
+
   .subtitles-normal {
     font-weight: 500;
     font-size: 1rem;
-    line-height: 156%;
     letter-spacing: 0.15px;
   }
 
   .subtitles-sm {
     font-weight: 500;
-    font-size: 0.75rem;
-    line-height: 171%;
+    font-size: 0.875rem;
   }
 
   /* ** body ** */
   .body-lg {
     font-size: 1rem;
-    line-height: 161%;
+    line-height: 28.9px;
     letter-spacing: 0.2px;
     font-weight: 500;
   }
 
   .body {
     font-size: 0.875rem;
-    line-height: 178.5%;
+    line-height: 1.5rem;
     letter-spacing: 0.15px;
     font-weight: 500;
   }
 
   .body-sm {
     font-size: 0.75rem;
-    line-height: 166.66%;
+    line-height: 1.25rem;
     letter-spacing: 0.25px;
     font-weight: 500;
   }
@@ -93,77 +98,54 @@
   /* ** button ** */
   .button-large {
     font-weight: 500;
-    letter-spacing: 0.02em;
     font-size: 1rem;
-    line-height: 22px;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.25px;
   }
 
   .button-medium {
     font-weight: 500;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.25px;
     font-size: 0.875rem;
-    line-height: 20px;
   }
+
   .button-small {
     font-weight: 500;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.25px;
     font-size: 0.75rem;
-    line-height: 17px;
   }
 
   /* ** caption ** */
-  .caption-code {
+  .code {
     font-size: 1.5rem;
     font-weight: 700;
-    line-height: 29px;
     letter-spacing: 9px;
     text-transform: uppercase;
   }
 
-  .caption-caption {
-    font-size: 0.875rem;
-    font-weight: 500;
-    line-height: 133%;
-    letter-spacing: 0.15px;
-  }
-
-  .caption-info {
-    font-weight: 500;
-    font-size: 0.62rem;
-    line-height: 12px;
-    text-transform: uppercase;
-  }
-
   /* ** breadcrumb ** */
-  .breadcrumb-large {
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 150%;
-  }
-
   .breadcrumb-normal {
     font-size: 0.875rem;
     font-weight: 500;
-    line-height: 150%;
+    line-height: 1.25rem;
   }
 
   /* ** menu ** */
   .menu-link {
     font-size: 0.875rem;
-    font-weight: 500;
-    line-height: 150%;
+    font-weight: 400;
+    line-height: 1.25rem;
   }
+
   .menu-default {
     font-size: 0.875rem;
-    font-weight: 500;
-    line-height: 150%;
+    font-weight: 400;
+    line-height: 1.25rem;
   }
 
   .menu-active {
     font-size: 0.875rem;
     font-weight: 600;
-    line-height: 150%;
+    line-height: 1.25rem;
   }
 
   /* ** table ** */
@@ -171,48 +153,43 @@
     letter-spacing: 0.15px;
     font-size: 0.875rem;
     font-weight: 500;
-    line-height: 125%;
+    line-height: 1.25rem;
   }
 
   .cell-title {
     letter-spacing: 0.15px;
     font-size: 0.75rem;
     font-weight: 600;
-    line-height: 143%;
+    line-height: 1.25rem;
   }
 
   /* ** calendar ** */
   .calendar-day {
     font-weight: 400;
     font-size: 0.875rem;
-    line-height: 171%;
   }
 
   .calendar-weekday {
     font-size: 0.75rem;
     font-weight: 500;
-    line-height: 133%;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.25px;
   }
 
   /* ** form ** */
   .form-label {
     font-weight: 500;
     font-size: 0.875rem;
-    line-height: 156%;
     letter-spacing: 0.15px;
   }
 
   .form-input {
     font-weight: 500;
     font-size: 0.875rem;
-    line-height: 150%;
   }
 
   .form-helperText {
-    font-weight: 500;
+    font-weight: 400;
     font-size: 0.75rem;
-    line-height: 133%;
     letter-spacing: 0.4px;
   }
 }
