@@ -6,21 +6,27 @@
     size="default"
   >
     <ion-icon
-      v-show="icon"
+      v-if="icon"
       slot="start"
       :icon="icon"
+    />
+    <ms-image
+      v-if="!icon && image"
+      :image="image"
     />
     {{ $msTranslate(buttonLabel) }}
   </ion-button>
 </template>
 
 <script setup lang="ts">
+import { MsImage } from '@lib/components/ms-image';
 import { Translatable } from '@lib/services/translation';
 import { IonButton, IonIcon } from '@ionic/vue';
 
 defineProps<{
   buttonLabel?: Translatable;
   icon?: string;
+  image?: string;
 }>();
 </script>
 
