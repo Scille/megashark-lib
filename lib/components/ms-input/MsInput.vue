@@ -34,7 +34,7 @@
     </ion-item>
     <span
       v-show="errorMessage !== ''"
-      class="form-error caption-caption"
+      class="form-error form-helperText"
     >
       <ion-icon
         class="form-error-icon"

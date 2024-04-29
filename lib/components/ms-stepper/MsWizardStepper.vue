@@ -11,7 +11,7 @@
         :status="index < currentIndex ? MsStepStatus.DONE : index === currentIndex ? MsStepStatus.ACTIVE : MsStepStatus.DEFAULT"
       />
       <ion-text
-        class="caption-caption step-title"
+        class="subtitles-sm step-title"
         :class="index < currentIndex ? MsStepStatus.DONE : ''"
       >
         {{ $msTranslate(title) }}
