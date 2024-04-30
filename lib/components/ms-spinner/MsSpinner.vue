@@ -8,28 +8,21 @@
     >
       {{ $msTranslate(title) }}
     </ion-text>
-    <vue3-lottie
-      class="container-spinner"
-      :animation-data="SpinnerJSON"
-      :height="height || 24"
-      :width="width || 24"
-      :speed="speed || 1"
-      :loop="true"
-    />
+    <div class="container-spinner"></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import SpinnerJSON from '@lib/assets/spinner.json';
 import { Translatable } from '@lib/services/translation';
 import { IonText } from '@ionic/vue';
+import { ref } from 'vue';
 
-defineProps<{
+const props = defineProps<{
   title?: Translatable;
-  height?: number;
-  width?: number;
-  speed?: number;
+  size?: number;
 }>();
+
+const spinnerSize = ref(`${props.size || 24}px`);
 </script>
 
 <style scoped lang="scss">
@@ -48,8 +41,23 @@ defineProps<{
   }
 
   &-spinner {
-    --color: var(--parsec-color-light-primary-500);
     position: relative;
+    width: v-bind(spinnerSize);
+    height: v-bind(spinnerSize);
+    border: calc(v-bind(spinnerSize) / 8) solid #cce2ff;
+    border-bottom-color: #4092ff;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
   }
 }
 </style>
