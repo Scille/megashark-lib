@@ -144,13 +144,6 @@
             slot="end"
           />
         </ion-item-divider>
-        <ion-item-divider class="example-divider">
-          <ion-label class="title-h2">{{ $msTranslate('usage.components.gridListToggle.title') }}</ion-label>
-          <ms-grid-list-toggle
-            v-model="displayView"
-            @update:model-value="onDisplayStateChange($event)"
-          />
-        </ion-item-divider>
       </div>
     </ion-content>
   </ion-page>
@@ -173,14 +166,12 @@ import {
   MsSpinner,
   MsInformativeText,
   MsReportText,
-  MsGridListToggle,
   MsInformationTooltip,
   MsOptions,
   askQuestion,
   getPasswordFromUser,
   getTextFromUser,
   EmptyFolder,
-  DisplayState,
   MsReportTheme,
   MsAlertModalConfig,
   MsSorterChangeEvent,
@@ -215,7 +206,6 @@ const msDropdownOptions: MsOptions = new MsOptions([
 const inputExample = ref('');
 const passwordInputExample = ref('');
 const searchIInputExample = ref('');
-const displayView = ref(DisplayState.List);
 const msReportTheme = ref(MsReportTheme.Info);
 
 const msSorterOptions: MsOptions = new MsOptions([
@@ -312,10 +302,6 @@ function onSortChange(event: MsSorterChangeEvent): void {
       return a[sortKey] < b[sortKey] ? 1 : -1;
     }
   });
-}
-
-function onDisplayStateChange(event: any): void {
-  console.log('onDisplayStateChange', event);
 }
 </script>
 
