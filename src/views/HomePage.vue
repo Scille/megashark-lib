@@ -2,6 +2,7 @@
   <ion-page>
     <ion-content :fullscreen="true">
       <div id="container">
+        <!-- action-bar -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.actionBar.title') }}</ion-label>
           <ms-action-bar id="ms-action-bar-example">
@@ -37,6 +38,8 @@
             />
           </ms-action-bar>
         </ion-item-divider>
+
+        <!-- dropdown -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.dropdown.title') }}</ion-label>
           <ms-dropdown
@@ -46,15 +49,35 @@
             @change="changeOption($event.option.key)"
           />
         </ion-item-divider>
+
+        <!-- images -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.image.title') }}</ion-label>
           <div class="example-data">
+            <ms-image :image="ChevronExpand" />
+            <ms-image :image="Device" />
+            <ms-image :image="DocumentImport" />
             <ms-image :image="EmptyFolder" />
-            <ms-image :image="SwapArrows" />
-            <ms-image :image="NoNotification" />
+            <ms-image :image="FileImport" />
+            <ms-image :image="Folder" />
+            <ms-image :image="LogoIconGradient" />
+            <ms-image :image="LogoRowWhite" />
+            <ms-image :image="NoActiveUser" />
+            <ms-image :image="NoImportDone" />
+            <ms-image :image="NoImportError" />
             <ms-image :image="NoImportInProgress" />
+            <ms-image :image="NoInvitation" />
+            <ms-image :image="NoNotification" />
+            <ms-image :image="NoOrganization" />
+            <ms-image :image="NoRevokedUser" />
+            <ms-image :image="NoWorkspace" />
+            <ms-image :image="PasswordLock" />
+            <ms-image :image="SwapArrows" />
+            <ms-image :image="WavyCaretUp" />
           </div>
         </ion-item-divider>
+
+        <!-- inputs -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.inputs.title') }}</ion-label>
           <ion-item-divider class="example-divider">
@@ -94,6 +117,8 @@
             />
           </ion-item-divider>
         </ion-item-divider>
+
+        <!-- sorter -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.sorter.title') }}</ion-label>
           <ms-sorter
@@ -116,26 +141,36 @@
             </div>
           </div>
         </ion-item-divider>
+
+        <!-- spinner -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.spinner.title') }}</ion-label>
           <ms-spinner title="lib.components.msSpinner.loading" />
         </ion-item-divider>
+
+        <!-- steppers -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.stepper.title') }}</ion-label>
           ms-wizard-stepper
         </ion-item-divider>
+
+        <!-- informative-text -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.informativeText.title') }}</ion-label>
           <ms-informative-text>
             {{ $msTranslate('ExportRecoveryDevicePage.subtitles.newPassword') }}
           </ms-informative-text>
         </ion-item-divider>
+
+        <!-- report-text -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.reportText.title') }}</ion-label>
           <ms-report-text :theme="msReportTheme">
             {{ $msTranslate('Authentication.keyringInfo') }}
           </ms-report-text>
         </ion-item-divider>
+
+        <!-- information-tooltip -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.informationTooltip.title') }}</ion-label>
           <ms-information-tooltip
@@ -178,6 +213,22 @@ import {
   NoNotification,
   NoImportInProgress,
   SwapArrows,
+  Device,
+  FileImport,
+  Folder,
+  LogoIconGradient,
+  LogoRowWhite,
+  NoActiveUser,
+  NoImportDone,
+  NoImportError,
+  NoInvitation,
+  NoOrganization,
+  NoRevokedUser,
+  NoWorkspace,
+  PasswordLock,
+  WavyCaretUp,
+  ChevronExpand,
+  DocumentImport,
 } from '@lib/components';
 import { I18n } from '@lib/services/translation';
 import { DateTime } from 'luxon';
@@ -324,5 +375,6 @@ function onSortChange(event: MsSorterChangeEvent): void {
   align-items: center;
   margin: 0.5rem;
   gap: 2.5em;
+  flex-wrap: wrap;
 }
 </style>
