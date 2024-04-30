@@ -6,11 +6,13 @@
     size="default"
   >
     <ion-icon
+      class="ms-action-bar-button-icon"
       v-if="icon"
       slot="start"
       :icon="icon"
     />
     <ms-image
+      class="ms-action-bar-button-icon"
       v-if="!icon && image"
       :image="image"
     />

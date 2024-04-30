@@ -1,12 +1,12 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
 // for svg only add ?raw at the end of path
-import AddDocument from '@lib/assets/images/add-document.svg?raw';
 import Apk from '@lib/assets/images/apk.svg?raw';
 import ChevronExpand from '@lib/assets/images/chevron-expand.svg?raw';
 import Css from '@lib/assets/images/css.svg?raw';
 import Device from '@lib/assets/images/device.svg?raw';
 import Doc from '@lib/assets/images/doc.svg?raw';
+import DocumentImport from '@lib/assets/images/document-import.svg?raw';
 import Excel from '@lib/assets/images/excel.svg?raw';
 import FileImport from '@lib/assets/images/file-import.svg?raw';
 import Folder from '@lib/assets/images/folder.svg?raw';
@@ -70,9 +70,9 @@ const File = {
 };
 
 export {
-  AddDocument,
   ChevronExpand,
   Device,
+  DocumentImport,
   EmptyFolder,
   File,
   FileImport,
