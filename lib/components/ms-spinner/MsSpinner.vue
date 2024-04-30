@@ -8,19 +8,18 @@
     >
       {{ $msTranslate(title) }}
     </ion-text>
-    <vue3-lottie
+    <ms-animation
       class="container-spinner"
-      :animation-data="SpinnerJSON"
+      src="/lib/assets/spinner.riv"
       :height="height || 24"
       :width="width || 24"
       :speed="speed || 1"
-      :loop="true"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import SpinnerJSON from '@lib/assets/spinner.json';
+import MsAnimation from '@lib/components/ms-animation/MsAnimation.vue';
 import { Translatable } from '@lib/services/translation';
 import { IonText } from '@ionic/vue';
 

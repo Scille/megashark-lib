@@ -30,11 +30,11 @@
   },
   "dependencies": {
     "@ionic/vue": "^7.0.0",
+    "@rive-app/canvas": "^2.15.0",
     "ionicons": "^7.0.0",
     "luxon": "^3.4.4",
     "vue": "^3.3.0",
-    "vue-i18n": "^9.6.5",
-    "vue3-lottie": "^3.3.0"
+    "vue-i18n": "^9.6.5"
   },
   "devDependencies": {
     "@intlify/eslint-plugin-vue-i18n": "^2.0.0",
