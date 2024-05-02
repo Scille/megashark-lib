@@ -80,7 +80,8 @@
         "open": "Afficher un toast",
         "messageTitle": "Un toast d'example",
         "message": "Un simple petit toast d'exemple pour montrer leur apparence",
-        "offset": "Décalage"
+        "offset": "Décalage",
+        "themeTitle": "Thème"
       }
     }
   },
