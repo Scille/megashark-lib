@@ -5,21 +5,24 @@ import App from './App.vue';
 import router from './router';
 
 import { IonicVue } from '@ionic/vue';
-import { I18n, MegaSharkPlugin } from '@megashark';
+import { MegaSharkPlugin } from '@megashark';
 
 /* Theme variables */
 // Manual import since we're not using the built library
 import '@lib/theme/global.scss';
 
-I18n.init({
-  defaultLocale: 'en-US',
-  customAssets: {
-    'fr-FR': appFrFR,
-    'en-US': appEnUS,
-  },
-});
-
-const app = createApp(App).use(IonicVue).use(router).use(MegaSharkPlugin);
+const app = createApp(App)
+  .use(IonicVue)
+  .use(router)
+  .use(MegaSharkPlugin, {
+    i18n: {
+      defaultLocale: 'en-US',
+      customAssets: {
+        'fr-FR': appFrFR,
+        'en-US': appEnUS,
+      },
+    },
+  });
 
 router.isReady().then(() => {
   app.mount('#app');

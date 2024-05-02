@@ -61,7 +61,9 @@
         "title": "Informative text"
       },
       "reportText": {
-        "title": "Report text"
+        "title": "Report text",
+        "message": "Ceci est un message d'exemple et {important}.",
+        "important": "ceci est la partie importante"
       },
       "informationTooltip": {
         "title": "Information tooltip"
@@ -82,6 +84,11 @@
         "message": "Un simple petit toast d'exemple pour montrer leur apparence",
         "offset": "Décalage",
         "themeTitle": "Thème"
+      },
+      "translation": {
+        "title": "Traductions",
+        "french": "Français",
+        "english": "English"
       }
     }
   },
