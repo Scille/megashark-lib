@@ -31,7 +31,7 @@ export class ToastManager {
   }): Promise<any> {
     const duration = toastConfig.duration || DEFAULT_TOAST_DURATION;
 
-    const toastCls = ['notification-toast'];
+    const toastCls = ['notification-toast', toastConfig.theme];
     if (toastConfig.cssClass) {
       if (typeof toastConfig.cssClass === 'string') {
         toastCls.push(toastConfig.cssClass);

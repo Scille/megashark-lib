@@ -80,7 +80,8 @@
         "open": "Show a toast",
         "messageTitle": "A sample toast",
         "message": "Just a sample toast to show what they look like.",
-        "offset": "Offset"
+        "offset": "Offset",
+        "themeTitle": "Theme"
       }
     }
   },

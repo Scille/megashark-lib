@@ -188,13 +188,22 @@
         <!-- toast-->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.toast.title') }}</ion-label>
-          <ms-input
-            label="usage.components.toast.offset"
-            v-model="toastOffset"
-          />
-          <ion-button @click="openToast">
-            {{ $msTranslate('usage.components.toast.open') }}
-          </ion-button>
+          <div class="example-data">
+            <ms-input
+              label="usage.components.toast.offset"
+              v-model="toastOffset"
+            />
+            <ms-dropdown
+              class="dropdown"
+              title="usage.components.toast.themeTitle"
+              :options="msDropdownOptions"
+              :default-option-key="toastTheme"
+              @change="onToastThemeChanged"
+            />
+            <ion-button @click="openToast">
+              {{ $msTranslate('usage.components.toast.open') }}
+            </ion-button>
+          </div>
         </ion-item-divider>
       </div>
     </ion-content>
@@ -246,6 +255,7 @@ import {
   WavyCaretUp,
   ChevronExpand,
   DocumentImport,
+  MsDropdownChangeEvent,
 } from '@lib/components';
 import { I18n } from '@lib/services/translation';
 import { DateTime } from 'luxon';
@@ -278,6 +288,7 @@ const searchIInputExample = ref('');
 const msReportTheme = ref(MsReportTheme.Info);
 const toastOffset = ref('0');
 const toastManager = new ToastManager();
+const toastTheme = ref(MsReportTheme.Success);
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
@@ -376,13 +387,17 @@ function onSortChange(event: MsSorterChangeEvent): void {
   });
 }
 
+async function onToastThemeChanged(event: MsDropdownChangeEvent): Promise<void> {
+  toastTheme.value = event.option.key;
+}
+
 async function openToast(): Promise<void> {
   document.documentElement.style.setProperty('--ms-toast-offset', `${toastOffset.value}px`);
 
   await toastManager.createAndPresent({
     title: 'usage.components.toast.messageTitle',
     message: 'usage.components.toast.message',
-    theme: MsReportTheme.Success,
+    theme: toastTheme.value,
   });
 }
 </script>
