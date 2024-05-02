@@ -2,15 +2,17 @@
 
 /* **** Parsec toasts **** */
 
+@property --ms-toast-offset {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 0;
+}
+
 ion-toast.notification-toast {
   --background: none;
   --box-shadow: none;
   position: relative;
-
-  &--with-sidebar {
-    @extend ion-toast, .notification-toast;
-    --start: var(--parsec-sidebar-menu-width);
-  }
+  --start: var(--ms-toast-offset);
 
   &.ms-info {
     --ms-notification-toast-text-color: var(--parsec-color-light-info-700);

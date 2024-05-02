@@ -74,6 +74,13 @@
         "warning": "Warning",
         "error": "Error",
         "success": "Success"
+      },
+      "toast": {
+        "title": "Toast",
+        "open": "Show a toast",
+        "messageTitle": "A sample toast",
+        "message": "Just a sample toast to show what they look like.",
+        "offset": "Offset"
       }
     }
   },

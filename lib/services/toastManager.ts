@@ -31,10 +31,19 @@ export class ToastManager {
   }): Promise<any> {
     const duration = toastConfig.duration || DEFAULT_TOAST_DURATION;
 
+    const toastCls = ['notification-toast'];
+    if (toastConfig.cssClass) {
+      if (typeof toastConfig.cssClass === 'string') {
+        toastCls.push(toastConfig.cssClass);
+      } else {
+        toastCls.push(...toastConfig.cssClass);
+      }
+    }
+
     const toast = await toastController.create({
       header: I18n.translate(toastConfig.title),
       message: I18n.translate(toastConfig.message),
-      cssClass: toastConfig.cssClass,
+      cssClass: toastCls,
       mode: 'ios',
       duration: duration,
       icon: toastConfig.theme ? this._getIcon(toastConfig.theme) : toastConfig.icon,
