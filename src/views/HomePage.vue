@@ -184,13 +184,25 @@
             slot="end"
           />
         </ion-item-divider>
+
+        <!-- toast-->
+        <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.toast.title') }}</ion-label>
+          <ms-input
+            label="usage.components.toast.offset"
+            v-model="toastOffset"
+          />
+          <ion-button @click="openToast">
+            {{ $msTranslate('usage.components.toast.open') }}
+          </ion-button>
+        </ion-item-divider>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonLabel, IonPage, IonItemDivider, modalController } from '@ionic/vue';
+import { IonContent, IonLabel, IonPage, IonItemDivider, modalController, IonButton } from '@ionic/vue';
 import { cog, create, lockClosed, helpCircle, warning } from 'ionicons/icons';
 import {
   MsActionBar,
@@ -239,6 +251,7 @@ import { I18n } from '@lib/services/translation';
 import { DateTime } from 'luxon';
 import { ref, Ref } from 'vue';
 import SettingsModal from './settings/SettingsModal.vue';
+import { ToastManager } from '@lib/services';
 
 const msDropdownOptions: MsOptions = new MsOptions([
   {
@@ -263,6 +276,8 @@ const inputExample = ref('');
 const passwordInputExample = ref('');
 const searchIInputExample = ref('');
 const msReportTheme = ref(MsReportTheme.Info);
+const toastOffset = ref('0');
+const toastManager = new ToastManager();
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
@@ -274,6 +289,7 @@ const msSorterLabels = {
   asc: 'FoldersPage.sort.asc',
   desc: 'FoldersPage.sort.desc',
 };
+
 interface MsSorterExampleData {
   name: string;
   birthDate: DateTime;
@@ -357,6 +373,16 @@ function onSortChange(event: MsSorterChangeEvent): void {
     } else {
       return a[sortKey] < b[sortKey] ? 1 : -1;
     }
+  });
+}
+
+async function openToast(): Promise<void> {
+  document.documentElement.style.setProperty('--ms-toast-offset', `${toastOffset.value}px`);
+
+  await toastManager.createAndPresent({
+    title: 'usage.components.toast.messageTitle',
+    message: 'usage.components.toast.message',
+    theme: MsReportTheme.Success,
   });
 }
 </script>
