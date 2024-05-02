@@ -36,6 +36,11 @@
               :icon="cog"
               @click="openSettingsModal()"
             />
+            <ms-action-bar-button
+              id="action-bar-button-example"
+              button-label="usage.components.actionBar.buttons.importDocument.title"
+              :image="DocumentImport"
+            />
           </ms-action-bar>
         </ion-item-divider>
 

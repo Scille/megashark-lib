@@ -18,6 +18,9 @@
           },
           "getText": {
             "title": "Demander une saisie"
+          },
+          "importDocument": {
+            "title": "Importer"
           }
         }
       },
