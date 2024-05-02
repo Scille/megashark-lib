@@ -44,12 +44,14 @@ defineProps<{
   --padding-bottom: 0.25rem;
   --padding-start: 0.5rem;
   color: var(--parsec-color-light-secondary-grey);
+  --fill-color: var(--parsec-color-light-secondary-grey);
 
   &:hover {
     color: var(--parsec-color-light-primary-600);
+    --fill-color: var(--parsec-color-light-primary-600);
   }
 
-  ion-icon {
+  &-icon {
     margin-inline: 0em;
     margin-right: 0.375rem;
   }
