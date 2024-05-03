@@ -21,7 +21,11 @@ export interface TranslationData {
 export type Translatable = string | TranslationData;
 
 export const TranslationPlugin = {
-  install: (app: App<any>): void => {
+  install: (app: App<any>, config: I18nConfig): void => {
+    const i18n = init(config);
+
+    app.use(i18n);
+
     app.config.globalProperties.$msTranslate = (translatable: Translatable | undefined): string => {
       return translate(translatable);
     };
@@ -32,7 +36,7 @@ export const TranslationPlugin = {
 export type Locale = 'fr-FR' | 'en-US';
 export type DateFormat = 'long' | 'short';
 
-interface I18nConfig {
+export interface I18nConfig {
   defaultLocale?: Locale;
   customAssets?: Record<Locale, object>;
 }
@@ -133,9 +137,9 @@ function getLocale(): any {
 }
 
 export const I18n = {
-  init,
   translate,
   formatDate,
   changeLocale,
   getLocale,
+  init,
 };

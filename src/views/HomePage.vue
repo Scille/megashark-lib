@@ -2,6 +2,17 @@
   <ion-page>
     <ion-content :fullscreen="true">
       <div id="container">
+        <!-- translation -->
+        <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.translation.title') }}</ion-label>
+          <ms-dropdown
+            class="dropdown"
+            :options="localeOptions"
+            :default-option-key="I18n.getLocale()"
+            @change="I18n.changeLocale($event.option.key)"
+          />
+        </ion-item-divider>
+
         <!-- action-bar -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.actionBar.title') }}</ion-label>
@@ -171,7 +182,14 @@
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.reportText.title') }}</ion-label>
           <ms-report-text :theme="msReportTheme">
-            {{ $msTranslate('Authentication.keyringInfo') }}
+            <i18n-t
+              keypath="usage.components.reportText.message"
+              scope="global"
+            >
+              <template #important>
+                <strong>{{ $msTranslate('usage.components.reportText.important') }}</strong>
+              </template>
+            </i18n-t>
           </ms-report-text>
         </ion-item-divider>
 
@@ -198,7 +216,7 @@
               title="usage.components.toast.themeTitle"
               :options="msDropdownOptions"
               :default-option-key="toastTheme"
-              @change="onToastThemeChanged"
+              @change="toastTheme = $event.option.key"
             />
             <ion-button @click="openToast">
               {{ $msTranslate('usage.components.toast.open') }}
@@ -255,7 +273,6 @@ import {
   WavyCaretUp,
   ChevronExpand,
   DocumentImport,
-  MsDropdownChangeEvent,
 } from '@lib/components';
 import { I18n } from '@lib/services/translation';
 import { DateTime } from 'luxon';
@@ -279,6 +296,17 @@ const msDropdownOptions: MsOptions = new MsOptions([
   {
     key: MsReportTheme.Success,
     label: 'usage.components.msReportTheme.success',
+  },
+]);
+
+const localeOptions: MsOptions = new MsOptions([
+  {
+    key: 'en-US',
+    label: 'usage.components.translation.english',
+  },
+  {
+    key: 'fr-FR',
+    label: 'usage.components.translation.french',
   },
 ]);
 
@@ -385,10 +413,6 @@ function onSortChange(event: MsSorterChangeEvent): void {
       return a[sortKey] < b[sortKey] ? 1 : -1;
     }
   });
-}
-
-async function onToastThemeChanged(event: MsDropdownChangeEvent): Promise<void> {
-  toastTheme.value = event.option.key;
 }
 
 async function openToast(): Promise<void> {
