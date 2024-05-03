@@ -42,22 +42,22 @@ function getIcon(): string {
 
 <style scoped lang="scss">
 .ms-info {
-  --ms-alert-text-background-color: var(--parsec-color-light-primary-100);
-  --ms-alert-text-icon-color: var(--parsec-color-light-primary-700);
+  --ms-alert-text-background-color: var(--parsec-color-light-info-50);
+  --ms-alert-text-icon-color: var(--parsec-color-light-info-700);
 }
 
 .ms-success {
-  --ms-alert-text-background-color: var(--parsec-color-light-success-100);
+  --ms-alert-text-background-color: var(--parsec-color-light-success-50);
   --ms-alert-text-icon-color: var(--parsec-color-light-success-700);
 }
 
 .ms-warning {
-  --ms-alert-text-background-color: var(--parsec-color-light-warning-100);
+  --ms-alert-text-background-color: var(--parsec-color-light-warning-50);
   --ms-alert-text-icon-color: var(--parsec-color-light-warning-700);
 }
 
 .ms-error {
-  --ms-alert-text-background-color: var(--parsec-color-light-danger-100);
+  --ms-alert-text-background-color: var(--parsec-color-light-danger-50);
   --ms-alert-text-icon-color: var(--parsec-color-light-danger-700);
 }
 
@@ -81,7 +81,8 @@ function getIcon(): string {
   &.ms-success,
   &.ms-warning,
   &.ms-error {
-    border-radius: 4px;
+    border-radius: 0 var(--parsec-radius-4) var(--parsec-radius-4) 0;
+    border-left: 2px solid var(--ms-alert-text-icon-color);
     padding: 1em;
   }
 }

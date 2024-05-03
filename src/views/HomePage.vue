@@ -460,7 +460,7 @@ async function onAddressSelected(addr: Address): Promise<void> {
   display: flex;
   flex-direction: column;
   align-items: start;
-  background-color: var(--parsec-color-light-secondary-background);
+  background-color: var(--parsec-color-light-secondary-white);
   border: 1px solid var(--parsec-color-light-secondary-disabled);
   border-radius: var(--parsec-radius-12);
   width: -webkit-fill-available;
