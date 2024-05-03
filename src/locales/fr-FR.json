@@ -89,6 +89,15 @@
         "title": "Traductions",
         "french": "Français",
         "english": "English"
+      },
+      "theme": {
+        "title": "Thème",
+        "dark": "Sombre",
+        "light": "Clair",
+        "rainbow": "Arc-en-ciel",
+        "synthwave": "Synthwave",
+        "spooky": "Frisson",
+        "christmas": "Noël"
       }
     }
   },

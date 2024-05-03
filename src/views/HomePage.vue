@@ -13,6 +13,16 @@
           />
         </ion-item-divider>
 
+        <!-- Theme -->
+        <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.theme.title') }}</ion-label>
+          <ms-dropdown
+            class="dropdown"
+            :options="msThemeOptions"
+            :default-option-key="themeManager.theme"
+            @change="themeManager.use($event.option.key)"
+          />
+        </ion-item-divider>
         <!-- action-bar -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.actionBar.title') }}</ion-label>
@@ -279,6 +289,7 @@ import { DateTime } from 'luxon';
 import { ref, Ref } from 'vue';
 import SettingsModal from './settings/SettingsModal.vue';
 import { ToastManager } from '@lib/services';
+import { Theme, ThemeManager } from '@lib/services';
 
 const msDropdownOptions: MsOptions = new MsOptions([
   {
@@ -310,6 +321,33 @@ const localeOptions: MsOptions = new MsOptions([
   },
 ]);
 
+const msThemeOptions: MsOptions = new MsOptions([
+  {
+    key: Theme.Light,
+    label: 'usage.components.theme.light',
+  },
+  {
+    key: Theme.Dark,
+    label: 'usage.components.theme.dark',
+  },
+  {
+    key: Theme.Rainbow,
+    label: 'usage.components.theme.rainbow',
+  },
+  {
+    key: Theme.Synthwave,
+    label: 'usage.components.theme.synthwave',
+  },
+  {
+    key: Theme.Spooky,
+    label: 'usage.components.theme.spooky',
+  },
+  {
+    key: Theme.Christmas,
+    label: 'usage.components.theme.christmas',
+  },
+]);
+
 const inputExample = ref('');
 const passwordInputExample = ref('');
 const searchIInputExample = ref('');
@@ -317,6 +355,7 @@ const msReportTheme = ref(MsReportTheme.Info);
 const toastOffset = ref('0');
 const toastManager = new ToastManager();
 const toastTheme = ref(MsReportTheme.Success);
+const themeManager = new ThemeManager(Theme.Light);
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
