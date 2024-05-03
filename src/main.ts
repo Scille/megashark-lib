@@ -1,8 +1,8 @@
+import App from '@/App.vue';
 import appEnUS from '@/locales/en-US.json';
 import appFrFR from '@/locales/fr-FR.json';
+import router from '@/router';
 import { createApp } from 'vue';
-import App from './App.vue';
-import router from './router';
 
 import { IonicVue } from '@ionic/vue';
 import { MegaSharkPlugin } from '@megashark';
