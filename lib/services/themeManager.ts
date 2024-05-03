@@ -9,6 +9,11 @@ enum Theme {
   Christmas = 'christmas',
 }
 
+function getSystemTheme(): Theme {
+  // For now
+  return Theme.Light;
+}
+
 class ThemeManager {
   private _theme: Theme;
 
@@ -43,4 +48,4 @@ class ThemeManager {
   }
 }
 
-export { Theme, ThemeManager };
+export { Theme, ThemeManager, getSystemTheme };
