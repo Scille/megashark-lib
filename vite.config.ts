@@ -1,4 +1,5 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
+// eslint-disable-next-line spaced-comment
 /// <reference types="vitest" />
 
 import vue from '@vitejs/plugin-vue';

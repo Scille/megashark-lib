@@ -113,8 +113,6 @@
               placeholder="CreateOrganization.fullnamePlaceholder"
               name="inputExample"
               v-model="inputExample"
-              @change="$emit('fieldUpdate')"
-              @on-enter-keyup="$emit('onEnterKeyup', $event)"
             />
           </ion-item-divider>
           <ion-item-divider class="example-divider">
@@ -131,7 +129,6 @@
               label="Password.password"
               v-model="passwordInputExample"
               name="passwordInputExample"
-              @on-enter-keyup="$emit('onEnterKeyup', $event)"
             />
           </ion-item-divider>
           <ion-item-divider class="example-divider">
@@ -159,10 +156,10 @@
               :key="item.name"
             >
               <ion-label>{{ $msTranslate('usage.components.sorter.name') }}: {{ item.name }}</ion-label>
-              <ion-label
-                >{{ $msTranslate('usage.components.sorter.birthDate') }}:
-                {{ $msTranslate(I18n.formatDate(item.birthDate, 'short')) }}</ion-label
-              >
+              <ion-label>
+                {{ $msTranslate('usage.components.sorter.birthDate') }}:
+                {{ $msTranslate(I18n.formatDate(item.birthDate, 'short')) }}
+              </ion-label>
               <ion-label>{{ $msTranslate('usage.components.sorter.age') }}: {{ item.age }}</ion-label>
             </div>
           </div>
@@ -287,7 +284,7 @@ import {
 import { I18n } from '@lib/services/translation';
 import { DateTime } from 'luxon';
 import { ref, Ref } from 'vue';
-import SettingsModal from './settings/SettingsModal.vue';
+import SettingsModal from '@/views/settings/SettingsModal.vue';
 import { ToastManager } from '@lib/services';
 import { Theme, ThemeManager } from '@lib/services';
 

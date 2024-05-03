@@ -118,7 +118,6 @@ onMounted(() => {
 });
 
 function themeToButtonColor(_theme?: MsReportTheme): string | undefined {
-  console.log(_theme);
   // Buttons do not correctly handle colors right now.
   // Once they do, remove the early return and uncomment the switch/case.
 

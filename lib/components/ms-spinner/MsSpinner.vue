@@ -12,8 +12,8 @@
       :viewBox="`0 0 ${spinnerSize} ${spinnerSize}`"
       class="circular-progress"
     >
-      <circle class="bg"></circle>
-      <circle class="fg"></circle>
+      <circle class="bg" />
+      <circle class="fg" />
     </svg>
   </div>
 </template>
