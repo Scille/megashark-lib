@@ -41,6 +41,15 @@ export interface I18nConfig {
   customAssets?: Record<Locale, object>;
 }
 
+function getPreferredLocale(): Locale {
+  for (const lang of navigator.languages) {
+    if (['en-US', 'fr-FR'].includes(lang)) {
+      return lang as Locale;
+    }
+  }
+  return 'en-US';
+}
+
 function init(config?: I18nConfig): any {
   /* I18n variables */
   // Type-define 'fr-FR' as the master schema for the resource
@@ -142,4 +151,5 @@ export const I18n = {
   changeLocale,
   getLocale,
   init,
+  getPreferredLocale,
 };
