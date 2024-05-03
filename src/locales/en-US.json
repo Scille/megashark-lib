@@ -89,6 +89,15 @@
         "title": "Translations",
         "french": "Français",
         "english": "English"
+      },
+      "theme": {
+        "title": "Theme",
+        "dark": "Dark",
+        "light": "Light",
+        "rainbow": "Rainbow",
+        "synthwave": "Synthwave",
+        "spooky": "Spooky",
+        "christmas": "Christmas"
       }
     }
   },
