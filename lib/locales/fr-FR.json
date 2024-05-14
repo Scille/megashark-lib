@@ -1,27 +1,76 @@
 {
   "lib": {
-    "date": {
-      "asIs": "{date}"
-    },
     "components": {
-      "msActionBar": {},
-      "msDropdown": {},
-      "msImage": {},
       "msSearchInput": {
         "placeholder": "Rechercher"
       },
-      "msPasswordInput": {},
-      "msChoosePasswordInput": {},
-      "msInput": {},
-      "msModal": {},
-      "msSorter": {},
+      "msChoosePasswordInput": {
+        "passwordInputLabel": "Mot de passe",
+        "confirmPasswordInputLabel": "Confirmer le mot de passe",
+        "description": "Votre mot de passe doit être sécurisé et vous devez le mémoriser.",
+        "noMatch": "Ne correspondent pas",
+        "criteria": "Assurez-vous qu'il correspond à un niveau fort : évitez les répétitions, les mots trop communs et les suites."
+      },
+      "msModal": {
+        "cancelButtonLabel": "Annuler",
+        "confirmButtonLabel": "Confirmer"
+      },
+      "msAlertModal": {
+        "confirmButtonLabel": "Fermer"
+      },
+      "msPasswordInputModal": {
+        "confirmButtonLabel": "Valider"
+      },
+      "msQuestionModal": {
+        "cancelButtonLabel": "Non",
+        "confirmButtonLabel": "Oui"
+      },
+      "msTextInputModal": {
+        "cancelButtonLabel": "Annuler",
+        "confirmButtonLabel": "Confirmer"
+      },
+      "msSorter": {
+        "sortBy": "Trier par :",
+        "asc": "Croissant",
+        "desc": "Décroissant"
+      },
       "msSpinner": {
         "loading": "Chargement..."
+      }
+    },
+    "common": {
+      "validation": {
+        "passwordStrength": {
+          "low": "Faible",
+          "medium": "Moyen",
+          "high": "Fort"
+        }
+      }
+    },
+    "services": {
+      "themeManager": {
+        "themes": {
+          "dark": "Sombre",
+          "light": "Clair",
+          "rainbow": "Arc-en-ciel",
+          "synthwave": "Synthwave",
+          "spooky": "Frisson",
+          "christmas": "Noël",
+          "system": "Système"
+        }
       },
-      "msStepper": {},
-      "msText": {},
-      "msToggle": {},
-      "msTooltip": {}
+      "toastManager": {
+        "confirmButtonLabel": "Fermer"
+      },
+      "translation": {
+        "date": {
+          "asIs": "{date}"
+        },
+        "locales": {
+          "french": "Français",
+          "english": "English"
+        }
+      }
     }
   }
 }

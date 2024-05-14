@@ -20,6 +20,25 @@ export interface TranslationData {
 
 export type Translatable = string | TranslationData;
 
+export type Locale = 'fr-FR' | 'en-US';
+export type DateFormat = 'long' | 'short';
+
+export interface LocaleOption {
+  key: Locale;
+  label: string;
+}
+
+export const LocaleOptions: LocaleOption[] = [
+  {
+    key: 'en-US',
+    label: 'lib.services.translation.locales.english',
+  },
+  {
+    key: 'fr-FR',
+    label: 'lib.services.translation.locales.french',
+  },
+];
+
 export const TranslationPlugin = {
   install: (app: App<any>, config: I18nConfig): void => {
     const i18n = init(config);
@@ -32,9 +51,6 @@ export const TranslationPlugin = {
     app.provide('msTranslate', translate);
   },
 };
-
-export type Locale = 'fr-FR' | 'en-US';
-export type DateFormat = 'long' | 'short';
 
 export interface I18nConfig {
   defaultLocale?: Locale;
@@ -134,7 +150,7 @@ function formatDate(date: DateTime, format: DateFormat = 'long'): Translatable {
   // But in our case, we want it to be a Translatable instead so it can be processed
   // as every other translation.
   // We use a translation key that just returns the string given as parameter.
-  return { key: 'lib.date.asIs', data: { date: d(date.toJSDate(), format) } };
+  return { key: 'lib.services.translation.date.asIs', data: { date: d(date.toJSDate(), format) } };
 }
 
 function changeLocale(locale: Locale): void {

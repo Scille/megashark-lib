@@ -7,12 +7,44 @@ enum Theme {
   Synthwave = 'synthwave',
   Spooky = 'spooky',
   Christmas = 'christmas',
+  System = 'system',
 }
 
-function getSystemTheme(): Theme {
-  // For now
-  return Theme.Light;
+export interface ThemeOption {
+  key: Theme;
+  label: string;
 }
+
+export const ThemeOptions: ThemeOption[] = [
+  {
+    key: Theme.Light,
+    label: 'lib.services.themeManager.themes.light',
+  },
+  {
+    key: Theme.Dark,
+    label: 'lib.services.themeManager.themes.dark',
+  },
+  {
+    key: Theme.Rainbow,
+    label: 'lib.services.themeManager.themes.rainbow',
+  },
+  {
+    key: Theme.Synthwave,
+    label: 'lib.services.themeManager.themes.synthwave',
+  },
+  {
+    key: Theme.Spooky,
+    label: 'lib.services.themeManager.themes.spooky',
+  },
+  {
+    key: Theme.Christmas,
+    label: 'lib.services.themeManager.themes.christmas',
+  },
+  {
+    key: Theme.System,
+    label: 'lib.services.themeManager.themes.system',
+  },
+];
 
 class ThemeManager {
   private _theme: Theme;
@@ -35,6 +67,11 @@ class ThemeManager {
     return this._theme;
   }
 
+  getSystemTheme(): Theme {
+    // For now
+    return Theme.Light;
+  }
+
   private classNameFromTheme(theme: Theme): string {
     return `ms-theme-${theme}`;
   }
@@ -48,4 +85,4 @@ class ThemeManager {
   }
 }
 
-export { Theme, ThemeManager, getSystemTheme };
+export { Theme, ThemeManager };

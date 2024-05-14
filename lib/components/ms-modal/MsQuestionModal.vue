@@ -7,12 +7,12 @@
     :close-button="{ visible: false }"
     :cancel-button="{
       disabled: false,
-      label: noText || 'QuestionModal.no',
+      label: noText || 'lib.components.msQuestionModal.cancelButtonLabel',
       onClick: onNo,
     }"
     :confirm-button="{
       disabled: false,
-      label: yesText || 'QuestionModal.yes',
+      label: yesText || 'lib.components.msQuestionModal.confirmButtonLabel',
       onClick: onYes,
       theme: yesIsDangerous ? MsReportTheme.Error : undefined,
     }"

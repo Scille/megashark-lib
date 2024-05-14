@@ -8,13 +8,13 @@
         class="info__img"
       />
       <ion-text class="info__text subtitles-sm">
-        {{ $msTranslate('Password.passwordInfo') }}
+        {{ $msTranslate('lib.components.msChoosePasswordInput.description') }}
       </ion-text>
     </div>
     <div class="inputs-container">
       <div class="inputs-container-item">
         <ms-password-input
-          :label="passwordLabel || 'Password.password'"
+          :label="passwordLabel || 'lib.components.msChoosePasswordInput.passwordInputLabel'"
           v-model="password"
           name="password"
           ref="firstInputFieldRef"
@@ -24,7 +24,7 @@
       </div>
       <div class="inputs-container-item">
         <ms-password-input
-          :label="'Password.confirmPassword'"
+          :label="'lib.components.msChoosePasswordInput.confirmPasswordInputLabel'"
           v-model="passwordConfirm"
           name="confirmPassword"
           @on-enter-keyup="$emit('onEnterKeyup', passwordConfirm)"
@@ -33,7 +33,7 @@
           class="form-helperText"
           v-if="password !== passwordConfirm && passwordConfirm.length > 0"
         >
-          {{ $msTranslate('Password.noMatch') }}
+          {{ $msTranslate('lib.components.msChoosePasswordInput.noMatch') }}
         </span>
       </div>
     </div>
@@ -52,7 +52,7 @@
         </ion-text>
       </div>
       <ion-text class="subtitles-sm password-criteria">
-        {{ $msTranslate('Password.passwordCriteria') }}
+        {{ $msTranslate('lib.components.msChoosePasswordInput.criteria') }}
       </ion-text>
     </div>
   </div>

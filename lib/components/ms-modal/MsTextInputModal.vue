@@ -6,12 +6,12 @@
     :subtitle="subtitle"
     :close-button="{ visible: true }"
     :cancel-button="{
-      label: 'TextInputModal.cancel',
+      label: 'lib.components.msTextInputModal.cancelButtonLabel',
       disabled: false,
       onClick: cancel,
     }"
     :confirm-button="{
-      label: okButtonText || 'TextInputModal.ok',
+      label: okButtonText || 'lib.components.msTextInputModal.confirmButtonLabel',
       disabled: !textIsValid,
       onClick: confirm,
     }"

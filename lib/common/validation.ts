@@ -51,17 +51,17 @@ export function getStrength(password: string): PasswordStrength {
   if (result.score === 0 || result.score === 1) {
     return {
       level: StrengthLevel.Low,
-      label: 'Password.passwordLevelLow',
+      label: 'lib.common.validation.passwordStrength.low',
     };
   } else if (result.score === 2 || result.score === 3) {
     return {
       level: StrengthLevel.Medium,
-      label: 'Password.passwordLevelMedium',
+      label: 'lib.common.validation.passwordStrength.medium',
     };
   }
   return {
     level: StrengthLevel.High,
-    label: 'Password.passwordLevelHigh',
+    label: 'lib.common.validation.passwordStrength.high',
   };
 }
 

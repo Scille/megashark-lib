@@ -49,7 +49,7 @@ export class ToastManager {
       icon: toastConfig.theme ? this._getIcon(toastConfig.theme) : toastConfig.icon,
       buttons: [
         {
-          text: toastConfig.confirmButtonLabel ? I18n.translate(toastConfig.confirmButtonLabel) : I18n.translate('notification.nextButton'),
+          text: I18n.translate(toastConfig.confirmButtonLabel || 'lib.services.toastManager.confirmButtonLabel'),
           role: 'confirm',
           side: 'end',
         },
