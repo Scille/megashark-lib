@@ -67,12 +67,10 @@ class ThemeManager {
     return this._theme;
   }
 
-  getSystemTheme(): Theme {
-    // For now
-    return Theme.Light;
-  }
-
   private classNameFromTheme(theme: Theme): string {
+    if (theme === Theme.System) {
+      theme = this.isDarkModeEnabledInBrowser() ? Theme.Dark : Theme.Light;
+    }
     return `ms-theme-${theme}`;
   }
 
@@ -82,6 +80,10 @@ class ThemeManager {
 
   private addTheme(theme: Theme): void {
     document.body.classList.add(this.classNameFromTheme(theme));
+  }
+
+  private isDarkModeEnabledInBrowser(): boolean {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
 }
 

@@ -69,8 +69,8 @@
                   <ms-dropdown
                     class="dropdown"
                     :options="themeOptions"
-                    :default-option-key="theme"
-                    @change="changeTheme($event.option.key)"
+                    :default-option-key="themeManager.theme"
+                    @change="themeManager.use($event.option.key)"
                   />
                 </settings-option>
               </ion-list>
@@ -86,31 +86,25 @@
 import { MsDropdown, MsModal, MsOptions } from '@lib/components';
 import SettingsOption from '@/views/settings/SettingsOption.vue';
 import { Locale, I18n, LocaleOptions } from '@lib/services/translation';
-import { toggleDarkMode } from '@lib/states/darkMode';
 import { IonIcon, IonList, IonPage, IonRadio, IonRadioGroup, IonText } from '@ionic/vue';
 import { cog, options } from 'ionicons/icons';
 import { ref } from 'vue';
-import { ThemeOptions } from '@lib/services';
+import { Theme, ThemeManager, ThemeOptions } from '@lib/services';
 
 const languageOptions: MsOptions = new MsOptions(LocaleOptions);
 const themeOptions: MsOptions = new MsOptions(ThemeOptions);
+const themeManager = new ThemeManager(Theme.Light);
 
 enum SettingsTabs {
   General = 'General',
   Advanced = 'Advanced',
 }
 const settingTab = ref(SettingsTabs.General);
-const theme = ref('light');
 const locale = ref('en-US');
 
 async function changeLang(lang: Locale): Promise<void> {
   locale.value = lang;
   I18n.changeLocale(lang);
-}
-
-async function changeTheme(selectedTheme: string): Promise<void> {
-  theme.value = selectedTheme;
-  toggleDarkMode(selectedTheme);
 }
 </script>
 
