@@ -1,27 +1,76 @@
 {
   "lib": {
-    "date": {
-      "asIs": "{date}"
-    },
     "components": {
-      "msActionBar": {},
-      "msDropdown": {},
-      "msImage": {},
       "msSearchInput": {
         "placeholder": "Search"
       },
-      "msPasswordInput": {},
-      "msChoosePasswordInput": {},
-      "msInput": {},
-      "msModal": {},
-      "msSorter": {},
+      "msChoosePasswordInput": {
+        "passwordInputLabel": "Password",
+        "confirmPasswordInputLabel": "Confirm password",
+        "description": "Your password must be secure and you must remember it.",
+        "noMatch": "Do not match",
+        "criteria": "Make sure it corresponds to a strong level: avoid repetitions, overly common words and sequences."
+      },
+      "msModal": {
+        "cancelButtonLabel": "Cancel",
+        "confirmButtonLabel": "Confirm"
+      },
+      "msAlertModal": {
+        "confirmButtonLabel": "Close"
+      },
+      "msPasswordInputModal": {
+        "confirmButtonLabel": "Validate"
+      },
+      "msQuestionModal": {
+        "cancelButtonLabel": "No",
+        "confirmButtonLabel": "yes"
+      },
+      "msTextInputModal": {
+        "cancelButtonLabel": "Cancel",
+        "confirmButtonLabel": "Confirm"
+      },
+      "msSorter": {
+        "sortBy": "Sort by:",
+        "asc": "Ascending",
+        "desc": "Descending"
+      },
       "msSpinner": {
         "loading": "Loading..."
+      }
+    },
+    "common": {
+      "validation": {
+        "passwordStrength": {
+          "low": "Low",
+          "medium": "Moderate",
+          "high": "Strong"
+        }
+      }
+    },
+    "services": {
+      "themeManager": {
+        "themes": {
+          "dark": "Dark",
+          "light": "Light",
+          "rainbow": "Rainbow",
+          "synthwave": "Synthwave",
+          "spooky": "Spooky",
+          "christmas": "Christmas",
+          "system": "System"
+        }
       },
-      "msStepper": {},
-      "msText": {},
-      "msToggle": {},
-      "msTooltip": {}
+      "toastManager": {
+        "confirmButtonLabel": "Close"
+      },
+      "translation": {
+        "date": {
+          "asIs": "{date}"
+        },
+        "locales": {
+          "french": "Français",
+          "english": "English"
+        }
+      }
     }
   }
 }

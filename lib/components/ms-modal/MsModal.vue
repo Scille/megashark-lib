@@ -74,7 +74,7 @@
                 @click="cancelButton && cancelButton.onClick ? cancelButton.onClick() : cancel()"
                 :disabled="cancelButton.disabled"
               >
-                {{ $msTranslate(cancelButton.label) }}
+                {{ $msTranslate(cancelButton.label || 'lib.components.msModal.cancelButtonLabel') }}
               </ion-button>
               <ion-button
                 v-if="confirmButton"
@@ -86,7 +86,7 @@
                 @click="confirmButton && confirmButton.onClick ? confirmButton.onClick() : confirm()"
                 :disabled="confirmButton.disabled"
               >
-                {{ $msTranslate(confirmButton.label) }}
+                {{ $msTranslate(confirmButton.label || 'lib.components.msModal.confirmButtonLabel') }}
               </ion-button>
             </ion-buttons>
           </ion-toolbar>

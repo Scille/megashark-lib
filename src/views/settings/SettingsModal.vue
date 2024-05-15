@@ -2,7 +2,7 @@
 
 <template>
   <ms-modal
-    :title="'SettingsModal.pageTitle'"
+    :title="'usage.components.modals.settings.pageTitle'"
     :close-button="{ visible: true }"
   >
     <ion-page class="page">
@@ -23,7 +23,7 @@
               <div class="item-container">
                 <ion-icon :icon="cog" />
                 <ion-text class="body">
-                  {{ $msTranslate('SettingsModal.general') }}
+                  {{ $msTranslate('usage.components.modals.settings.general') }}
                 </ion-text>
               </div>
             </ion-radio>
@@ -36,7 +36,7 @@
               <div class="item-container">
                 <ion-icon :icon="options" />
                 <ion-text class="body">
-                  {{ $msTranslate('SettingsModal.advanced') }}
+                  {{ $msTranslate('usage.components.modals.settings.advanced') }}
                 </ion-text>
               </div>
             </ion-radio>
@@ -51,8 +51,8 @@
               <ion-list class="settings-list">
                 <!-- change lang -->
                 <settings-option
-                  :title="'SettingsModal.language.label'"
-                  :description="'SettingsModal.language.description'"
+                  :title="'usage.components.modals.settings.language.label'"
+                  :description="'usage.components.modals.settings.language.description'"
                 >
                   <ms-dropdown
                     class="dropdown"
@@ -63,8 +63,8 @@
                 </settings-option>
                 <!-- change theme -->
                 <settings-option
-                  :title="'SettingsModal.theme.label'"
-                  :description="'SettingsModal.theme.description'"
+                  :title="'usage.components.modals.settings.theme.label'"
+                  :description="'usage.components.modals.settings.theme.description'"
                 >
                   <ms-dropdown
                     class="dropdown"
@@ -85,37 +85,15 @@
 <script setup lang="ts">
 import { MsDropdown, MsModal, MsOptions } from '@lib/components';
 import SettingsOption from '@/views/settings/SettingsOption.vue';
-import { Locale, I18n } from '@lib/services/translation';
+import { Locale, I18n, LocaleOptions } from '@lib/services/translation';
 import { toggleDarkMode } from '@lib/states/darkMode';
 import { IonIcon, IonList, IonPage, IonRadio, IonRadioGroup, IonText } from '@ionic/vue';
 import { cog, options } from 'ionicons/icons';
 import { ref } from 'vue';
+import { ThemeOptions } from '@lib/services';
 
-const languageOptions: MsOptions = new MsOptions([
-  {
-    key: 'en-US',
-    label: 'SettingsModal.language.values.enUS',
-  },
-  {
-    key: 'fr-FR',
-    label: 'SettingsModal.language.values.frFR',
-  },
-]);
-
-const themeOptions: MsOptions = new MsOptions([
-  {
-    key: 'dark',
-    label: 'SettingsModal.theme.values.dark',
-  },
-  {
-    key: 'light',
-    label: 'SettingsModal.theme.values.light',
-  },
-  {
-    key: 'system',
-    label: 'SettingsModal.theme.values.system',
-  },
-]);
+const languageOptions: MsOptions = new MsOptions(LocaleOptions);
+const themeOptions: MsOptions = new MsOptions(ThemeOptions);
 
 enum SettingsTabs {
   General = 'General',

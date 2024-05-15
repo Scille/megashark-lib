@@ -8,7 +8,7 @@
     :close-button="{ visible: false }"
     :confirm-button="{
       disabled: false,
-      label: 'notification.nextButton',
+      label: 'lib.components.msAlertModal.confirmButtonLabel',
       onClick: confirm,
     }"
     @on-enter-keyup="confirm()"

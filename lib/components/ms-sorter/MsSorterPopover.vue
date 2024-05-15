@@ -9,7 +9,7 @@
       button
       @click="onOptionClick()"
     >
-      {{ sortByAsc ? $msTranslate(sorterLabels.asc) : $msTranslate(sorterLabels.desc) }}
+      {{ $msTranslate(getSorterLabel()) }}
       <ion-icon
         :icon="sortByAsc ? arrowUp : arrowDown"
         slot="end"
@@ -20,7 +20,7 @@
       id="sort-item-list"
     >
       <ion-label class="sorter-list__title body-sm">
-        {{ $msTranslate('common.sortBy') }}
+        {{ $msTranslate('lib.components.msSorter.sortBy') }}
       </ion-label>
       <ion-item
         class="sorter-list-item body"
@@ -51,6 +51,7 @@ import { MsOption, MsOptions } from '@lib/components/ms-types';
 import { IonIcon, IonItem, IonLabel, IonList, popoverController } from '@ionic/vue';
 import { arrowDown, arrowUp, checkmark } from 'ionicons/icons';
 import { Ref, ref } from 'vue';
+import { Translatable } from '@lib/services';
 
 const props = defineProps<{
   defaultOption?: any;
@@ -72,6 +73,12 @@ function onOptionClick(option?: MsOption): void {
     option: selectedOption.value,
     sortByAsc: sortByAsc.value,
   });
+}
+
+function getSorterLabel(): Translatable {
+  const ascLabel = props.sorterLabels?.asc || 'lib.components.msSorter.desc';
+  const descLabel = props.sorterLabels?.desc || 'lib.components.msSorter.desc';
+  return sortByAsc.value ? ascLabel : descLabel;
 }
 </script>
 

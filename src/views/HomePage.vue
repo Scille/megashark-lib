@@ -109,8 +109,8 @@
           <ion-item-divider class="example-divider">
             <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msInput.title') }}</ion-label>
             <ms-input
-              label="CreateOrganization.fullname"
-              placeholder="CreateOrganization.fullnamePlaceholder"
+              label="usage.components.inputs.msInput.label"
+              placeholder="usage.components.inputs.msInput.placeholder"
               name="inputExample"
               v-model="inputExample"
             />
@@ -126,7 +126,7 @@
           <ion-item-divider class="example-divider">
             <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msPasswordInput.title') }}</ion-label>
             <ms-password-input
-              label="Password.password"
+              label="usage.components.inputs.msPasswordInput.label"
               v-model="passwordInputExample"
               name="passwordInputExample"
             />
@@ -134,7 +134,7 @@
           <ion-item-divider class="example-divider">
             <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msChoosePasswordInput.title') }}</ion-label>
             <ms-choose-password-input
-              password-label="Password.newPassword"
+              password-label="usage.components.inputs.msChoosePasswordInput.label"
               @on-enter-keyup="onEnterKeyup($event)"
               ref="choosePasswordInput"
             />
@@ -147,7 +147,6 @@
           <ms-sorter
             :options="msSorterOptions"
             default-option="name"
-            :sorter-labels="msSorterLabels"
             @change="onSortChange($event)"
           />
           <div class="example-data">
@@ -181,7 +180,7 @@
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.informativeText.title') }}</ion-label>
           <ms-informative-text>
-            {{ $msTranslate('ExportRecoveryDevicePage.subtitles.newPassword') }}
+            {{ $msTranslate('usage.components.informativeText.message') }}
           </ms-informative-text>
         </ion-item-divider>
 
@@ -204,7 +203,7 @@
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.informationTooltip.title') }}</ion-label>
           <ms-information-tooltip
-            :text="$msTranslate('FoldersPage.ImportFile.failedDetails')"
+            :text="$msTranslate('usage.components.informationTooltip.message')"
             class="information-icon"
             slot="end"
           />
@@ -281,11 +280,11 @@ import {
   ChevronExpand,
   DocumentImport,
 } from '@lib/components';
-import { I18n } from '@lib/services/translation';
+import { I18n, LocaleOptions } from '@lib/services/translation';
 import { DateTime } from 'luxon';
 import { ref, Ref } from 'vue';
 import SettingsModal from '@/views/settings/SettingsModal.vue';
-import { ToastManager } from '@lib/services';
+import { ThemeOptions, ToastManager } from '@lib/services';
 import { Theme, ThemeManager } from '@lib/services';
 
 const msDropdownOptions: MsOptions = new MsOptions([
@@ -307,43 +306,8 @@ const msDropdownOptions: MsOptions = new MsOptions([
   },
 ]);
 
-const localeOptions: MsOptions = new MsOptions([
-  {
-    key: 'en-US',
-    label: 'usage.components.translation.english',
-  },
-  {
-    key: 'fr-FR',
-    label: 'usage.components.translation.french',
-  },
-]);
-
-const msThemeOptions: MsOptions = new MsOptions([
-  {
-    key: Theme.Light,
-    label: 'usage.components.theme.light',
-  },
-  {
-    key: Theme.Dark,
-    label: 'usage.components.theme.dark',
-  },
-  {
-    key: Theme.Rainbow,
-    label: 'usage.components.theme.rainbow',
-  },
-  {
-    key: Theme.Synthwave,
-    label: 'usage.components.theme.synthwave',
-  },
-  {
-    key: Theme.Spooky,
-    label: 'usage.components.theme.spooky',
-  },
-  {
-    key: Theme.Christmas,
-    label: 'usage.components.theme.christmas',
-  },
-]);
+const localeOptions: MsOptions = new MsOptions(LocaleOptions);
+const msThemeOptions: MsOptions = new MsOptions(ThemeOptions);
 
 const inputExample = ref('');
 const passwordInputExample = ref('');
@@ -359,11 +323,6 @@ const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.birthDate', key: 'birthDate' },
   { label: 'usage.components.sorter.age', key: 'age' },
 ]);
-
-const msSorterLabels = {
-  asc: 'FoldersPage.sort.asc',
-  desc: 'FoldersPage.sort.desc',
-};
 
 interface MsSorterExampleData {
   name: string;
@@ -415,10 +374,10 @@ async function openAlertModal(): Promise<void> {
 
 async function openPasswordInputModal(): Promise<void> {
   await getPasswordFromUser({
-    title: 'PasswordInputModal.passwordNeeded',
-    subtitle: { key: 'PasswordInputModal.enterPassword' },
-    inputLabel: 'PasswordInputModal.password',
-    okButtonText: 'PasswordInputModal.validate',
+    title: 'usage.components.modals.getPassword.passwordNeeded',
+    subtitle: { key: 'usage.components.modals.getPassword.enterPassword' },
+    inputLabel: 'usage.components.modals.getPassword.password',
+    okButtonText: 'usage.components.modals.getPassword.validate',
   });
 }
 
@@ -432,11 +391,11 @@ async function openQuestionModal(): Promise<void> {
 
 async function openTextInputModal(): Promise<void> {
   await getTextFromUser({
-    title: 'UsersPage.CreateUserInvitationModal.pageTitle',
+    title: 'usage.components.modals.askQuestion.title',
     trim: true,
-    inputLabel: 'UsersPage.CreateUserInvitationModal.label',
-    placeholder: 'UsersPage.CreateUserInvitationModal.placeholder',
-    okButtonText: 'UsersPage.CreateUserInvitationModal.create',
+    inputLabel: 'usage.components.modals.askQuestion.label',
+    placeholder: 'usage.components.modals.askQuestion.placeholder',
+    okButtonText: 'usage.components.modals.askQuestion.create',
   });
 }
 

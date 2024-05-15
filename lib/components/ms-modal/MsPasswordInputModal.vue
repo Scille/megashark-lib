@@ -6,7 +6,7 @@
     :subtitle="subtitle"
     :close-button="{ visible: true }"
     :confirm-button="{
-      label: okButtonText || 'PasswordInputModal.ok',
+      label: okButtonText || 'lib.components.msPasswordInputModal.confirmButtonLabel',
       disabled: password.length === 0,
       onClick: confirm,
     }"

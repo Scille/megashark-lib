@@ -44,13 +44,13 @@ export interface MsModalConfig {
   };
   cancelButton?: {
     disabled: boolean;
-    label: Translatable;
+    label?: Translatable;
     onClick?: () => Promise<boolean>;
     theme?: MsReportTheme;
   };
   confirmButton?: {
     disabled: boolean;
-    label: Translatable;
+    label?: Translatable;
     onClick?: () => Promise<boolean>;
     theme?: MsReportTheme;
   };
