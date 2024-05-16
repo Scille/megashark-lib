@@ -1,5 +1,6 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
+import { Obj } from '@lib/common/object';
 import libEnUS from '@lib/locales/en-US.json';
 import libFrFR from '@lib/locales/fr-FR.json';
 import { DateTime } from 'luxon';
@@ -81,10 +82,10 @@ function init(config?: I18nConfig): any {
   let enUS = assets['en-US'];
   if (config && config.customAssets) {
     if (config.customAssets['fr-FR']) {
-      frFR = Object.assign(frFR, config.customAssets['fr-FR']);
+      frFR = Obj.mergeDeep(frFR, config.customAssets['fr-FR']);
     }
     if (config.customAssets['en-US']) {
-      enUS = Object.assign(enUS, config.customAssets['en-US']);
+      enUS = Obj.mergeDeep(enUS, config.customAssets['en-US']);
     }
   }
   type MessageSchema = typeof frFR;
