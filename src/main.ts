@@ -10,6 +10,8 @@ import { MegaSharkPlugin } from '@megashark';
 /* Theme variables */
 // Manual import since we're not using the built library
 import '@lib/theme/global.scss';
+// Local project global styles
+import '@/global.scss';
 
 const app = createApp(App)
   .use(IonicVue)
