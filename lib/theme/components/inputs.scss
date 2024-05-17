@@ -109,25 +109,3 @@
   align-items: center;
   gap: 0.2rem;
 }
-
-/* --- checkbox --- */
-.checkbox {
-  margin: 0;
-  --size: 1.25rem;
-  --checkbox-background-checked: var(--parsec-color-light-primary-600);
-  --checkbox-border-checked: var(--parsec-color-light-primary-600);
-
-  &::part(container) {
-    border: 2px solid var(--parsec-color-light-secondary-light);
-    border-radius: var(--parsec-radius-6);
-    padding: 2px;
-  }
-
-  &-checked::part(container) {
-    border: 2px solid var(--parsec-color-light-primary-600);
-  }
-
-  &-indeterminate::part(container) {
-    border: 2px solid var(--parsec-color-light-primary-600);
-  }
-}

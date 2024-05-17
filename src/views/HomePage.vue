@@ -164,6 +164,16 @@
           </div>
         </ion-item-divider>
 
+        <!-- checkbox -->
+        <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.checkbox.title') }}</ion-label>
+          <ms-checkbox
+            v-model="checkboxValue"
+            label="usage.components.checkbox.label"
+          />
+          {{ $msTranslate('usage.components.checkbox.value') }} {{ checkboxValue }}
+        </ion-item-divider>
+
         <!-- spinner -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.spinner.title') }}</ion-label>
@@ -279,6 +289,7 @@ import {
   WavyCaretUp,
   ChevronExpand,
   DocumentImport,
+  MsCheckbox,
 } from '@lib/components';
 import { I18n, LocaleOptions } from '@lib/services/translation';
 import { DateTime } from 'luxon';
@@ -317,6 +328,7 @@ const toastOffset = ref('0');
 const toastManager = new ToastManager();
 const toastTheme = ref(MsReportTheme.Success);
 const themeManager = new ThemeManager(Theme.Light);
+const checkboxValue = ref(true);
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },

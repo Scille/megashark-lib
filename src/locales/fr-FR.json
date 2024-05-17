@@ -158,6 +158,11 @@
         "synthwave": "Synthwave",
         "spooky": "Frisson",
         "christmas": "Noël"
+      },
+      "checkbox": {
+        "title": "Checkbox",
+        "label": "Ma checkbox",
+        "value": "Valeur de la checkbox :"
       }
     }
   }
