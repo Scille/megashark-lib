@@ -163,6 +163,15 @@
         "title": "Checkbox",
         "label": "My checkbox",
         "value": "Checkbox value:"
+      },
+      "lists": {
+        "title": "Lists",
+        "selectable": "Selectable?",
+        "headers": {
+          "name": "Name",
+          "developer": "Developer",
+          "release": "Release date"
+        }
       }
     }
   }
