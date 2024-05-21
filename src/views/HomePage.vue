@@ -103,6 +103,37 @@
           </div>
         </ion-item-divider>
 
+        <!-- lists -->
+        <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.lists.title') }}</ion-label>
+          <ms-grid-list-toggle v-model="gridListDisplay" />
+          <ms-checkbox
+            v-model="listSelectable"
+            label="usage.components.lists.selectable"
+          />
+          <div class="example-data">
+            <ms-grid-list
+              v-if="gridListDisplay === DisplayState.Grid"
+              :is-selection-enabled="listSelectable"
+              :model="itemList"
+              :component="VideoGameGridItem"
+              :show-options="true"
+            />
+            <ms-row-list
+              v-if="gridListDisplay === DisplayState.List"
+              :model="itemList"
+              :is-selection-enabled="listSelectable"
+              :headers="[
+                { title: 'usage.components.lists.headers.name' },
+                { title: 'usage.components.lists.headers.developer' },
+                { title: 'usage.components.lists.headers.release' },
+              ]"
+              :component="VideoGameRowItem"
+              :show-options="true"
+            />
+          </div>
+        </ion-item-divider>
+
         <!-- inputs -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.inputs.title') }}</ion-label>
@@ -290,6 +321,11 @@ import {
   ChevronExpand,
   DocumentImport,
   MsCheckbox,
+  DisplayState,
+  MsGridListToggle,
+  MsGridList,
+  MsRowList,
+  MsListModel,
 } from '@lib/components';
 import { I18n, LocaleOptions } from '@lib/services/translation';
 import { DateTime } from 'luxon';
@@ -297,6 +333,9 @@ import { ref, Ref } from 'vue';
 import SettingsModal from '@/views/settings/SettingsModal.vue';
 import { ThemeOptions, ToastManager } from '@lib/services';
 import { Theme, ThemeManager } from '@lib/services';
+import { VideoGame } from '@/views/types';
+import VideoGameGridItem from '@/views/VideoGameGridItem.vue';
+import VideoGameRowItem from '@/views/VideoGameRowItem.vue';
 
 const msDropdownOptions: MsOptions = new MsOptions([
   {
@@ -329,6 +368,14 @@ const toastManager = new ToastManager();
 const toastTheme = ref(MsReportTheme.Success);
 const themeManager = new ThemeManager(Theme.Light);
 const checkboxValue = ref(true);
+const gridListDisplay = ref(DisplayState.List);
+const listSelectable = ref(true);
+
+const itemList = new MsListModel([
+  new VideoGame('Half-Life', DateTime.fromISO('1998-11-19'), 'Valve', 1, { isDisabled: true, isSelectable: false }),
+  new VideoGame("Baldur's Gate 2", DateTime.fromISO('2000-09-21'), 'BioWare', 2, { isSelectable: true }),
+  new VideoGame('Diablo 2', DateTime.fromISO('2000-06-28'), 'Blizzard North', 3, { isSelectable: true }),
+]);
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
