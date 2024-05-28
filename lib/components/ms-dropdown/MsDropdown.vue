@@ -34,7 +34,7 @@ import { MsAppearance, MsOption, MsOptions } from '@lib/components/ms-types';
 import { Translatable } from '@lib/services/translation';
 import { IonButton, IonIcon, IonText, popoverController } from '@ionic/vue';
 import { caretDown, chevronDown } from 'ionicons/icons';
-import { Ref, ref } from 'vue';
+import { Ref, ref, computed } from 'vue';
 
 const props = defineProps<{
   defaultOptionKey?: any;
@@ -49,10 +49,21 @@ const emits = defineEmits<{
   (e: 'change', value: MsDropdownChangeEvent): void;
 }>();
 
-const selectedOption: Ref<MsOption | undefined> = ref(props.defaultOptionKey ? props.options.get(props.defaultOptionKey) : undefined);
-const labelRef = ref(selectedOption.value?.label || props.label);
+defineExpose({
+  setCurrentKey,
+});
+
+const selectedOption: Ref<MsOption | undefined> = ref(
+  props.defaultOptionKey !== undefined ? props.options.get(props.defaultOptionKey) : undefined,
+);
+const labelRef = computed(() => (selectedOption.value ? selectedOption.value.label : props.label));
 const isPopoverOpen = ref(false);
 const appearanceRef = ref(props.appearance ?? MsAppearance.Outline);
+
+function setCurrentKey(key: any): void {
+  const opt = props.options.set.find((o) => o.key === key);
+  selectedOption.value = opt;
+}
 
 async function openPopover(event: Event): Promise<void> {
   const popover = await popoverController.create({
@@ -76,11 +87,14 @@ async function openPopover(event: Event): Promise<void> {
 async function onDidDismissPopover(popover: any): Promise<void> {
   const { data } = await popover.onDidDismiss();
   if (data) {
-    labelRef.value = data.option.label;
-    selectedOption.value = data.option;
-    emits('change', {
-      option: data.option,
-    });
+    if (data.option !== selectedOption.value) {
+      const oldOption = selectedOption.value;
+      selectedOption.value = data.option;
+      emits('change', {
+        option: data.option,
+        oldOption: oldOption,
+      });
+    }
   }
 }
 
