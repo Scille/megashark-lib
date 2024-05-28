@@ -53,7 +53,9 @@ defineExpose({
   setCurrentKey,
 });
 
-const selectedOption: Ref<MsOption | undefined> = ref(props.defaultOptionKey ? props.options.get(props.defaultOptionKey) : undefined);
+const selectedOption: Ref<MsOption | undefined> = ref(
+  props.defaultOptionKey !== undefined ? props.options.get(props.defaultOptionKey) : undefined,
+);
 const labelRef = computed(() => (selectedOption.value ? selectedOption.value.label : props.label));
 const isPopoverOpen = ref(false);
 const appearanceRef = ref(props.appearance ?? MsAppearance.Outline);
@@ -85,10 +87,14 @@ async function openPopover(event: Event): Promise<void> {
 async function onDidDismissPopover(popover: any): Promise<void> {
   const { data } = await popover.onDidDismiss();
   if (data) {
-    selectedOption.value = data.option;
-    emits('change', {
-      option: data.option,
-    });
+    if (data.option !== selectedOption.value) {
+      const oldOption = selectedOption.value;
+      selectedOption.value = data.option;
+      emits('change', {
+        option: data.option,
+        oldOption: oldOption,
+      });
+    }
   }
 }
 

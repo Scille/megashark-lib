@@ -4,4 +4,5 @@ import { MsOption } from '@lib/components/ms-types';
 
 export interface MsDropdownChangeEvent {
   option: MsOption;
+  oldOption?: MsOption;
 }
