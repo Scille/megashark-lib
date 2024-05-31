@@ -3,6 +3,7 @@
 // for svg only add ?raw at the end of path
 import Apk from '@lib/assets/images/apk.svg?raw';
 import ChevronExpand from '@lib/assets/images/chevron-expand.svg?raw';
+import Copy from '@lib/assets/images/copy.svg?raw';
 import Css from '@lib/assets/images/css.svg?raw';
 import Device from '@lib/assets/images/device.svg?raw';
 import Doc from '@lib/assets/images/doc.svg?raw';
@@ -18,6 +19,7 @@ import Javascript from '@lib/assets/images/js.svg?raw';
 import LogoIconGradient from '@lib/assets/images/logo-icon-gradient.svg?raw';
 import LogoRowWhite from '@lib/assets/images/logo-row-white.svg?raw';
 import Mail from '@lib/assets/images/mail.svg?raw';
+import Move from '@lib/assets/images/move.svg?raw';
 import Music from '@lib/assets/images/music.svg?raw';
 import NoActiveUser from '@lib/assets/images/no-active-user.svg?raw';
 import NoImportDone from '@lib/assets/images/no-file-done.svg?raw';
@@ -71,6 +73,7 @@ const File = {
 
 export {
   ChevronExpand,
+  Copy,
   Device,
   DocumentImport,
   EmptyFolder,
@@ -79,6 +82,7 @@ export {
   Folder,
   LogoIconGradient,
   LogoRowWhite,
+  Move,
   NoActiveUser,
   NoImportDone,
   NoImportError,
