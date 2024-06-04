@@ -17,6 +17,8 @@ import Image from '@lib/assets/images/image.svg?raw';
 import Iso from '@lib/assets/images/iso.svg?raw';
 import Javascript from '@lib/assets/images/js.svg?raw';
 import LogoIconGradient from '@lib/assets/images/logo-icon-gradient.svg?raw';
+import LogoIconWhite from '@lib/assets/images/logo-icon-white.svg?raw';
+import LogoRowGradient from '@lib/assets/images/logo-row-gradient.svg?raw';
 import LogoRowWhite from '@lib/assets/images/logo-row-white.svg?raw';
 import Mail from '@lib/assets/images/mail.svg?raw';
 import Move from '@lib/assets/images/move.svg?raw';
@@ -81,6 +83,8 @@ export {
   FileImport,
   Folder,
   LogoIconGradient,
+  LogoIconWhite,
+  LogoRowGradient,
   LogoRowWhite,
   Move,
   NoActiveUser,
