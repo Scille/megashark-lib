@@ -19,6 +19,30 @@ export interface IValidator {
   (value: string): Promise<ValidationResult>;
 }
 
+function hasMinLength(value: string, minLength: number): boolean {
+  return value.length >= minLength;
+}
+
+function hasUppercase(value: string): boolean {
+  const uppercaseRegex = /[A-Z]/;
+  return uppercaseRegex.test(value);
+}
+
+function hasLowercase(value: string): boolean {
+  const lowercaseRegex = /[a-z]/;
+  return lowercaseRegex.test(value);
+}
+
+function hasNumber(value: string): boolean {
+  const numberRegex = /\d/;
+  return numberRegex.test(value);
+}
+
+function hasSpecialCharacter(value: string): boolean {
+  const specialCharacterRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+  return specialCharacterRegex.test(value);
+}
+
 enum StrengthLevel {
   None = 0,
   Low = 1,
@@ -38,7 +62,8 @@ zxcvbnOptions.setOptions({
   },
 });
 
-export function getStrength(password: string): PasswordStrength {
+// password validation
+function getStrength(password: string): PasswordStrength {
   if (password.length <= 0) {
     return {
       level: StrengthLevel.None,
@@ -65,7 +90,68 @@ export function getStrength(password: string): PasswordStrength {
   };
 }
 
+// password validation
+enum PasswordCriteria {
+  ConfirmPassword = 'confirmPassword',
+  Length = 'length',
+  Uppercase = 'uppercase',
+  Lowercase = 'lowercase',
+  Number = 'number',
+  Special = 'special',
+}
+
+export const strengthCriteria = [
+  PasswordCriteria.Length,
+  PasswordCriteria.Uppercase,
+  PasswordCriteria.Lowercase,
+  PasswordCriteria.Number,
+  PasswordCriteria.Special,
+];
+
+const MIN_PASSWORD_LENGTH = 12;
+
+export function doPasswordMatch(
+  password: string,
+  confirmPassword: string,
+  criteria: PasswordCriteria[] = Object.values(PasswordCriteria),
+  minPasswordLength: number = MIN_PASSWORD_LENGTH,
+): boolean {
+  return criteria.every((criterion) => {
+    switch (criterion) {
+      case PasswordCriteria.ConfirmPassword:
+        return confirmPassword === password;
+      case PasswordCriteria.Length:
+        return hasMinLength(password, minPasswordLength);
+      case PasswordCriteria.Uppercase:
+        return hasUppercase(password);
+      case PasswordCriteria.Lowercase:
+        return hasLowercase(password);
+      case PasswordCriteria.Number:
+        return hasNumber(password);
+      case PasswordCriteria.Special:
+        return hasSpecialCharacter(password);
+      default:
+        return false;
+    }
+  });
+}
+
 export const PasswordValidation = {
   getStrength,
   StrengthLevel,
+  doPasswordMatch,
+};
+
+// email validation
+function isEmailValid(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+export const Validation = {
+  isEmailValid,
+  hasLowercase,
+  hasMinLength,
+  hasNumber,
+  hasSpecialCharacter,
 };
