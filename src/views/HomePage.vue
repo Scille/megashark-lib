@@ -2,15 +2,18 @@
   <ion-page>
     <ion-content :fullscreen="true">
       <div id="container">
+        <ion-title class="title-h1-xl main-title">{{ $msTranslate('usage.title') }}</ion-title>
         <!-- translation -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.translation.title') }}</ion-label>
-          <ms-dropdown
-            class="dropdown"
-            :options="localeOptions"
-            :default-option-key="I18n.getLocale()"
-            @change="changeLocale"
-          />
+          <div class="example-divider-content">
+            <ms-dropdown
+              class="dropdown"
+              :options="localeOptions"
+              :default-option-key="I18n.getLocale()"
+              @change="changeLocale"
+            />
+          </div>
         </ion-item-divider>
 
         <!-- toggle -->
@@ -22,150 +25,174 @@
         <!-- Theme -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.theme.title') }}</ion-label>
-          <ms-dropdown
-            class="dropdown"
-            :options="msThemeOptions"
-            :default-option-key="themeManager.theme"
-            @change="themeManager.use($event.option.key)"
-          />
+          <div class="example-divider-content">
+            <ms-dropdown
+              class="dropdown"
+              :options="msThemeOptions"
+              :default-option-key="themeManager.theme"
+              @change="themeManager.use($event.option.key)"
+            />
+          </div>
         </ion-item-divider>
+
         <!-- action-bar -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.actionBar.title') }}</ion-label>
-          <ms-action-bar id="ms-action-bar-example">
-            <ms-action-bar-button
-              id="action-bar-button-example"
-              button-label="usage.components.actionBar.buttons.alert.title"
-              :icon="warning"
-              @click="openAlertModal()"
+          <div class="example-divider-content">
+            <ms-action-bar id="ms-action-bar-example">
+              <ms-action-bar-button
+                id="action-bar-button-example"
+                button-label="usage.components.actionBar.buttons.alert.title"
+                :icon="warning"
+                @click="openAlertModal()"
+              />
+              <ms-action-bar-button
+                id="action-bar-button-example"
+                button-label="usage.components.actionBar.buttons.askQuestion.title"
+                :icon="helpCircle"
+                @click="openQuestionModal()"
+              />
+              <ms-action-bar-button
+                id="action-bar-button-example"
+                button-label="usage.components.actionBar.buttons.getText.title"
+                :icon="create"
+                @click="openTextInputModal()"
+              />
+              <ms-action-bar-button
+                id="action-bar-button-example"
+                button-label="usage.components.actionBar.buttons.getPassword.title"
+                :icon="lockClosed"
+                @click="openPasswordInputModal()"
+              />
+              <ms-action-bar-button
+                id="action-bar-button-example"
+                button-label="usage.components.actionBar.buttons.settings.title"
+                :icon="cog"
+                @click="openSettingsModal()"
+              />
+              <ms-action-bar-button
+                id="action-bar-button-example"
+                button-label="usage.components.actionBar.buttons.importDocument.title"
+                :image="DocumentImport"
+              />
+            </ms-action-bar>
+          </div>
+        </ion-item-divider>
+
+        <!-- progress bar -->
+        <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.progressBar.title') }}</ion-label>
+          <div class="example-divider-content">
+            <ms-progress-bar
+              :progression="'79%'"
+              :width="'16rem'"
             />
-            <ms-action-bar-button
-              id="action-bar-button-example"
-              button-label="usage.components.actionBar.buttons.askQuestion.title"
-              :icon="helpCircle"
-              @click="openQuestionModal()"
-            />
-            <ms-action-bar-button
-              id="action-bar-button-example"
-              button-label="usage.components.actionBar.buttons.getText.title"
-              :icon="create"
-              @click="openTextInputModal()"
-            />
-            <ms-action-bar-button
-              id="action-bar-button-example"
-              button-label="usage.components.actionBar.buttons.getPassword.title"
-              :icon="lockClosed"
-              @click="openPasswordInputModal()"
-            />
-            <ms-action-bar-button
-              id="action-bar-button-example"
-              button-label="usage.components.actionBar.buttons.settings.title"
-              :icon="cog"
-              @click="openSettingsModal()"
-            />
-            <ms-action-bar-button
-              id="action-bar-button-example"
-              button-label="usage.components.actionBar.buttons.importDocument.title"
-              :image="DocumentImport"
-            />
-          </ms-action-bar>
+          </div>
         </ion-item-divider>
 
         <!-- dropdown -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.dropdown.title') }}</ion-label>
-          <ms-dropdown
-            class="dropdown"
-            :options="msDropdownOptions"
-            :default-option-key="MsReportTheme.Info"
-            @change="changeOption($event.option.key)"
-          />
+          <div class="example-divider-content">
+            <ms-dropdown
+              class="dropdown"
+              :options="msDropdownOptions"
+              :default-option-key="MsReportTheme.Info"
+              @change="changeOption($event.option.key)"
+            />
+          </div>
         </ion-item-divider>
 
         <!-- images -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.image.title') }}</ion-label>
-          <div class="example-data">
-            <ms-image :image="ChevronExpand" />
-            <ms-image :image="Device" />
-            <ms-image :image="DocumentImport" />
-            <ms-image :image="EmptyFolder" />
-            <ms-image :image="FileImport" />
-            <ms-image :image="Folder" />
-            <ms-image :image="LogoIconGradient" />
-            <ms-image :image="LogoRowWhite" />
-            <ms-image :image="NoActiveUser" />
-            <ms-image :image="NoImportDone" />
-            <ms-image :image="NoImportError" />
-            <ms-image :image="NoImportInProgress" />
-            <ms-image :image="NoInvitation" />
-            <ms-image :image="NoNotification" />
-            <ms-image :image="NoOrganization" />
-            <ms-image :image="NoRevokedUser" />
-            <ms-image :image="NoWorkspace" />
-            <ms-image :image="PasswordLock" />
-            <ms-image :image="SwapArrows" />
-            <ms-image :image="WavyCaretUp" />
+          <div class="example-divider-content">
+            <div class="example-data">
+              <ms-image :image="ChevronExpand" />
+              <ms-image :image="Device" />
+              <ms-image :image="DocumentImport" />
+              <ms-image :image="EmptyFolder" />
+              <ms-image :image="FileImport" />
+              <ms-image :image="Folder" />
+              <ms-image :image="LogoIconGradient" />
+              <ms-image :image="LogoRowWhite" />
+              <ms-image :image="NoActiveUser" />
+              <ms-image :image="NoImportDone" />
+              <ms-image :image="NoImportError" />
+              <ms-image :image="NoImportInProgress" />
+              <ms-image :image="NoInvitation" />
+              <ms-image :image="NoNotification" />
+              <ms-image :image="NoOrganization" />
+              <ms-image :image="NoRevokedUser" />
+              <ms-image :image="NoWorkspace" />
+              <ms-image :image="PasswordLock" />
+              <ms-image :image="SwapArrows" />
+              <ms-image :image="WavyCaretUp" />
+            </div>
           </div>
         </ion-item-divider>
 
         <!-- inputs -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.inputs.title') }}</ion-label>
-          <ion-item-divider class="example-divider">
-            <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msInput.title') }}</ion-label>
-            <ms-input
-              label="usage.components.inputs.msInput.label"
-              placeholder="usage.components.inputs.msInput.placeholder"
-              name="inputExample"
-              v-model="inputExample"
-            />
-          </ion-item-divider>
-          <ion-item-divider class="example-divider">
-            <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msSearchInput.title') }}</ion-label>
-            <ms-search-input
-              placeholder="lib.components.msSearchInput.placeholder"
-              v-model="searchIInputExample"
-              id="searchInputExample"
-            />
-          </ion-item-divider>
-          <ion-item-divider class="example-divider">
-            <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msPasswordInput.title') }}</ion-label>
-            <ms-password-input
-              label="usage.components.inputs.msPasswordInput.label"
-              v-model="passwordInputExample"
-              name="passwordInputExample"
-            />
-          </ion-item-divider>
-          <ion-item-divider class="example-divider">
-            <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msChoosePasswordInput.title') }}</ion-label>
-            <ms-choose-password-input
-              password-label="usage.components.inputs.msChoosePasswordInput.label"
-              @on-enter-keyup="onEnterKeyup($event)"
-              ref="choosePasswordInput"
-            />
-          </ion-item-divider>
+          <div class="example-divider-content">
+            <ion-item-divider class="example-divider-item">
+              <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msInput.title') }}</ion-label>
+              <ms-input
+                label="usage.components.inputs.msInput.label"
+                placeholder="usage.components.inputs.msInput.placeholder"
+                name="inputExample"
+                v-model="inputExample"
+              />
+            </ion-item-divider>
+            <ion-item-divider class="example-divider-item">
+              <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msSearchInput.title') }}</ion-label>
+              <ms-search-input
+                placeholder="lib.components.msSearchInput.placeholder"
+                v-model="searchIInputExample"
+                id="searchInputExample"
+              />
+            </ion-item-divider>
+            <ion-item-divider class="example-divider-item">
+              <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msPasswordInput.title') }}</ion-label>
+              <ms-password-input
+                label="usage.components.inputs.msPasswordInput.label"
+                v-model="passwordInputExample"
+                name="passwordInputExample"
+              />
+            </ion-item-divider>
+            <ion-item-divider class="example-divider-item">
+              <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msChoosePasswordInput.title') }}</ion-label>
+              <ms-choose-password-input
+                password-label="usage.components.inputs.msChoosePasswordInput.label"
+                @on-enter-keyup="onEnterKeyup($event)"
+                ref="choosePasswordInput"
+              />
+            </ion-item-divider>
+          </div>
         </ion-item-divider>
 
         <!-- sorter -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.sorter.title') }}</ion-label>
-          <ms-sorter
-            :options="msSorterOptions"
-            default-option="name"
-            @change="onSortChange($event)"
-          />
-          <div class="example-data">
-            <div
-              v-for="item in msSorterExampleData"
-              :key="item.name"
-            >
-              <ion-label>{{ $msTranslate('usage.components.sorter.name') }}: {{ item.name }}</ion-label>
-              <ion-label>
-                {{ $msTranslate('usage.components.sorter.birthDate') }}:
-                {{ $msTranslate(I18n.formatDate(item.birthDate, 'short')) }}
-              </ion-label>
-              <ion-label>{{ $msTranslate('usage.components.sorter.age') }}: {{ item.age }}</ion-label>
+          <div class="example-divider-content">
+            <ms-sorter
+              :options="msSorterOptions"
+              default-option="name"
+              @change="onSortChange($event)"
+            />
+            <div class="example-data">
+              <div
+                v-for="item in msSorterExampleData"
+                :key="item.name"
+              >
+                <ion-label>{{ $msTranslate('usage.components.sorter.name') }}: {{ item.name }}</ion-label>
+                <ion-label>
+                  {{ $msTranslate('usage.components.sorter.birthDate') }}:
+                  {{ $msTranslate(I18n.formatDate(item.birthDate, 'short')) }}
+                </ion-label>
+                <ion-label>{{ $msTranslate('usage.components.sorter.age') }}: {{ item.age }}</ion-label>
+              </div>
             </div>
           </div>
         </ion-item-divider>
@@ -173,76 +200,118 @@
         <!-- checkbox -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.checkbox.title') }}</ion-label>
-          <ms-checkbox
-            v-model="checkboxValue"
-            label="usage.components.checkbox.label"
-          />
-          {{ $msTranslate('usage.components.checkbox.value') }} {{ checkboxValue }}
+          <div class="example-divider-content">
+            <ms-checkbox
+              v-model="checkboxValue"
+              label="usage.components.checkbox.label"
+            />
+            {{ $msTranslate('usage.components.checkbox.value') }} {{ checkboxValue }}
+          </div>
         </ion-item-divider>
 
         <!-- spinner -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.spinner.title') }}</ion-label>
-          <ms-spinner title="lib.components.msSpinner.loading" />
+          <div class="example-divider-content">
+            <ms-spinner title="lib.components.msSpinner.loading" />
+          </div>
         </ion-item-divider>
 
         <!-- steppers -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.stepper.title') }}</ion-label>
-          ms-wizard-stepper
+          <div class="example-divider-content">ms-wizard-stepper</div>
         </ion-item-divider>
 
         <!-- informative-text -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.informativeText.title') }}</ion-label>
-          <ms-informative-text>
-            {{ $msTranslate('usage.components.informativeText.message') }}
-          </ms-informative-text>
+          <div class="example-divider-content">
+            <ms-informative-text>
+              {{ $msTranslate('usage.components.informativeText.message') }}
+            </ms-informative-text>
+          </div>
         </ion-item-divider>
 
         <!-- report-text -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.reportText.title') }}</ion-label>
-          <ms-report-text :theme="msReportTheme">
-            <i18n-t
-              keypath="usage.components.reportText.message"
-              scope="global"
-            >
-              <template #important>
-                <strong>{{ $msTranslate('usage.components.reportText.important') }}</strong>
-              </template>
-            </i18n-t>
-          </ms-report-text>
+          <div class="example-divider-content">
+            <ms-report-text :theme="msReportTheme">
+              <i18n-t
+                keypath="usage.components.reportText.message"
+                scope="global"
+              >
+                <template #important>
+                  <strong>{{ $msTranslate('usage.components.reportText.important') }}</strong>
+                </template>
+              </i18n-t>
+            </ms-report-text>
+          </div>
         </ion-item-divider>
 
         <!-- information-tooltip -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.informationTooltip.title') }}</ion-label>
-          <ms-information-tooltip
-            :text="$msTranslate('usage.components.informationTooltip.message')"
-            class="information-icon"
-            slot="end"
-          />
+          <div class="example-divider-content">
+            <ms-information-tooltip
+              :text="$msTranslate('usage.components.informationTooltip.message')"
+              class="information-icon"
+              slot="end"
+            />
+          </div>
         </ion-item-divider>
 
         <!-- toast-->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.toast.title') }}</ion-label>
+          <div class="example-divider-content">
+            <div class="example-data">
+              <ms-input
+                label="usage.components.toast.offset"
+                v-model="toastOffset"
+              />
+              <ms-dropdown
+                class="dropdown"
+                title="usage.components.toast.themeTitle"
+                :options="msDropdownOptions"
+                :default-option-key="toastTheme"
+                @change="toastTheme = $event.option.key"
+              />
+              <ion-button @click="openToast">
+                {{ $msTranslate('usage.components.toast.open') }}
+              </ion-button>
+            </div>
+          </div>
+        </ion-item-divider>
+
+        <!-- code validation -->
+        <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.codeValidation.title') }}</ion-label>
+          <ms-code-validation-input
+            :code-length="VALID_CODE.length"
+            :validation-function="validationFunction"
+          />
+        </ion-item-divider>
+
+        <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.address.title') }}</ion-label>
           <div class="example-data">
-            <ms-input
-              label="usage.components.toast.offset"
-              v-model="toastOffset"
+            <ms-address-input
+              class="address-input"
+              ref="addressInput"
+              label="usage.components.address.label"
+              placeholder="usage.components.address.placeholder"
+              @address-selected="onAddressSelected"
+              :geoapify-api-key="GEOAPIFY_MOCKED_API_KEY"
             />
-            <ms-dropdown
-              class="dropdown"
-              title="usage.components.toast.themeTitle"
-              :options="msDropdownOptions"
-              :default-option-key="toastTheme"
-              @change="toastTheme = $event.option.key"
-            />
-            <ion-button @click="openToast">
-              {{ $msTranslate('usage.components.toast.open') }}
-            </ion-button>
+          </div>
+        </ion-item-divider>
+
+        <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.stripe.title') }}</ion-label>
+          <div class="example-data">
+            <ms-stripe-card-form class="stripe-card-form" />
           </div>
         </ion-item-divider>
 
@@ -332,6 +401,7 @@ import {
   MsAddressInput,
   MsStripeCardForm,
   MsDropdownChangeEvent,
+  MsProgressBar,
 } from '@lib/components';
 import { I18n, LocaleOptions } from '@lib/services/translation';
 import { DateTime } from 'luxon';
@@ -495,18 +565,57 @@ async function validationFunction(code: Array<string>): Promise<boolean> {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.main-title {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: var(--parsec-color-light-primary-800);
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2rem;
+  padding: 3rem;
+  background: var(--parsec-color-light-secondary-background);
+}
+
 .example-divider {
-  margin: 0.5rem;
-  padding: 0.75em 1em;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: start;
   background-color: var(--parsec-color-light-secondary-white);
-  border: 1px solid var(--parsec-color-light-secondary-disabled);
   border-radius: var(--parsec-radius-12);
   width: -webkit-fill-available;
+  box-shadow: var(--parsec-shadow-light);
   --inner-padding-end: 0;
+
+  ion-label.title-h2 {
+    background: var(--parsec-color-light-secondary-medium);
+    color: var(--parsec-color-light-secondary-text);
+    width: 100%;
+    margin: 0;
+    padding: 0.75em 1rem;
+  }
+
+  &-item {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: var(--parsec-color-light-secondary-white);
+    flex-shrink: 0;
+  }
+
+  &-content {
+    padding: 1rem;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 }
 
 .example-data {

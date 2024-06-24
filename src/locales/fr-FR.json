@@ -1,5 +1,6 @@
 {
   "usage": {
+    "title": "Librairie de composants MegaShark",
     "components": {
       "actionBar": {
         "title": "Action bar (with buttons)",
@@ -26,6 +27,9 @@
       },
       "dropdown": {
         "title": "Dropdown"
+      },
+      "progressBar": {
+        "title": "Barre de progresssion"
       },
       "image": {
         "title": "Image"
