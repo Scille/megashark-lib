@@ -5,6 +5,11 @@
   /*** Light ***/
   /* gradient */
   --parsec-color-light-gradient: linear-gradient(113.02deg, #4092ff -1.49%, #0058cc 100%);
+  --parsec-color-light-gradient-background: linear-gradient(
+    113deg,
+    var(--parsec-color-light-primary-500) -1.49%,
+    var(--parsec-color-light-primary-600) 100%
+  );
 
   /* Outline */
   --parsec-color-light-outline: rgba(102, 168, 255, 0.25);
