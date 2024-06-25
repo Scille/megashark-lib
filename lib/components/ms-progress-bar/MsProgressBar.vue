@@ -5,15 +5,25 @@
     <div class="progress-bar">
       <div class="completed" />
     </div>
-    <ion-text class="title-h5 progress-text">{{ progression }}</ion-text>
+    <ion-text
+      class="title-h5 progress-text"
+      v-show="props.showProgressText"
+    >
+      {{ `${progress}%` }}
+    </ion-text>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  progression?: string;
-  width: string;
+import { computed } from 'vue';
+import { IonText } from '@ionic/vue';
+
+const props = defineProps<{
+  progress: number;
+  showProgressText?: boolean;
 }>();
+
+const progressWidthStyle = computed(() => `${props.progress}%`);
 </script>
 
 <style scoped lang="scss">
@@ -22,18 +32,21 @@ defineProps<{
   align-items: center;
   gap: 0.75rem;
 }
+
 .progress-bar {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: v-bind(width);
+  width: 16em;
+  // width: v-bind(width);
   padding: 0.125rem;
   height: 0.725rem;
   background: var(--parsec-color-light-secondary-premiere);
   border-radius: var(--parsec-radius-8);
 
   .completed {
-    width: v-bind(progression);
+    transition: width 0.35s ease-in-out;
+    width: v-bind(progressWidthStyle);
     height: 0.5rem;
     background: var(--parsec-color-light-gradient);
     border-radius: var(--parsec-radius-6);

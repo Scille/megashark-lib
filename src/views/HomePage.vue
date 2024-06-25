@@ -19,7 +19,9 @@
         <!-- toggle -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.toggle.title') }}</ion-label>
-          <ms-boolean-toogle v-model="referenceValue" />
+          <div class="example-divider-content">
+            <ms-boolean-toogle v-model="referenceValue" />
+          </div>
         </ion-item-divider>
 
         <!-- Theme -->
@@ -84,8 +86,8 @@
           <ion-label class="title-h2">{{ $msTranslate('usage.components.progressBar.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-progress-bar
-              :progression="'79%'"
-              :width="'16rem'"
+              :progress="progress"
+              show-progress-text
             />
           </div>
         </ion-item-divider>
@@ -288,60 +290,72 @@
         <!-- code validation -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.codeValidation.title') }}</ion-label>
-          <ms-code-validation-input
-            :code-length="VALID_CODE.length"
-            :validation-function="validationFunction"
-          />
-        </ion-item-divider>
-
-        <ion-item-divider class="example-divider">
-          <ion-label class="title-h2">{{ $msTranslate('usage.components.address.title') }}</ion-label>
-          <div class="example-data">
-            <ms-address-input
-              class="address-input"
-              ref="addressInput"
-              label="usage.components.address.label"
-              placeholder="usage.components.address.placeholder"
-              @address-selected="onAddressSelected"
-              :geoapify-api-key="GEOAPIFY_MOCKED_API_KEY"
+          <div class="example-divider-content">
+            <ms-code-validation-input
+              :code-length="VALID_CODE.length"
+              :validation-function="validationFunction"
             />
           </div>
         </ion-item-divider>
 
         <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.address.title') }}</ion-label>
+          <div class="example-divider-content">
+            <div class="example-data">
+              <ms-address-input
+                class="address-input"
+                ref="addressInput"
+                label="usage.components.address.label"
+                placeholder="usage.components.address.placeholder"
+                @address-selected="onAddressSelected"
+                :geoapify-api-key="GEOAPIFY_MOCKED_API_KEY"
+              />
+            </div>
+          </div>
+        </ion-item-divider>
+
+        <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.stripe.title') }}</ion-label>
-          <div class="example-data">
-            <ms-stripe-card-form class="stripe-card-form" />
+          <div class="example-divider-content">
+            <div class="example-data">
+              <ms-stripe-card-form class="stripe-card-form" />
+            </div>
           </div>
         </ion-item-divider>
 
         <!-- code validation -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.codeValidation.title') }}</ion-label>
-          <ms-code-validation-input
-            :code-length="VALID_CODE.length"
-            :validation-function="validationFunction"
-          />
-        </ion-item-divider>
-
-        <ion-item-divider class="example-divider">
-          <ion-label class="title-h2">{{ $msTranslate('usage.components.address.title') }}</ion-label>
-          <div class="example-data">
-            <ms-address-input
-              class="address-input"
-              ref="addressInput"
-              label="usage.components.address.label"
-              placeholder="usage.components.address.placeholder"
-              @address-selected="onAddressSelected"
-              :geoapify-api-key="GEOAPIFY_MOCKED_API_KEY"
+          <div class="example-divider-content">
+            <ms-code-validation-input
+              :code-length="VALID_CODE.length"
+              :validation-function="validationFunction"
             />
           </div>
         </ion-item-divider>
 
         <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.address.title') }}</ion-label>
+          <div class="example-divider-content">
+            <div class="example-data">
+              <ms-address-input
+                class="address-input"
+                ref="addressInput"
+                label="usage.components.address.label"
+                placeholder="usage.components.address.placeholder"
+                @address-selected="onAddressSelected"
+                :geoapify-api-key="GEOAPIFY_MOCKED_API_KEY"
+              />
+            </div>
+          </div>
+        </ion-item-divider>
+
+        <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.stripe.title') }}</ion-label>
-          <div class="example-data">
-            <ms-stripe-card-form class="stripe-card-form" />
+          <div class="example-divider-content">
+            <div class="example-data">
+              <ms-stripe-card-form class="stripe-card-form" />
+            </div>
           </div>
         </ion-item-divider>
       </div>
@@ -350,7 +364,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonLabel, IonPage, IonItemDivider, modalController, IonButton } from '@ionic/vue';
+import { IonContent, IonLabel, IonPage, IonItemDivider, modalController, IonButton, IonTitle } from '@ionic/vue';
 import { cog, create, lockClosed, helpCircle, warning } from 'ionicons/icons';
 import {
   Answer,
@@ -405,7 +419,7 @@ import {
 } from '@lib/components';
 import { I18n, LocaleOptions } from '@lib/services/translation';
 import { DateTime } from 'luxon';
-import { inject, ref, Ref } from 'vue';
+import { inject, ref, Ref, onMounted } from 'vue';
 import SettingsModal from '@/views/settings/SettingsModal.vue';
 import { Address, GEOAPIFY_MOCKED_API_KEY, ThemeOptions, ToastManager } from '@lib/services';
 import { Theme, ThemeManager } from '@lib/services';
@@ -448,6 +462,7 @@ const themeManager = new ThemeManager(Theme.Light);
 const checkboxValue = ref(true);
 const addressInput = ref();
 const VALID_CODE = ['1', '2', '3', '4', '5', '7'];
+const progress = ref(0);
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
@@ -470,6 +485,13 @@ const msSorterExampleData: Ref<MsSorterExampleData[]> = ref([
 const alertModalConfig: Ref<MsAlertModalConfig> = ref({
   theme: msReportTheme.value,
   message: 'alert example',
+});
+
+onMounted(async () => {
+  // Simulate some progress
+  setInterval(() => {
+    progress.value = (progress.value + 6) % 100;
+  }, 300);
 });
 
 function changeOption(key: MsReportTheme): void {
