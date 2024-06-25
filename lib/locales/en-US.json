@@ -36,6 +36,10 @@
       },
       "msSpinner": {
         "loading": "Loading..."
+      },
+      "msBooleanToogle": {
+        "yes": "Yes",
+        "no": "No"
       }
     },
     "common": {
