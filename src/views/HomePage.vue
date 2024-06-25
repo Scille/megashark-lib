@@ -13,6 +13,12 @@
           />
         </ion-item-divider>
 
+        <!-- toggle -->
+        <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.toggle.title') }}</ion-label>
+          <ms-boolean-toogle v-model="referenceValue" />
+        </ion-item-divider>
+
         <!-- Theme -->
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.theme.title') }}</ion-label>
@@ -262,6 +268,7 @@
 import { IonContent, IonLabel, IonPage, IonItemDivider, modalController, IonButton } from '@ionic/vue';
 import { cog, create, lockClosed, helpCircle, warning } from 'ionicons/icons';
 import {
+  Answer,
   MsActionBar,
   MsActionBarButton,
   MsDropdown,
@@ -290,6 +297,7 @@ import {
   Device,
   FileImport,
   Folder,
+  MsBooleanToogle,
   LogoIconGradient,
   LogoRowWhite,
   NoActiveUser,
@@ -312,6 +320,8 @@ import { ref, Ref } from 'vue';
 import SettingsModal from '@/views/settings/SettingsModal.vue';
 import { Address, GEOAPIFY_MOCKED_API_KEY, ThemeOptions, ToastManager } from '@lib/services';
 import { Theme, ThemeManager } from '@lib/services';
+
+const referenceValue = ref<Answer>(Answer.No);
 
 const msDropdownOptions: MsOptions = new MsOptions([
   {

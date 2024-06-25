@@ -4,7 +4,8 @@ import { modalController } from '@ionic/vue';
 import MsPasswordInputModal from '@lib/components/ms-modal/MsPasswordInputModal.vue';
 import MsQuestionModal from '@lib/components/ms-modal/MsQuestionModal.vue';
 import MsTextInputModal from '@lib/components/ms-modal/MsTextInputModal.vue';
-import { Answer, GetPasswordOptions, GetTextOptions, MsModalResult } from '@lib/components/ms-modal/types';
+import { GetPasswordOptions, GetTextOptions, MsModalResult } from '@lib/components/ms-modal/types';
+import { Answer } from '@lib/components/ms-types';
 import { Translatable } from '@lib/services/translation';
 
 export interface QuestionOptions {

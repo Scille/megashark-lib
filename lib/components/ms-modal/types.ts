@@ -4,11 +4,6 @@ import { IValidator } from '@lib/common/validation';
 import { MsReportTheme } from '@lib/components/ms-types';
 import { Translatable } from '@lib/services/translation';
 
-export enum Answer {
-  No = 0,
-  Yes = 1,
-}
-
 export interface GetTextOptions {
   title: Translatable;
   subtitle?: Translatable;

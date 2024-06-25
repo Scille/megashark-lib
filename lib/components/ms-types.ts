@@ -14,6 +14,11 @@ export enum MsAppearance {
   Clear = 'clear',
 }
 
+export enum Answer {
+  Yes = 'yes',
+  No = 'no',
+}
+
 export interface MsOption {
   label: Translatable;
   description?: Translatable;

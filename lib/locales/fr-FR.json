@@ -36,6 +36,10 @@
       },
       "msSpinner": {
         "loading": "Chargement..."
+      },
+      "msBooleanToogle": {
+        "yes": "Oui",
+        "no": "Non"
       }
     },
     "common": {
