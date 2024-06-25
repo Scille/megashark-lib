@@ -78,8 +78,8 @@
           <ion-label class="title-h2">{{ $msTranslate('usage.components.progressBar.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-progress-bar
-              :progression="'79%'"
-              :width="'16rem'"
+              :progress="progress"
+              show-progress-text
             />
           </div>
         </ion-item-divider>
@@ -284,7 +284,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonLabel, IonPage, IonItemDivider, modalController, IonButton } from '@ionic/vue';
+import { IonContent, IonLabel, IonPage, IonItemDivider, modalController, IonButton, IonTitle } from '@ionic/vue';
 import { cog, create, lockClosed, helpCircle, warning } from 'ionicons/icons';
 import {
   MsActionBar,
@@ -333,7 +333,7 @@ import {
 } from '@lib/components';
 import { I18n, LocaleOptions } from '@lib/services/translation';
 import { DateTime } from 'luxon';
-import { ref, Ref } from 'vue';
+import { ref, Ref, onMounted } from 'vue';
 import SettingsModal from '@/views/settings/SettingsModal.vue';
 import { ThemeOptions, ToastManager } from '@lib/services';
 import { Theme, ThemeManager } from '@lib/services';
@@ -369,6 +369,7 @@ const toastManager = new ToastManager();
 const toastTheme = ref(MsReportTheme.Success);
 const themeManager = new ThemeManager(Theme.Light);
 const checkboxValue = ref(true);
+const progress = ref(0);
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
@@ -391,6 +392,13 @@ const msSorterExampleData: Ref<MsSorterExampleData[]> = ref([
 const alertModalConfig: Ref<MsAlertModalConfig> = ref({
   theme: msReportTheme.value,
   message: 'alert example',
+});
+
+onMounted(async () => {
+  // Simulate some progress
+  setInterval(() => {
+    progress.value = (progress.value + 6) % 100;
+  }, 300);
 });
 
 function changeOption(key: MsReportTheme): void {
