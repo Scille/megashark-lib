@@ -24,22 +24,23 @@ function hasMinLength(value: string, minLength: number): boolean {
 }
 
 function hasUppercase(value: string): boolean {
-  const uppercaseRegex = /[A-Z]/;
+  const uppercaseRegex = /\p{Lu}/u;
   return uppercaseRegex.test(value);
 }
 
 function hasLowercase(value: string): boolean {
-  const lowercaseRegex = /[a-z]/;
+  const lowercaseRegex = /\p{Ll}/u;
   return lowercaseRegex.test(value);
 }
 
-function hasNumber(value: string): boolean {
+function hasDigit(value: string): boolean {
   const numberRegex = /\d/;
   return numberRegex.test(value);
 }
 
 function hasSpecialCharacter(value: string): boolean {
-  const specialCharacterRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+  // \W matches non-word characters but includes `_`. We want to considere `_` as a special character.
+  const specialCharacterRegex = /[\W_]/;
   return specialCharacterRegex.test(value);
 }
 
@@ -91,55 +92,44 @@ function getStrength(password: string): PasswordStrength {
 }
 
 // password validation
-enum PasswordCriteria {
-  ConfirmPassword = 'confirmPassword',
-  Length = 'length',
-  Uppercase = 'uppercase',
-  Lowercase = 'lowercase',
-  Number = 'number',
-  Special = 'special',
+enum Criteria {
+  None = 0,
+  Length = 1 << 0,
+  Uppercase = 1 << 1,
+  Lowercase = 1 << 2,
+  Digit = 1 << 3,
+  Special = 1 << 4,
+  All = Length | Uppercase | Lowercase | Digit | Special,
 }
-
-export const strengthCriteria = [
-  PasswordCriteria.Length,
-  PasswordCriteria.Uppercase,
-  PasswordCriteria.Lowercase,
-  PasswordCriteria.Number,
-  PasswordCriteria.Special,
-];
 
 const MIN_PASSWORD_LENGTH = 12;
 
-export function doPasswordMatch(
-  password: string,
-  confirmPassword: string,
-  criteria: PasswordCriteria[] = Object.values(PasswordCriteria),
-  minPasswordLength: number = MIN_PASSWORD_LENGTH,
-): boolean {
-  return criteria.every((criterion) => {
-    switch (criterion) {
-      case PasswordCriteria.ConfirmPassword:
-        return confirmPassword === password;
-      case PasswordCriteria.Length:
-        return hasMinLength(password, minPasswordLength);
-      case PasswordCriteria.Uppercase:
-        return hasUppercase(password);
-      case PasswordCriteria.Lowercase:
-        return hasLowercase(password);
-      case PasswordCriteria.Number:
-        return hasNumber(password);
-      case PasswordCriteria.Special:
-        return hasSpecialCharacter(password);
-      default:
-        return false;
-    }
-  });
+export function matchCriteria(password: string, criteria: number, minPasswordLength: number = MIN_PASSWORD_LENGTH): boolean {
+  let match = true;
+
+  if (match && criteria & Criteria.Length) {
+    match &&= hasMinLength(password, minPasswordLength);
+  }
+  if (match && criteria & Criteria.Uppercase) {
+    match &&= hasUppercase(password);
+  }
+  if (match && criteria & Criteria.Lowercase) {
+    match &&= hasLowercase(password);
+  }
+  if (match && criteria & Criteria.Special) {
+    match &&= hasSpecialCharacter(password);
+  }
+  if (match && criteria & Criteria.Digit) {
+    match &&= hasDigit(password);
+  }
+  return match;
 }
 
 export const PasswordValidation = {
   getStrength,
   StrengthLevel,
-  doPasswordMatch,
+  matchCriteria,
+  Criteria,
 };
 
 // email validation
@@ -152,6 +142,6 @@ export const Validation = {
   isEmailValid,
   hasLowercase,
   hasMinLength,
-  hasNumber,
+  hasDigit,
   hasSpecialCharacter,
 };
