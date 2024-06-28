@@ -163,6 +163,11 @@
         "title": "Checkbox",
         "label": "Ma checkbox",
         "value": "Valeur de la checkbox :"
+      },
+      "address": {
+        "title": "Auto-complétion d'adresse",
+        "label": "Entrez une adresse",
+        "placeholder": "42 Wallaby Way, Sydney, NSW, Australia"
       }
     }
   }
