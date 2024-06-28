@@ -26,8 +26,10 @@ const config: UserConfig = {
       '@megashark': path.resolve(__dirname, './lib'),
     },
   },
+
   test: {
     setupFiles: [path.resolve(__dirname, './tests/support/setup.ts')],
+    include: ['tests/components/specs/*.spec.ts', 'tests/unit/specs/*.spec.ts'],
     globals: true,
     alias: {
       '@lib': path.resolve(__dirname, './lib'),

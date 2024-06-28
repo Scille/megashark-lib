@@ -9,8 +9,8 @@
     >
       {{ $msTranslate(label) }}
     </span>
-    <ion-item
-      class="input-item"
+    <div
+      class="input-content"
       :class="passwordIsInvalid ? 'input-invalid' : ''"
     >
       <ion-input
@@ -35,7 +35,7 @@
           :icon="passwordVisible ? eyeOff : eye"
         />
       </div>
-    </ion-item>
+    </div>
     <span
       v-show="errorMessage"
       class="form-error form-helperText"
@@ -51,7 +51,7 @@
 
 <script setup lang="ts">
 import { Translatable } from '@lib/services/translation';
-import { IonIcon, IonInput, IonItem } from '@ionic/vue';
+import { IonIcon, IonInput } from '@ionic/vue';
 import { eye, eyeOff, warning } from 'ionicons/icons';
 import { ref } from 'vue';
 

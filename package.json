@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@ionic/vue": "^7.0.0",
+    "axios": "^1.7.2",
     "ionicons": "^7.0.0",
     "luxon": "^3.4.4",
     "vue": "^3.3.0",

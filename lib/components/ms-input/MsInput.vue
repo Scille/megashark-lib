@@ -10,8 +10,8 @@
       {{ $msTranslate(label) }}
     </span>
 
-    <ion-item
-      class="input-item ion-no-padding"
+    <div
+      class="input-content ion-no-padding"
       :class="{
         'form-input-disabled': $props.disabled,
         'input-valid': validity === Validity.Valid,
@@ -32,7 +32,7 @@
         @keyup.enter="enterPressed($event.target.value)"
         :disabled="$props.disabled"
       />
-    </ion-item>
+    </div>
     <span
       v-show="errorMessage !== ''"
       class="form-error form-helperText"
@@ -49,7 +49,7 @@
 <script setup lang="ts">
 import { IValidator, Validity } from '@lib/common/validation';
 import { Translatable } from '@lib/services/translation';
-import { IonIcon, IonInput, IonItem } from '@ionic/vue';
+import { IonIcon, IonInput } from '@ionic/vue';
 import { warning } from 'ionicons/icons';
 import { Ref, ref } from 'vue';
 

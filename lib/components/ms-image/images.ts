@@ -2,6 +2,8 @@
 
 // for svg only add ?raw at the end of path
 import Apk from '@lib/assets/images/apk.svg?raw';
+import MastercardCard from '@lib/assets/images/card-mastercard.svg?raw';
+import VisaCard from '@lib/assets/images/card-visa.svg?raw';
 import ChevronExpand from '@lib/assets/images/chevron-expand.svg?raw';
 import Copy from '@lib/assets/images/copy.svg?raw';
 import Css from '@lib/assets/images/css.svg?raw';
@@ -18,8 +20,10 @@ import Iso from '@lib/assets/images/iso.svg?raw';
 import Javascript from '@lib/assets/images/js.svg?raw';
 import LogoIconGradient from '@lib/assets/images/logo-icon-gradient.svg?raw';
 import LogoIconWhite from '@lib/assets/images/logo-icon-white.svg?raw';
+import LogoMastercard from '@lib/assets/images/logo-mastercard.svg?raw';
 import LogoRowGradient from '@lib/assets/images/logo-row-gradient.svg?raw';
 import LogoRowWhite from '@lib/assets/images/logo-row-white.svg?raw';
+import LogoVisa from '@lib/assets/images/logo-visa.svg?raw';
 import Mail from '@lib/assets/images/mail.svg?raw';
 import Move from '@lib/assets/images/move.svg?raw';
 import Music from '@lib/assets/images/music.svg?raw';
@@ -84,8 +88,11 @@ export {
   Folder,
   LogoIconGradient,
   LogoIconWhite,
+  LogoMastercard,
   LogoRowGradient,
   LogoRowWhite,
+  LogoVisa,
+  MastercardCard,
   Move,
   NoActiveUser,
   NoImportDone,
@@ -98,5 +105,6 @@ export {
   NoWorkspace,
   PasswordLock,
   SwapArrows,
+  VisaCard,
   WavyCaretUp,
 };

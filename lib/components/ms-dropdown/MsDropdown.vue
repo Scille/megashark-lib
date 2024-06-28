@@ -12,7 +12,7 @@
       :fill="appearanceRef"
       @click="openPopover($event)"
       id="dropdown-popover-button"
-      class="filter-button button-medium"
+      class="filter-button form-input"
       :class="isPopoverOpen ? 'active' : ''"
       :disabled="disabled"
     >
@@ -140,7 +140,7 @@ function getIcon(): string {
   .active {
     --background: var(--parsec-color-light-secondary-background);
     outline: var(--offset) solid var(--parsec-color-light-outline);
-    border-radius: var(--parsec-radius-6);
+    border-radius: var(--parsec-radius-8);
   }
 
   .form-label {
@@ -149,14 +149,17 @@ function getIcon(): string {
 
   &.large {
     .filter-button::part(native) {
-      padding: 0.75rem 1rem;
+      padding: 0.625rem 1rem;
     }
   }
 }
 
 .ms-dropdown-icon {
   margin-left: 0.5em;
+  font-size: 1.25rem;
   transition: transform ease-out 300ms;
+  color: var(--parsec-color-light-secondary-grey);
+
   &.popover-is-open {
     transform: rotate(180deg);
   }

@@ -278,6 +278,20 @@
             </div>
           </div>
         </ion-item-divider>
+
+        <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.address.title') }}</ion-label>
+          <div class="example-data">
+            <ms-address-input
+              class="address-input"
+              ref="addressInput"
+              label="usage.components.address.label"
+              placeholder="usage.components.address.placeholder"
+              @address-selected="onAddressSelected"
+              :geoapify-api-key="GEOAPIFY_MOCKED_API_KEY"
+            />
+          </div>
+        </ion-item-divider>
       </div>
     </ion-content>
   </ion-page>
@@ -330,12 +344,13 @@ import {
   DocumentImport,
   MsCheckbox,
   MsProgressBar,
+  MsAddressInput,
 } from '@lib/components';
 import { I18n, LocaleOptions } from '@lib/services/translation';
 import { DateTime } from 'luxon';
 import { ref, Ref, onMounted } from 'vue';
 import SettingsModal from '@/views/settings/SettingsModal.vue';
-import { ThemeOptions, ToastManager } from '@lib/services';
+import { Address, GEOAPIFY_MOCKED_API_KEY, ThemeOptions, ToastManager } from '@lib/services';
 import { Theme, ThemeManager } from '@lib/services';
 
 const msDropdownOptions: MsOptions = new MsOptions([
@@ -370,6 +385,7 @@ const toastTheme = ref(MsReportTheme.Success);
 const themeManager = new ThemeManager(Theme.Light);
 const checkboxValue = ref(true);
 const progress = ref(0);
+const addressInput = ref();
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
@@ -479,6 +495,10 @@ async function openToast(): Promise<void> {
     theme: toastTheme.value,
   });
 }
+
+async function onAddressSelected(addr: Address): Promise<void> {
+  addressInput.value.setValue(`${addr.address} ${addr.address2 ? addr.address2 : ''}, ${addr.postalCode} ${addr.city}, ${addr.country}`);
+}
 </script>
 
 <style scoped lang="scss">
@@ -503,6 +523,7 @@ async function openToast(): Promise<void> {
   flex-direction: column;
   align-items: start;
   background-color: var(--parsec-color-light-secondary-white);
+  border: 1px solid var(--parsec-color-light-secondary-disabled);
   border-radius: var(--parsec-radius-12);
   width: -webkit-fill-available;
   box-shadow: var(--parsec-shadow-light);
@@ -540,5 +561,9 @@ async function openToast(): Promise<void> {
   margin: 0.5rem;
   gap: 2.5em;
   flex-wrap: wrap;
+}
+
+.address-input {
+  width: 50em;
 }
 </style>
