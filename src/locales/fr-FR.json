@@ -164,6 +164,10 @@
         "label": "Ma checkbox",
         "value": "Valeur de la checkbox :"
       },
+      "codeValidation": {
+        "title": "Validation de code",
+        "open": "Ouvrir la demande de code"
+      },
       "address": {
         "title": "Auto-complétion d'adresse",
         "label": "Entrez une adresse",

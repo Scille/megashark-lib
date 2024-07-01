@@ -2,11 +2,10 @@
   <ms-modal
     title="codeVerification.title"
     :subtitle="{ key: 'codeVerification.subtitle', data: { email: email } }"
-    class="coucou"
   >
     <div class="code-input">
       <template
-        v-for="i in CODE_LENGTH"
+        v-for="i in codeLength"
         :key="`code${i - 1}`"
       >
         <ion-input
@@ -40,10 +39,8 @@ import MsModal from '@lib/components/ms-modal/MsModal.vue';
 import { computed, nextTick, onMounted, ref } from 'vue';
 import { IonInput } from '@ionic/vue';
 
-type HTMLIonInputElementOrUndefined = HTMLIonInputElement | undefined;
 const inputs = ref();
 const codes = ref<string[]>([]);
-const CODE_LENGTH = 6;
 const isCodeValid = computed(() => isValidCode(codes.value.join('')));
 
 onMounted(async (): Promise<void> => {
@@ -52,8 +49,8 @@ onMounted(async (): Promise<void> => {
 });
 
 const props = defineProps<{
+  codeLength: { type: number; default: 6 };
   email: string;
-  validationFunction(code: Array<string>): Promise<void>;
 }>();
 
 async function onPaste(event: ClipboardEvent): Promise<void> {
@@ -62,7 +59,7 @@ async function onPaste(event: ClipboardEvent): Promise<void> {
   if (code && isValidCode(code)) {
     codes.value = code.split('');
     focusInputElement(getLastInputElement());
-    props.validationFunction;
+    checkCode();
   }
 }
 
@@ -72,7 +69,16 @@ async function onIonInput(event: CustomEvent): Promise<void> {
     focusInputElement(getNextInputElement(input));
   }
   if (isCodeValid.value) {
-    props.validationFunction;
+    checkCode();
+  }
+}
+
+async function checkCode(): Promise<boolean> {
+  const code = codes.value.join('');
+  if (isCodeValid.value) {
+    return true;
+  } else {
+    return false;
   }
 }
 
@@ -103,22 +109,22 @@ function isDigits(value: string): boolean {
 }
 
 function isValidCode(value: string = ''): boolean {
-  return value.length === CODE_LENGTH && isDigits(value);
+  return value.length === props.codeLength.default && isDigits(value);
 }
 
-function getInputElementAt(index: number): HTMLIonInputElementOrUndefined {
+function getInputElementAt(index: number): HTMLIonInputElement | undefined {
   if (!inputs.value || !inputs.value.at(index)) {
     return undefined;
   }
   return inputs.value.at(index).$el as HTMLIonInputElement;
 }
 
-function getFirstInputElement(): HTMLIonInputElementOrUndefined {
+function getFirstInputElement(): HTMLIonInputElement | undefined {
   return getInputElementAt(0);
 }
 
-function getLastInputElement(): HTMLIonInputElementOrUndefined {
-  return getInputElementAt(CODE_LENGTH - 1);
+function getLastInputElement(): HTMLIonInputElement | undefined {
+  return getInputElementAt(props.codeLength.default - 1);
 }
 
 function getInputElementIndex(input: HTMLIonInputElement): number {
@@ -128,7 +134,7 @@ function getInputElementIndex(input: HTMLIonInputElement): number {
   return inputs.value.findIndex((inputInstance: any) => inputInstance.$el === input);
 }
 
-function getPreviousInputElement(input: HTMLIonInputElement): HTMLIonInputElementOrUndefined {
+function getPreviousInputElement(input: HTMLIonInputElement): HTMLIonInputElement | undefined {
   const index = getInputElementIndex(input);
   if (index === -1) {
     return;
@@ -136,7 +142,7 @@ function getPreviousInputElement(input: HTMLIonInputElement): HTMLIonInputElemen
   return getInputElementAt(index - 1);
 }
 
-function getNextInputElement(input: HTMLIonInputElement): HTMLIonInputElementOrUndefined {
+function getNextInputElement(input: HTMLIonInputElement): HTMLIonInputElement | undefined {
   const index = getInputElementIndex(input);
   if (index === -1) {
     return;
@@ -144,11 +150,11 @@ function getNextInputElement(input: HTMLIonInputElement): HTMLIonInputElementOrU
   return getInputElementAt(index + 1);
 }
 
-async function getNativeInputElement(input: HTMLIonInputElement): Promise<HTMLInputElement> {
+async function getNativeInputElement(input: HTMLIonInputElement): Promise<HTMLInputElement | undefined> {
   return await input.getInputElement();
 }
 
-async function getInputElementFromNativeInputElement(nativeInput: HTMLInputElement): Promise<HTMLIonInputElementOrUndefined> {
+async function getInputElementFromNativeInputElement(nativeInput: HTMLInputElement): Promise<HTMLIonInputElement | undefined> {
   for (const ipt of inputs.value) {
     const nativeIpt = await getNativeInputElement(ipt.$el);
     if (nativeIpt === nativeInput) {
@@ -157,7 +163,7 @@ async function getInputElementFromNativeInputElement(nativeInput: HTMLInputEleme
   }
 }
 
-function setInputElementValue(input: HTMLIonInputElementOrUndefined, value: string): void {
+function setInputElementValue(input: HTMLIonInputElement | undefined, value: string): void {
   if (input === undefined) {
     return;
   }
@@ -168,7 +174,7 @@ function setInputElementValue(input: HTMLIonInputElementOrUndefined, value: stri
   codes.value[inputIndex] = value;
 }
 
-function focusInputElement(input: HTMLIonInputElementOrUndefined): void {
+function focusInputElement(input: HTMLIonInputElement | undefined): void {
   if (input) {
     input.setFocus();
   }
