@@ -254,7 +254,10 @@
               class="dropdown"
               v-model="email"
             />
-            <ion-button @click="openCodeValidationModal()">
+            <ion-button
+              @click="openCodeValidationModal()"
+              :disabled="!email"
+            >
               {{ $msTranslate('usage.components.codeValidation.open') }}
             </ion-button>
           </div>
@@ -372,6 +375,7 @@ const toastTheme = ref(MsReportTheme.Success);
 const themeManager = new ThemeManager(Theme.Light);
 const checkboxValue = ref(true);
 const addressInput = ref();
+const CODE_LENGTH = 6;
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
@@ -481,6 +485,7 @@ async function openCodeValidationModal(): Promise<void> {
     canDismiss: true,
     componentProps: {
       email: email.value,
+      codeLength: CODE_LENGTH,
     },
   });
   await modal.present();

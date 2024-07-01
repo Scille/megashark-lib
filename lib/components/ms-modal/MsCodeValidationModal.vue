@@ -1,34 +1,45 @@
 <template>
   <ms-modal
-    title="codeVerification.title"
-    :subtitle="{ key: 'codeVerification.subtitle', data: { email: email } }"
+    title="lib.components.msCodeValidationModal.title"
+    :subtitle="{ key: 'lib.components.msCodeValidationModal.subtitle', data: { email: email } }"
   >
     <div class="code-input">
-      <template
-        v-for="i in codeLength"
-        :key="`code${i - 1}`"
+      <div class="code-input-list">
+        <template
+          v-for="i in codeLength || 6"
+          :key="`code${i - 1}`"
+        >
+          <ion-input
+            ref="inputs"
+            v-model="codes[i - 1]"
+            class="code-input-list__item title-h1-xl"
+            :class="{ 'has-values': codes[i - 1] !== '' }"
+            type="text"
+            inputmode="numeric"
+            :maxlength="1"
+            @keydown="onKeydown($event)"
+            @ion-input="onIonInput($event)"
+            @keyup.backspace="onKeyUpBackspace($event)"
+            @paste="onPaste($event)"
+          />
+        </template>
+      </div>
+      <div
+        class="code-input-error"
+        v-if="codeError"
       >
-        <ion-input
-          ref="inputs"
-          v-model="codes[i - 1]"
-          class="code-input__item title-h1-xl"
-          :class="{ 'has-values': codes[i - 1] !== '' }"
-          type="text"
-          inputmode="numeric"
-          :maxlength="1"
-          @keydown="onKeydown($event)"
-          @ion-input="onIonInput($event)"
-          @keyup.backspace="onKeyUpBackspace($event)"
-          @paste="onPaste($event)"
-        />
-      </template>
+        <ion-text class="subtitle-sm">{{ $msTranslate('lib.components.msCodeValidationModal.error') }}</ion-text>
+      </div>
     </div>
     <div class="code-footer">
-      <div class="bottomtext body">
-        {{ $msTranslate('codeVerification.codeNotReceivedQuestion') }}
+      <div class="code-footer__link body">
+        {{ $msTranslate('lib.components.msCodeValidationModal.codeNotReceivedQuestion') }}
       </div>
-      <div class="bottomtext body">
-        {{ $msTranslate('codeVerification.bottomOptions') }}
+      <ion-text class="code-footer__text">
+        {{ $msTranslate('lib.components.msCodeValidationModal.or') }}
+      </ion-text>
+      <div class="code-footer__link body">
+        {{ $msTranslate('lib.components.msCodeValidationModal.bottomOptions') }}
       </div>
     </div>
   </ms-modal>
@@ -37,11 +48,12 @@
 <script setup lang="ts">
 import MsModal from '@lib/components/ms-modal/MsModal.vue';
 import { computed, nextTick, onMounted, ref } from 'vue';
-import { IonInput } from '@ionic/vue';
+import { IonInput, IonText } from '@ionic/vue';
 
 const inputs = ref();
 const codes = ref<string[]>([]);
 const isCodeValid = computed(() => isValidCode(codes.value.join('')));
+const codeError = ref<boolean>(false);
 
 onMounted(async (): Promise<void> => {
   await nextTick();
@@ -49,8 +61,8 @@ onMounted(async (): Promise<void> => {
 });
 
 const props = defineProps<{
-  codeLength: { type: number; default: 6 };
   email: string;
+  codeLength: number;
 }>();
 
 async function onPaste(event: ClipboardEvent): Promise<void> {
@@ -74,11 +86,10 @@ async function onIonInput(event: CustomEvent): Promise<void> {
 }
 
 async function checkCode(): Promise<boolean> {
-  const code = codes.value.join('');
   if (isCodeValid.value) {
     return true;
   } else {
-    return false;
+    return (codeError.value = true);
   }
 }
 
@@ -109,7 +120,7 @@ function isDigits(value: string): boolean {
 }
 
 function isValidCode(value: string = ''): boolean {
-  return value.length === props.codeLength.default && isDigits(value);
+  return value.length === props.codeLength && isDigits(value);
 }
 
 function getInputElementAt(index: number): HTMLIonInputElement | undefined {
@@ -124,7 +135,7 @@ function getFirstInputElement(): HTMLIonInputElement | undefined {
 }
 
 function getLastInputElement(): HTMLIonInputElement | undefined {
-  return getInputElementAt(props.codeLength.default - 1);
+  return getInputElementAt(props.codeLength - 1);
 }
 
 function getInputElementIndex(input: HTMLIonInputElement): number {
@@ -194,7 +205,7 @@ function focusInputElement(input: HTMLIonInputElement | undefined): void {
   }
 }
 
-.code-input {
+.code-input-list {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -230,15 +241,36 @@ function focusInputElement(input: HTMLIonInputElement | undefined): void {
     }
   }
 }
-.code-footer {
+
+.code-input-error {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 0.5rem;
-  margin-top: 2.5rem;
+  margin-top: 1rem;
+
+  ion-text {
+    color: var(--parsec-color-light-danger-700);
+  }
 }
 
-.bottomtext {
-  color: var(--parsec-color-light-secondary-grey);
-  text-align: center;
+.code-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+
+  &__link {
+    color: var(--parsec-color-light-primary-600);
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__text {
+    color: var(--parsec-color-light-secondary-grey);
+  }
 }
 </style>

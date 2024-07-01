@@ -37,6 +37,15 @@
       "msSpinner": {
         "loading": "Loading..."
       },
+      "msCodeValidationModal": {
+        "title": "Code validation",
+        "subtitle": "A code was sent to the address {email}",
+        "open": "Open code validation",
+        "error": "The code is incorrect",
+        "codeNotReceivedQuestion": "Code not received?",
+        "or": "or",
+        "bottomOptions": "Send a new code"
+      },
       "msBooleanToogle": {
         "yes": "Yes",
         "no": "No"
