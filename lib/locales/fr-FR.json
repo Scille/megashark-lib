@@ -37,6 +37,15 @@
       "msSpinner": {
         "loading": "Chargement..."
       },
+      "msCodeValidationModal": {
+        "title": "Validation de code",
+        "subtitle": "Un code vous a été envoyé par email à l'adresse: {email}",
+        "open": "Ouvrir la demande de code",
+        "error": "Le code saisi est incorrect",
+        "codeNotReceivedQuestion": "Vous n'avez pas reçu de code ?",
+        "or": "ou",
+        "bottomOptions": "Renvoyer le code"
+      },
       "msBooleanToogle": {
         "yes": "Oui",
         "no": "Non"

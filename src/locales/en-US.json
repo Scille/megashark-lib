@@ -168,6 +168,10 @@
         "title": "Address auto-complete",
         "label": "Enter an address",
         "placeholder": "42 Wallaby Way, Sydney, NSW, Australia"
+      },
+      "codeValidation": {
+        "title": "Code validation",
+        "open": "Open modal"
       }
     }
   }

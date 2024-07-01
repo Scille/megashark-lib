@@ -246,6 +246,23 @@
           </div>
         </ion-item-divider>
 
+        <!-- dropdown -->
+        <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.codeValidation.title') }}</ion-label>
+          <div class="code-validation">
+            <ms-input
+              class="dropdown"
+              v-model="email"
+            />
+            <ion-button
+              @click="openCodeValidationModal()"
+              :disabled="!email"
+            >
+              {{ $msTranslate('usage.components.codeValidation.open') }}
+            </ion-button>
+          </div>
+        </ion-item-divider>
+
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.address.title') }}</ion-label>
           <div class="example-data">
@@ -274,6 +291,8 @@ import {
   MsDropdown,
   MsImage,
   MsChoosePasswordInput,
+  MsCodeValidationModal,
+  MsModalResult,
   MsInput,
   MsPasswordInput,
   MsSearchInput,
@@ -350,11 +369,13 @@ const passwordInputExample = ref('');
 const searchIInputExample = ref('');
 const msReportTheme = ref(MsReportTheme.Info);
 const toastOffset = ref('0');
+const email = ref();
 const toastManager = new ToastManager();
 const toastTheme = ref(MsReportTheme.Success);
 const themeManager = new ThemeManager(Theme.Light);
 const checkboxValue = ref(true);
 const addressInput = ref();
+const CODE_LENGTH = 6;
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
@@ -458,6 +479,23 @@ async function openToast(): Promise<void> {
   });
 }
 
+async function openCodeValidationModal(): Promise<void> {
+  const modal = await modalController.create({
+    component: MsCodeValidationModal,
+    canDismiss: true,
+    componentProps: {
+      email: email.value,
+      codeLength: CODE_LENGTH,
+    },
+  });
+  await modal.present();
+  const result = await modal.onWillDismiss();
+  await modal.dismiss();
+  if (result.role === MsModalResult.Confirm) {
+    console.log('token', result.data);
+  }
+}
+
 async function onAddressSelected(addr: Address): Promise<void> {
   addressInput.value.setValue(`${addr.address} ${addr.address2 ? addr.address2 : ''}, ${addr.postalCode} ${addr.city}, ${addr.country}`);
 }
@@ -483,6 +521,12 @@ async function onAddressSelected(addr: Address): Promise<void> {
   margin: 0.5rem;
   gap: 2.5em;
   flex-wrap: wrap;
+}
+
+.code-validation {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .address-input {
