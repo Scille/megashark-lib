@@ -159,4 +159,4 @@ export class StripePlugin {
 }
 
 // Re-export stripe types
-export type { BillingDetails, PaymentMethod, StripeCardNumberElementChangeEvent } from '@stripe/stripe-js';
+export type { BillingDetails, PaymentMethod, PaymentMethodResult, StripeCardNumberElementChangeEvent } from '@stripe/stripe-js';

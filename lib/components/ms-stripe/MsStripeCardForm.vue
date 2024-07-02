@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, inject } from 'vue';
 import { MsStripeCardElement } from '@lib/components/ms-stripe';
-import { StripeService, StripeServiceKey, BillingDetails, PaymentMethod } from '@lib/services/stripe';
+import { StripeService, StripeServiceKey, BillingDetails, PaymentMethodResult } from '@lib/services/stripe';
 
 const cardNumberElement = ref();
 const cardExpiryElement = ref();
@@ -40,27 +40,18 @@ onMounted(async () => {
   }
 });
 
-async function submit(billingDetails?: BillingDetails): Promise<PaymentMethod | undefined> {
+async function submit(billingDetails?: BillingDetails): Promise<PaymentMethodResult | undefined> {
   if (isValid.value) {
-    try {
-      // register the payment method
-      const data: any = {
-        type: 'card',
-        card: cardNumberElement.value.getStripeElement(),
-      };
-      if (billingDetails) {
-        // eslint-disable-next-line camelcase
-        data.billing_details = billingDetails;
-      }
-      const result = await stripeService.createPaymentMethod(data);
-      // TODO: handle the payment method and errors here
-      if (result.error) {
-        throw new Error('Error submitting credit card data');
-      }
-      return result.paymentMethod;
-    } catch (error) {
-      console.error('Error submitting credit card data');
+    const data: any = {
+      type: 'card',
+      card: cardNumberElement.value.getStripeElement(),
+    };
+    if (billingDetails) {
+      // eslint-disable-next-line camelcase
+      data.billing_details = billingDetails;
     }
+
+    return await stripeService.createPaymentMethod(data);
   }
 }
 
