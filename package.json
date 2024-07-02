@@ -24,12 +24,13 @@
     "lint": "eslint . --max-warnings=0 && vue-tsc --noEmit",
     "prepublishOnly": "npm run build",
     "prepare": "npm run build",
-    "test:unit": "vitest run --dom",
+    "test:unit": "vitest run",
     "prettier:check": "prettier . --check",
     "prettier:fix": "prettier . --write"
   },
   "dependencies": {
     "@ionic/vue": "^7.0.0",
+    "@stripe/stripe-js": "^4.0.0",
     "axios": "^1.7.2",
     "ionicons": "^7.0.0",
     "luxon": "^3.4.4",
@@ -65,6 +66,7 @@
     "eslint-plugin-vue": "^9.18.1",
     "eslint-plugin-vue-scoped-css": "^2.5.1",
     "happy-dom": "^14.7.1",
+    "jsdom": "^24.1.0",
     "prettier": "3.1.0",
     "prettier-plugin-organize-imports": "^3.2.4",
     "sass": "^1.69.5",

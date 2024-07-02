@@ -38,3 +38,6 @@ export * from '@lib/components/ms-tooltip';
 
 // ** ms-checkbox ** //
 export * from '@lib/components/ms-checkbox';
+
+// ** ms-stripe ** //
+export * from '@lib/components/ms-stripe';

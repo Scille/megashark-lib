@@ -9,7 +9,7 @@
             class="dropdown"
             :options="localeOptions"
             :default-option-key="I18n.getLocale()"
-            @change="I18n.changeLocale($event.option.key)"
+            @change="changeLocale"
           />
         </ion-item-divider>
 
@@ -259,6 +259,13 @@
             />
           </div>
         </ion-item-divider>
+
+        <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.stripe.title') }}</ion-label>
+          <div class="example-data">
+            <ms-stripe-card-form class="stripe-card-form" />
+          </div>
+        </ion-item-divider>
       </div>
     </ion-content>
   </ion-page>
@@ -313,13 +320,16 @@ import {
   DocumentImport,
   MsCheckbox,
   MsAddressInput,
+  MsStripeCardForm,
+  MsDropdownChangeEvent,
 } from '@lib/components';
 import { I18n, LocaleOptions } from '@lib/services/translation';
 import { DateTime } from 'luxon';
-import { ref, Ref } from 'vue';
+import { inject, ref, Ref } from 'vue';
 import SettingsModal from '@/views/settings/SettingsModal.vue';
 import { Address, GEOAPIFY_MOCKED_API_KEY, ThemeOptions, ToastManager } from '@lib/services';
 import { Theme, ThemeManager } from '@lib/services';
+import { StripeService, StripeServiceKey } from '@lib/services';
 
 const referenceValue = ref<Answer>(Answer.No);
 
@@ -344,6 +354,8 @@ const msDropdownOptions: MsOptions = new MsOptions([
 
 const localeOptions: MsOptions = new MsOptions(LocaleOptions);
 const msThemeOptions: MsOptions = new MsOptions(ThemeOptions);
+
+const stripeService: StripeService = inject(StripeServiceKey)!;
 
 const inputExample = ref('');
 const passwordInputExample = ref('');
@@ -461,6 +473,11 @@ async function openToast(): Promise<void> {
 async function onAddressSelected(addr: Address): Promise<void> {
   addressInput.value.setValue(`${addr.address} ${addr.address2 ? addr.address2 : ''}, ${addr.postalCode} ${addr.city}, ${addr.country}`);
 }
+
+async function changeLocale(event: MsDropdownChangeEvent): Promise<void> {
+  I18n.changeLocale(event.option.key);
+  stripeService.updateLocale(event.option.key);
+}
 </script>
 
 <style scoped>
@@ -486,6 +503,10 @@ async function onAddressSelected(addr: Address): Promise<void> {
 }
 
 .address-input {
+  width: 50em;
+}
+
+.stripe-card-form {
   width: 50em;
 }
 </style>
