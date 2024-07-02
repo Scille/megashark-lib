@@ -168,6 +168,9 @@
         "title": "Auto-complétion d'adresse",
         "label": "Entrez une adresse",
         "placeholder": "42 Wallaby Way, Sydney, NSW, Australia"
+      },
+      "stripe": {
+        "title": "Carte bancaire avec Stripe"
       }
     }
   }
