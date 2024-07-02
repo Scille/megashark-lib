@@ -35,7 +35,7 @@ const config: UserConfig = {
       '@lib': path.resolve(__dirname, './lib'),
       '@tests': path.resolve(__dirname, './tests'),
     },
-    environment: 'happy-dom',
+    environment: 'jsdom',
   },
   build: {
     manifest: true,
