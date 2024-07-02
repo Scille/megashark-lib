@@ -9,7 +9,7 @@
       :disabled="modelValue === Answer.Yes"
       @click="$emit('update:modelValue', Answer.No)"
     >
-      {{ $msTranslate(yesLabel) || $msTranslate('lib.components.msBooleanToogle.yes') }}
+      {{ yesLabel ? $msTranslate(yesLabel) : $msTranslate('lib.components.msBooleanToogle.yes') }}
     </ion-text>
     <ion-text
       type="button"
@@ -18,7 +18,7 @@
       :class="{ 'button-disabled': modelValue === Answer.Yes }"
       @click="$emit('update:modelValue', Answer.Yes)"
     >
-      {{ $msTranslate(noLabel) || $msTranslate('lib.components.msBooleanToogle.no') }}
+      {{ noLabel ? $msTranslate(noLabel) : $msTranslate('lib.components.msBooleanToogle.no') }}
     </ion-text>
   </div>
 </template>
@@ -26,6 +26,7 @@
 <script setup lang="ts">
 import { Answer } from '@lib/components/ms-types';
 import { Translatable } from '@lib/services';
+import { IonText } from '@ionic/vue';
 
 defineProps<{
   modelValue: Answer;
@@ -54,6 +55,7 @@ defineEmits<{
   position: relative;
   z-index: 1;
   transition: background 150ms ease-in-out;
+  user-select: none;
 
   &:not(.button-disabled) {
     cursor: pointer;
