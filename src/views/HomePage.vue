@@ -246,6 +246,15 @@
           </div>
         </ion-item-divider>
 
+        <!-- code validation -->
+        <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.codeValidation.title') }}</ion-label>
+          <ms-code-validation-input
+            :code-length="VALID_CODE.length"
+            :validation-function="validationFunction"
+          />
+        </ion-item-divider>
+
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.address.title') }}</ion-label>
           <div class="example-data">
@@ -281,6 +290,7 @@ import {
   MsDropdown,
   MsImage,
   MsChoosePasswordInput,
+  MsCodeValidationInput,
   MsInput,
   MsPasswordInput,
   MsSearchInput,
@@ -367,6 +377,7 @@ const toastTheme = ref(MsReportTheme.Success);
 const themeManager = new ThemeManager(Theme.Light);
 const checkboxValue = ref(true);
 const addressInput = ref();
+const VALID_CODE = ['1', '2', '3', '4', '5', '7'];
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
@@ -477,6 +488,10 @@ async function onAddressSelected(addr: Address): Promise<void> {
 async function changeLocale(event: MsDropdownChangeEvent): Promise<void> {
   I18n.changeLocale(event.option.key);
   stripeService.updateLocale(event.option.key);
+}
+
+async function validationFunction(code: Array<string>): Promise<boolean> {
+  return code.length === VALID_CODE.length && code.every((value, index) => value === VALID_CODE[index]);
 }
 </script>
 

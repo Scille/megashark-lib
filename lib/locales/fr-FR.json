@@ -11,6 +11,11 @@
         "noMatch": "Ne correspondent pas",
         "criteria": "Assurez-vous qu'il correspond à un niveau fort : évitez les répétitions, les mots trop communs et les suites."
       },
+      "msCodeValidationInput": {
+        "title": "Validation de code",
+        "codeValid": "Le code est valide",
+        "codeNotValid": "Le code n'est pas valide"
+      },
       "msModal": {
         "cancelButtonLabel": "Annuler",
         "confirmButtonLabel": "Confirmer"

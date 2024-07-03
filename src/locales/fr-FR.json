@@ -171,6 +171,9 @@
       },
       "stripe": {
         "title": "Carte bancaire avec Stripe"
+      },
+      "codeValidation": {
+        "title": "Validation de code"
       }
     }
   }

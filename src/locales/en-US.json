@@ -171,6 +171,9 @@
       },
       "stripe": {
         "title": "Credit card with Stripe"
+      },
+      "codeValidation": {
+        "title": "Code validation"
       }
     }
   }
