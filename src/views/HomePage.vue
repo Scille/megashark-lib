@@ -322,42 +322,6 @@
             </div>
           </div>
         </ion-item-divider>
-
-        <!-- code validation -->
-        <ion-item-divider class="example-divider">
-          <ion-label class="title-h2">{{ $msTranslate('usage.components.codeValidation.title') }}</ion-label>
-          <div class="example-divider-content">
-            <ms-code-validation-input
-              :code-length="VALID_CODE.length"
-              :validation-function="validationFunction"
-            />
-          </div>
-        </ion-item-divider>
-
-        <ion-item-divider class="example-divider">
-          <ion-label class="title-h2">{{ $msTranslate('usage.components.address.title') }}</ion-label>
-          <div class="example-divider-content">
-            <div class="example-data">
-              <ms-address-input
-                class="address-input"
-                ref="addressInput"
-                label="usage.components.address.label"
-                placeholder="usage.components.address.placeholder"
-                @address-selected="onAddressSelected"
-                :geoapify-api-key="GEOAPIFY_MOCKED_API_KEY"
-              />
-            </div>
-          </div>
-        </ion-item-divider>
-
-        <ion-item-divider class="example-divider">
-          <ion-label class="title-h2">{{ $msTranslate('usage.components.stripe.title') }}</ion-label>
-          <div class="example-divider-content">
-            <div class="example-data">
-              <ms-stripe-card-form class="stripe-card-form" />
-            </div>
-          </div>
-        </ion-item-divider>
       </div>
     </ion-content>
   </ion-page>

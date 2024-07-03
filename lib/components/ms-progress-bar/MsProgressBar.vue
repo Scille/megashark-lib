@@ -18,10 +18,18 @@
 import { computed } from 'vue';
 import { IonText } from '@ionic/vue';
 
-const props = defineProps<{
-  progress: number;
-  showProgressText?: boolean;
-}>();
+const props = defineProps({
+  progress: {
+    type: Number,
+    default: 0,
+    validator: function (value: number) {
+      return value >= 0 && value <= 100;
+    },
+  },
+  showProgressText: {
+    type: Boolean,
+  },
+});
 
 const progressWidthStyle = computed(() => `${props.progress}%`);
 </script>
@@ -38,7 +46,6 @@ const progressWidthStyle = computed(() => `${props.progress}%`);
   flex-direction: column;
   align-items: flex-start;
   width: 16em;
-  // width: v-bind(width);
   padding: 0.125rem;
   height: 0.725rem;
   background: var(--parsec-color-light-secondary-premiere);
