@@ -174,7 +174,8 @@
         "placeholder": "42 Wallaby Way, Sydney, NSW, Australia"
       },
       "stripe": {
-        "title": "Carte bancaire avec Stripe"
+        "title": "Carte bancaire avec Stripe",
+        "submit": "Tester"
       },
       "codeValidation": {
         "title": "Validation de code"

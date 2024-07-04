@@ -318,7 +318,24 @@
           <ion-label class="title-h2">{{ $msTranslate('usage.components.stripe.title') }}</ion-label>
           <div class="example-divider-content">
             <div class="example-data">
-              <ms-stripe-card-form class="stripe-card-form" />
+              <ms-stripe-card-form
+                class="stripe-card-form"
+                ref="stripeCardForm"
+              />
+              <ion-button
+                :disabled="!stripeCardForm?.isValid"
+                @click="createStripeCard"
+              >
+                {{ $msTranslate('usage.components.stripe.submit') }}
+              </ion-button>
+            </div>
+          </div>
+          <div
+            v-if="stripeCardDetails"
+            class="example-divider-content"
+          >
+            <div class="example-data">
+              <ms-stripe-card-details :card="stripeCardDetails" />
             </div>
           </div>
         </ion-item-divider>
@@ -378,6 +395,7 @@ import {
   MsCheckbox,
   MsAddressInput,
   MsStripeCardForm,
+  MsStripeCardDetails,
   MsDropdownChangeEvent,
   MsProgressBar,
 } from '@lib/components';
@@ -385,9 +403,18 @@ import { I18n, LocaleOptions } from '@lib/services/translation';
 import { DateTime } from 'luxon';
 import { inject, ref, Ref, onMounted } from 'vue';
 import SettingsModal from '@/views/settings/SettingsModal.vue';
-import { Address, GEOAPIFY_MOCKED_API_KEY, ThemeOptions, ToastManager } from '@lib/services';
-import { Theme, ThemeManager } from '@lib/services';
-import { StripeService, StripeServiceKey } from '@lib/services';
+import {
+  Address,
+  GEOAPIFY_MOCKED_API_KEY,
+  ThemeOptions,
+  ToastManager,
+  Theme,
+  ThemeManager,
+  StripeService,
+  StripeServiceKey,
+  PaymentMethod,
+  PaymentMethodResult,
+} from '@lib/services';
 
 const referenceValue = ref<Answer>(Answer.No);
 
@@ -427,6 +454,8 @@ const checkboxValue = ref(true);
 const addressInput = ref();
 const VALID_CODE = ['1', '2', '3', '4', '5', '7'];
 const progress = ref(0);
+const stripeCardForm = ref();
+const stripeCardDetails = ref<PaymentMethod.Card>();
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
@@ -548,6 +577,11 @@ async function changeLocale(event: MsDropdownChangeEvent): Promise<void> {
 
 async function validationFunction(code: Array<string>): Promise<boolean> {
   return code.length === VALID_CODE.length && code.every((value, index) => value === VALID_CODE[index]);
+}
+
+async function createStripeCard(): Promise<void> {
+  const paymentMethod: PaymentMethodResult = await stripeCardForm.value.submit();
+  stripeCardDetails.value = paymentMethod?.paymentMethod?.card;
 }
 </script>
 
