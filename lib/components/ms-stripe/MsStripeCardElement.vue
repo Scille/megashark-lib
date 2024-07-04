@@ -36,7 +36,7 @@ import {
   StripeServiceKey,
   StripeCardNumberElementChangeEvent,
 } from '@lib/services/stripe';
-import { cardOutline, lockClosedOutline, calendarNumberOutline } from 'ionicons/icons';
+import { card, lockClosed, calendarNumber } from 'ionicons/icons';
 import { LogoMastercard, LogoVisa, MsImage } from '@lib/components/ms-image';
 import { inject, onMounted, onUnmounted, ref } from 'vue';
 
@@ -85,11 +85,11 @@ function _getBrandIcon(): string {
 function _getIcon(): string {
   switch (props.type) {
     case 'cardNumber':
-      return cardOutline;
+      return card;
     case 'cardExpiry':
-      return calendarNumberOutline;
+      return calendarNumber;
     case 'cardCvc':
-      return lockClosedOutline;
+      return lockClosed;
     default:
       return '';
   }
@@ -121,11 +121,19 @@ defineExpose({
 .input-content {
   padding: 0 1rem;
   align-items: center;
+  flex-grow: unset;
+
+  &:has(.StripeElement--focus) {
+    border: 1px solid var(--parsec-color-light-primary-400);
+    background: var(--parsec-color-light-secondary-white);
+    outline: 0.25rem solid var(--parsec-color-light-outline);
+  }
 }
 
 .icon {
   width: 1.25em;
   font-size: 1.25em;
+  color: var(--parsec-color-light-secondary-light);
 }
 
 .form-error {
