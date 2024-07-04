@@ -36,6 +36,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emits = defineEmits<{
   (e: 'addressSelected', address: Address): void;
+  (e: 'change', value: string): void;
 }>();
 
 defineExpose({
@@ -87,6 +88,7 @@ async function onFocusLost(): Promise<void> {
 }
 
 async function onChange(query: string): Promise<void> {
+  emits('change', query);
   if (timeoutId !== undefined) {
     window.clearTimeout(timeoutId);
   }
