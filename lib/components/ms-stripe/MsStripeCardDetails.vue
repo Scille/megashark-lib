@@ -24,7 +24,9 @@ const digits = `**** **** **** ${props.card.last4}`;
 
 const expirationDate = DateTime.local(props.card.exp_year, props.card.exp_month).toFormat('MM/yy');
 
-const brandCSS = computed(() => `url('${getBrandImageUrl(props.card.brand)}')`);
+// Using " for the url() is important because while the value gets url encoded, it means
+// that double-quotes are encoded to single quotes, which leads to `url('%3Csvg width='250'...')`
+const brandCSS = computed(() => `url("${getBrandImageUrl(props.card.brand)}")`);
 
 function getBrandImageUrl(brand: string): string {
   switch (brand) {
