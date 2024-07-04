@@ -580,8 +580,8 @@ async function validationFunction(code: Array<string>): Promise<boolean> {
 }
 
 async function createStripeCard(): Promise<void> {
-  const paymentMethod: PaymentMethodResult = await stripeCardForm.value.submit();
-  stripeCardDetails.value = paymentMethod?.paymentMethod?.card;
+  const result: PaymentMethodResult = await stripeCardForm.value.submit();
+  stripeCardDetails.value = result?.paymentMethod?.card;
 }
 </script>
 

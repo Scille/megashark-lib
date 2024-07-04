@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { PaymentMethod } from '@stripe/stripe-js';
+import { PaymentMethod } from '@lib/services';
 import MastercardCard from '@lib/assets/images/card-mastercard.svg';
 import VisaCard from '@lib/assets/images/card-visa.svg';
 import { DateTime } from 'luxon';
