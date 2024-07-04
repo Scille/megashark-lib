@@ -5,14 +5,16 @@
       ref="cardNumberElement"
       type="cardNumber"
     />
-    <ms-stripe-card-element
-      ref="cardExpiryElement"
-      type="cardExpiry"
-    />
-    <ms-stripe-card-element
-      ref="cardCvcElement"
-      type="cardCvc"
-    />
+    <div class="form-row">
+      <ms-stripe-card-element
+        ref="cardExpiryElement"
+        type="cardExpiry"
+      />
+      <ms-stripe-card-element
+        ref="cardCvcElement"
+        type="cardCvc"
+      />
+    </div>
   </div>
 </template>
 
@@ -66,5 +68,15 @@ defineExpose({
   gap: 1em;
   display: flex;
   flex-direction: column;
+
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+
+    > * {
+      flex: 1;
+    }
+  }
 }
 </style>
