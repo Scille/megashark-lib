@@ -5,7 +5,7 @@ import router from '@/router';
 import { createApp } from 'vue';
 
 import { IonicVue } from '@ionic/vue';
-import { EnvironmentType, MegaSharkPlugin } from '@megashark';
+import { Environment, EnvironmentType, MegaSharkPlugin } from '@megashark';
 
 /* Theme variables */
 // Manual import since we're not using the built library
@@ -22,7 +22,7 @@ const megasharkPlugin = new MegaSharkPlugin({
     },
   },
   stripeConfig: {
-    publishableKey: 'pk_test_FAKE',
+    publishableKey: Environment.get('STRIPE_PUBLISHABLE_KEY', 'pk_test_FAKE') ?? '',
     environment: EnvironmentType.Development,
     locale: 'en-US',
   },

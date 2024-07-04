@@ -174,7 +174,8 @@
         "placeholder": "42 Wallaby Way, Sydney, NSW, Australia"
       },
       "stripe": {
-        "title": "Credit card with Stripe"
+        "title": "Credit card with Stripe",
+        "submit": "Test"
       },
       "codeValidation": {
         "title": "Code validation"
