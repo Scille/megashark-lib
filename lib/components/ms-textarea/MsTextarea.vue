@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { Translatable } from '@lib/services/translation';
+import { Translatable } from '@lib/services';
 import { IonTextarea } from '@ionic/vue';
 import { ref, watch, onUnmounted, useAttrs } from 'vue';
 

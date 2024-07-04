@@ -31,7 +31,7 @@
 import MsDropdownPopover from '@lib/components/ms-dropdown/MsDropdownPopover.vue';
 import { MsDropdownChangeEvent } from '@lib/components/ms-dropdown/types';
 import { MsAppearance, MsOption, MsOptions } from '@lib/components/ms-types';
-import { Translatable } from '@lib/services/translation';
+import { Translatable } from '@lib/services';
 import { IonButton, IonIcon, IonText, popoverController } from '@ionic/vue';
 import { PositionAlign } from '@ionic/core';
 import { caretDown, chevronDown } from 'ionicons/icons';

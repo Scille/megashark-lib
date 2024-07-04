@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import MsWizardStepperStep from '@lib/components/ms-stepper/MsWizardStepperStep.vue';
 import { MsStepStatus } from '@lib/components/ms-stepper/types';
-import { Translatable } from '@lib/services/translation';
+import { Translatable } from '@lib/services';
 import { IonText } from '@ionic/vue';
 
 defineProps<{

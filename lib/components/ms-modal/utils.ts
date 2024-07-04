@@ -6,7 +6,7 @@ import MsQuestionModal from '@lib/components/ms-modal/MsQuestionModal.vue';
 import MsTextInputModal from '@lib/components/ms-modal/MsTextInputModal.vue';
 import { GetPasswordOptions, GetTextOptions, MsModalResult } from '@lib/components/ms-modal/types';
 import { Answer } from '@lib/components/ms-types';
-import { Translatable } from '@lib/services/translation';
+import { Translatable } from '@lib/services';
 
 export interface QuestionOptions {
   yesText?: Translatable;

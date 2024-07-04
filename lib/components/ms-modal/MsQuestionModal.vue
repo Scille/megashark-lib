@@ -24,7 +24,7 @@
 import MsModal from '@lib/components/ms-modal/MsModal.vue';
 import { MsModalResult } from '@lib/components/ms-modal/types';
 import { MsReportTheme } from '@lib/components/ms-types';
-import { Translatable } from '@lib/services/translation';
+import { Translatable } from '@lib/services';
 import { modalController } from '@ionic/vue';
 
 defineProps<{

@@ -1,7 +1,7 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
 import MsTooltip from '@lib/components/ms-tooltip/MsTooltip.vue';
-import { Translatable } from '@lib/services/translation';
+import { Translatable } from '@lib/services';
 
 import { popoverController } from '@ionic/vue';
 

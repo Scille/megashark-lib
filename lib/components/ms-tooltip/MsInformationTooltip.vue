@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { openInformationTooltip } from '@lib/components/ms-tooltip/utils';
-import { Translatable } from '@lib/services/translation';
+import { Translatable } from '@lib/services';
 import { IonIcon } from '@ionic/vue';
 import { informationCircle } from 'ionicons/icons';
 

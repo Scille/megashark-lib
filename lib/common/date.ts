@@ -1,6 +1,6 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
-import { I18n, Translatable } from '@lib/services/translation';
+import { I18n, Translatable } from '@lib/services';
 import { DateTime } from 'luxon';
 
 export function formatTimeSince(

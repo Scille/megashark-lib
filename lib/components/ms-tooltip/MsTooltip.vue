@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { MsImage, WavyCaretUp } from '@lib/components/ms-image';
-import { Translatable } from '@lib/services/translation';
+import { Translatable } from '@lib/services';
 import { IonText } from '@ionic/vue';
 
 defineProps<{

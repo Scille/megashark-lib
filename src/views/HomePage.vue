@@ -187,6 +187,13 @@
                 ref="choosePasswordInput"
               />
             </ion-item-divider>
+            <ion-item-divider class="example-divider-item">
+              <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msPhoneNumberInput.title') }}</ion-label>
+              <ms-phone-number-input
+                @on-enter-keyup="onEnterKeyup($event)"
+                ref="phoneNumberInput"
+              />
+            </ion-item-divider>
           </div>
         </ion-item-divider>
 
@@ -411,16 +418,18 @@ import {
   DocumentImport,
   MsCheckbox,
   MsAddressInput,
+  MsPhoneNumberInput,
   MsStripeCardForm,
   MsStripeCardDetails,
   MsDropdownChangeEvent,
   MsProgressBar,
 } from '@lib/components';
-import { I18n, LocaleOptions } from '@lib/services/translation';
 import { DateTime } from 'luxon';
 import { inject, ref, Ref, onMounted } from 'vue';
 import SettingsModal from '@/views/settings/SettingsModal.vue';
 import {
+  I18n,
+  LocaleOptions,
   Address,
   GEOAPIFY_MOCKED_API_KEY,
   ThemeOptions,
@@ -472,6 +481,7 @@ const toastTheme = ref(MsReportTheme.Success);
 const themeManager = new ThemeManager(Theme.Light);
 const checkboxValue = ref(true);
 const addressInput = ref();
+const phoneNumberInput = ref();
 const VALID_CODE = ['1', '2', '3', '4', '5', '7'];
 const progress = ref(0);
 const stripeCardForm = ref();

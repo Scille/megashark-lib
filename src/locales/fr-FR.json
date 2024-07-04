@@ -59,6 +59,9 @@
           "title": "Text area input",
           "label": "Exemple",
           "placeholder": "exemple..."
+        },
+        "msPhoneNumberInput": {
+          "title": "Phone number input"
         }
       },
       "modals": {

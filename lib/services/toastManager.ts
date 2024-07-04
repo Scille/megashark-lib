@@ -2,7 +2,7 @@
 
 import { toastController } from '@ionic/vue';
 import { MsReportTheme } from '@lib/components';
-import { I18n, Translatable } from '@lib/services/translation';
+import { I18n, Translatable } from '@lib/services';
 import { checkmark, closeCircle, information, warning } from 'ionicons/icons';
 
 const DEFAULT_TOAST_DURATION = 5000;
