@@ -31,6 +31,7 @@
         @ion-blur="validate(modelValue || '')"
         @keyup.enter="enterPressed($event.target.value)"
         :disabled="$props.disabled"
+        v-bind="$attrs"
       />
     </div>
     <span
