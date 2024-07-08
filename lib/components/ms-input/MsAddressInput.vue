@@ -8,6 +8,7 @@
     @change="onChange"
     @ion-blur="onFocusLost"
     v-model="address"
+    :debounce="timeBeforeQuery"
   />
 </template>
 
@@ -46,7 +47,6 @@ defineExpose({
 const geoapifyApi = new GeoapifyAPI(props.geoapifyApiKey);
 const address = ref('');
 let querying = false;
-let timeoutId: number | undefined = undefined;
 
 function setValue(value: string): void {
   address.value = value;
@@ -89,15 +89,9 @@ async function onFocusLost(): Promise<void> {
 
 async function onChange(query: string): Promise<void> {
   emits('change', query);
-  if (timeoutId !== undefined) {
-    window.clearTimeout(timeoutId);
-  }
   if (query.length < props.minimumQueryLength || querying || props.queryOnFocusLost) {
     return;
   }
-  timeoutId = window.setTimeout(async () => {
-    timeoutId = undefined;
-    await doQuery(query);
-  }, props.timeBeforeQuery);
+  await doQuery(query);
 }
 </script>
