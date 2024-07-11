@@ -33,6 +33,7 @@ import { MsDropdownChangeEvent } from '@lib/components/ms-dropdown/types';
 import { MsAppearance, MsOption, MsOptions } from '@lib/components/ms-types';
 import { Translatable } from '@lib/services/translation';
 import { IonButton, IonIcon, IonText, popoverController } from '@ionic/vue';
+import { PositionAlign } from '@ionic/core';
 import { caretDown, chevronDown } from 'ionicons/icons';
 import { Ref, ref, computed } from 'vue';
 
@@ -43,6 +44,7 @@ const props = defineProps<{
   options: MsOptions;
   disabled?: boolean;
   appearance?: MsAppearance;
+  alignment?: PositionAlign;
 }>();
 
 const emits = defineEmits<{
@@ -74,7 +76,7 @@ async function openPopover(event: Event): Promise<void> {
       defaultOptionKey: selectedOption.value?.key,
     },
     event: event,
-    alignment: 'end',
+    alignment: props.alignment !== undefined ? props.alignment : 'end',
     showBackdrop: false,
   });
   isPopoverOpen.value = true;
