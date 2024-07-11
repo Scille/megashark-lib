@@ -148,6 +148,16 @@
               />
             </ion-item-divider>
             <ion-item-divider class="example-divider-item">
+              <ms-textarea
+                label="usage.components.inputs.msTextarea.label"
+                placeholder="usage.components.inputs.msTextarea.placeholder"
+                name="textareaExample"
+                v-model="textareaExample"
+                :maxlength="100"
+                :show-count="true"
+              />
+            </ion-item-divider>
+            <ion-item-divider class="example-divider-item">
               <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msSearchInput.title') }}</ion-label>
               <ms-search-input
                 placeholder="lib.components.msSearchInput.placeholder"
@@ -356,6 +366,7 @@ import {
   MsChoosePasswordInput,
   MsCodeValidationInput,
   MsInput,
+  MsTextarea,
   MsPasswordInput,
   MsSearchInput,
   MsAlertModal,
@@ -443,6 +454,7 @@ const msThemeOptions: MsOptions = new MsOptions(ThemeOptions);
 const stripeService: StripeService = inject(StripeServiceKey)!;
 
 const inputExample = ref('');
+const textareaExample = ref('');
 const passwordInputExample = ref('');
 const searchIInputExample = ref('');
 const msReportTheme = ref(MsReportTheme.Info);

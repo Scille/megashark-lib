@@ -51,6 +51,11 @@
         },
         "msSearchInput": {
           "title": "Search input"
+        },
+        "msTextarea": {
+          "title": "Text area input",
+          "label": "Example",
+          "placeholder": "example..."
         }
       },
       "modals": {
