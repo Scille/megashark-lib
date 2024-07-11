@@ -44,3 +44,6 @@ export * from '@lib/components/ms-stripe';
 
 // ** ms-progress-bar ** //
 export * from '@lib/components/ms-progress-bar';
+
+// ** ms-textarea ** //
+export * from '@lib/components/ms-textarea';
