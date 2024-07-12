@@ -145,7 +145,13 @@
                 placeholder="usage.components.inputs.msInput.placeholder"
                 name="inputExample"
                 v-model="inputExample"
+                ref="msInputRef"
+                :validator="emailValidator"
               />
+              <span v-if="msInputRef">
+                {{ $msTranslate('usage.components.inputs.msInput.isValidEmail') }}
+                {{ $msTranslate({ key: 'usage.components.inputs.msInput.validity', count: msInputRef.validity }) }}
+              </span>
             </ion-item-divider>
             <ion-item-divider class="example-divider-item">
               <ms-textarea
@@ -426,6 +432,7 @@ import {
   PaymentMethod,
   PaymentMethodResult,
 } from '@lib/services';
+import { IValidator, Validity } from '@lib/main';
 
 const referenceValue = ref<Answer>(Answer.No);
 
@@ -454,6 +461,7 @@ const msThemeOptions: MsOptions = new MsOptions(ThemeOptions);
 const stripeService: StripeService = inject(StripeServiceKey)!;
 
 const inputExample = ref('');
+const msInputRef = ref();
 const textareaExample = ref('');
 const passwordInputExample = ref('');
 const searchIInputExample = ref('');
@@ -474,6 +482,17 @@ const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.birthDate', key: 'birthDate' },
   { label: 'usage.components.sorter.age', key: 'age' },
 ]);
+
+const emailValidator: IValidator = async function (value: string) {
+  value = value.trim();
+  if (value.length === 0) {
+    return { validity: Validity.Intermediate };
+  }
+  // Not valid at all, just for the exemple
+  return /^[a-z0-9.-_]+@[a-z0-9.-_]+\.[a-z]{1,6}$/.test(value)
+    ? { validity: Validity.Valid }
+    : { validity: Validity.Invalid, reason: 'usage.components.inputs.msInput.invalidEmail' };
+};
 
 interface MsSorterExampleData {
   name: string;

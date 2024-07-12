@@ -38,8 +38,11 @@
         "title": "Inputs",
         "msInput": {
           "title": "Basic input",
-          "label": "Example",
-          "placeholder": "example..."
+          "label": "Enter an email",
+          "placeholder": "an email address...",
+          "validity": "Invalid|Intermediate|Valid",
+          "isValidEmail": "Email validity:",
+          "invalidEmail": "Email is invalid"
         },
         "msPasswordInput": {
           "title": "Password input",

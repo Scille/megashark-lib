@@ -29,7 +29,7 @@
         "title": "Dropdown"
       },
       "progressBar": {
-        "title": "Barre de progresssion"
+        "title": "Barre de progression"
       },
       "image": {
         "title": "Image"
@@ -38,8 +38,11 @@
         "title": "Inputs",
         "msInput": {
           "title": "Basic input",
-          "label": "Exemple",
-          "placeholder": "exemple..."
+          "label": "Entrez une adresse email",
+          "placeholder": "une adresse email...",
+          "validity": "Invalide|Intermédiaire|Valide",
+          "isValidEmail": "Validité de l'email:",
+          "invalidEmail": "L'email est invalide"
         },
         "msPasswordInput": {
           "title": "Password input",
