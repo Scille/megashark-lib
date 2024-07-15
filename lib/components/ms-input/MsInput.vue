@@ -12,12 +12,7 @@
 
     <div
       class="input-content ion-no-padding"
-      :class="{
-        'form-input-disabled': $props.disabled,
-        'input-valid': validity === Validity.Valid,
-        'input-invalid': validity === Validity.Invalid,
-        'input-default': validity === Validity.Intermediate,
-      }"
+      :class="inputClasses"
     >
       <ion-input
         class="form-input"
@@ -28,14 +23,14 @@
         :placeholder="$msTranslate(placeholder)"
         :value="modelValue"
         @ion-input="onChange($event.detail.value || '')"
-        @ion-blur="validate(modelValue || '')"
+        @ion-blur="onFocusLost"
         @keyup.enter="enterPressed($event.target.value)"
         :disabled="$props.disabled"
         v-bind="$attrs"
       />
     </div>
     <span
-      v-show="errorMessage !== ''"
+      v-show="errorMessage !== '' && lostFocus && modelValue"
       class="form-error form-helperText"
     >
       <ion-icon
@@ -52,7 +47,7 @@ import { IValidator, Validity } from '@lib/common/validation';
 import { Translatable } from '@lib/services/translation';
 import { IonIcon, IonInput } from '@ionic/vue';
 import { warning } from 'ionicons/icons';
-import { Ref, ref } from 'vue';
+import { Ref, ref, computed } from 'vue';
 
 const props = defineProps<{
   label?: Translatable;
@@ -65,6 +60,7 @@ const props = defineProps<{
 const inputRef = ref();
 const errorMessage: Ref<Translatable> = ref('');
 const validity = ref(Validity.Intermediate);
+const lostFocus = ref(false);
 
 const emits = defineEmits<{
   (e: 'update:modelValue', value: string): void;
@@ -77,6 +73,16 @@ defineExpose({
   selectText,
   validity,
   validate,
+});
+
+const inputClasses = computed(() => {
+  const invalid = validity.value === Validity.Invalid && Boolean(lostFocus.value) && Boolean(props.modelValue);
+  return {
+    'form-input-disabled': props.disabled,
+    'input-valid': validity.value === Validity.Valid,
+    'input-invalid': invalid,
+    'input-default': (validity.value === Validity.Intermediate || validity.value === Validity.Invalid) && !invalid,
+  };
 });
 
 function setFocus(): void {
@@ -106,6 +112,10 @@ async function selectText(range?: [number, number]): Promise<void> {
   input.setSelectionRange(begin, end);
 }
 
+async function onFocusLost(): Promise<void> {
+  lostFocus.value = true;
+}
+
 async function validate(value: string): Promise<void> {
   if (props.validator) {
     const result = await props.validator(value);
@@ -117,9 +127,10 @@ async function validate(value: string): Promise<void> {
 async function onChange(value: string): Promise<void> {
   emits('update:modelValue', value);
   emits('change', value);
-  if (validity.value === Validity.Invalid) {
-    await validate(value);
+  if (!value) {
+    lostFocus.value = false;
   }
+  await validate(value);
 }
 </script>
 
