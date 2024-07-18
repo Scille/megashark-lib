@@ -27,6 +27,7 @@
     <span
       class="subtitles-sm count"
       :class="{
+        'count-default': getCountColor() === 'low',
         'count-warn': getCountColor() === 'high',
         'count-full': getCountColor() === 'full',
       }"
@@ -48,6 +49,7 @@ import { useAttrs } from 'vue';
 // vertically depending on the max w/h set
 
 enum TextCountLevel {
+  low = 'low',
   high = 'high',
   full = 'full',
 }
@@ -93,9 +95,9 @@ function setFocus(): void {
   }, 200);
 }
 
-function getCountColor(): TextCountLevel | void {
+function getCountColor(): TextCountLevel {
   if (!attrs.maxlength) {
-    return;
+    return TextCountLevel.low;
   }
   if (textValue.value.length === attrs.maxlength) {
     return TextCountLevel.full;
@@ -103,6 +105,7 @@ function getCountColor(): TextCountLevel | void {
   if (textValue.value.length / (attrs.maxlength as number) >= 0.9) {
     return TextCountLevel.high;
   }
+  return TextCountLevel.low;
 }
 
 async function selectText(range?: [number, number]): Promise<void> {
@@ -145,6 +148,10 @@ async function onChange(value: string): Promise<void> {
 .count {
   display: flex;
   margin-left: auto;
+
+  &-default {
+    color: var(--parsec-color-secondary-grey);
+  }
 
   &-warn {
     color: var(--parsec-color-light-warning-500);
