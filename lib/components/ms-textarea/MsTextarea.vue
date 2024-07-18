@@ -11,7 +11,7 @@
     </span>
 
     <ion-textarea
-      class="textarea"
+      class="textarea form-input"
       :class="{
         input: !$props.disabled,
       }"
