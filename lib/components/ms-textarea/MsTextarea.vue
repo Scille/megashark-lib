@@ -39,7 +39,7 @@
 <script setup lang="ts">
 import { Translatable } from '@lib/services/translation';
 import { IonTextarea } from '@ionic/vue';
-import { ref } from 'vue';
+import { ref, watch, onUnmounted } from 'vue';
 import { useAttrs } from 'vue';
 
 // Rows defines the height of the area in number of rows
@@ -74,6 +74,14 @@ const props = withDefaults(defineProps<Props>(), {
 const textareaRef = ref();
 const textValue = ref(props.modelValue ?? '');
 
+const cancelWatch = watch(
+  () => props.modelValue,
+  (newValue, oldValue) => {
+    console.log(newValue, oldValue);
+    textValue.value = newValue ?? '';
+  },
+);
+
 const emits = defineEmits<{
   (e: 'update:modelValue', value: string): void;
   (e: 'change', value: string): void;
@@ -82,6 +90,10 @@ const emits = defineEmits<{
 defineExpose({
   setFocus,
   selectText,
+});
+
+onUnmounted(() => {
+  cancelWatch();
 });
 
 function setFocus(): void {
