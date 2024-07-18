@@ -17,7 +17,6 @@
       }"
       ref="textareaRef"
       :placeholder="$msTranslate(placeholder)"
-      :value="modelValue"
       v-model="textValue"
       v-bind="$attrs"
       @ion-input="onChange($event.detail.value || '')"
@@ -40,8 +39,7 @@
 <script setup lang="ts">
 import { Translatable } from '@lib/services/translation';
 import { IonTextarea } from '@ionic/vue';
-import { ref } from 'vue';
-import { useAttrs } from 'vue';
+import { ref, watch, onUnmounted, useAttrs } from 'vue';
 
 // Rows defines the height of the area in number of rows
 // Autogrow is disabled by default, enable stretching the area horizontally and
@@ -75,6 +73,13 @@ const props = withDefaults(defineProps<Props>(), {
 const textareaRef = ref();
 const textValue = ref(props.modelValue ?? '');
 
+const cancelWatch = watch(
+  () => props.modelValue,
+  (newValue) => {
+    textValue.value = newValue ?? '';
+  },
+);
+
 const emits = defineEmits<{
   (e: 'update:modelValue', value: string): void;
   (e: 'change', value: string): void;
@@ -83,6 +88,10 @@ const emits = defineEmits<{
 defineExpose({
   setFocus,
   selectText,
+});
+
+onUnmounted(() => {
+  cancelWatch();
 });
 
 function setFocus(): void {
