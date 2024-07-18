@@ -159,7 +159,7 @@ async function onChange(value: string): Promise<void> {
   margin-left: auto;
 
   &-default {
-    color: var(--parsec-color-secondary-grey);
+    color: var(--parsec-color-light-secondary-grey);
   }
 
   &-warn {
