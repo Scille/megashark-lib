@@ -17,7 +17,6 @@
       }"
       ref="textareaRef"
       :placeholder="$msTranslate(placeholder)"
-      :value="modelValue"
       v-model="textValue"
       v-bind="$attrs"
       @ion-input="onChange($event.detail.value || '')"
