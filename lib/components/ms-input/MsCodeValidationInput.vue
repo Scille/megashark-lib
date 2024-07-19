@@ -55,8 +55,8 @@ const props = defineProps<{
   validationFunction: (code: Array<string>) => Promise<boolean>;
 }>();
 
-defineEmits<{
-  (e: 'codeComplete', code: Array<string>, valid: boolean): void;
+const emits = defineEmits<{
+  (e: 'codeComplete'): void;
 }>();
 
 async function onPaste(event: ClipboardEvent): Promise<void> {
@@ -102,6 +102,9 @@ async function onKeyUpBackspace(event: KeyboardEvent): Promise<void> {
 async function checkCode(): Promise<void> {
   if (props.codeLength === codes.value.length) {
     isFinalCodeValid.value = await props.validationFunction(codes.value);
+    if (isFinalCodeValid.value === true) {
+      emits('codeComplete');
+    }
   } else {
     isFinalCodeValid.value = undefined;
   }
