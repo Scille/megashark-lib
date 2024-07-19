@@ -108,7 +108,7 @@ async function checkCode(): Promise<void> {
 }
 
 function onKeydown(event: KeyboardEvent): void {
-  if (!isDigits(event.key) && !event.ctrlKey) {
+  if (!isDigits(event.key) && !event.ctrlKey && !event.metaKey) {
     event.preventDefault();
   }
 }
