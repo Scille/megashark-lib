@@ -5,18 +5,18 @@
     <ion-text
       type="button"
       class="button-view button-medium"
-      :class="{ 'button-disabled': modelValue === Answer.No }"
+      :class="{ 'button-disabled': modelValue === Answer.Yes }"
       :disabled="modelValue === Answer.Yes"
-      @click="$emit('update:modelValue', Answer.No)"
+      @click="$emit('update:modelValue', Answer.Yes)"
     >
       {{ yesLabel ? $msTranslate(yesLabel) : $msTranslate('lib.components.msBooleanToogle.yes') }}
     </ion-text>
     <ion-text
       type="button"
       class="button-view button-medium"
+      :class="{ 'button-disabled': modelValue === Answer.No }"
       :disabled="modelValue === Answer.No"
-      :class="{ 'button-disabled': modelValue === Answer.Yes }"
-      @click="$emit('update:modelValue', Answer.Yes)"
+      @click="$emit('update:modelValue', Answer.No)"
     >
       {{ noLabel ? $msTranslate(noLabel) : $msTranslate('lib.components.msBooleanToogle.no') }}
     </ion-text>
