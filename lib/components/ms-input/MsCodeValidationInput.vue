@@ -56,7 +56,7 @@ const props = defineProps<{
 }>();
 
 const emits = defineEmits<{
-  (e: 'codeComplete'): void;
+  (e: 'codeComplete', code: Array<string>): void;
 }>();
 
 async function onPaste(event: ClipboardEvent): Promise<void> {
@@ -103,7 +103,7 @@ async function checkCode(): Promise<void> {
   if (props.codeLength === codes.value.length) {
     isFinalCodeValid.value = await props.validationFunction(codes.value);
     if (isFinalCodeValid.value === true) {
-      emits('codeComplete');
+      emits('codeComplete', codes.value);
     }
   } else {
     isFinalCodeValid.value = undefined;
