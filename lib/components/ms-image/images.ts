@@ -52,6 +52,8 @@ import WavyCaretUp from '@lib/assets/images/wavy-caret-up.svg?raw';
 import Word from '@lib/assets/images/word.svg?raw';
 import Zip from '@lib/assets/images/zip.svg?raw';
 
+import ParsecShareScreen from '@lib/assets/images/parsec-share-screen.webp';
+
 const File = {
   Apk,
   Css,
@@ -103,6 +105,7 @@ export {
   NoOrganization,
   NoRevokedUser,
   NoWorkspace,
+  ParsecShareScreen,
   PasswordLock,
   SwapArrows,
   VisaCard,
