@@ -8,7 +8,7 @@
     :indeterminate="indeterminate"
     aria-label=""
   >
-    {{ $msTranslate(label) || '' }}
+    <slot />
   </ion-checkbox>
 </template>
 
@@ -18,7 +18,6 @@ import { ref, watch, onUnmounted } from 'vue';
 
 const props = defineProps<{
   modelValue?: boolean;
-  label?: string;
   checked?: boolean;
   indeterminate?: boolean;
 }>();
