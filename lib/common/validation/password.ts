@@ -1,48 +1,9 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
-import { Translatable } from '@lib/services/translation';
+import { StringValidation } from '@lib/common/validation/string';
+import { Translatable } from '@lib/services';
 import { zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core';
 import * as zxcvbnCommonPackage from '@zxcvbn-ts/language-common';
-
-export enum Validity {
-  Invalid = 0,
-  Intermediate = 1,
-  Valid = 2,
-}
-
-export interface ValidationResult {
-  validity: Validity;
-  reason?: Translatable;
-}
-
-export interface IValidator {
-  (value: string): Promise<ValidationResult>;
-}
-
-function hasMinLength(value: string, minLength: number): boolean {
-  return value.length >= minLength;
-}
-
-function hasUppercase(value: string): boolean {
-  const uppercaseRegex = /\p{Lu}/u;
-  return uppercaseRegex.test(value);
-}
-
-function hasLowercase(value: string): boolean {
-  const lowercaseRegex = /\p{Ll}/u;
-  return lowercaseRegex.test(value);
-}
-
-function hasDigit(value: string): boolean {
-  const numberRegex = /\d/;
-  return numberRegex.test(value);
-}
-
-function hasSpecialCharacter(value: string): boolean {
-  // \W matches non-word characters but includes `_`. We want to considere `_` as a special character.
-  const specialCharacterRegex = /[\W_]/;
-  return specialCharacterRegex.test(value);
-}
 
 enum StrengthLevel {
   None = 0,
@@ -63,7 +24,6 @@ zxcvbnOptions.setOptions({
   },
 });
 
-// password validation
 function getStrength(password: string): PasswordStrength {
   if (password.length <= 0) {
     return {
@@ -91,7 +51,6 @@ function getStrength(password: string): PasswordStrength {
   };
 }
 
-// password validation
 enum Criteria {
   None = 0,
   Length = 1 << 0,
@@ -108,19 +67,19 @@ export function matchCriteria(password: string, criteria: number, minPasswordLen
   let match = true;
 
   if (match && criteria & Criteria.Length) {
-    match &&= hasMinLength(password, minPasswordLength);
+    match &&= StringValidation.hasMinLength(password, minPasswordLength);
   }
   if (match && criteria & Criteria.Uppercase) {
-    match &&= hasUppercase(password);
+    match &&= StringValidation.hasUppercase(password);
   }
   if (match && criteria & Criteria.Lowercase) {
-    match &&= hasLowercase(password);
+    match &&= StringValidation.hasLowercase(password);
   }
   if (match && criteria & Criteria.Special) {
-    match &&= hasSpecialCharacter(password);
+    match &&= StringValidation.hasSpecialCharacter(password);
   }
   if (match && criteria & Criteria.Digit) {
-    match &&= hasDigit(password);
+    match &&= StringValidation.hasDigit(password);
   }
   return match;
 }
@@ -130,18 +89,4 @@ export const PasswordValidation = {
   StrengthLevel,
   matchCriteria,
   Criteria,
-};
-
-// email validation
-function isEmailValid(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-export const Validation = {
-  isEmailValid,
-  hasLowercase,
-  hasMinLength,
-  hasDigit,
-  hasSpecialCharacter,
 };

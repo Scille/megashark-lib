@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { Translatable } from '@lib/services/translation';
+import { Translatable } from '@lib/services';
 import { IonIcon, IonInput } from '@ionic/vue';
 import { search } from 'ionicons/icons';
 import { ref } from 'vue';

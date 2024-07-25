@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 import { MsImage } from '@lib/components/ms-image';
-import { Translatable } from '@lib/services/translation';
+import { Translatable } from '@lib/services';
 import { IonButton, IonIcon } from '@ionic/vue';
 
 defineProps<{

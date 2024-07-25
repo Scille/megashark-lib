@@ -62,7 +62,7 @@
 import { PasswordStrength, PasswordValidation } from '@lib/common/validation';
 import { MsImage, PasswordLock } from '@lib/components/ms-image';
 import MsPasswordInput from '@lib/components/ms-input/MsPasswordInput.vue';
-import { Translatable } from '@lib/services/translation';
+import { Translatable } from '@lib/services';
 import { IonText } from '@ionic/vue';
 import { Ref, ref } from 'vue';
 

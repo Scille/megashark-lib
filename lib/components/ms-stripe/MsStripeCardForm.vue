@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, inject } from 'vue';
 import { MsStripeCardElement } from '@lib/components/ms-stripe';
-import { StripeService, StripeServiceKey, BillingDetails, PaymentMethodResult } from '@lib/services/stripe';
+import { StripeService, StripeServiceKey, BillingDetails, PaymentMethodResult } from '@lib/services';
 
 const cardNumberElement = ref();
 const cardExpiryElement = ref();

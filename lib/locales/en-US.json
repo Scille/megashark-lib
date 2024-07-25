@@ -4,6 +4,10 @@
       "msSearchInput": {
         "placeholder": "Search"
       },
+      "msPhoneNumberInput": {
+        "label": "Phone number",
+        "placeholder": "+44"
+      },
       "msChoosePasswordInput": {
         "passwordInputLabel": "Password",
         "confirmPasswordInputLabel": "Confirm password",

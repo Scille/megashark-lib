@@ -2,7 +2,7 @@
 
 import { IValidator } from '@lib/common/validation';
 import { MsReportTheme } from '@lib/components/ms-types';
-import { Translatable } from '@lib/services/translation';
+import { Translatable } from '@lib/services';
 
 export interface GetTextOptions {
   title: Translatable;

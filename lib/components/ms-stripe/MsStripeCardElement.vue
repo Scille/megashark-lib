@@ -35,7 +35,7 @@ import {
   StripeService,
   StripeServiceKey,
   StripeCardNumberElementChangeEvent,
-} from '@lib/services/stripe';
+} from '@lib/services';
 import { card, lockClosed, calendarNumber } from 'ionicons/icons';
 import { LogoMastercard, LogoVisa, MsImage } from '@lib/components/ms-image';
 import { inject, onMounted, onUnmounted, ref } from 'vue';

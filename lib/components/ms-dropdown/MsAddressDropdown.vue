@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import { IonList, IonItem, IonLabel, popoverController } from '@ionic/vue';
 import { MsModalResult } from '@lib/components/ms-modal';
-import { Address } from '@lib/services/geoapifyApi';
+import { Address } from '@lib/services';
 
 defineProps<{
   addresses: Array<Address>;
