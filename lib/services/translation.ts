@@ -162,6 +162,10 @@ function getLocale(): any {
   return i18n.global.locale.value;
 }
 
+function valueAsTranslatable(value: any): Translatable {
+  return { key: 'lib.services.translation.asIs', data: { value } };
+}
+
 export const I18n = {
   translate,
   formatDate,
@@ -169,4 +173,5 @@ export const I18n = {
   getLocale,
   init,
   getPreferredLocale,
+  valueAsTranslatable,
 };

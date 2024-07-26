@@ -47,3 +47,6 @@ export * from '@lib/components/ms-progress-bar';
 
 // ** ms-textarea ** //
 export * from '@lib/components/ms-textarea';
+
+// ** ms-card ** //
+export * from '@lib/components/ms-card';

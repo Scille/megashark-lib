@@ -49,6 +49,9 @@
       "msBooleanToogle": {
         "yes": "Yes",
         "no": "No"
+      },
+      "msSummaryCard": {
+        "updateButtonLabel": "Update"
       }
     },
     "common": {
@@ -76,6 +79,7 @@
         "confirmButtonLabel": "Close"
       },
       "translation": {
+        "asIs": "{value}",
         "date": {
           "asIs": "{date}"
         },

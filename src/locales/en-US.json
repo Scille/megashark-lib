@@ -190,6 +190,24 @@
       },
       "codeValidation": {
         "title": "Code validation"
+      },
+      "summaryCard": {
+        "title": "Summary card",
+        "example": {
+          "title": "Your profile",
+          "firstName": {
+            "label": "First name",
+            "value": "Jon"
+          },
+          "lastName": {
+            "label": "Last name",
+            "value": "Snow"
+          },
+          "job": {
+            "label": "Job",
+            "value": "Night's Watch Lord Commander"
+          }
+        }
       }
     }
   }

@@ -190,6 +190,24 @@
       },
       "codeValidation": {
         "title": "Validation de code"
+      },
+      "summaryCard": {
+        "title": "Summary card",
+        "example": {
+          "title": "Vos informations",
+          "firstName": {
+            "label": "Prénom",
+            "value": "Jean"
+          },
+          "lastName": {
+            "label": "Nom",
+            "value": "Neige"
+          },
+          "job": {
+            "label": "Emploi",
+            "value": "Lord Commandant de la Garde de Nuit"
+          }
+        }
       }
     }
   }
