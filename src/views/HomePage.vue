@@ -362,6 +362,35 @@
             </div>
           </div>
         </ion-item-divider>
+        <ion-item-divider class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.summaryCard.title') }}</ion-label>
+          <div class="example-divider-content">
+            <div class="example-data">
+              <ms-summary-card
+                title="usage.components.summaryCard.example.title"
+                :rows="[
+                  {
+                    item: createSummaryCardItem(
+                      'usage.components.summaryCard.example.firstName.label',
+                      'usage.components.summaryCard.example.firstName.value',
+                    ) as MsSummaryCardItemData,
+                    secondItem: createSummaryCardItem(
+                      'usage.components.summaryCard.example.lastName.label',
+                      'usage.components.summaryCard.example.lastName.value',
+                    ) as MsSummaryCardItemData,
+                  },
+                  {
+                    item: createSummaryCardItem(
+                      'usage.components.summaryCard.example.job.label',
+                      'usage.components.summaryCard.example.job.value',
+                    ) as MsSummaryCardItemData,
+                  },
+                ]"
+                @update="console.log('update')"
+              />
+            </div>
+          </div>
+        </ion-item-divider>
       </div>
     </ion-content>
   </ion-page>
@@ -423,6 +452,9 @@ import {
   MsStripeCardDetails,
   MsDropdownChangeEvent,
   MsProgressBar,
+  MsSummaryCard,
+  createSummaryCardItem,
+  MsSummaryCardItemData,
 } from '@lib/components';
 import { DateTime } from 'luxon';
 import { inject, ref, Ref, onMounted } from 'vue';
