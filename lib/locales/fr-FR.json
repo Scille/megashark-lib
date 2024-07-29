@@ -5,7 +5,6 @@
         "placeholder": "Rechercher"
       },
       "msPhoneNumberInput": {
-        "label": "Numéro de téléphone",
         "placeholder": "+33"
       },
       "msChoosePasswordInput": {

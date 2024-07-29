@@ -23,7 +23,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  label: 'lib.components.msPhoneNumberInput.label',
+  label: undefined,
   placeholder: 'lib.components.msPhoneNumberInput.placeholder',
 });
 
