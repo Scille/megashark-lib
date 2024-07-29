@@ -7,8 +7,7 @@ function createSummaryCardItem(
   error?: Translatable,
   secondLineText?: Translatable,
   secondLineError?: Translatable,
-): MsSummaryCardItemData | undefined {
-  if (!text) return;
+): MsSummaryCardItemData {
   const item: MsSummaryCardItemData = {
     label,
     text,

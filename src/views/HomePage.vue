@@ -373,17 +373,17 @@
                     item: createSummaryCardItem(
                       'usage.components.summaryCard.example.firstName.label',
                       'usage.components.summaryCard.example.firstName.value',
-                    ) as MsSummaryCardItemData,
+                    ),
                     secondItem: createSummaryCardItem(
                       'usage.components.summaryCard.example.lastName.label',
                       'usage.components.summaryCard.example.lastName.value',
-                    ) as MsSummaryCardItemData,
+                    ),
                   },
                   {
                     item: createSummaryCardItem(
                       'usage.components.summaryCard.example.job.label',
                       'usage.components.summaryCard.example.job.value',
-                    ) as MsSummaryCardItemData,
+                    ),
                   },
                 ]"
                 @update="console.log('update')"
@@ -454,7 +454,6 @@ import {
   MsProgressBar,
   MsSummaryCard,
   createSummaryCardItem,
-  MsSummaryCardItemData,
 } from '@lib/components';
 import { DateTime } from 'luxon';
 import { inject, ref, Ref, onMounted } from 'vue';
