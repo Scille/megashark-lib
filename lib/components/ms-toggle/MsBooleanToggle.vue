@@ -9,7 +9,7 @@
       :disabled="modelValue === Answer.Yes"
       @click="$emit('update:modelValue', Answer.Yes)"
     >
-      {{ yesLabel ? $msTranslate(yesLabel) : $msTranslate('lib.components.msBooleanToogle.yes') }}
+      {{ yesLabel ? $msTranslate(yesLabel) : $msTranslate('lib.components.msBooleanToggle.yes') }}
     </ion-text>
     <ion-text
       type="button"
@@ -18,7 +18,7 @@
       :disabled="modelValue === Answer.No"
       @click="$emit('update:modelValue', Answer.No)"
     >
-      {{ noLabel ? $msTranslate(noLabel) : $msTranslate('lib.components.msBooleanToogle.no') }}
+      {{ noLabel ? $msTranslate(noLabel) : $msTranslate('lib.components.msBooleanToggle.no') }}
     </ion-text>
   </div>
 </template>

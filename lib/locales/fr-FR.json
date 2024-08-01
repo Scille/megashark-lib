@@ -46,7 +46,7 @@
       "msSpinner": {
         "loading": "Chargement..."
       },
-      "msBooleanToogle": {
+      "msBooleanToggle": {
         "yes": "Oui",
         "no": "Non"
       },

@@ -20,7 +20,7 @@
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.toggle.title') }}</ion-label>
           <div class="example-divider-content">
-            <ms-boolean-toogle v-model="referenceValue" />
+            <ms-boolean-toggle v-model="referenceValue" />
           </div>
         </ion-item-divider>
 
@@ -431,7 +431,7 @@ import {
   Device,
   FileImport,
   Folder,
-  MsBooleanToogle,
+  MsBooleanToggle,
   LogoIconGradient,
   LogoRowWhite,
   NoActiveUser,
