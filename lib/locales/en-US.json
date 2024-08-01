@@ -46,7 +46,7 @@
       "msSpinner": {
         "loading": "Loading..."
       },
-      "msBooleanToogle": {
+      "msBooleanToggle": {
         "yes": "Yes",
         "no": "No"
       },
