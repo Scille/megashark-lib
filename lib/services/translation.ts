@@ -22,7 +22,7 @@ export interface TranslationData {
 export type Translatable = string | TranslationData;
 
 export type Locale = 'fr-FR' | 'en-US';
-export type DateFormat = 'long' | 'short';
+export type DateFormat = 'long' | 'short' | 'narrow';
 
 export interface LocaleOption {
   key: Locale;
@@ -99,6 +99,10 @@ function init(config?: I18nConfig): any {
     },
     datetimeFormats: {
       'en-US': {
+        narrow: {
+          month: 'short',
+          year: 'numeric',
+        },
         short: {
           year: 'numeric',
           month: 'short',
@@ -114,6 +118,10 @@ function init(config?: I18nConfig): any {
         },
       },
       'fr-FR': {
+        narrow: {
+          month: 'short',
+          year: 'numeric',
+        },
         short: {
           year: 'numeric',
           month: 'short',
