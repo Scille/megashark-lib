@@ -1,7 +1,12 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <div class="ms-boolean-toggle">
+  <div
+    class="ms-boolean-toggle"
+    tabindex="0"
+    ref="toggleRef"
+    @keyup.enter="$emit('update:modelValue', modelValue === Answer.Yes ? Answer.No : Answer.Yes)"
+  >
     <ion-text
       type="button"
       class="button-view button-medium"
@@ -27,6 +32,9 @@
 import { Answer } from '@lib/components/ms-types';
 import { Translatable } from '@lib/services';
 import { IonText } from '@ionic/vue';
+import { ref } from 'vue';
+
+const toggleRef = ref<HTMLDivElement>();
 
 defineProps<{
   modelValue: Answer;
@@ -37,6 +45,18 @@ defineProps<{
 defineEmits<{
   (e: 'update:modelValue', value: Answer): void;
 }>();
+
+defineExpose({
+  setFocus,
+});
+
+function setFocus(): void {
+  setTimeout(() => {
+    if (toggleRef.value) {
+      toggleRef.value.focus();
+    }
+  }, 200);
+}
 </script>
 
 <style scoped lang="scss">
@@ -46,6 +66,11 @@ defineEmits<{
   padding: 0.25rem;
   border-radius: 1.5rem;
   border: 1px solid var(--parsec-color-light-secondary-disabled);
+  &:focus-within {
+    border: 1px solid var(--parsec-color-light-primary-400);
+    background: var(--parsec-color-light-secondary-white);
+    outline: 0.25rem solid var(--parsec-color-light-outline);
+  }
 }
 
 .button-view {
