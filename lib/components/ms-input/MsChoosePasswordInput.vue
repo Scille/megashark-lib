@@ -2,7 +2,10 @@
 
 <template>
   <div class="choose-password">
-    <div class="info">
+    <div
+      v-show="showDescription"
+      class="info"
+    >
       <ms-image
         :image="PasswordLock"
         class="info__img"
@@ -11,10 +14,13 @@
         {{ $msTranslate('lib.components.msChoosePasswordInput.description') }}
       </ion-text>
     </div>
-    <div class="inputs-container">
+    <div
+      class="inputs-container"
+      :class="{ 'inputs-container--column': !inline }"
+    >
       <div class="inputs-container-item">
         <ms-password-input
-          :label="passwordLabel || 'lib.components.msChoosePasswordInput.passwordInputLabel'"
+          :label="passwordLabel"
           v-model="password"
           name="password"
           ref="firstInputFieldRef"
@@ -78,9 +84,18 @@ defineEmits<{
   (e: 'onEnterKeyup', value: string): void;
 }>();
 
-defineProps<{
-  passwordLabel?: Translatable;
-}>();
+withDefaults(
+  defineProps<{
+    showDescription?: boolean;
+    passwordLabel?: Translatable;
+    inline?: boolean;
+  }>(),
+  {
+    showDescription: true,
+    passwordLabel: 'lib.components.msChoosePasswordInput.passwordInputLabel',
+    inline: true,
+  },
+);
 
 defineExpose({
   areFieldsCorrect,
@@ -157,6 +172,10 @@ function getPasswordLevelClass(): string {
 .inputs-container {
   display: flex;
   gap: 1.5rem;
+
+  &--column {
+    flex-direction: column;
+  }
 
   &-item {
     width: 100%;
