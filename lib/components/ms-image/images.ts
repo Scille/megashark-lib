@@ -2,7 +2,9 @@
 
 // for svg only add ?raw at the end of path
 import Apk from '@lib/assets/images/apk.svg?raw';
+import MasterCardSmall from '@lib/assets/images/card-mastercard-small.svg?raw';
 import MastercardCard from '@lib/assets/images/card-mastercard.svg?raw';
+import VisaCardSmall from '@lib/assets/images/card-visa-small.svg?raw';
 import VisaCard from '@lib/assets/images/card-visa.svg?raw';
 import ChevronExpand from '@lib/assets/images/chevron-expand.svg?raw';
 import Copy from '@lib/assets/images/copy.svg?raw';
@@ -94,6 +96,7 @@ export {
   LogoRowGradient,
   LogoRowWhite,
   LogoVisa,
+  MasterCardSmall,
   MastercardCard,
   Move,
   NoActiveUser,
@@ -109,5 +112,6 @@ export {
   PasswordLock,
   SwapArrows,
   VisaCard,
+  VisaCardSmall,
   WavyCaretUp,
 };
