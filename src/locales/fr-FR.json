@@ -186,7 +186,8 @@
       },
       "stripe": {
         "title": "Carte bancaire avec Stripe",
-        "submit": "Tester"
+        "submit": "Tester",
+        "notInit": "Veuillez vous assurer d'être connecté à internet"
       },
       "codeValidation": {
         "title": "Validation de code"

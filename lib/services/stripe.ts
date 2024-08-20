@@ -31,31 +31,56 @@ const LOCALES = new Map<'fr-FR' | 'en-US', StripeElementLocale>([
 ]);
 
 export class StripeService {
-  instance: Stripe | null = null;
-  elements: StripeElements | null = null;
+  private isInit = false;
+  private config: StripeConfig;
+  private instance: Stripe | null = null;
+  private elements: StripeElements | null = null;
 
-  constructor() {}
+  constructor(config: StripeConfig) {
+    this.config = config;
+  }
 
-  async init(config: StripeConfig): Promise<void> {
-    this._verifyPublishableKey(config);
-
-    // stripe-js initialization
-    this.instance = await loadStripe(config.publishableKey);
-    if (!this.instance) {
-      throw new Error('Failed to initialize Stripe');
+  async init(): Promise<boolean> {
+    if (this.isInit) {
+      return true;
     }
+    try {
+      this._verifyPublishableKey(this.config);
 
-    this.elements = this.instance.elements({
-      locale: LOCALES.get(config.locale),
-    });
-    if (!this.elements) {
-      throw new Error('Failed to initialize Stripe Elements');
+      // stripe-js initialization
+      if (!this.instance) {
+        this.instance = await loadStripe(this.config.publishableKey);
+        if (!this.instance) {
+          throw new Error('Failed to initialize Stripe');
+        }
+      }
+      if (!this.elements) {
+        this.elements = this.instance.elements({
+          locale: LOCALES.get(this.config.locale),
+        });
+        if (!this.elements) {
+          throw new Error('Failed to initialize Stripe Elements');
+        }
+      }
+      this.isInit = true;
+      return true;
+    } catch (error: any) {
+      console.error('Failed to init Stripe');
+      this.isInit = false;
+      return false;
     }
+  }
+
+  isInitialized(): boolean {
+    return this.isInit;
   }
 
   // use this method to update the locale of the Stripe Elements
   updateLocale(locale: 'en-US' | 'fr-FR'): void {
-    this.elements?.update({ locale: LOCALES.get(locale) });
+    if (!this.elements) {
+      return;
+    }
+    this.elements.update({ locale: LOCALES.get(locale) });
   }
 
   _verifyPublishableKey(config: StripeConfig): void {
@@ -78,14 +103,16 @@ export class StripeService {
     }
   }
 
-  createCardElement(
+  async createCardElement(
     type: 'cardNumber' | 'cardExpiry' | 'cardCvc',
     onChange: (event: StripeCardElementChangeEventType) => void,
-  ): StripeCardElementType {
-    let cardElement: StripeCardElementType;
-    if (!this.elements) {
-      throw new Error('Stripe Elements is not initialized');
+  ): Promise<StripeCardElementType | undefined> {
+    if (!(await this.init())) {
+      return;
     }
+    assertInit(this.elements);
+
+    let cardElement: StripeCardElementType;
 
     const options = {
       style: StripeElementBaseStyle,
@@ -113,10 +140,11 @@ export class StripeService {
     type: 'card';
     card: StripeCardNumberElement;
     billing_details?: BillingDetails;
-  }): Promise<PaymentMethodResult> {
-    if (!this.instance) {
-      throw new Error('Stripe instance is not initialized');
+  }): Promise<PaymentMethodResult | undefined> {
+    if (!(await this.init())) {
+      return;
     }
+    assertInit(this.instance);
 
     return await this.instance.createPaymentMethod(paymentMethodData);
   }
@@ -139,22 +167,23 @@ export const StripeElementBaseStyle = {
 
 export class StripePlugin {
   service: StripeService;
-  config: StripeConfig;
 
   constructor(config: StripeConfig) {
-    this.config = config;
-    this.service = new StripeService();
+    this.service = new StripeService(config);
   }
 
-  async init(): Promise<void> {
-    await this.service.init(this.config);
+  async init(): Promise<boolean> {
+    return await this.service.init();
   }
 
   install(app: App<any>): void {
-    if (!this.service) {
-      throw new Error('Stripe service has not been initialized');
-    }
     app.provide(StripeServiceKey, this.service);
+  }
+}
+
+function assertInit<T>(value: T): asserts value is NonNullable<T> {
+  if (value === null) {
+    throw new Error('Not init');
   }
 }
 

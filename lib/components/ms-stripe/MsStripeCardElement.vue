@@ -40,7 +40,7 @@ import { card, lockClosed, calendarNumber } from 'ionicons/icons';
 import { LogoMastercard, LogoVisa, MsImage } from '@lib/components/ms-image';
 import { inject, onMounted, onUnmounted, ref } from 'vue';
 
-let stripeElement: StripeCardElementType;
+let stripeElement: StripeCardElementType | undefined;
 const stripeService: StripeService = inject(StripeServiceKey)!;
 const isValid = ref(false);
 const errorMessage = ref<string>('');
@@ -49,16 +49,16 @@ const props = defineProps<{
   type: 'cardNumber' | 'cardExpiry' | 'cardCvc';
 }>();
 
-onMounted(() => {
-  if (stripeService && stripeService.elements) {
-    stripeElement = stripeService.createCardElement(props.type, (event: StripeCardElementChangeEventType) => {
-      isValid.value = event.complete;
-      if (props.type === 'cardNumber') {
-        brand.value = (event as StripeCardNumberElementChangeEvent).brand;
-      }
-      errorMessage.value = event.error ? event.error.message : '';
-      emits('change', event);
-    });
+onMounted(async () => {
+  stripeElement = await stripeService.createCardElement(props.type, (event: StripeCardElementChangeEventType) => {
+    isValid.value = event.complete;
+    if (props.type === 'cardNumber') {
+      brand.value = (event as StripeCardNumberElementChangeEvent).brand;
+    }
+    errorMessage.value = event.error ? event.error.message : '';
+    emits('change', event);
+  });
+  if (stripeElement) {
     stripeElement.mount(`#${props.type}`);
   }
 });
@@ -95,7 +95,7 @@ function _getIcon(): string {
   }
 }
 
-function getStripeElement(): StripeCardElementType {
+function getStripeElement(): StripeCardElementType | undefined {
   return stripeElement;
 }
 

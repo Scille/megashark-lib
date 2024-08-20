@@ -186,7 +186,8 @@
       },
       "stripe": {
         "title": "Credit card with Stripe",
-        "submit": "Test"
+        "submit": "Test",
+        "notInit": "Make sure you are online."
       },
       "codeValidation": {
         "title": "Code validation"
