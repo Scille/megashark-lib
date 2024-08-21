@@ -35,15 +35,13 @@ const isValid = computed<boolean>(() => {
 });
 
 onMounted(async () => {
-  if (stripeService && stripeService.elements) {
-    if (cardNumberElement.value) {
-      await cardNumberElement.value.setFocus();
-    }
+  if (cardNumberElement.value) {
+    await cardNumberElement.value.setFocus();
   }
 });
 
 async function submit(billingDetails?: BillingDetails): Promise<PaymentMethodResult | undefined> {
-  if (isValid.value) {
+  if (isValid.value && cardNumberElement.value.getStripeElement()) {
     const data: any = {
       type: 'card',
       card: cardNumberElement.value.getStripeElement(),

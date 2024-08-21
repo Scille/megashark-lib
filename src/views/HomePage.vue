@@ -339,28 +339,33 @@
 
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.stripe.title') }}</ion-label>
-          <div class="example-divider-content">
-            <div class="example-data">
-              <ms-stripe-card-form
-                class="stripe-card-form"
-                ref="stripeCardForm"
-              />
-              <ion-button
-                :disabled="!stripeCardForm?.isValid"
-                @click="createStripeCard"
-              >
-                {{ $msTranslate('usage.components.stripe.submit') }}
-              </ion-button>
+          <template v-if="stripeService.isInitialized()">
+            <div class="example-divider-content">
+              <div class="example-data">
+                <ms-stripe-card-form
+                  class="stripe-card-form"
+                  ref="stripeCardForm"
+                />
+                <ion-button
+                  :disabled="!stripeCardForm?.isValid"
+                  @click="createStripeCard"
+                >
+                  {{ $msTranslate('usage.components.stripe.submit') }}
+                </ion-button>
+              </div>
             </div>
-          </div>
-          <div
-            v-if="stripeCardDetails"
-            class="example-divider-content"
-          >
-            <div class="example-data">
-              <ms-stripe-card-details :card="stripeCardDetails" />
+            <div
+              v-if="stripeCardDetails"
+              class="example-divider-content"
+            >
+              <div class="example-data">
+                <ms-stripe-card-details :card="stripeCardDetails" />
+              </div>
             </div>
-          </div>
+          </template>
+          <template v-else>
+            {{ $msTranslate('usage.components.stripe.notInit') }}
+          </template>
         </ion-item-divider>
         <ion-item-divider class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.summaryCard.title') }}</ion-label>
