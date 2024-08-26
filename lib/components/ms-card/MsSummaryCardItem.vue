@@ -46,9 +46,12 @@ defineProps<MsSummaryCardItemData>();
   }
 
   &__text {
-    color: var(--parsec-color-light-primary-text);
-    display: flex;
+    color: var(--parsec-color-light-secondary-text);
+    display: block;
     gap: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 </style>

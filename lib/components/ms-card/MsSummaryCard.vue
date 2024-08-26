@@ -14,12 +14,14 @@
           :text="row.item.text"
           :error="row.item.error"
           :second-line="row.item.secondLine"
+          class="summary-card-item"
         />
         <ms-summary-card-item
           :label="row.secondItem.label"
           :text="row.secondItem.text"
           :error="row.secondItem.error"
           :second-line="row.secondItem.secondLine"
+          class="summary-card-item"
         />
       </div>
       <ms-summary-card-item
@@ -91,6 +93,10 @@ defineEmits<{
 
   &-row {
     display: flex;
+
+    .summary-card-item {
+      width: 50%;
+    }
   }
 
   .update-button {
