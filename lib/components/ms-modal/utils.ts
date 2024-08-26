@@ -13,6 +13,7 @@ export interface QuestionOptions {
   noText?: Translatable;
   keepMainModalHiddenOnYes?: boolean;
   yesIsDangerous?: boolean;
+  backdropDismiss?: boolean;
 }
 
 export async function askQuestion(title: Translatable, subtitle: Translatable, options?: QuestionOptions): Promise<Answer> {
@@ -24,7 +25,7 @@ export async function askQuestion(title: Translatable, subtitle: Translatable, o
   const modal = await modalController.create({
     component: MsQuestionModal,
     canDismiss: true,
-    backdropDismiss: false,
+    backdropDismiss: options?.backdropDismiss ?? false,
     cssClass: 'question-modal',
     componentProps: {
       title: title,
