@@ -25,7 +25,7 @@ export async function askQuestion(title: Translatable, subtitle: Translatable, o
   const modal = await modalController.create({
     component: MsQuestionModal,
     canDismiss: true,
-    backdropDismiss: options?.backdropDismiss ?? false,
+    backdropDismiss: options?.backdropDismiss ?? true,
     cssClass: 'question-modal',
     componentProps: {
       title: title,
