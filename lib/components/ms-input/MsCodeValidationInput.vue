@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick, onMounted, ref, defineEmits } from 'vue';
+import { onMounted, ref, defineEmits } from 'vue';
 import { IonInput, IonText } from '@ionic/vue';
 import { Ref } from 'vue';
 const inputs = ref();
@@ -46,8 +46,9 @@ const codes = ref<string[]>([]);
 const isFinalCodeValid: Ref<undefined | boolean> = ref(undefined);
 
 onMounted(async (): Promise<void> => {
-  await nextTick();
-  focusInputElement(getFirstInputElement());
+  setTimeout(() => {
+    focusInputElement(getFirstInputElement());
+  }, 200);
 });
 
 const props = defineProps<{
