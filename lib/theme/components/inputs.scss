@@ -107,6 +107,10 @@
   border: 1px solid var(--parsec-color-light-secondary-disabled);
 }
 
+#ms-password-input input::-ms-reveal {
+  display: none;
+}
+
 // error message
 .form-error {
   color: var(--parsec-color-light-danger-500);
