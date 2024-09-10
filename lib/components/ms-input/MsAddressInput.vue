@@ -1,20 +1,27 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <ms-input
-    :label="label"
-    :placeholder="placeholder"
-    id="ms-address-input"
-    @change="onChange"
-    @ion-blur="onFocusLost"
-    v-model="address"
-    :debounce="timeBeforeQuery"
-  />
+  <div class="address-container">
+    <ms-input
+      :label="label"
+      :placeholder="placeholder"
+      id="ms-address-input"
+      @change="onChange"
+      @ion-blur="onFocusLost"
+      v-model="address"
+      :debounce="timeBeforeQuery"
+    />
+    <ms-address-dropdown
+      v-if="addressesFound.length > 0"
+      :addresses="addressesFound"
+      @address-selected="onAddressSelected"
+      class="address-dropdown"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
-import { popoverController } from '@ionic/vue';
-import { MsAddressDropdown, MsModalResult, MsInput } from '@lib/components';
+import { MsAddressDropdown, MsInput } from '@lib/components';
 import { Address, GeoapifyAPI, Translatable } from '@lib/services';
 import { ref } from 'vue';
 
@@ -45,6 +52,7 @@ defineExpose({
 });
 
 const geoapifyApi = new GeoapifyAPI(props.geoapifyApiKey);
+const addressesFound = ref<Array<Address>>([]);
 const address = ref('');
 let querying = false;
 
@@ -54,29 +62,8 @@ function setValue(value: string): void {
 
 async function doQuery(query: string): Promise<void> {
   querying = true;
-  const addressesFound = await geoapifyApi.autocomplete(query);
-  if (addressesFound.length === 0) {
-    return;
-  }
-  const popover = await popoverController.create({
-    component: MsAddressDropdown,
-    cssClass: 'address-dropdown-popover',
-    componentProps: {
-      // Limit ourselves to the first five
-      addresses: addressesFound.slice(0, 5),
-    },
-    trigger: 'ms-address-input',
-    side: 'bottom',
-    alignment: 'start',
-    showBackdrop: false,
-  });
-  await popover.present();
-  const { role, data } = await popover.onDidDismiss();
-  await popover.dismiss();
-  if (role === MsModalResult.Confirm && data) {
-    querying = false;
-    emits('addressSelected', data.address as Address);
-  }
+  const result = await geoapifyApi.autocomplete(query);
+  addressesFound.value = result.slice(0, 5);
   querying = false;
 }
 
@@ -94,4 +81,15 @@ async function onChange(query: string): Promise<void> {
   }
   await doQuery(query);
 }
+
+async function onAddressSelected(addr: Address): Promise<void> {
+  address.value = addr.address;
+  emits('addressSelected', addr);
+}
 </script>
+
+<style lang="scss" scoped>
+.address-container {
+  position: relative;
+}
+</style>

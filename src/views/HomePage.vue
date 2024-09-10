@@ -4,7 +4,7 @@
       <div id="container">
         <ion-title class="title-h1-xl main-title">{{ $msTranslate('usage.title') }}</ion-title>
         <!-- translation -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.translation.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-dropdown
@@ -14,18 +14,18 @@
               @change="changeLocale"
             />
           </div>
-        </ion-item-divider>
+        </div>
 
         <!-- toggle -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.toggle.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-boolean-toggle v-model="referenceValue" />
           </div>
-        </ion-item-divider>
+        </div>
 
         <!-- Theme -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.theme.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-dropdown
@@ -35,10 +35,10 @@
               @change="themeManager.use($event.option.key)"
             />
           </div>
-        </ion-item-divider>
+        </div>
 
         <!-- action-bar -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.actionBar.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-action-bar id="ms-action-bar-example">
@@ -79,10 +79,10 @@
               />
             </ms-action-bar>
           </div>
-        </ion-item-divider>
+        </div>
 
         <!-- progress bar -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.progressBar.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-progress-bar
@@ -90,10 +90,10 @@
               show-progress-text
             />
           </div>
-        </ion-item-divider>
+        </div>
 
         <!-- dropdown -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.dropdown.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-dropdown
@@ -103,10 +103,10 @@
               @change="changeOption($event.option.key)"
             />
           </div>
-        </ion-item-divider>
+        </div>
 
         <!-- images -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.image.title') }}</ion-label>
           <div class="example-divider-content">
             <div class="example-data">
@@ -132,13 +132,13 @@
               <ms-image :image="WavyCaretUp" />
             </div>
           </div>
-        </ion-item-divider>
+        </div>
 
         <!-- inputs -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.inputs.title') }}</ion-label>
           <div class="example-divider-content">
-            <ion-item-divider class="example-divider-item">
+            <div class="example-divider-item">
               <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msInput.title') }}</ion-label>
               <ms-input
                 label="usage.components.inputs.msInput.label"
@@ -152,8 +152,8 @@
                 {{ $msTranslate('usage.components.inputs.msInput.isValidEmail') }}
                 {{ $msTranslate({ key: 'usage.components.inputs.msInput.validity', count: msInputRef.validity }) }}
               </span>
-            </ion-item-divider>
-            <ion-item-divider class="example-divider-item">
+            </div>
+            <div class="example-divider-item">
               <ms-textarea
                 label="usage.components.inputs.msTextarea.label"
                 placeholder="usage.components.inputs.msTextarea.placeholder"
@@ -162,43 +162,43 @@
                 :maxlength="100"
                 :show-count="true"
               />
-            </ion-item-divider>
-            <ion-item-divider class="example-divider-item">
+            </div>
+            <div class="example-divider-item">
               <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msSearchInput.title') }}</ion-label>
               <ms-search-input
                 placeholder="lib.components.msSearchInput.placeholder"
                 v-model="searchIInputExample"
                 id="searchInputExample"
               />
-            </ion-item-divider>
-            <ion-item-divider class="example-divider-item">
+            </div>
+            <div class="example-divider-item">
               <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msPasswordInput.title') }}</ion-label>
               <ms-password-input
                 label="usage.components.inputs.msPasswordInput.label"
                 v-model="passwordInputExample"
                 name="passwordInputExample"
               />
-            </ion-item-divider>
-            <ion-item-divider class="example-divider-item">
+            </div>
+            <div class="example-divider-item">
               <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msChoosePasswordInput.title') }}</ion-label>
               <ms-choose-password-input
                 password-label="usage.components.inputs.msChoosePasswordInput.label"
                 @on-enter-keyup="onEnterKeyup($event)"
                 ref="choosePasswordInput"
               />
-            </ion-item-divider>
-            <ion-item-divider class="example-divider-item">
+            </div>
+            <div class="example-divider-item">
               <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msPhoneNumberInput.title') }}</ion-label>
               <ms-phone-number-input
                 @on-enter-keyup="onEnterKeyup($event)"
                 ref="phoneNumberInput"
               />
-            </ion-item-divider>
+            </div>
           </div>
-        </ion-item-divider>
+        </div>
 
         <!-- sorter -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.sorter.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-sorter
@@ -220,10 +220,10 @@
               </div>
             </div>
           </div>
-        </ion-item-divider>
+        </div>
 
         <!-- checkbox -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.checkbox.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-checkbox
@@ -232,34 +232,34 @@
             />
             {{ $msTranslate('usage.components.checkbox.value') }} {{ checkboxValue }}
           </div>
-        </ion-item-divider>
+        </div>
 
         <!-- spinner -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.spinner.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-spinner title="lib.components.msSpinner.loading" />
           </div>
-        </ion-item-divider>
+        </div>
 
         <!-- steppers -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.stepper.title') }}</ion-label>
           <div class="example-divider-content">ms-wizard-stepper</div>
-        </ion-item-divider>
+        </div>
 
         <!-- informative-text -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.informativeText.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-informative-text>
               {{ $msTranslate('usage.components.informativeText.message') }}
             </ms-informative-text>
           </div>
-        </ion-item-divider>
+        </div>
 
         <!-- report-text -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.reportText.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-report-text :theme="msReportTheme">
@@ -273,10 +273,10 @@
               </i18n-t>
             </ms-report-text>
           </div>
-        </ion-item-divider>
+        </div>
 
         <!-- information-tooltip -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.informationTooltip.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-information-tooltip
@@ -285,10 +285,10 @@
               slot="end"
             />
           </div>
-        </ion-item-divider>
+        </div>
 
         <!-- toast-->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.toast.title') }}</ion-label>
           <div class="example-divider-content">
             <div class="example-data">
@@ -308,10 +308,10 @@
               </ion-button>
             </div>
           </div>
-        </ion-item-divider>
+        </div>
 
         <!-- code validation -->
-        <ion-item-divider class="example-divider">
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.codeValidation.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-code-validation-input
@@ -319,9 +319,10 @@
               :validation-function="validationFunction"
             />
           </div>
-        </ion-item-divider>
+        </div>
 
-        <ion-item-divider class="example-divider">
+        <!-- address validation -->
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.address.title') }}</ion-label>
           <div class="example-divider-content">
             <div class="example-data">
@@ -335,9 +336,10 @@
               />
             </div>
           </div>
-        </ion-item-divider>
+        </div>
 
-        <ion-item-divider class="example-divider">
+        <!-- credit card -->
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.stripe.title') }}</ion-label>
           <template v-if="stripeService.isInitialized()">
             <div class="example-divider-content">
@@ -366,8 +368,10 @@
           <template v-else>
             {{ $msTranslate('usage.components.stripe.notInit') }}
           </template>
-        </ion-item-divider>
-        <ion-item-divider class="example-divider">
+        </div>
+
+        <!-- summary item -->
+        <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.summaryCard.title') }}</ion-label>
           <div class="example-divider-content">
             <div class="example-data">
@@ -395,14 +399,14 @@
               />
             </div>
           </div>
-        </ion-item-divider>
+        </div>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonLabel, IonPage, IonItemDivider, modalController, IonButton, IonTitle } from '@ionic/vue';
+import { IonContent, IonLabel, IonPage, modalController, IonButton, IonTitle } from '@ionic/vue';
 import { cog, create, lockClosed, helpCircle, warning } from 'ionicons/icons';
 import {
   Answer,
@@ -688,11 +692,13 @@ async function createStripeCard(): Promise<void> {
   width: -webkit-fill-available;
   box-shadow: var(--parsec-shadow-light);
   --inner-padding-end: 0;
+  overflow: visible;
 
   ion-label.title-h2 {
     background: var(--parsec-color-light-secondary-medium);
     color: var(--parsec-color-light-secondary-text);
     width: 100%;
+    border-radius: var(--parsec-radius-8) var(--parsec-radius-8) 0 0;
     margin: 0;
     padding: 0.75em 1rem;
   }
