@@ -83,6 +83,7 @@ async function onChange(query: string): Promise<void> {
 }
 
 async function onAddressSelected(addr: Address): Promise<void> {
+  addressesFound.value = [];
   address.value = addr.address;
   emits('addressSelected', addr);
 }
