@@ -56,6 +56,7 @@ defineEmits<{
   --background: none;
   --min-height: 0;
   --inner-padding-end: 0;
+  --ripple-color: transparent;
   position: relative;
   z-index: 2;
   pointer-events: auto;
