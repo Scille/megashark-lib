@@ -77,6 +77,7 @@ async function onFocusLost(): Promise<void> {
 async function onChange(query: string): Promise<void> {
   emits('change', query);
   if (query.length < props.minimumQueryLength || querying || props.queryOnFocusLost) {
+    addressesFound.value = [];
     return;
   }
   await doQuery(query);
