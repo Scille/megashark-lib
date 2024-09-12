@@ -24,7 +24,6 @@
           v-model="password"
           name="password"
           ref="firstInputFieldRef"
-          @change="onPasswordChange()"
           @on-enter-keyup="$emit('onEnterKeyup', password)"
         />
       </div>
@@ -43,42 +42,41 @@
         </span>
       </div>
     </div>
-    <div class="password-level">
-      <div
-        class="password-level-container"
-        :class="getPasswordLevelClass()"
+    <div class="password-criteria">
+      <h3 class="password-criteria__title title-h5">{{ $msTranslate('lib.components.msChoosePasswordInput.criteria.title') }}</h3>
+      <p
+        v-for="[criterionName, criterion] in CRITERIA.entries()"
+        :key="criterion"
+        class="password-criteria__item body"
+        :class="{ matches: PasswordValidation.matchCriteria(password, criterion) }"
       >
-        <div class="password-level-bar">
-          <div class="bar-item" />
-          <div class="bar-item" />
-          <div class="bar-item" />
-        </div>
-        <ion-text class="subtitles-sm password-level__text">
-          {{ $msTranslate(passwordStrength.label) }}
-        </ion-text>
-      </div>
-      <ion-text class="subtitles-sm password-criteria">
-        {{ $msTranslate('lib.components.msChoosePasswordInput.criteria') }}
-      </ion-text>
+        <ion-icon :icon="PasswordValidation.matchCriteria(password, criterion) ? checkmarkCircle : close" />
+        {{ $msTranslate(`lib.components.msChoosePasswordInput.criteria.${criterionName}`) }}
+      </p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { PasswordStrength, PasswordValidation } from '@lib/common/validation';
+import { PasswordValidation } from '@lib/common/validation';
 import { MsImage, PasswordLock } from '@lib/components/ms-image';
 import MsPasswordInput from '@lib/components/ms-input/MsPasswordInput.vue';
 import { Translatable } from '@lib/services';
 import { IonText } from '@ionic/vue';
-import { Ref, ref } from 'vue';
+import { ref } from 'vue';
+import { checkmarkCircle, close } from 'ionicons/icons';
 
 const password = ref('');
 const passwordConfirm = ref('');
-const passwordStrength: Ref<PasswordStrength> = ref({
-  level: PasswordValidation.StrengthLevel.None,
-  label: '',
-});
 const firstInputFieldRef = ref();
+
+const CRITERIA = new Map([
+  ['length', PasswordValidation.Criteria.Length],
+  ['uppercase', PasswordValidation.Criteria.Uppercase],
+  ['lowercase', PasswordValidation.Criteria.Lowercase],
+  ['digit', PasswordValidation.Criteria.Digit],
+  ['special', PasswordValidation.Criteria.Special],
+]);
 
 defineEmits<{
   (e: 'onEnterKeyup', value: string): void;
@@ -111,33 +109,12 @@ function setFocus(): void {
 }
 
 async function areFieldsCorrect(): Promise<boolean> {
-  return passwordStrength.value.level === PasswordValidation.StrengthLevel.High && password.value === passwordConfirm.value;
+  return PasswordValidation.matchCriteria(password.value, PasswordValidation.Criteria.All) && password.value === passwordConfirm.value;
 }
 
 function clear(): void {
   password.value = '';
   passwordConfirm.value = '';
-  passwordStrength.value = {
-    level: PasswordValidation.StrengthLevel.None,
-    label: '',
-  };
-}
-
-function onPasswordChange(): void {
-  passwordStrength.value = PasswordValidation.getStrength(password.value);
-}
-
-function getPasswordLevelClass(): string {
-  switch (passwordStrength.value.level) {
-    case PasswordValidation.StrengthLevel.Low:
-      return 'password-level-low';
-    case PasswordValidation.StrengthLevel.Medium:
-      return 'password-level-medium';
-    case PasswordValidation.StrengthLevel.High:
-      return 'password-level-high';
-    default:
-      return '';
-  }
 }
 </script>
 
@@ -189,67 +166,27 @@ function getPasswordLevelClass(): string {
   }
 }
 
-.password-level {
+.password-criteria {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  max-width: 35rem;
+  gap: 0.125em;
 
-  .password-level-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-
-    &.password-level-low {
-      .password-level__text {
-        color: var(--parsec-color-light-danger-500);
-      }
-
-      .bar-item:nth-child(-n + 1) {
-        background: var(--parsec-color-light-danger-500);
-      }
-    }
-
-    &.password-level-medium {
-      .password-level__text {
-        color: var(--parsec-color-light-warning-500);
-      }
-
-      .bar-item:nth-child(-n + 2) {
-        background: var(--parsec-color-light-warning-500);
-      }
-    }
-
-    &.password-level-high {
-      .password-level__text {
-        color: var(--parsec-color-light-success-500);
-      }
-
-      .bar-item:nth-child(-n + 3) {
-        background: var(--parsec-color-light-success-500);
-      }
-    }
-  }
-
-  &__text {
-    color: var(--parsec-color-light-secondary-text);
-  }
-
-  &-bar {
-    display: flex;
-    gap: 0.5rem;
-
-    .bar-item {
-      width: 3rem;
-      height: 0.375rem;
-      border-radius: var(--parsec-radius-6);
-      background: var(--parsec-color-light-primary-50);
-      position: relative;
-    }
-  }
-
-  .password-criteria {
+  &__title {
+    margin-bottom: 0.5em;
     color: var(--parsec-color-light-secondary-grey);
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: var(--parsec-color-light-secondary-hard-grey);
+    margin: 0.2rem;
+
+    &.matches {
+      color: var(--parsec-color-light-success-700);
+      font-weight: 500;
+    }
   }
 }
 </style>

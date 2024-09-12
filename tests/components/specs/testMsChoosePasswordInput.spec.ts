@@ -29,17 +29,17 @@ describe('Choose password', () => {
     expect(await wrapper.vm.areFieldsCorrect()).to.be.false;
 
     ionInputs[0].vm.$emit('ionInput', {
-      target: { value: 'ABiggerSaferPassword' },
+      target: { value: 'ABiggerSaferPassword123!!' },
     });
-    expect(wrapper.vm.password).to.equal('ABiggerSaferPassword');
+    expect(wrapper.vm.password).to.equal('ABiggerSaferPassword123!!');
 
     // Password is strong enough but password and confirmation don't match
     expect(await wrapper.vm.areFieldsCorrect()).to.be.false;
 
     ionInputs[1].vm.$emit('ionInput', {
-      target: { value: 'ABiggerSaferPassword' },
+      target: { value: 'ABiggerSaferPassword123!!' },
     });
-    expect(wrapper.vm.passwordConfirm).to.equal('ABiggerSaferPassword');
+    expect(wrapper.vm.passwordConfirm).to.equal('ABiggerSaferPassword123!!');
     expect(await wrapper.vm.areFieldsCorrect()).to.be.true;
   });
 });
