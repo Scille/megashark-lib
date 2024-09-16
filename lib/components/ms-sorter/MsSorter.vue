@@ -25,20 +25,28 @@ import { IonButton, IonIcon, popoverController } from '@ionic/vue';
 import { swapVertical } from 'ionicons/icons';
 import { Ref, ref } from 'vue';
 
-const props = defineProps<{
-  defaultOption: any;
-  label?: Translatable;
-  options: MsOptions;
-  sorterLabels?: MsSorterLabels;
-  disabled?: boolean;
-}>();
+const props = withDefaults(
+  defineProps<{
+    defaultOption: any;
+    label?: Translatable;
+    options: MsOptions;
+    sorterLabels?: MsSorterLabels;
+    disabled?: boolean;
+    sortByAsc?: boolean;
+  }>(),
+  {
+    sortByAsc: undefined,
+    label: undefined,
+    sorterLabels: undefined,
+  },
+);
 
 const emits = defineEmits<{
   (e: 'change', value: MsSorterChangeEvent): void;
 }>();
 
 const selectedOption: Ref<MsOption | undefined> = ref(props.defaultOption ? props.options.get(props.defaultOption) : undefined);
-const sortByAsc: Ref<boolean> = ref(true);
+const sortByAsc: Ref<boolean> = ref(props.sortByAsc ?? true);
 const labelRef = ref(selectedOption.value?.label || props.label);
 
 async function openPopover(event: Event): Promise<void> {

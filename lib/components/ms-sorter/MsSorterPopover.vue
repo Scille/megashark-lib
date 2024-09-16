@@ -76,8 +76,8 @@ function onOptionClick(option?: MsOption): void {
 }
 
 function getSorterLabel(): Translatable {
-  const ascLabel = props.sorterLabels?.asc || 'lib.components.msSorter.desc';
-  const descLabel = props.sorterLabels?.desc || 'lib.components.msSorter.desc';
+  const ascLabel = props.sorterLabels?.asc ?? 'lib.components.msSorter.desc';
+  const descLabel = props.sorterLabels?.desc ?? 'lib.components.msSorter.desc';
   return sortByAsc.value ? ascLabel : descLabel;
 }
 </script>

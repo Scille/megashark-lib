@@ -204,6 +204,8 @@
             <ms-sorter
               :options="msSorterOptions"
               default-option="name"
+              :sorter-labels="{ asc: 'Asc', desc: 'Desc' }"
+              :sort-by-asc="false"
               @change="onSortChange($event)"
             />
             <div class="example-data">
