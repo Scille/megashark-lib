@@ -241,6 +241,10 @@
           <ion-label class="title-h2">{{ $msTranslate('usage.components.spinner.title') }}</ion-label>
           <div class="example-divider-content">
             <ms-spinner title="lib.components.msSpinner.loading" />
+
+            <ion-button @click="openSpinnerModal">
+              {{ $msTranslate('usage.components.spinner.openModal') }}
+            </ion-button>
           </div>
         </div>
 
@@ -465,6 +469,7 @@ import {
   MsProgressBar,
   MsSummaryCard,
   createSummaryCardItem,
+  openSpinnerModal as msOpenSpinnerModal,
 } from '@lib/components';
 import { DateTime } from 'luxon';
 import { inject, ref, Ref, onMounted } from 'vue';
@@ -587,6 +592,14 @@ async function openSettingsModal(): Promise<void> {
   await modal.present();
   await modal.onWillDismiss();
   await modal.dismiss();
+}
+
+async function openSpinnerModal(): Promise<void> {
+  const modal = await msOpenSpinnerModal('usage.components.spinner.modalLabel');
+
+  setTimeout(async () => {
+    await modal.dismiss();
+  }, 2000);
 }
 
 async function openAlertModal(): Promise<void> {
