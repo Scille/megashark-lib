@@ -3,6 +3,7 @@
 import { modalController } from '@ionic/vue';
 import MsPasswordInputModal from '@lib/components/ms-modal/MsPasswordInputModal.vue';
 import MsQuestionModal from '@lib/components/ms-modal/MsQuestionModal.vue';
+import MsSpinnerModal from '@lib/components/ms-modal/MsSpinnerModal.vue';
 import MsTextInputModal from '@lib/components/ms-modal/MsTextInputModal.vue';
 import { GetPasswordOptions, GetTextOptions, MsModalResult } from '@lib/components/ms-modal/types';
 import { Answer } from '@lib/components/ms-types';
@@ -89,4 +90,19 @@ export async function getTextFromUser(options: GetTextOptions): Promise<string |
   const result = await modal.onWillDismiss();
   await modal.dismiss();
   return result.role === MsModalResult.Confirm ? result.data : null;
+}
+
+export async function openSpinnerModal(label?: Translatable): Promise<HTMLIonModalElement> {
+  const modal = await modalController.create({
+    component: MsSpinnerModal,
+    canDismiss: true,
+    backdropDismiss: false,
+    showBackdrop: true,
+    cssClass: 'ms-spinner-modal',
+    componentProps: {
+      label: label,
+    },
+  });
+  await modal.present();
+  return modal;
 }

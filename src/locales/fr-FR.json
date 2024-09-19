@@ -125,7 +125,9 @@
         "age": "Âge"
       },
       "spinner": {
-        "title": "Spinner"
+        "title": "Spinner",
+        "openModal": "Ouvrir la modal",
+        "modalLabel": "Veuillez patienter..."
       },
       "stepper": {
         "title": "Stepper"

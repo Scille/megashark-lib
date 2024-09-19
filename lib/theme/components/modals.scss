@@ -105,3 +105,24 @@ ion-modal .inner-content {
     padding-bottom: 0rem !important;
   }
 }
+
+.ms-spinner-modal {
+  &::part(content) {
+    min-width: 25rem;
+    width: 25rem;
+  }
+
+  .ms-modal {
+    padding: 1.5rem;
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+  .spinner-label__text {
+    color: var(--parsec-color-light-secondary-soft-text);
+  }
+}
