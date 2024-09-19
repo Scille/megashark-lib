@@ -1,10 +1,8 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <ms-modal
-    :subtitle="label"
-    :close-button="{ visible: false }"
-  >
+  <ms-modal :close-button="{ visible: false }">
+    <ion-text class="subtitles-normal spinner-label__text">{{ label }}</ion-text>
     <ms-spinner />
   </ms-modal>
 </template>
