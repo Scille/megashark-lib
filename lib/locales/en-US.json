@@ -13,7 +13,14 @@
         "confirmPasswordInputLabel": "Confirm password",
         "description": "Your password must be secure and you must remember it.",
         "noMatch": "Do not match",
-        "criteria": "Make sure it corresponds to a strong level: avoid repetitions, overly common words and sequences."
+        "criteria": {
+          "title": "Contains at least:",
+          "length": "12 characters",
+          "uppercase": "1 uppercase",
+          "lowercase": "1 lowercase",
+          "digit": "1 digit",
+          "special": "1 special character"
+        }
       },
       "msCodeValidationInput": {
         "title": "Code validation",
