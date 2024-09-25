@@ -1,13 +1,13 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <div class="progress-bar-container">
-    <div class="progress-bar">
+  <div class="progress-container">
+    <div class="progress">
       <div class="completed" />
     </div>
     <ion-text
       class="title-h5 progress-text"
-      v-show="props.appearance === ProgressBarAppearance.Bar"
+      v-show="props.appearance === MsProgressAppearance.ProgressBar"
     >
       {{ `${progress}%` }}
     </ion-text>
@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { IonText } from '@ionic/vue';
-import { ProgressBarAppearance } from '@lib/components/ms-progress-bar/types';
+import { MsProgressAppearance } from '@lib/components/ms-progress/types';
 
 const props = defineProps({
   progress: {
@@ -29,39 +29,41 @@ const props = defineProps({
   },
   appearance: {
     type: String,
-    default: ProgressBarAppearance.Bar,
+    default: MsProgressAppearance.Bar,
   },
 });
 
 const progressWidthStyle = computed(() => `${props.progress}%`);
 const heightStyle = computed(() => {
-  if (props.appearance === ProgressBarAppearance.Bar) {
-    return '0.725rem';
+  switch (props.appearance) {
+    case MsProgressAppearance.Line:
+      return '0.125rem';
+    case MsProgressAppearance.Bar:
+    case MsProgressAppearance.ProgressBar:
+    default:
+      return '0.725rem';
   }
-  if (props.appearance === ProgressBarAppearance.Line) {
-    return '0.375rem';
-  }
-  return '0.725rem';
 });
 const progressHeightStyle = computed(() => {
-  if (props.appearance === ProgressBarAppearance.Bar) {
-    return '0.5rem';
+  switch (props.appearance) {
+    case MsProgressAppearance.Line:
+      return '0.125rem';
+    case MsProgressAppearance.Bar:
+    case MsProgressAppearance.ProgressBar:
+    default:
+      return '0.5rem';
   }
-  if (props.appearance === ProgressBarAppearance.Line) {
-    return '0.125rem';
-  }
-  return '0.5rem';
 });
 </script>
 
 <style scoped lang="scss">
-.progress-bar-container {
+.progress-container {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-.progress-bar {
+.progress {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
