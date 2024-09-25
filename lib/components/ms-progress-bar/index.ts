@@ -2,4 +2,5 @@
 
 import MsProgressBar from '@lib/components/ms-progress-bar/MsProgressBar.vue';
 
+export * from '@lib/components/ms-progress-bar/types';
 export { MsProgressBar };
