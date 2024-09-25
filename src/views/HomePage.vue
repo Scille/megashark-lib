@@ -87,7 +87,15 @@
           <div class="example-divider-content">
             <ms-progress-bar
               :progress="progress"
-              show-progress-text
+              :appearance="ProgressBarAppearance.Bar"
+              class="ms-progress-bar"
+            />
+          </div>
+          <div class="example-divider-content">
+            <ms-progress-bar
+              :progress="progress"
+              :appearance="ProgressBarAppearance.Line"
+              class="ms-progress-bar"
             />
           </div>
         </div>
@@ -467,6 +475,7 @@ import {
   MsStripeCardDetails,
   MsDropdownChangeEvent,
   MsProgressBar,
+  ProgressBarAppearance,
   MsSummaryCard,
   createSummaryCardItem,
   openSpinnerModal as msOpenSpinnerModal,
@@ -682,6 +691,10 @@ async function createStripeCard(): Promise<void> {
 </script>
 
 <style scoped lang="scss">
+.ms-progress-bar {
+  width: 16em;
+}
+
 .main-title {
   text-align: center;
   margin: 0;

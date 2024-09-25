@@ -7,7 +7,7 @@
     </div>
     <ion-text
       class="title-h5 progress-text"
-      v-show="props.showProgressText"
+      v-show="props.appearance === ProgressBarAppearance.Bar"
     >
       {{ `${progress}%` }}
     </ion-text>
@@ -17,6 +17,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { IonText } from '@ionic/vue';
+import { ProgressBarAppearance } from '@lib/components/ms-progress-bar/types';
 
 const props = defineProps({
   progress: {
@@ -26,12 +27,31 @@ const props = defineProps({
       return value >= 0 && value <= 100;
     },
   },
-  showProgressText: {
-    type: Boolean,
+  appearance: {
+    type: String,
+    default: ProgressBarAppearance.Bar,
   },
 });
 
 const progressWidthStyle = computed(() => `${props.progress}%`);
+const heightStyle = computed(() => {
+  if (props.appearance === ProgressBarAppearance.Bar) {
+    return '0.725rem';
+  }
+  if (props.appearance === ProgressBarAppearance.Line) {
+    return '0.375rem';
+  }
+  return '0.725rem';
+});
+const progressHeightStyle = computed(() => {
+  if (props.appearance === ProgressBarAppearance.Bar) {
+    return '0.5rem';
+  }
+  if (props.appearance === ProgressBarAppearance.Line) {
+    return '0.125rem';
+  }
+  return '0.5rem';
+});
 </script>
 
 <style scoped lang="scss">
@@ -45,16 +65,16 @@ const progressWidthStyle = computed(() => `${props.progress}%`);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 16em;
+  width: 100%;
   padding: 0.125rem;
-  height: 0.725rem;
+  height: v-bind(heightStyle);
   background: var(--parsec-color-light-secondary-premiere);
   border-radius: var(--parsec-radius-8);
 
   .completed {
     transition: width 0.35s ease-in-out;
     width: v-bind(progressWidthStyle);
-    height: 0.5rem;
+    height: v-bind(progressHeightStyle);
     background: var(--parsec-color-light-gradient);
     border-radius: var(--parsec-radius-6);
     flex: none;
