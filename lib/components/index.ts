@@ -42,8 +42,8 @@ export * from '@lib/components/ms-checkbox';
 // ** ms-stripe ** //
 export * from '@lib/components/ms-stripe';
 
-// ** ms-progress-bar ** //
-export * from '@lib/components/ms-progress-bar';
+// ** ms-progress ** //
+export * from '@lib/components/ms-progress';
 
 // ** ms-textarea ** //
 export * from '@lib/components/ms-textarea';

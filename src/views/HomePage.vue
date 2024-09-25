@@ -85,17 +85,24 @@
         <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.progressBar.title') }}</ion-label>
           <div class="example-divider-content">
-            <ms-progress-bar
+            <ms-progress
               :progress="progress"
-              :appearance="ProgressBarAppearance.Bar"
-              class="ms-progress-bar"
+              :appearance="MsProgressAppearance.Bar"
+              class="ms-progress"
             />
           </div>
           <div class="example-divider-content">
-            <ms-progress-bar
+            <ms-progress
               :progress="progress"
-              :appearance="ProgressBarAppearance.Line"
-              class="ms-progress-bar"
+              :appearance="MsProgressAppearance.Line"
+              class="ms-progress"
+            />
+          </div>
+          <div class="example-divider-content">
+            <ms-progress
+              :progress="progress"
+              :appearance="MsProgressAppearance.ProgressBar"
+              class="ms-progress"
             />
           </div>
         </div>
@@ -474,8 +481,8 @@ import {
   MsStripeCardForm,
   MsStripeCardDetails,
   MsDropdownChangeEvent,
-  MsProgressBar,
-  ProgressBarAppearance,
+  MsProgress,
+  MsProgressAppearance,
   MsSummaryCard,
   createSummaryCardItem,
   openSpinnerModal as msOpenSpinnerModal,
@@ -691,7 +698,7 @@ async function createStripeCard(): Promise<void> {
 </script>
 
 <style scoped lang="scss">
-.ms-progress-bar {
+.ms-progress {
   width: 16em;
 }
 
