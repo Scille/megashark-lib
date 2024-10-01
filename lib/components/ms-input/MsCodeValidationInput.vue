@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, defineEmits } from 'vue';
+import { onMounted, ref, defineEmits, defineExpose } from 'vue';
 import { IonInput, IonText } from '@ionic/vue';
 import { Ref } from 'vue';
 const inputs = ref();
@@ -46,9 +46,7 @@ const codes = ref<string[]>([]);
 const isFinalCodeValid: Ref<undefined | boolean> = ref(undefined);
 
 onMounted(async (): Promise<void> => {
-  setTimeout(() => {
-    focusInputElement(getFirstInputElement());
-  }, 200);
+  await focusInputElement(getFirstInputElement());
 });
 
 const props = defineProps<{
@@ -60,20 +58,28 @@ const emits = defineEmits<{
   (e: 'codeComplete', code: Array<string>): void;
 }>();
 
+defineExpose({
+  setFocus,
+});
+
 async function onPaste(event: ClipboardEvent): Promise<void> {
   event.preventDefault();
   const code = event.clipboardData?.getData('text');
   if (code && isValidCode(code)) {
     codes.value = code.split('');
-    focusInputElement(getLastInputElement());
+    await focusInputElement(getLastInputElement());
     checkCode();
   }
+}
+
+async function setFocus(): Promise<void> {
+  await focusInputElement(getFirstInputElement());
 }
 
 async function onIonInput(event: CustomEvent): Promise<void> {
   const input = event.target as HTMLIonInputElement;
   if (input !== getLastInputElement()) {
-    focusInputElement(getNextInputElement(input));
+    await focusInputElement(getNextInputElement(input));
   }
 
   if (input.value === '') {
@@ -91,7 +97,7 @@ async function onKeyUpBackspace(event: KeyboardEvent): Promise<void> {
     } else {
       if (input.value === '' && input !== getFirstInputElement()) {
         const previousInput = getPreviousInputElement(input);
-        focusInputElement(previousInput);
+        await focusInputElement(previousInput);
         setInputElementValue(previousInput, '');
       }
     }
@@ -188,9 +194,9 @@ function setInputElementValue(input: HTMLIonInputElement | undefined, value: str
   codes.value[inputIndex] = value;
 }
 
-function focusInputElement(input: HTMLIonInputElement | undefined): void {
+async function focusInputElement(input: HTMLIonInputElement | undefined): Promise<void> {
   if (input) {
-    input.setFocus();
+    await input.setFocus();
   }
 }
 </script>
