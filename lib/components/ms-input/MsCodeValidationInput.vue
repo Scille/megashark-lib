@@ -20,7 +20,10 @@
         />
       </template>
     </div>
-    <div class="code-input-message">
+    <div
+      class="code-input-message"
+      v-if="validationFunction"
+    >
       <ion-text
         class="code-input-message__invalid subtitle-sm"
         v-if="isFinalCodeValid === false"
@@ -41,6 +44,7 @@
 import { onMounted, ref, defineEmits, defineExpose } from 'vue';
 import { IonInput, IonText } from '@ionic/vue';
 import { Ref } from 'vue';
+
 const inputs = ref();
 const codes = ref<string[]>([]);
 const isFinalCodeValid: Ref<undefined | boolean> = ref(undefined);
@@ -51,7 +55,7 @@ onMounted(async (): Promise<void> => {
 
 const props = defineProps<{
   codeLength: number;
-  validationFunction: (code: Array<string>) => Promise<boolean>;
+  validationFunction?: (code: Array<string>) => Promise<boolean>;
 }>();
 
 const emits = defineEmits<{
@@ -108,7 +112,7 @@ async function onKeyUpBackspace(event: KeyboardEvent): Promise<void> {
 
 async function checkCode(): Promise<void> {
   if (props.codeLength === codes.value.length) {
-    isFinalCodeValid.value = await props.validationFunction(codes.value);
+    isFinalCodeValid.value = props.validationFunction ? await props.validationFunction(codes.value) : true;
     if (isFinalCodeValid.value === true) {
       emits('codeComplete', codes.value);
     }
