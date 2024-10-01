@@ -5,22 +5,54 @@
     class="input-content ms-search-input"
     id="ms-search-input"
   >
-    <ion-icon
-      :icon="search"
-      slot="start"
-      class="icon"
-    />
-    <ion-input
-      class="form-input input"
-      ref="inputRef"
-      :value="modelValue"
-      :placeholder="$msTranslate(placeholder)"
-      :clear-input="true"
-      @ion-input="onChange($event.target.value)"
-      @keyup.enter="onEnterPress()"
-      mode="ios"
-    />
-    <!-- mode=ios to change the clear icon style -->
+    <div
+      v-if="asPopover"
+      @click="openPopover"
+    >
+      <div>
+        <ion-icon
+          :icon="search"
+          slot="start"
+          class="icon"
+        />
+        <span>{{ $msTranslate(placeholder) }}</span>
+      </div>
+      <div
+        class="popover-container"
+        v-show="showPopover"
+      >
+        <ion-input
+          class="form-input input"
+          ref="inputRef"
+          :value="modelValue"
+          :placeholder="$msTranslate(placeholder)"
+          :clear-input="true"
+          @ion-input="onChange($event.target.value)"
+          @keyup.enter="onEnterPress()"
+          @ion-blur="showPopover = false"
+          mode="ios"
+        />
+      </div>
+    </div>
+
+    <div v-else>
+      <ion-icon
+        :icon="search"
+        slot="start"
+        class="icon"
+      />
+      <ion-input
+        class="form-input input"
+        ref="inputRef"
+        :value="modelValue"
+        :placeholder="$msTranslate(placeholder)"
+        :clear-input="true"
+        @ion-input="onChange($event.target.value)"
+        @keyup.enter="onEnterPress()"
+        mode="ios"
+      />
+      <!-- mode=ios to change the clear icon style -->
+    </div>
   </div>
 </template>
 
@@ -28,14 +60,16 @@
 import { Translatable } from '@lib/services';
 import { IonIcon, IonInput } from '@ionic/vue';
 import { search } from 'ionicons/icons';
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
 
 const props = defineProps<{
   modelValue?: string;
   placeholder?: Translatable;
+  asPopover?: boolean;
 }>();
 
 const inputRef = ref();
+const showPopover = ref(false);
 
 const emits = defineEmits<{
   (e: 'change', value: string): void;
@@ -47,6 +81,12 @@ defineExpose({
   setFocus,
   selectText,
 });
+
+async function openPopover(): Promise<void> {
+  showPopover.value = true;
+  await nextTick();
+  await inputRef.value.$el.setFocus();
+}
 
 function setFocus(): void {
   setTimeout(() => {
@@ -98,5 +138,18 @@ function onChange(value: any): void {
     margin: 0 0.5rem 0 0;
     color: var(--parsec-color-light-secondary-light);
   }
+}
+
+.popover-container {
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  border: 1px solid var(--parsec-color-light-secondary-light);
+  background: var(--parsec-color-light-secondary-white);
+  border-radius: var(--parsec-radius-8);
+  margin-top: 0.5rem;
+  z-index: 12;
 }
 </style>

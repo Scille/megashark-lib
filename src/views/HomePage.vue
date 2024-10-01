@@ -182,9 +182,11 @@
               <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msSearchInput.title') }}</ion-label>
               <ms-search-input
                 placeholder="lib.components.msSearchInput.placeholder"
-                v-model="searchIInputExample"
+                v-model="searchInputExample"
                 id="searchInputExample"
+                :as-popover="true"
               />
+              {{ searchInputExample }}
             </div>
             <div class="example-divider-item">
               <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msPasswordInput.title') }}</ion-label>
@@ -536,7 +538,7 @@ const inputExample = ref('');
 const msInputRef = ref();
 const textareaExample = ref('');
 const passwordInputExample = ref('');
-const searchIInputExample = ref('');
+const searchInputExample = ref('');
 const msReportTheme = ref(MsReportTheme.Info);
 const toastOffset = ref('0');
 const toastManager = new ToastManager();
