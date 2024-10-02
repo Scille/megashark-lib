@@ -25,6 +25,7 @@
         @ion-focus="onFocus"
         @ion-blur="onFocusLost"
         @keyup.enter="onEnterPress()"
+        mode="ios"
       />
       <div
         class="input-icon"

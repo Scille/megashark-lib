@@ -19,6 +19,7 @@
         :class="{
           input: !$props.disabled,
         }"
+        mode="ios"
         ref="inputRef"
         :placeholder="$msTranslate(placeholder)"
         :value="modelValue"

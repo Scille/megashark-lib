@@ -17,6 +17,7 @@
           @ion-input="onIonInput($event)"
           @keyup.backspace="onKeyUpBackspace($event)"
           @paste="onPaste($event)"
+          mode="ios"
         />
       </template>
     </div>

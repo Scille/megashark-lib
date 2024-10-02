@@ -42,8 +42,8 @@ http://ionicframework.com/docs/theming/ */
 
 .header-md,
 .footer-md {
-  -webkit-box-shadow: inherit;
-  box-shadow: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 ion-list.container {
