@@ -24,6 +24,7 @@
         :value="modelValue"
         @ion-input="onChange($event.detail.value || '')"
         @ion-blur="onFocusLost"
+        @ion-focus="onFocus"
         @keyup.enter="enterPressed($event.target.value)"
         :disabled="$props.disabled"
         v-bind="$attrs"
@@ -60,12 +61,14 @@ const props = defineProps<{
 const inputRef = ref();
 const errorMessage: Ref<Translatable> = ref('');
 const validity = ref(Validity.Intermediate);
-const lostFocus = ref(false);
+const lostFocus = ref(true);
 
 const emits = defineEmits<{
   (e: 'update:modelValue', value: string): void;
   (e: 'change', value: string): void;
   (e: 'onEnterKeyup', value: string): void;
+  (e: 'onFocusLost', value: boolean): void;
+  (e: 'onFocus', value: boolean): void;
 }>();
 
 defineExpose({
@@ -112,8 +115,14 @@ async function selectText(range?: [number, number]): Promise<void> {
   input.setSelectionRange(begin, end);
 }
 
+async function onFocus(): Promise<void> {
+  lostFocus.value = false;
+  emits('onFocus', lostFocus.value);
+}
+
 async function onFocusLost(): Promise<void> {
   lostFocus.value = true;
+  emits('onFocusLost', lostFocus.value);
 }
 
 async function validate(value: string): Promise<void> {

@@ -7,12 +7,13 @@
       :placeholder="placeholder"
       id="ms-address-input"
       @change="onChange"
-      @ion-blur="onFocusLost"
+      @on-focus-lost="handleFocusLost"
+      @on-focus="handleFocus"
       v-model="address"
       :debounce="timeBeforeQuery"
     />
     <ms-address-dropdown
-      v-if="addressesFound.length > 0"
+      v-if="addressesFound.length > 0 && !lostFocus"
       :addresses="addressesFound"
       @address-selected="onAddressSelected"
       class="address-dropdown"
@@ -54,7 +55,19 @@ defineExpose({
 const geoapifyApi = new GeoapifyAPI(props.geoapifyApiKey);
 const addressesFound = ref<Array<Address>>([]);
 const address = ref('');
+const lostFocus = ref(true);
 let querying = false;
+
+function handleFocusLost(): void {
+  // Wait a bit to let the click event on the dropdown to be processed
+  setTimeout(() => {
+    lostFocus.value = true;
+  }, 100);
+}
+
+function handleFocus(): void {
+  lostFocus.value = false;
+}
 
 function setValue(value: string): void {
   address.value = value;
@@ -67,15 +80,9 @@ async function doQuery(query: string): Promise<void> {
   querying = false;
 }
 
-async function onFocusLost(): Promise<void> {
-  if (address.value.length < props.minimumQueryLength || querying || !props.queryOnFocusLost) {
-    return;
-  }
-  await doQuery(address.value);
-}
-
 async function onChange(query: string): Promise<void> {
   emits('change', query);
+  handleFocus();
   if (query.length < props.minimumQueryLength || querying || props.queryOnFocusLost) {
     return;
   }
