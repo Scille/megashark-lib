@@ -92,7 +92,6 @@ function onChange(value: any): void {
   .input {
     --placeholder-color: var(--parsec-color-light-secondary-light);
     --placeholder-opacity: 0.8;
-    min-height: 1rem;
   }
 
   .icon {

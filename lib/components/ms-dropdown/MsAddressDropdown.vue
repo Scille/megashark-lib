@@ -10,20 +10,20 @@
       :key="index"
       @click="$emit('addressSelected', addr)"
     >
-      <ion-label class="option-text subtitles-sm">
+      <ion-text class="option-text subtitles-sm">
         <span class="option-text__label">
           {{ addr.address }}
         </span>
         <span class="option-text__description">
           {{ `${addr.city} (${addr.country})` }}
         </span>
-      </ion-label>
+      </ion-text>
     </ion-item>
   </ion-list>
 </template>
 
 <script setup lang="ts">
-import { IonList, IonItem, IonLabel } from '@ionic/vue';
+import { IonList, IonItem, IonText } from '@ionic/vue';
 import { Address } from '@lib/services';
 
 defineProps<{
