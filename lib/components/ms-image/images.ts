@@ -18,6 +18,7 @@ import Folder from '@lib/assets/images/folder.svg?raw';
 import Font from '@lib/assets/images/font.svg?raw';
 import Illustrator from '@lib/assets/images/illustrator.svg?raw';
 import Image from '@lib/assets/images/image.svg?raw';
+import ImportMultipleFiles from '@lib/assets/images/import-multiple-files.svg?raw';
 import Iso from '@lib/assets/images/iso.svg?raw';
 import Javascript from '@lib/assets/images/js.svg?raw';
 import LogoIconGradient from '@lib/assets/images/logo-icon-gradient.svg?raw';
@@ -90,6 +91,7 @@ export {
   File,
   FileImport,
   Folder,
+  ImportMultipleFiles,
   LogoIconGradient,
   LogoIconWhite,
   LogoMastercard,
