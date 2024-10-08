@@ -1,7 +1,14 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <div class="progress-container">
+  <div
+    class="progress-container"
+    :class="{
+      'progress-bar': props.appearance === MsProgressAppearance.ProgressBar,
+      line: props.appearance === MsProgressAppearance.Line,
+      bar: props.appearance === MsProgressAppearance.Bar,
+    }"
+  >
     <div class="progress">
       <div class="completed" />
     </div>
@@ -34,26 +41,6 @@ const props = defineProps({
 });
 
 const progressWidthStyle = computed(() => `${props.progress}%`);
-const heightStyle = computed(() => {
-  switch (props.appearance) {
-    case MsProgressAppearance.Line:
-      return '0.125rem';
-    case MsProgressAppearance.Bar:
-    case MsProgressAppearance.ProgressBar:
-    default:
-      return '0.725rem';
-  }
-});
-const progressHeightStyle = computed(() => {
-  switch (props.appearance) {
-    case MsProgressAppearance.Line:
-      return '0.125rem';
-    case MsProgressAppearance.Bar:
-    case MsProgressAppearance.ProgressBar:
-    default:
-      return '0.5rem';
-  }
-});
 </script>
 
 <style scoped lang="scss">
@@ -68,20 +55,52 @@ const progressHeightStyle = computed(() => {
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  padding: 0.125rem;
-  height: v-bind(heightStyle);
+  height: 0.725rem;
   background: var(--parsec-color-light-secondary-premiere);
   border-radius: var(--parsec-radius-8);
 
   .completed {
     transition: width 0.35s ease-in-out;
     width: v-bind(progressWidthStyle);
-    height: v-bind(progressHeightStyle);
+    height: 0.5rem;
     background: var(--parsec-color-light-gradient);
     border-radius: var(--parsec-radius-6);
     flex: none;
     order: 0;
     flex-grow: 1;
+  }
+}
+
+.line {
+  .progress {
+    height: 0.125rem;
+    padding: 0;
+
+    .completed {
+      height: 0.125rem;
+    }
+  }
+}
+
+.bar {
+  .progress {
+    height: 0.75rem;
+    padding: 0.125rem;
+
+    .completed {
+      height: auto;
+    }
+  }
+}
+
+.progress-bar {
+  .progress {
+    height: 0.75rem;
+    padding: 0.125rem;
+
+    .completed {
+      height: auto;
+    }
   }
 }
 
