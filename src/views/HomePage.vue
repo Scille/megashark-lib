@@ -76,6 +76,7 @@
                 id="action-bar-button-example"
                 button-label="usage.components.actionBar.buttons.importDocument.title"
                 :image="DocumentImport"
+                :is-dropdown="true"
               />
             </ms-action-bar>
           </div>
