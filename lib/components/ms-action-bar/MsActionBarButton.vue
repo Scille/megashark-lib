@@ -6,17 +6,23 @@
     size="default"
   >
     <ion-icon
-      class="ms-action-bar-button-icon"
+      class="ms-action-bar-button-icon__left"
       v-if="icon"
       slot="start"
       :icon="icon"
     />
     <ms-image
-      class="ms-action-bar-button-icon"
+      class="ms-action-bar-button-icon__left"
       v-if="!icon && image"
       :image="image"
     />
     {{ $msTranslate(buttonLabel) }}
+    <ion-icon
+      class="ms-action-bar-button-icon__right"
+      v-if="isDropdown"
+      slot="end"
+      :icon="chevronDown"
+    />
   </ion-button>
 </template>
 
@@ -24,11 +30,13 @@
 import { MsImage } from '@lib/components/ms-image';
 import { Translatable } from '@lib/services';
 import { IonButton, IonIcon } from '@ionic/vue';
+import { chevronDown } from 'ionicons/icons';
 
 defineProps<{
   buttonLabel?: Translatable;
   icon?: string;
   image?: string;
+  isDropdown?: boolean;
 }>();
 </script>
 
@@ -51,9 +59,15 @@ defineProps<{
     --fill-color: var(--parsec-color-light-primary-600);
   }
 
-  &-icon {
+  &-icon__left {
     margin-inline: 0em;
     margin-right: 0.375rem;
+  }
+
+  &-icon__right {
+    margin-inline: 0em;
+    margin-left: 0.375rem;
+    font-size: 1rem;
   }
 }
 </style>
