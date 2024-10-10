@@ -19,6 +19,7 @@
       @ion-input="onChange($event.target.value)"
       @keyup.enter="onEnterPress()"
       mode="ios"
+      :debounce="debounce"
     />
     <!-- mode=ios to change the clear icon style -->
   </div>
@@ -33,6 +34,7 @@ import { ref } from 'vue';
 const props = defineProps<{
   modelValue?: string;
   placeholder?: Translatable;
+  debounce?: number;
 }>();
 
 const inputRef = ref();
