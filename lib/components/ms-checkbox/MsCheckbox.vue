@@ -16,11 +16,18 @@
 import { IonCheckbox } from '@ionic/vue';
 import { ref, watch, onUnmounted } from 'vue';
 
-const props = defineProps<{
-  modelValue?: boolean;
-  checked?: boolean;
-  indeterminate?: boolean;
-}>();
+const props = withDefaults(
+  defineProps<{
+    modelValue?: boolean;
+    checked?: boolean;
+    indeterminate?: boolean;
+  }>(),
+  {
+    modelValue: undefined,
+    checked: undefined,
+    indeterminate: undefined,
+  },
+);
 
 const emits = defineEmits<{
   (e: 'change', value: boolean): void;
@@ -29,19 +36,19 @@ const emits = defineEmits<{
 
 const watchModelCancel = watch(
   () => props.modelValue,
-  (newValue: boolean) => {
+  (newValue?: boolean) => {
     value.value = newValue;
   },
 );
 
 const watchCheckedCancel = watch(
   () => props.checked,
-  (newValue: boolean) => {
+  (newValue?: boolean) => {
     value.value = newValue;
   },
 );
 
-const value = ref(props.modelValue);
+const value = ref(props.modelValue !== undefined ? props.modelValue : props.checked);
 
 onUnmounted(() => {
   watchModelCancel();
