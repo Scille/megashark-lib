@@ -23,13 +23,13 @@
   align-items: center;
   flex-grow: 1;
   width: auto;
-  padding: 0.625rem 1rem;
+  padding: 0 1rem;
   border: 1px solid var(--parsec-color-light-secondary-light);
   border-radius: var(--parsec-radius-8);
   color: var(--parsec-color-light-primary-800);
   transition: outline 0.2s ease-in-out;
   position: relative;
-  min-height: 2.75rem;
+  height: 2.75rem;
 
   &:hover {
     border: 1px solid var(--parsec-color-light-primary-300);
@@ -45,14 +45,21 @@
 .input {
   -webkit-margin-start: 0;
   margin-inline-start: 0;
-  padding: 0.625rem 1rem;
+  padding: 0 1rem;
   min-height: 1rem !important;
   width: auto;
+  height: 100%;
   flex-grow: 1;
   --border-width: 0;
   --placeholder-color: var(--parsec-color-light-secondary-grey);
   --highlight-color: none;
   --highlight-color-focused: none;
+  --padding-top: 0;
+  --padding-bottom: 0;
+
+  &:is(.StripeElement) {
+    padding: 0.625rem;
+  }
 
   &-disabled {
     opacity: 1 !important;
