@@ -63,6 +63,12 @@ export class GeoapifyAPI {
 
       return [
         {
+          country: 'COUNTRY',
+          postalCode: 'POSTAL CODE',
+          city: 'CITY',
+          address: query,
+        },
+        {
           country: 'United Kingdom',
           postalCode: 'NW1 6XE',
           city: 'London',

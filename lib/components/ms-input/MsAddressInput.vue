@@ -58,14 +58,16 @@ const isFocused = ref(false);
 let querying = false;
 
 function onFocusChanged(focused: boolean): void {
-  // Wait a bit to let the click event on the dropdown to be processed
+  /*
+    We hide the dropdown is the focus is lost, but
+    an element that is hidden is not clickable. So
+    when the user tries to select an address, what happens is:
+    Click outside the input > Focus lost > Dropdown hidden > Click not registering
+    A little timeout "fixes" the problem.
+  */
   setTimeout(() => {
     isFocused.value = focused;
   }, 100);
-}
-
-function handleFocus(): void {
-  isFocused.value = true;
 }
 
 function setValue(value: string): void {
@@ -76,12 +78,12 @@ async function doQuery(query: string): Promise<void> {
   querying = true;
   const result = await geoapifyApi.autocomplete(query);
   addressesFound.value = result.slice(0, 5);
+  isFocused.value = true;
   querying = false;
 }
 
 async function onChange(query: string): Promise<void> {
   emits('change', query);
-  handleFocus();
   if (query.length < props.minimumQueryLength || querying || props.queryOnFocusLost) {
     return;
   }

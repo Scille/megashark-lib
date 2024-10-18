@@ -78,7 +78,7 @@ defineExpose({
 });
 
 const inputClasses = computed(() => {
-  const invalid = validity.value === Validity.Invalid && Boolean(!isFocused.value) && Boolean(props.modelValue);
+  const invalid = validity.value === Validity.Invalid && !isFocused.value && Boolean(props.modelValue);
   return {
     'form-input-disabled': props.disabled,
     'input-valid': validity.value === Validity.Valid,
