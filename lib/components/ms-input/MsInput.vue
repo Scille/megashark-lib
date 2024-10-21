@@ -31,7 +31,7 @@
       />
     </div>
     <span
-      v-show="errorMessage !== '' && isFocused && modelValue"
+      v-show="errorMessage !== '' && lostFocus && modelValue"
       class="form-error form-helperText"
     >
       <ion-icon
@@ -61,7 +61,7 @@ const props = defineProps<{
 const inputRef = ref();
 const errorMessage: Ref<Translatable> = ref('');
 const validity = ref(Validity.Intermediate);
-const isFocused = ref(false);
+const lostFocus = ref(false);
 
 const emits = defineEmits<{
   (e: 'update:modelValue', value: string): void;
@@ -78,7 +78,7 @@ defineExpose({
 });
 
 const inputClasses = computed(() => {
-  const invalid = validity.value === Validity.Invalid && !isFocused.value && Boolean(props.modelValue);
+  const invalid = validity.value === Validity.Invalid && lostFocus.value && Boolean(props.modelValue);
   return {
     'form-input-disabled': props.disabled,
     'input-valid': validity.value === Validity.Valid,
@@ -115,7 +115,9 @@ async function selectText(range?: [number, number]): Promise<void> {
 }
 
 async function onFocusChanged(focus: boolean): Promise<void> {
-  isFocused.value = focus;
+  if (focus === false) {
+    lostFocus.value = true;
+  }
   emits('onFocusChanged', focus);
 }
 
@@ -131,7 +133,7 @@ async function onChange(value: string): Promise<void> {
   emits('update:modelValue', value);
   emits('change', value);
   if (!value) {
-    isFocused.value = true;
+    lostFocus.value = true;
   }
   await validate(value);
 }
