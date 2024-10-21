@@ -211,6 +211,9 @@
             "value": "Lord Commandant de la Garde de Nuit"
           }
         }
+      },
+      "dateTimePicker": {
+        "title": "Sélecteur de date et heure"
       }
     }
   }

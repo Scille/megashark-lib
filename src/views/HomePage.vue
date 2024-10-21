@@ -424,6 +424,21 @@
             </div>
           </div>
         </div>
+
+        <!-- date time picker -->
+        <div class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.components.dateTimePicker.title') }}</ion-label>
+          <div class="example-divider-content">
+            <div class="example-data">
+              <ms-datetime-picker
+                v-model="selectedDateTime"
+                :min-date="DateTime.now().minus({ days: 7 }).toJSDate()"
+                :max-date="DateTime.now().plus({ days: 7 }).toJSDate()"
+              />
+              {{ DateTime.fromJSDate(selectedDateTime).toISO() }}
+            </div>
+          </div>
+        </div>
       </div>
     </ion-content>
   </ion-page>
@@ -489,6 +504,7 @@ import {
   MsSummaryCard,
   createSummaryCardItem,
   openSpinnerModal as msOpenSpinnerModal,
+  MsDatetimePicker,
 } from '@lib/components';
 import { DateTime } from 'luxon';
 import { inject, ref, Ref, onMounted } from 'vue';
@@ -552,6 +568,7 @@ const VALID_CODE = ['1', '2', '3', '4', '5', '7'];
 const progress = ref(0);
 const stripeCardForm = ref();
 const stripeCardDetails = ref<PaymentMethod.Card>();
+const selectedDateTime = ref(DateTime.now().toJSDate());
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },

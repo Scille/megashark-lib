@@ -50,3 +50,6 @@ export * from '@lib/components/ms-textarea';
 
 // ** ms-card ** //
 export * from '@lib/components/ms-card';
+
+// ** ms-datetimepicker ** //
+export * from '@lib/components/ms-datetime-picker';

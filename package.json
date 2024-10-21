@@ -31,6 +31,7 @@
   "dependencies": {
     "@ionic/vue": "^7.0.0",
     "@stripe/stripe-js": "^4.0.0",
+    "@vuepic/vue-datepicker": "^9.0.3",
     "axios": "^1.7.2",
     "ionicons": "^7.0.0",
     "luxon": "^3.4.4",

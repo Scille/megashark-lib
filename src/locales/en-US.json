@@ -211,6 +211,9 @@
             "value": "Night's Watch Lord Commander"
           }
         }
+      },
+      "dateTimePicker": {
+        "title": "Date Time Picker"
       }
     }
   }
