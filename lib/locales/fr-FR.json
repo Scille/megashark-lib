@@ -13,7 +13,14 @@
         "confirmPasswordInputLabel": "Confirmer le mot de passe",
         "description": "Votre mot de passe doit être sécurisé et vous devez le mémoriser.",
         "noMatch": "Ne correspondent pas",
-        "criteria": "Assurez-vous qu'il correspond à un niveau fort : évitez les répétitions, les mots trop communs et les suites."
+        "criteria": {
+          "title": "Contient au moins :",
+          "length": "12 caractères",
+          "uppercase": "1 majuscule",
+          "lowercase": "1 minuscule",
+          "digit": "1 chiffre",
+          "special": "1 caractère spécial"
+        }
       },
       "msCodeValidationInput": {
         "title": "Validation de code",
