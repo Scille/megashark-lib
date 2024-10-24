@@ -45,6 +45,7 @@ import Pdf from '@lib/assets/images/pdf.svg?raw';
 import Photoshop from '@lib/assets/images/photoshop.svg?raw';
 import Php from '@lib/assets/images/php.svg?raw';
 import Powerpoint from '@lib/assets/images/powerpoint.svg?raw';
+import Restore from '@lib/assets/images/restore.svg?raw';
 import Sql from '@lib/assets/images/sql.svg?raw';
 import SwapArrows from '@lib/assets/images/swap-arrows.svg?raw';
 import Default from '@lib/assets/images/text.svg?raw';
@@ -112,6 +113,7 @@ export {
   NoWorkspace,
   ParsecShareScreen,
   PasswordLock,
+  Restore,
   SwapArrows,
   VisaCard,
   VisaCardSmall,
