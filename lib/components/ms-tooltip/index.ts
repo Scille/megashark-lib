@@ -3,5 +3,6 @@
 export * from '@lib/components/ms-tooltip/utils';
 
 import MsInformationTooltip from '@lib/components/ms-tooltip/MsInformationTooltip.vue';
+import MsTooltip from '@lib/components/ms-tooltip/MsTooltip.vue';
 
-export { MsInformationTooltip };
+export { MsInformationTooltip, MsTooltip };
