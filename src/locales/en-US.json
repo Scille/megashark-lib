@@ -1,7 +1,8 @@
 {
   "usage": {
-    "title": "MegaShark library components",
+    "title": "MegaShark UI/UX library",
     "components": {
+      "title": "Graphical components",
       "actionBar": {
         "title": "Action bar (with buttons)",
         "buttons": {
@@ -214,6 +215,14 @@
       },
       "dateTimePicker": {
         "title": "Date Time Picker"
+      }
+    },
+    "transitions": {
+      "title": "Transitions",
+      "slideHorizontal": {
+        "title": "SlideHorizontal",
+        "previousButton": "Previous item",
+        "nextButton": "Next item"
       }
     }
   }
