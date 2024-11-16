@@ -19,7 +19,11 @@ import { IonItemDivider } from '@ionic/vue';
   background-color: var(--parsec-color-light-secondary-background);
   border-bottom: 1px solid var(--parsec-color-light-secondary-medium);
   border-radius: var(--parsec-radius-12);
+  // multiple lines for cross-browser compatibility
+  width: 100%;
   width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
   --inner-padding-end: 0;
   box-shadow: none;
 }

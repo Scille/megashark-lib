@@ -799,13 +799,17 @@ function onNextItemSlideHorizontalClick(): void {
 }
 
 .example-divider {
+  // multiple lines for cross-browser compatibility
+  width: 100%;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: start;
   background-color: var(--parsec-color-light-secondary-white);
   border-radius: var(--parsec-radius-12);
-  width: -webkit-fill-available;
   box-shadow: var(--parsec-shadow-light);
   --inner-padding-end: 0;
   overflow: visible;
