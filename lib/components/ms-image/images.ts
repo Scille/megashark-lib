@@ -12,6 +12,7 @@ import Css from '@lib/assets/images/css.svg?raw';
 import Device from '@lib/assets/images/device.svg?raw';
 import Doc from '@lib/assets/images/doc.svg?raw';
 import DocumentImport from '@lib/assets/images/document-import.svg?raw';
+import Download from '@lib/assets/images/download.svg?raw';
 import Excel from '@lib/assets/images/excel.svg?raw';
 import FileImport from '@lib/assets/images/file-import.svg?raw';
 import Folder from '@lib/assets/images/folder.svg?raw';
@@ -89,6 +90,7 @@ export {
   Copy,
   Device,
   DocumentImport,
+  Download,
   EmptyFolder,
   File,
   FileImport,
