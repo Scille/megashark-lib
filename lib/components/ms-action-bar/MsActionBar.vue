@@ -2,7 +2,7 @@
 
 <template>
   <ion-item-divider class="toolbar ion-margin-bottom secondary">
-    <div class="contextual-menu">
+    <div class="action-bar">
       <slot />
     </div>
   </ion-item-divider>
