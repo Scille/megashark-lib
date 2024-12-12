@@ -158,9 +158,12 @@ export type StripeCardElementChangeEventType =
 
 export const StripeElementBaseStyle = {
   base: {
-    color: 'var(--parsec-color-light-primary-800)',
+    color: '#002C66',
     fontFamily: '"Albert Sans", Montserrat, "Helvetica Neue", Helvetica, sans-serif',
     fontSize: '16px',
+    '::placeholder': {
+      color: '#8585AD',
+    },
     backgroundColor: 'none',
   },
 };
