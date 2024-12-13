@@ -53,3 +53,6 @@ export * from '@lib/components/ms-card';
 
 // ** ms-datetimepicker ** //
 export * from '@lib/components/ms-datetime-picker';
+
+// ** ms-slider ** //
+export * from '@lib/components/ms-slider';

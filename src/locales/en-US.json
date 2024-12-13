@@ -225,6 +225,9 @@
         "previousButton": "Previous item",
         "nextButton": "Next item"
       }
+    },
+    "slider": {
+      "title": "Slider"
     }
   }
 }
