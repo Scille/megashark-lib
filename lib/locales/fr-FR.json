@@ -59,6 +59,13 @@
       },
       "msSummaryCard": {
         "updateButtonLabel": "Modifier"
+      },
+      "msStripe": {
+        "cardHolderPlaceholder": "Jean MARTIN",
+        "cardHolderLabel": "Titulaire de la carte",
+        "cardNumberLabel": "Numéro de carte",
+        "expiryDateLabel": "Date d'expiration",
+        "cvcLabel": "CVC"
       }
     },
     "common": {

@@ -2,7 +2,7 @@
 
 import { EnvironmentType } from '@lib/common/environment';
 import {
-  BillingDetails,
+  PaymentMethodCreateParams,
   PaymentMethodResult,
   Stripe,
   StripeCardCvcElement,
@@ -18,6 +18,8 @@ import {
 import { App } from 'vue';
 
 export const StripeServiceKey = 'StripeService';
+
+type BillingDetails = PaymentMethodCreateParams.BillingDetails;
 
 export interface StripeConfig {
   publishableKey: string;
@@ -191,4 +193,5 @@ function assertInit<T>(value: T): asserts value is NonNullable<T> {
 }
 
 // Re-export stripe types
-export type { BillingDetails, PaymentMethod, PaymentMethodResult, StripeCardNumberElementChangeEvent } from '@stripe/stripe-js';
+export type { PaymentMethod, PaymentMethodResult, StripeCardNumberElementChangeEvent } from '@stripe/stripe-js';
+export type { BillingDetails };

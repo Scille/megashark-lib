@@ -190,7 +190,8 @@
       "stripe": {
         "title": "Carte bancaire avec Stripe",
         "submit": "Tester",
-        "notInit": "Veuillez vous assurer d'être connecté à internet"
+        "notInit": "Veuillez vous assurer d'être connecté à internet",
+        "requireNameLabel": "Requiert le nom du possesseur de la carte"
       },
       "codeValidation": {
         "title": "Validation de code"

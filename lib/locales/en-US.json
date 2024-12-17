@@ -59,6 +59,13 @@
       },
       "msSummaryCard": {
         "updateButtonLabel": "Update"
+      },
+      "msStripe": {
+        "cardHolderPlaceholder": "John DOE",
+        "cardHolderLabel": "Card holder",
+        "cardNumberLabel": "Card number",
+        "expiryDateLabel": "Expiry date",
+        "cvcLabel": "CVC"
       }
     },
     "common": {

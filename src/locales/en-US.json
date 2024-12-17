@@ -190,7 +190,8 @@
       "stripe": {
         "title": "Credit card with Stripe",
         "submit": "Test",
-        "notInit": "Make sure you are online."
+        "notInit": "Make sure you are online.",
+        "requireNameLabel": "Require the card holder name"
       },
       "codeValidation": {
         "title": "Code validation"
