@@ -1,6 +1,12 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 <template>
   <div class="input-container">
+    <ion-label
+      class="form-label"
+      v-show="label"
+    >
+      {{ $msTranslate(label) }}
+    </ion-label>
     <div class="input-content">
       <ion-icon
         v-if="type !== 'cardNumber' || !_getBrandIcon()"
@@ -28,13 +34,14 @@
 </template>
 
 <script setup lang="ts">
-import { IonIcon } from '@ionic/vue';
+import { IonIcon, IonLabel } from '@ionic/vue';
 import {
   StripeCardElementType,
   StripeCardElementChangeEventType,
   StripeService,
   StripeServiceKey,
   StripeCardNumberElementChangeEvent,
+  Translatable,
 } from '@lib/services';
 import { card, lockClosed, calendarNumber } from 'ionicons/icons';
 import { LogoMastercard, LogoVisa, MsImage } from '@lib/components/ms-image';
@@ -47,6 +54,7 @@ const errorMessage = ref<string>('');
 const brand = ref<string>('');
 const props = defineProps<{
   type: 'cardNumber' | 'cardExpiry' | 'cardCvc';
+  label?: Translatable;
 }>();
 
 onMounted(async () => {

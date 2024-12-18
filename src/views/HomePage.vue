@@ -367,9 +367,13 @@
         <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.components.stripe.title') }}</ion-label>
           <template v-if="stripeService.isInitialized()">
-            <div class="example-divider-content">
+            <div class="example-divider-content credit-card-content">
+              <ms-checkbox v-model="cardRequireName">
+                {{ $msTranslate('usage.components.stripe.requireNameLabel') }}
+              </ms-checkbox>
               <div class="example-data">
                 <ms-stripe-card-form
+                  :require-name="cardRequireName"
                   class="stripe-card-form"
                   ref="stripeCardForm"
                 />
@@ -602,6 +606,7 @@ const progress = ref(0);
 const stripeCardForm = ref();
 const stripeCardDetails = ref<PaymentMethod.Card>();
 const selectedDateTime = ref(DateTime.now().toJSDate());
+const cardRequireName = ref(false);
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
@@ -855,6 +860,11 @@ function onNextItemSlideHorizontalClick(): void {
 
 .stripe-card-form {
   width: 50em;
+}
+
+.credit-card-content {
+  flex-direction: column;
+  align-items: start;
 }
 
 .slider-container ion-label {
