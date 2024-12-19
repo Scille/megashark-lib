@@ -225,6 +225,9 @@
         "previousButton": "Élément précédent",
         "nextButton": "Élément suivant"
       }
+    },
+    "slider": {
+      "title": "Slider"
     }
   }
 }

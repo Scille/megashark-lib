@@ -102,6 +102,9 @@
           "english": "English"
         }
       }
+    },
+    "slider": {
+      "title": "Slider"
     }
   }
 }

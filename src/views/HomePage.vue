@@ -445,6 +445,37 @@
           </div>
         </div>
 
+        <!-- slider -->
+        <div class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.slider.title') }}</ion-label>
+          <div class="example-divider-content">
+            <ms-slider
+              class="ms-slider"
+              v-model="sliderStateStatic"
+              :max-value="100"
+              :static="true"
+              :increment-value="2"
+            />
+            {{ sliderStateStatic.progress }}
+          </div>
+          <div class="example-divider-content">
+            <ms-slider
+              class="ms-slider"
+              v-model="sliderStatePlaying"
+              :max-value="1000"
+              :static="false"
+              @ready="console.log('ready')"
+              @paused="console.log('paused')"
+              @progressing="console.log('progressing')"
+              @finished="onSliderFinished()"
+            />
+            <ion-button @click="onSliderPlayClicked()">
+              <ion-icon :icon="sliderStatePlaying.paused === false ? pause : play" />
+            </ion-button>
+            {{ sliderStatePlaying.progress }}
+          </div>
+        </div>
+
         <!-- transitions -->
         <ion-title class="title-h1 main-title">{{ $msTranslate('usage.transitions.title') }}</ion-title>
 
@@ -482,7 +513,7 @@
 
 <script setup lang="ts">
 import { IonContent, IonLabel, IonPage, modalController, IonButton, IonTitle } from '@ionic/vue';
-import { cog, create, lockClosed, helpCircle, warning } from 'ionicons/icons';
+import { cog, create, lockClosed, helpCircle, pause, play, warning } from 'ionicons/icons';
 import {
   Answer,
   MsActionBar,
@@ -541,6 +572,8 @@ import {
   createSummaryCardItem,
   openSpinnerModal as msOpenSpinnerModal,
   MsDatetimePicker,
+  MsSlider,
+  SliderState,
 } from '@lib/components';
 import { Position, SlideHorizontal } from '@lib/transitions';
 import { DateTime } from 'luxon';
@@ -603,6 +636,8 @@ const addressInput = ref();
 const phoneNumberInput = ref();
 const VALID_CODE = ['1', '2', '3', '4', '5', '7'];
 const progress = ref(0);
+const sliderStateStatic = ref<SliderState>({ progress: 50 });
+const sliderStatePlaying = ref<SliderState>({ progress: 0 });
 const stripeCardForm = ref();
 const stripeCardDetails = ref<PaymentMethod.Card>();
 const selectedDateTime = ref(DateTime.now().toJSDate());
@@ -659,6 +694,11 @@ onMounted(async () => {
   setInterval(() => {
     progress.value = (progress.value + 6) % 100;
   }, 300);
+  setInterval(() => {
+    if (sliderStatePlaying.value.progress < 1000 && !sliderStatePlaying.value.paused) {
+      sliderStatePlaying.value.progress += 1;
+    }
+  }, 100);
 });
 
 function changeOption(key: MsReportTheme): void {
@@ -781,11 +821,28 @@ function onNextItemSlideHorizontalClick(): void {
   };
   slideHorizontalItem.value = (slideHorizontalItem.value + 1) % 3;
 }
+
+function onSliderFinished(): void {
+  console.log('finished');
+}
+
+function onSliderPlayClicked(): void {
+  if (sliderStatePlaying.value.progress < 1000) {
+    sliderStatePlaying.value.paused = !sliderStatePlaying.value.paused;
+  } else {
+    sliderStatePlaying.value.progress = 0;
+    sliderStatePlaying.value.paused = false;
+  }
+}
 </script>
 
 <style scoped lang="scss">
 .ms-progress {
   width: 16em;
+}
+
+.ms-slider {
+  width: 24em;
 }
 
 .main-title {
