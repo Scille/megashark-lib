@@ -81,6 +81,7 @@ const cancelPauseWatch = watch(
 
 const emits = defineEmits<{
   (e: 'update:modelValue', value: SliderState): void;
+  (e: 'change', value: SliderState): void;
   (e: 'ready'): void;
   (e: 'paused'): void;
   (e: 'progressing'): void;
@@ -169,6 +170,7 @@ function setFocus(): void {
 
 function updateSliderState(progress: number, paused?: boolean): void {
   emits('update:modelValue', { progress: progress, paused: paused !== undefined ? paused : props.modelValue.paused });
+  emits('change', { progress: progress, paused: paused !== undefined ? paused : props.modelValue.paused });
 }
 
 function onMouseMove(event: MouseEvent): void {
