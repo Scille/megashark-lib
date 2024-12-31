@@ -453,7 +453,6 @@
               class="ms-slider"
               v-model="sliderStateStatic"
               :max-value="100"
-              :static="true"
               :increment-value="2"
             />
             {{ sliderStateStatic.progress }}
@@ -463,7 +462,6 @@
               class="ms-slider"
               v-model="sliderStatePlaying"
               :max-value="1000"
-              :static="false"
               @ready="console.log('ready')"
               @paused="console.log('paused')"
               @progressing="console.log('progressing')"
@@ -637,7 +635,7 @@ const phoneNumberInput = ref();
 const VALID_CODE = ['1', '2', '3', '4', '5', '7'];
 const progress = ref(0);
 const sliderStateStatic = ref<SliderState>({ progress: 50 });
-const sliderStatePlaying = ref<SliderState>({ progress: 0 });
+const sliderStatePlaying = ref<SliderState>({ progress: 0, paused: true });
 const stripeCardForm = ref();
 const stripeCardDetails = ref<PaymentMethod.Card>();
 const selectedDateTime = ref(DateTime.now().toJSDate());
@@ -697,6 +695,8 @@ onMounted(async () => {
   setInterval(() => {
     if (sliderStatePlaying.value.progress < 1000 && !sliderStatePlaying.value.paused) {
       sliderStatePlaying.value.progress += 1;
+    } else {
+      sliderStatePlaying.value.paused = true;
     }
   }, 100);
 });

@@ -34,7 +34,6 @@ const needsUnpause = ref(false);
 interface Props {
   modelValue: SliderState;
   maxValue: number;
-  static: boolean;
   incrementValue?: number;
 }
 
@@ -42,8 +41,7 @@ const props = withDefaults(defineProps<Props>(), {
   modelValue: () => {
     return { progress: 0, paused: undefined };
   },
-  maxValue: 1,
-  static: true,
+  maxValue: 100,
   incrementValue: 5,
 });
 
@@ -58,9 +56,6 @@ const cancelProgressWatch = watch(
       emits('progressing');
     } else if ((isInProgress.value || isDragging.value) && atEnd()) {
       isInProgress.value = false;
-      if (!props.static) {
-        updateSliderState(props.modelValue.progress, true);
-      }
       emits('finished');
     }
   },
@@ -89,14 +84,6 @@ const emits = defineEmits<{
 }>();
 
 onMounted(() => {
-  if (props.static === false && props.modelValue.paused === undefined) {
-    updateSliderState(props.modelValue.progress, true);
-  }
-
-  if (props.static === true && props.modelValue.paused !== undefined) {
-    updateSliderState(props.modelValue.progress, undefined);
-  }
-
   if (atStart()) {
     emits('ready');
   }
