@@ -20,6 +20,10 @@ const megasharkPlugin = new MegaSharkPlugin({
       'fr-FR': appFrFR,
       'en-US': appEnUS,
     },
+    currencies: {
+      'fr-FR': 'EUR',
+      'en-US': 'EUR',
+    },
   },
   stripeConfig: {
     publishableKey: Environment.get('STRIPE_PUBLISHABLE_KEY', 'pk_test_FAKE') ?? '',
