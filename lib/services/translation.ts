@@ -49,13 +49,19 @@ export const TranslationPlugin = {
     app.config.globalProperties.$msTranslate = (translatable: Translatable | undefined): string => {
       return translate(translatable);
     };
+    app.config.globalProperties.$msFormatCurrency = (n: number): string => {
+      return formatCurrency(n);
+    };
+
     app.provide('msTranslate', translate);
+    app.provide('msFormatCurrency', formatCurrency);
   },
 };
 
 export interface I18nConfig {
   defaultLocale?: Locale;
   customAssets?: Record<Locale, object>;
+  currencies?: Record<Locale, 'USD' | 'EUR'>;
 }
 
 function getPreferredLocale(): Locale {
@@ -96,6 +102,24 @@ function init(config?: I18nConfig): any {
     messages: {
       'fr-FR': frFR,
       'en-US': enUS,
+    },
+    numberFormats: {
+      'fr-FR': {
+        currency: {
+          style: 'currency',
+          currency: config?.currencies?.['fr-FR'] ?? 'EUR',
+          notation: 'standard',
+          currencyDisplay: 'symbol',
+        },
+      },
+      'en-US': {
+        currency: {
+          style: 'currency',
+          currency: config?.currencies?.['en-US'] ?? 'USD',
+          notation: 'standard',
+          currencyDisplay: 'symbol',
+        },
+      },
     },
     datetimeFormats: {
       'en-US': {
@@ -149,6 +173,12 @@ function translate(content: Translatable | undefined): string {
   const { t } = i18n.global;
 
   return typeof content === 'string' ? t(content) : t(content.key, content.data, content.count);
+}
+
+function formatCurrency(total: number): string {
+  const { n } = i18n.global;
+
+  return n(total, 'currency');
 }
 
 function formatDate(date: DateTime, format: DateFormat = 'long'): Translatable {

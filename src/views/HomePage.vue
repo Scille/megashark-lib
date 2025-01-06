@@ -14,6 +14,9 @@
               :default-option-key="I18n.getLocale()"
               @change="changeLocale"
             />
+            100.00 => {{ $msFormatCurrency(100.0) }}<br />
+            13.37 => {{ $msFormatCurrency(13.37) }}<br />
+            10000000 => {{ $msFormatCurrency(10000000) }}
           </div>
         </div>
 
@@ -510,7 +513,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonLabel, IonPage, modalController, IonButton, IonTitle } from '@ionic/vue';
+import { IonContent, IonLabel, IonPage, modalController, IonButton, IonTitle, IonIcon } from '@ionic/vue';
 import { cog, create, lockClosed, helpCircle, pause, play, warning } from 'ionicons/icons';
 import {
   Answer,
