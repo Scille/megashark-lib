@@ -448,6 +448,36 @@
           </div>
         </div>
 
+        <!-- base64 -->
+        <div class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.base64.encodeTitle') }}</ion-label>
+          <div class="example-divider-content">
+            <div class="example-data">
+              <ms-input v-model="b64BaseString" />
+              <ion-button
+                @click="encodeToB64"
+                :disabled="b64BaseString.length === 0"
+              >
+                {{ $msTranslate('usage.base64.encode') }}
+              </ion-button>
+              {{ b64EncodedResult }}
+            </div>
+          </div>
+          <ion-label class="title-h2">{{ $msTranslate('usage.base64.decodeTitle') }}</ion-label>
+          <div class="example-divider-content">
+            <div class="example-data">
+              <ms-input v-model="b64EncodedString" />
+              <ion-button
+                @click="decodeFromB64"
+                :disabled="b64EncodedString.length === 0"
+              >
+                {{ $msTranslate('usage.base64.decode') }}
+              </ion-button>
+              {{ b64DecodedResult }}
+            </div>
+          </div>
+        </div>
+
         <!-- slider -->
         <div class="example-divider">
           <ion-label class="title-h2">{{ $msTranslate('usage.slider.title') }}</ion-label>
@@ -594,7 +624,7 @@ import {
   PaymentMethod,
   PaymentMethodResult,
 } from '@lib/services';
-import { IValidator, Validity } from '@lib/main';
+import { Base64, IValidator, Validity } from '@lib/main';
 
 const referenceValue = ref<Answer>(Answer.No);
 
@@ -643,6 +673,10 @@ const stripeCardForm = ref();
 const stripeCardDetails = ref<PaymentMethod.Card>();
 const selectedDateTime = ref(DateTime.now().toJSDate());
 const cardRequireName = ref(false);
+const b64BaseString = ref('/a/Ñ/ĩ');
+const b64EncodedString = ref('');
+const b64DecodedResult = ref('');
+const b64EncodedResult = ref('');
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
@@ -703,6 +737,14 @@ onMounted(async () => {
     }
   }, 100);
 });
+
+function encodeToB64(): void {
+  b64EncodedResult.value = Base64.encode(b64BaseString.value);
+}
+
+function decodeFromB64(): void {
+  b64DecodedResult.value = Base64.decode(b64EncodedString.value);
+}
 
 function changeOption(key: MsReportTheme): void {
   msReportTheme.value = key;
