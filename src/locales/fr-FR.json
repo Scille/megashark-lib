@@ -228,6 +228,12 @@
     },
     "slider": {
       "title": "Slider"
+    },
+    "base64": {
+      "encodeTitle": "Encoder en Base64",
+      "decodeTitle": "Decoder depuis Base64",
+      "encode": "Encoder",
+      "decode": "Decoder"
     }
   }
 }
