@@ -67,14 +67,12 @@
   --parsec-color-light-danger-700: hsla(352, 90%, 30%, 1);
 
   /* ------ tags light------ */
-  --parsec-color-tags-blue100: hsla(198, 100%, 92%, 1);
-  --parsec-color-tags-blue500: hsla(198, 82%, 36%, 1);
-  --parsec-color-tags-indigo100: hsla(247, 100%, 95%, 1);
-  --parsec-color-tags-indigo500: hsla(247, 100%, 36%, 1);
-  --parsec-color-tags-orange100: hsla(36, 100%, 95%, 1);
-  --parsec-color-tags-orange500: hsla(36, 100%, 36%, 1);
-  --parsec-color-tags-green100: hsla(72, 100%, 92%, 1);
-  --parsec-color-tags-green500: hsla(72, 90%, 32%, 1);
+  --parsec-color-tags-indigo-50: hsla(247, 100%, 95%, 1);
+  --parsec-color-tags-indigo-700: hsla(247, 100%, 30%, 1);
+  --parsec-color-tags-blue-50: var(--parsec-color-light-primary-50);
+  --parsec-color-tags-blue-700: var(--parsec-color-light-primary-700);
+  --parsec-color-tags-orange-50: hsla(28, 100%, 95%, 1);
+  --parsec-color-tags-orange-700: hsla(28, 100%, 30%, 1);
 
   /* ------ scrollbar light------ */
   --parsec-color-light-scrollbar-thumb: hsl(240, 5%, 74%);
