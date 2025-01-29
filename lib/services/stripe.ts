@@ -32,7 +32,22 @@ const LOCALES = new Map<'fr-FR' | 'en-US', StripeElementLocale>([
   ['fr-FR', 'fr'],
 ]);
 
-export class StripeService {
+interface IStripeService {
+  init(): Promise<boolean>;
+  isInitialized(): boolean;
+  createCardElement(
+    type: 'cardNumber' | 'cardExpiry' | 'cardCvc',
+    onChange: (event: StripeCardElementChangeEventType) => void,
+  ): Promise<StripeCardElementType | undefined>;
+  updateLocale(locale: 'en-US' | 'fr-FR'): void;
+  createPaymentMethod(paymentMethodData: {
+    type: 'card';
+    card: StripeCardNumberElement;
+    billing_details?: BillingDetails;
+  }): Promise<PaymentMethodResult | undefined>;
+}
+
+export class StripeService implements IStripeService {
   private isInit = false;
   private config: StripeConfig;
   private instance: Stripe | null = null;
@@ -170,11 +185,43 @@ export const StripeElementBaseStyle = {
   },
 };
 
-export class StripePlugin {
-  service: StripeService;
+class MockStripeService implements IStripeService {
+  async init(): Promise<boolean> {
+    return true;
+  }
 
-  constructor(config: StripeConfig) {
-    this.service = new StripeService(config);
+  isInitialized(): boolean {
+    return false;
+  }
+
+  async createCardElement(
+    _type: 'cardNumber' | 'cardExpiry' | 'cardCvc',
+    _onChange: (event: StripeCardElementChangeEventType) => void,
+  ): Promise<StripeCardElementType | undefined> {
+    return undefined;
+  }
+
+  updateLocale(_locale: 'en-US' | 'fr-FR'): void {}
+
+  async createPaymentMethod(_paymentMethodData: {
+    type: 'card';
+    card: StripeCardNumberElement;
+    billing_details?: BillingDetails;
+  }): Promise<PaymentMethodResult | undefined> {
+    return undefined;
+  }
+}
+
+export class StripePlugin {
+  service: IStripeService;
+
+  constructor(config?: StripeConfig) {
+    if (config) {
+      this.service = new StripeService(config);
+    } else {
+      console.log('Using mock Stripe service');
+      this.service = new MockStripeService();
+    }
   }
 
   async init(): Promise<boolean> {
