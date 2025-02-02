@@ -1,7 +1,7 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
 import { EnvironmentType } from '@lib/common/environment';
-import {
+import type {
   PaymentMethodCreateParams,
   PaymentMethodResult,
   Stripe,
@@ -13,7 +13,6 @@ import {
   StripeCardNumberElementChangeEvent,
   StripeElementLocale,
   StripeElements,
-  loadStripe,
 } from '@stripe/stripe-js';
 import { App } from 'vue';
 
@@ -63,6 +62,8 @@ export class StripeService implements IStripeService {
     }
     try {
       this._verifyPublishableKey(this.config);
+
+      const { loadStripe } = await import('@stripe/stripe-js');
 
       // stripe-js initialization
       if (!this.instance) {
