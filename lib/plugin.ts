@@ -10,18 +10,16 @@ interface MegaSharkConfig {
 
 export class MegaSharkPlugin {
   config: MegaSharkConfig;
-  stripePlugin: StripePlugin | null = null;
+  stripePlugin: StripePlugin;
   isInit = false;
 
   constructor(config: MegaSharkConfig) {
     this.config = config;
+    this.stripePlugin = new StripePlugin(this.config.stripeConfig);
   }
 
   async init(): Promise<void> {
-    if (this.config.stripeConfig) {
-      this.stripePlugin = new StripePlugin(this.config.stripeConfig);
-      await this.stripePlugin.init();
-    }
+    await this.stripePlugin.init();
     this.isInit = true;
   }
 
@@ -30,8 +28,6 @@ export class MegaSharkPlugin {
       throw new Error('Megashark plugin has not been initialized.');
     }
     app.use(TranslationPlugin, this.config.i18n);
-    if (this.config.stripeConfig && this.stripePlugin) {
-      app.use(this.stripePlugin);
-    }
+    app.use(this.stripePlugin);
   }
 }
