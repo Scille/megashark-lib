@@ -1,12 +1,14 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
 // for svg only add ?raw at the end of path
+import AddIcon from '@lib/assets/images/add-icon.svg?raw';
 import Apk from '@lib/assets/images/apk.svg?raw';
 import MasterCardSmall from '@lib/assets/images/card-mastercard-small.svg?raw';
 import MastercardCard from '@lib/assets/images/card-mastercard.svg?raw';
 import VisaCardSmall from '@lib/assets/images/card-visa-small.svg?raw';
 import VisaCard from '@lib/assets/images/card-visa.svg?raw';
 import ChevronExpand from '@lib/assets/images/chevron-expand.svg?raw';
+import ContractIcon from '@lib/assets/images/contract-icon.svg?raw';
 import Copy from '@lib/assets/images/copy.svg?raw';
 import Css from '@lib/assets/images/css.svg?raw';
 import Device from '@lib/assets/images/device.svg?raw';
@@ -14,7 +16,9 @@ import Doc from '@lib/assets/images/doc.svg?raw';
 import DocumentImport from '@lib/assets/images/document-import.svg?raw';
 import Download from '@lib/assets/images/download.svg?raw';
 import Excel from '@lib/assets/images/excel.svg?raw';
+import ExpandIcon from '@lib/assets/images/expand-icon.svg?raw';
 import FileImport from '@lib/assets/images/file-import.svg?raw';
+import FitToScreenIcon from '@lib/assets/images/fit-to-screen-icon.svg?raw';
 import Folder from '@lib/assets/images/folder.svg?raw';
 import Font from '@lib/assets/images/font.svg?raw';
 import Illustrator from '@lib/assets/images/illustrator.svg?raw';
@@ -45,7 +49,9 @@ import PasswordLock from '@lib/assets/images/password-lock.svg?raw';
 import Pdf from '@lib/assets/images/pdf.svg?raw';
 import Photoshop from '@lib/assets/images/photoshop.svg?raw';
 import Php from '@lib/assets/images/php.svg?raw';
+import PipIcon from '@lib/assets/images/pip-icon.svg?raw';
 import Powerpoint from '@lib/assets/images/powerpoint.svg?raw';
+import RemoveIcon from '@lib/assets/images/remove-icon.svg?raw';
 import Restore from '@lib/assets/images/restore.svg?raw';
 import SidebarToggle from '@lib/assets/images/sidebar-toggle-icon.svg?raw';
 import Sql from '@lib/assets/images/sql.svg?raw';
@@ -87,14 +93,18 @@ const File = {
 };
 
 export {
+  AddIcon,
   ChevronExpand,
+  ContractIcon,
   Copy,
   Device,
   DocumentImport,
   Download,
   EmptyFolder,
+  ExpandIcon,
   File,
   FileImport,
+  FitToScreenIcon,
   Folder,
   ImportMultipleFiles,
   LogoIconGradient,
@@ -117,6 +127,8 @@ export {
   NoWorkspace,
   ParsecShareScreen,
   PasswordLock,
+  PipIcon,
+  RemoveIcon,
   Restore,
   SidebarToggle,
   SwapArrows,
