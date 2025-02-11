@@ -23,7 +23,7 @@ function encode(input: string): string {
 
 function decode(b64url: string): string {
   // Replace back the special chars used to make base64 string url safe.
-  const input = b64url.replace(/-/g, '+').replace(/_/g, '\\');
+  const input = b64url.replace(/-/g, '+').replace(/_/g, '/');
   const binString = atob(input);
   const bytes = Uint8Array.from(
     binString,
