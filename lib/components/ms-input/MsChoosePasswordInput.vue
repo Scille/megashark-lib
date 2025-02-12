@@ -43,16 +43,20 @@
       </div>
     </div>
     <div class="password-criteria">
-      <h3 class="password-criteria__title title-h5">{{ $msTranslate('lib.components.msChoosePasswordInput.criteria.title') }}</h3>
-      <p
-        v-for="[criterionName, criterion] in CRITERIA.entries()"
-        :key="criterion"
-        class="password-criteria__item body"
-        :class="{ matches: PasswordValidation.matchCriteria(password, criterion) }"
-      >
-        <ion-icon :icon="PasswordValidation.matchCriteria(password, criterion) ? checkmarkCircle : close" />
-        {{ $msTranslate(`lib.components.msChoosePasswordInput.criteria.${criterionName}`) }}
-      </p>
+      <ion-text class="password-criteria__title title-h5">
+        {{ $msTranslate('lib.components.msChoosePasswordInput.criteria.title') }}
+      </ion-text>
+      <div class="password-criteria-list">
+        <p
+          v-for="[criterionName, criterion] in CRITERIA.entries()"
+          :key="criterion"
+          class="password-criteria__item body"
+          :class="{ matches: PasswordValidation.matchCriteria(password, criterion) }"
+        >
+          <ion-icon :icon="PasswordValidation.matchCriteria(password, criterion) ? checkmarkCircle : close" />
+          {{ $msTranslate(`lib.components.msChoosePasswordInput.criteria.${criterionName}`) }}
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -169,22 +173,31 @@ function clear(): void {
 .password-criteria {
   display: flex;
   flex-direction: column;
-  gap: 0.125em;
+  gap: 1rem;
 
   &__title {
-    margin-bottom: 0.5em;
     color: var(--parsec-color-light-secondary-grey);
+  }
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
   }
 
   &__item {
     display: flex;
     align-items: center;
+    padding: 0 0.5rem;
     gap: 0.5em;
+    background: var(--parsec-color-light-secondary-premiere);
     color: var(--parsec-color-light-secondary-hard-grey);
-    margin: 0.2rem;
+    margin: 0;
+    border-radius: var(--parsec-radius-12);
 
     &.matches {
       color: var(--parsec-color-light-success-700);
+      background: var(--parsec-color-light-success-50);
       font-weight: 500;
     }
   }
