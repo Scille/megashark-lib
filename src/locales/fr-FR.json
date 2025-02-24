@@ -238,12 +238,17 @@
     "draggable": {
       "title": "Draggable",
       "dragMe": "Déplacez-moi",
-      "enable": "Autoriser le déplacement",
-      "disable": "Interdire le déplacement",
-      "enableX": "Autoriser le déplacement horizontal",
-      "enableY": "Autoriser le déplacement vertical",
-      "disableX": "Interdire le déplacement horizontal",
-      "disableY": "Interdire le déplacement vertical"
+      "enable": "Activer le déplacement",
+      "disable": "Désactiver le déplacement",
+      "enableUp": "Autoriser le déplacement vers le haut",
+      "enableDown": "Autoriser le déplacement vers le bas",
+      "enableLeft": "Autoriser le déplacement  vers la gauche",
+      "enableRight": "Autoriser le déplacement  vers la droite",
+      "disableUp": "Interdire le déplacement  vers le haut",
+      "disableDown": "Interdire le déplacement  vers le bas",
+      "disableLeft": "Interdire le déplacement vers la gauche",
+      "disableRight": "Interdire le déplacement vers la droite",
+      "resetPosition": "Réinitialiser la position"
     }
   }
 }
