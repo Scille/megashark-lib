@@ -507,6 +507,35 @@
           </div>
         </div>
 
+        <!-- draggable -->
+        <div class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.draggable.title') }}</ion-label>
+          <div class="example-divider-content">
+            <ion-button @click="enableDragging = !enableDragging">
+              {{ enableDragging ? $msTranslate('usage.draggable.disable') : $msTranslate('usage.draggable.enable') }}
+            </ion-button>
+            <ion-button @click="restrictX = !restrictX">
+              {{ restrictX ? $msTranslate('usage.draggable.enableX') : $msTranslate('usage.draggable.disableX') }}
+            </ion-button>
+            <ion-button @click="restrictY = !restrictY">
+              {{ restrictY ? $msTranslate('usage.draggable.enableY') : $msTranslate('usage.draggable.disableY') }}
+            </ion-button>
+          </div>
+          <div class="example-divider-content">
+            <ms-draggable
+              class="ms-draggable"
+              :disabled="!enableDragging"
+              :restrict-x="restrictX"
+              :restrict-y="restrictY"
+            >
+              <ms-image
+                :image="LogoIconGradient"
+                :title="$msTranslate('usage.draggable.dragMe')"
+              />
+            </ms-draggable>
+          </div>
+        </div>
+
         <!-- transitions -->
         <ion-title class="title-h1 main-title">{{ $msTranslate('usage.transitions.title') }}</ion-title>
 
@@ -605,6 +634,7 @@ import {
   MsDatetimePicker,
   MsSlider,
   SliderState,
+  MsDraggable,
 } from '@lib/components';
 import { Position, SlideHorizontal } from '@lib/transitions';
 import { DateTime } from 'luxon';
@@ -677,6 +707,9 @@ const b64BaseString = ref('/a/Ñ/ĩ');
 const b64EncodedString = ref('');
 const b64DecodedResult = ref('');
 const b64EncodedResult = ref('');
+const enableDragging = ref(true);
+const restrictX = ref(false);
+const restrictY = ref(false);
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
