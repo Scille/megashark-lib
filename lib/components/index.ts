@@ -56,3 +56,6 @@ export * from '@lib/components/ms-datetime-picker';
 
 // ** ms-slider ** //
 export * from '@lib/components/ms-slider';
+
+// ** ms-draggable ** //
+export * from '@lib/components/ms-draggable';
