@@ -234,6 +234,16 @@
       "decodeTitle": "Decoder depuis Base64",
       "encode": "Encoder",
       "decode": "Decoder"
+    },
+    "draggable": {
+      "title": "Draggable",
+      "dragMe": "Déplacez-moi",
+      "enable": "Autoriser le déplacement",
+      "disable": "Interdire le déplacement",
+      "enableX": "Autoriser le déplacement horizontal",
+      "enableY": "Autoriser le déplacement vertical",
+      "disableX": "Interdire le déplacement horizontal",
+      "disableY": "Interdire le déplacement vertical"
     }
   }
 }

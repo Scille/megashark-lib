@@ -234,6 +234,16 @@
       "decodeTitle": "Decode from Base64",
       "encode": "Encode",
       "decode": "Decode"
+    },
+    "draggable": {
+      "title": "Draggable",
+      "dragMe": "Drag me",
+      "enable": "Allow dragging",
+      "disable": "Disallow dragging",
+      "enableX": "Allow horizontal dragging",
+      "enableY": "Allow vertical dragging",
+      "disableX": "Disallow horizontal dragging",
+      "disableY": "Disallow vertical dragging"
     }
   }
 }
