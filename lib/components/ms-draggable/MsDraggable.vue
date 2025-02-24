@@ -18,9 +18,9 @@
 import { computed, ref } from 'vue';
 
 const props = defineProps<{
-  disabled: boolean;
-  restrictX: boolean;
-  restrictY: boolean;
+  disabled?: boolean;
+  restrictX?: boolean;
+  restrictY?: boolean;
 }>();
 
 const emits = defineEmits<{
