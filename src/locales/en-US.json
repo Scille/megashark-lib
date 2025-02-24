@@ -238,12 +238,17 @@
     "draggable": {
       "title": "Draggable",
       "dragMe": "Drag me",
-      "enable": "Allow dragging",
-      "disable": "Disallow dragging",
-      "enableX": "Allow horizontal dragging",
-      "enableY": "Allow vertical dragging",
-      "disableX": "Disallow horizontal dragging",
-      "disableY": "Disallow vertical dragging"
+      "enable": "Enable dragging",
+      "disable": "Disable dragging",
+      "enableUp": "Allow dragging up",
+      "enableDown": "Allow dragging down",
+      "enableLeft": "Allow dragging left",
+      "enableRight": "Allow dragging right",
+      "disableUp": "Disallow dragging up",
+      "disableDown": "Disallow dragging down",
+      "disableLeft": "Disallow dragging left",
+      "disableRight": "Disallow dragging right",
+      "resetPosition": "Reset position"
     }
   }
 }

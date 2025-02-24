@@ -19,8 +19,12 @@ import { computed, ref } from 'vue';
 
 const props = defineProps<{
   disabled?: boolean;
-  restrictX?: boolean;
-  restrictY?: boolean;
+  restrictDirection?: {
+    up?: boolean;
+    down?: boolean;
+    left?: boolean;
+    right?: boolean;
+  };
 }>();
 
 const emits = defineEmits<{
@@ -28,6 +32,10 @@ const emits = defineEmits<{
   (e: 'drag-ended'): void;
   (e: 'dragging'): void;
 }>();
+
+defineExpose({
+  resetPosition,
+});
 
 const isDragging = ref(false);
 
@@ -53,13 +61,28 @@ function onDrag(event: MouseEvent): void {
   requestAnimationFrame(() => {
     emits('dragging');
     const { movementX, movementY } = event;
-    if (!props.restrictX) {
-      posX.value += movementX;
-    }
-    if (!props.restrictY) {
+    // dragging up
+    if (Math.sign(movementY) === -1 && !props.restrictDirection?.up) {
       posY.value += movementY;
     }
+    // dragging down
+    if (Math.sign(movementY) === 1 && !props.restrictDirection?.down) {
+      posY.value += movementY;
+    }
+    // dragging left
+    if (Math.sign(movementX) === -1 && !props.restrictDirection?.left) {
+      posX.value += movementX;
+    }
+    // dragging right
+    if (Math.sign(movementX) === 1 && !props.restrictDirection?.right) {
+      posX.value += movementX;
+    }
   });
+}
+
+function resetPosition(): void {
+  posX.value = 0;
+  posY.value = 0;
 }
 </script>
 

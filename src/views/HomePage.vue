@@ -514,19 +514,30 @@
             <ion-button @click="enableDragging = !enableDragging">
               {{ enableDragging ? $msTranslate('usage.draggable.disable') : $msTranslate('usage.draggable.enable') }}
             </ion-button>
-            <ion-button @click="restrictX = !restrictX">
-              {{ restrictX ? $msTranslate('usage.draggable.enableX') : $msTranslate('usage.draggable.disableX') }}
+            <ion-button @click="draggableElement.resetPosition()">
+              {{ $msTranslate('usage.draggable.resetPosition') }}
             </ion-button>
-            <ion-button @click="restrictY = !restrictY">
-              {{ restrictY ? $msTranslate('usage.draggable.enableY') : $msTranslate('usage.draggable.disableY') }}
+          </div>
+          <div class="example-divider-content">
+            <ion-button @click="restrictDirection.up = !restrictDirection.up">
+              {{ restrictDirection.up ? $msTranslate('usage.draggable.enableUp') : $msTranslate('usage.draggable.disableUp') }}
+            </ion-button>
+            <ion-button @click="restrictDirection.down = !restrictDirection.down">
+              {{ restrictDirection.down ? $msTranslate('usage.draggable.enableDown') : $msTranslate('usage.draggable.disableDown') }}
+            </ion-button>
+            <ion-button @click="restrictDirection.left = !restrictDirection.left">
+              {{ restrictDirection.left ? $msTranslate('usage.draggable.enableLeft') : $msTranslate('usage.draggable.disableLeft') }}
+            </ion-button>
+            <ion-button @click="restrictDirection.right = !restrictDirection.right">
+              {{ restrictDirection.right ? $msTranslate('usage.draggable.enableRight') : $msTranslate('usage.draggable.disableRight') }}
             </ion-button>
           </div>
           <div class="example-divider-content">
             <ms-draggable
               class="ms-draggable"
               :disabled="!enableDragging"
-              :restrict-x="restrictX"
-              :restrict-y="restrictY"
+              :restrict-direction="restrictDirection"
+              ref="draggableElement"
             >
               <ms-image
                 :image="LogoIconGradient"
@@ -708,8 +719,8 @@ const b64EncodedString = ref('');
 const b64DecodedResult = ref('');
 const b64EncodedResult = ref('');
 const enableDragging = ref(true);
-const restrictX = ref(false);
-const restrictY = ref(false);
+const restrictDirection = ref({ up: false, down: false, left: false, right: false });
+const draggableElement = ref();
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
