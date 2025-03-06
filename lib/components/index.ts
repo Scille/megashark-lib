@@ -1,5 +1,8 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
+// ** mobile components ** //
+export * from '@lib/components/mobile';
+
 // ** ms-types ** //
 export * from '@lib/components/ms-types';
 

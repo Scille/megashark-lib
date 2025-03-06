@@ -249,6 +249,15 @@
       "disableLeft": "Disallow dragging left",
       "disableRight": "Disallow dragging right",
       "resetPosition": "Reset position"
+    },
+    "mobile": {
+      "confirmation": {
+        "button": "Confirmation modal",
+        "title": "Mobile Title",
+        "subtitle": "A whole bunch of words for what should be the mobile confirmation modal subtitle",
+        "yesText": "Confirm button",
+        "noText": "Cancel"
+      }
     }
   }
 }
