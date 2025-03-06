@@ -249,6 +249,15 @@
       "disableLeft": "Interdire le déplacement vers la gauche",
       "disableRight": "Interdire le déplacement vers la droite",
       "resetPosition": "Réinitialiser la position"
+    },
+    "mobile": {
+      "confirmation": {
+        "button": "Modale de confirmation",
+        "title": "Titre mobile",
+        "subtitle": "Un nombre raisonnable de mots pour constituer un subtitle",
+        "yesText": "Confirmer",
+        "noText": "Annuler"
+      }
     }
   }
 }
