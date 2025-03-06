@@ -6,6 +6,7 @@ import { App } from 'vue';
 interface MegaSharkConfig {
   i18n: I18nConfig;
   stripeConfig?: StripeConfig;
+  windowWidthThreshold?: number;
 }
 
 export class MegaSharkPlugin {
@@ -29,5 +30,6 @@ export class MegaSharkPlugin {
     }
     app.use(TranslationPlugin, this.config.i18n);
     app.use(this.stripePlugin);
+    app.provide('msWindowWidthThreshold', this.config.windowWidthThreshold);
   }
 }
