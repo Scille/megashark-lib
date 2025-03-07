@@ -249,6 +249,14 @@
       "disableLeft": "Interdire le déplacement vers la gauche",
       "disableRight": "Interdire le déplacement vers la droite",
       "resetPosition": "Réinitialiser la position"
+    },
+    "windowWidth": {
+      "title": "Largeur de fenêtre",
+      "label": "Largeur: {width}px",
+      "largeWindow": "Is large window: {value}",
+      "smallWindow": "Is small window: {value}",
+      "shownOnLargeDisplays": "Only shown on large displays",
+      "shownOnSmallDisplays": "Only shown on small displays"
     }
   }
 }

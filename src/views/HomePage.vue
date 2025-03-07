@@ -577,6 +577,30 @@
             </div>
           </div>
         </div>
+
+        <!-- window width -->
+        <div class="example-divider">
+          <ion-label class="title-h2">{{ $msTranslate('usage.windowWidth.title') }}</ion-label>
+          <div class="example-divider-content">
+            <div class="example-data">
+              <ion-label>{{ $msTranslate({ key: 'usage.windowWidth.label', data: { width: windowWidth } }) }}</ion-label>
+              <ion-label>{{ $msTranslate({ key: 'usage.windowWidth.largeWindow', data: { value: isLargeDisplay } }) }}</ion-label>
+              <ion-label>{{ $msTranslate({ key: 'usage.windowWidth.smallWindow', data: { value: isSmallDisplay } }) }}</ion-label>
+            </div>
+            <div
+              class="example-data"
+              v-show="isLargeDisplay"
+            >
+              {{ $msTranslate('usage.windowWidth.shownOnLargeDisplays') }}
+            </div>
+            <div
+              class="example-data"
+              v-show="isSmallDisplay"
+            >
+              {{ $msTranslate('usage.windowWidth.shownOnSmallDisplays') }}
+            </div>
+          </div>
+        </div>
       </div>
     </ion-content>
   </ion-page>
@@ -666,6 +690,8 @@ import {
   PaymentMethodResult,
 } from '@lib/services';
 import { Base64, IValidator, Validity } from '@lib/main';
+import { useWindowSize } from '@lib/services/windowSize';
+const { windowWidth, isLargeDisplay, isSmallDisplay } = useWindowSize();
 
 const referenceValue = ref<Answer>(Answer.No);
 
