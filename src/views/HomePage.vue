@@ -690,7 +690,8 @@ import {
   PaymentMethodResult,
 } from '@lib/services';
 import { Base64, IValidator, Validity } from '@lib/main';
-import { useWindowSize } from '@lib/services/windowSize';
+import { useWindowSize } from '@lib/services';
+
 const { windowWidth, isLargeDisplay, isSmallDisplay } = useWindowSize();
 
 const referenceValue = ref<Answer>(Answer.No);

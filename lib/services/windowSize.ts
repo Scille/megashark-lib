@@ -9,7 +9,7 @@ interface _WindowSizeAttributes {
 }
 
 export function useWindowSize(): _WindowSizeAttributes {
-  const threshold = inject('msWindowWidthThreshold', 768);
+  const threshold = inject('msWindowWidthThreshold', 768) ?? 768;
 
   const windowWidth = ref(window.innerWidth);
   const isLargeDisplay = computed(() => windowWidth.value >= threshold);
