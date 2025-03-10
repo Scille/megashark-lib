@@ -6,6 +6,7 @@
   --parsec-modal-width-md: 42rem;
   --parsec-modal-width-lg: 43.75rem;
   --parsec-modal-max-height: 35rem;
+  --parsec-small-dsp-modal-width: 21.375rem;
 }
 
 ion-modal::part(content) {
@@ -123,5 +124,16 @@ ion-modal .inner-content {
   }
   .spinner-label__text {
     color: var(--parsec-color-light-secondary-soft-text);
+  }
+}
+
+.small-dsp-question-modal {
+  &::part(content) {
+    max-width: var(--parsec-small-dsp-modal-width);
+    min-width: var(--parsec-small-dsp-modal-width);
+  }
+
+  .ms-modal-header {
+    padding-bottom: 0rem !important;
   }
 }

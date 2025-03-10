@@ -3,11 +3,12 @@
 import { modalController } from '@ionic/vue';
 import MsPasswordInputModal from '@lib/components/ms-modal/MsPasswordInputModal.vue';
 import MsQuestionModal from '@lib/components/ms-modal/MsQuestionModal.vue';
+import MsSmallDspQuestionModal from '@lib/components/ms-modal/MsSmallDspQuestionModal.vue';
 import MsSpinnerModal from '@lib/components/ms-modal/MsSpinnerModal.vue';
 import MsTextInputModal from '@lib/components/ms-modal/MsTextInputModal.vue';
 import { GetPasswordOptions, GetTextOptions, MsModalResult } from '@lib/components/ms-modal/types';
 import { Answer } from '@lib/components/ms-types';
-import { Translatable } from '@lib/services';
+import { Translatable, useWindowSize } from '@lib/services';
 
 export interface QuestionOptions {
   yesText?: Translatable;
@@ -22,12 +23,13 @@ export async function askQuestion(title: Translatable, subtitle: Translatable, o
   if (top) {
     top.classList.add('overlapped-modal');
   }
+  const isLargeDisplay = useWindowSize().isLargeDisplay.value;
 
   const modal = await modalController.create({
-    component: MsQuestionModal,
+    component: isLargeDisplay ? MsQuestionModal : MsSmallDspQuestionModal,
     canDismiss: true,
     backdropDismiss: options?.backdropDismiss ?? true,
-    cssClass: 'question-modal',
+    cssClass: isLargeDisplay ? 'question-modal' : 'small-dsp-question-modal',
     componentProps: {
       title: title,
       subtitle: subtitle,
