@@ -250,13 +250,29 @@
       "disableRight": "Disallow dragging right",
       "resetPosition": "Reset position"
     },
-    "windowWidth": {
-      "title": "Window width",
-      "label": "Width: {width}px",
-      "largeWindow": "Is large window: {value}",
-      "smallWindow": "Is small window: {value}",
-      "shownOnLargeDisplays": "Only shown on large displays",
-      "shownOnSmallDisplays": "Only shown on small displays"
+    "responsive": {
+      "title": "Responsive",
+      "mixin": {
+        "title": "CSS responsive window sizes",
+        "xs": "Extra small window",
+        "sm": "Small window",
+        "md": "Medium window",
+        "lg": "Large window",
+        "wide": "Wide window",
+        "ultraWide": "Ultra-wide window",
+        "noMixin": "No mixin",
+        "overlapExplanation": "The overlap is the fact that the css rule will apply to the chosen size and all the smaller sizes.",
+        "enableOverlap": "Enable overlap",
+        "disableOverlap": "Disable overlap"
+      },
+      "windowWidth": {
+        "title": "Window width",
+        "label": "Width: {width}px",
+        "largeWindow": "Is large window: {value}",
+        "smallWindow": "Is small window: {value}",
+        "shownOnLargeDisplays": "Only shown on large displays",
+        "shownOnSmallDisplays": "Only shown on small displays"
+      }
     }
   }
 }
