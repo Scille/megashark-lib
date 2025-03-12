@@ -1,8 +1,14 @@
 {
   "usage": {
     "title": "Bibliothèque UI/UX MegaShark",
+    "categories": {
+      "components": "Composants",
+      "services": "Services",
+      "transitions": "Transitions",
+      "responsive": "Responsive"
+    },
     "components": {
-      "title": "Composants graphiques",
+      "title": "Composants",
       "actionBar": {
         "title": "Action bar (with buttons)",
         "buttons": {
@@ -149,34 +155,6 @@
       "toggle": {
         "title": "Toggle"
       },
-      "msReportTheme": {
-        "info": "Info",
-        "warning": "Alerte",
-        "error": "Erreur",
-        "success": "Succès"
-      },
-      "toast": {
-        "title": "Toast",
-        "open": "Afficher un toast",
-        "messageTitle": "Un toast d'example",
-        "message": "Un simple petit toast d'exemple pour montrer leur apparence",
-        "offset": "Décalage",
-        "themeTitle": "Thème"
-      },
-      "translation": {
-        "title": "Traductions",
-        "french": "Français",
-        "english": "English"
-      },
-      "theme": {
-        "title": "Thème",
-        "dark": "Sombre",
-        "light": "Clair",
-        "rainbow": "Arc-en-ciel",
-        "synthwave": "Synthwave",
-        "spooky": "Frisson",
-        "christmas": "Noël"
-      },
       "checkbox": {
         "title": "Checkbox",
         "label": "Ma checkbox",
@@ -216,6 +194,55 @@
       },
       "dateTimePicker": {
         "title": "Sélecteur de date et heure"
+      },
+      "slider": {
+        "title": "Slider"
+      },
+      "draggable": {
+        "title": "Draggable",
+        "dragMe": "Déplacez-moi",
+        "enable": "Activer le déplacement",
+        "disable": "Désactiver le déplacement",
+        "enableUp": "Autoriser le déplacement vers le haut",
+        "enableDown": "Autoriser le déplacement vers le bas",
+        "enableLeft": "Autoriser le déplacement  vers la gauche",
+        "enableRight": "Autoriser le déplacement  vers la droite",
+        "disableUp": "Interdire le déplacement  vers le haut",
+        "disableDown": "Interdire le déplacement  vers le bas",
+        "disableLeft": "Interdire le déplacement vers la gauche",
+        "disableRight": "Interdire le déplacement vers la droite",
+        "resetPosition": "Réinitialiser la position"
+      }
+    },
+    "services": {
+      "title": "Services",
+      "toast": {
+        "title": "Toast",
+        "open": "Afficher un toast",
+        "messageTitle": "Un toast d'example",
+        "message": "Un simple petit toast d'exemple pour montrer leur apparence",
+        "offset": "Décalage",
+        "themeTitle": "Thème"
+      },
+      "translation": {
+        "title": "Traductions",
+        "french": "Français",
+        "english": "English"
+      },
+      "theme": {
+        "title": "Thème",
+        "dark": "Sombre",
+        "light": "Clair",
+        "rainbow": "Arc-en-ciel",
+        "synthwave": "Synthwave",
+        "spooky": "Frisson",
+        "christmas": "Noël"
+      },
+      "base64": {
+        "encodeTitle": "Encoder en Base64",
+        "decodeTitle": "Decoder depuis Base64",
+        "encode": "Encoder",
+        "decode": "Decoder"
       }
     },
     "transitions": {
@@ -225,30 +252,6 @@
         "previousButton": "Élément précédent",
         "nextButton": "Élément suivant"
       }
-    },
-    "slider": {
-      "title": "Slider"
-    },
-    "base64": {
-      "encodeTitle": "Encoder en Base64",
-      "decodeTitle": "Decoder depuis Base64",
-      "encode": "Encoder",
-      "decode": "Decoder"
-    },
-    "draggable": {
-      "title": "Draggable",
-      "dragMe": "Déplacez-moi",
-      "enable": "Activer le déplacement",
-      "disable": "Désactiver le déplacement",
-      "enableUp": "Autoriser le déplacement vers le haut",
-      "enableDown": "Autoriser le déplacement vers le bas",
-      "enableLeft": "Autoriser le déplacement  vers la gauche",
-      "enableRight": "Autoriser le déplacement  vers la droite",
-      "disableUp": "Interdire le déplacement  vers le haut",
-      "disableDown": "Interdire le déplacement  vers le bas",
-      "disableLeft": "Interdire le déplacement vers la gauche",
-      "disableRight": "Interdire le déplacement vers la droite",
-      "resetPosition": "Réinitialiser la position"
     },
     "responsive": {
       "title": "Responsive",
@@ -273,6 +276,12 @@
         "shownOnLargeDisplays": "Only shown on large displays",
         "shownOnSmallDisplays": "Only shown on small displays"
       }
+    },
+    "msReportTheme": {
+      "info": "Info",
+      "warning": "Alerte",
+      "error": "Erreur",
+      "success": "Succès"
     }
   }
 }
