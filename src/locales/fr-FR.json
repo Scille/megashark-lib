@@ -33,7 +33,12 @@
         }
       },
       "dropdown": {
-        "title": "Dropdown"
+        "title": "Dropdown",
+        "disabled": "Désactivé",
+        "disabledReason": "Texte expliquant pourquoi le bouton est désactivé",
+
+        "smallDescription": "Petite description",
+        "bigDescription": "Grande description détaillant des infos sur l'option, grande description détaillant des infos sur l'option."
       },
       "progressBar": {
         "title": "Barre de progression"

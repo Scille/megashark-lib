@@ -11,15 +11,18 @@
   --parsec-small-display-modal-width: 21.375rem;
 }
 
-ion-modal::part(content) {
-  border-radius: var(--parsec-radius-8);
-  min-width: var(--parsec-modal-width-sm);
-  width: fit-content;
-}
-
 ion-modal {
   --height: auto;
   --max-height: auto;
+
+  &::part(content) {
+    border-radius: var(--parsec-radius-8);
+  }
+
+  &:not(.sheet-modal):part(content) {
+    min-width: var(--parsec-modal-width-sm);
+    width: fit-content;
+  }
 }
 
 ion-modal .ion-page {
@@ -49,6 +52,19 @@ ion-modal .ion-page {
 
 ion-modal .inner-content {
   overflow: visible;
+}
+
+.sheet-modal {
+  --max-width: 36rem;
+
+  &::part(content) {
+    border-radius: var(--parsec-radius-12) var(--parsec-radius-12) 0 0;
+  }
+  // manage the handle
+  &::part(handle) {
+    margin: 0.5rem auto;
+    background: var(--parsec-color-light-secondary-light);
+  }
 }
 
 // close button
