@@ -119,9 +119,15 @@
             <ms-dropdown
               class="dropdown"
               :options="msDropdownOptions"
-              :default-option-key="MsReportTheme.Info"
+              :default-option-key="msReportTheme"
               @change="changeOption($event.option.key)"
             />
+            <ion-button @click="openSDDropdown(true)">
+              {{ 'SmallDisplayDropdown with default' }}
+            </ion-button>
+            <ion-button @click="openSDDropdown(false)">
+              {{ 'SmallDisplayDropdown without default' }}
+            </ion-button>
           </div>
         </div>
 
@@ -670,6 +676,7 @@ import {
   MsSlider,
   SliderState,
   MsDraggable,
+  openSmallDisplayDropdown,
 } from '@lib/components';
 import { Position, SlideHorizontal } from '@lib/transitions';
 import { DateTime } from 'luxon';
@@ -700,6 +707,7 @@ const msDropdownOptions: MsOptions = new MsOptions([
   {
     key: MsReportTheme.Info,
     label: 'usage.components.msReportTheme.info',
+    description: 'usage.components.dropdown.smallDescription',
   },
   {
     key: MsReportTheme.Warning,
@@ -708,10 +716,18 @@ const msDropdownOptions: MsOptions = new MsOptions([
   {
     key: MsReportTheme.Error,
     label: 'usage.components.msReportTheme.error',
+    description: 'usage.components.dropdown.bigDescription',
   },
   {
     key: MsReportTheme.Success,
     label: 'usage.components.msReportTheme.success',
+  },
+  {
+    key: 'usage.components.dropdown.disabled',
+    label: 'usage.components.dropdown.disabled',
+    disabled: true,
+    disabledReason: 'usage.components.dropdown.disabledReason',
+    description: 'usage.components.dropdown.smallDescription',
   },
 ]);
 
@@ -948,6 +964,17 @@ function onSliderPlayClicked(): void {
   } else {
     sliderStatePlaying.value.progress = 0;
     sliderStatePlaying.value.paused = false;
+  }
+}
+
+async function openSDDropdown(withDefault: boolean): Promise<void> {
+  const result = await openSmallDisplayDropdown(
+    msDropdownOptions,
+    'usage.components.dropdown.title',
+    withDefault ? msReportTheme.value : '',
+  );
+  if (result) {
+    changeOption(result.key);
   }
 }
 </script>
