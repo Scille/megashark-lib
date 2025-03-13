@@ -12,8 +12,8 @@ export function useWindowSize(): _WindowSizeAttributes {
   const threshold = inject('msWindowWidthThreshold', 768) ?? 768;
 
   const windowWidth = ref(window.innerWidth);
-  const isLargeDisplay = computed(() => windowWidth.value >= threshold);
-  const isSmallDisplay = computed(() => windowWidth.value < threshold);
+  const isLargeDisplay = computed(() => windowWidth.value > threshold);
+  const isSmallDisplay = computed(() => windowWidth.value <= threshold);
 
   const updateWidth = (): void => {
     windowWidth.value = window.innerWidth;

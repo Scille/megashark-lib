@@ -1,49 +1,34 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <ion-page class="small-dsp-modal">
+  <ion-page class="small-display-modal">
     <div
       tabindex="0"
       ref="modal"
     >
-      <ion-buttons
-        slot="end"
-        class="closeBtn-container"
-      >
-        <ion-button
-          slot="icon-only"
-          @click="cancel()"
-          class="closeBtn"
-        >
-          <ion-icon
-            :icon="close"
-            class="closeBtn__icon"
-          />
-        </ion-button>
-      </ion-buttons>
-      <div class="ms-small-dsp-modal">
-        <ion-header class="ms-small-dsp-modal-header">
+      <div class="ms-small-display-modal">
+        <ion-header class="ms-small-display-modal-header">
           <div
-            class="ms-small-dsp-modal-header__title-container"
+            class="ms-small-display-modal-header__title-container"
             v-if="title"
           >
-            <ion-title class="ms-small-dsp-modal-header__title titles-h3">
+            <ion-title class="ms-small-display-modal-header__title titles-h3">
               {{ $msTranslate(title) }}
             </ion-title>
           </div>
           <template v-if="subtitle">
-            <ion-text class="ms-small-dsp-modal-header__text body-normal">
+            <ion-text class="ms-small-display-modal-header__text body-normal">
               {{ $msTranslate(subtitle) }}
             </ion-text>
           </template>
         </ion-header>
-        <ion-footer class="ms-small-dsp-modal-footer">
+        <ion-footer class="ms-small-display-modal-footer">
           <div
             slot="primary"
-            class="ms-small-dsp-modal-footer-buttons"
+            class="ms-small-display-modal-footer-buttons"
           >
             <ion-button
-              class="ms-small-dsp-modal-footer-buttons-cancel"
+              class="ms-small-display-modal-footer-buttons-cancel"
               fill="clear"
               size="default"
               id="cancel-button"
@@ -52,7 +37,7 @@
               {{ $msTranslate(noText || 'lib.components.msModal.cancelButtonLabel') }}
             </ion-button>
             <ion-button
-              class="ms-small-dsp-modal-footer-buttons-confirm"
+              class="ms-small-display-modal-footer-buttons-confirm"
               fill="solid"
               size="default"
               id="confirm-button"
@@ -71,8 +56,7 @@
 <script setup lang="ts">
 import { MsModalResult } from '@lib/components/ms-modal/types';
 import { Translatable } from '@lib/services';
-import { IonButton, IonButtons, IonFooter, IonHeader, IonIcon, IonPage, IonText, IonTitle, modalController } from '@ionic/vue';
-import { close } from 'ionicons/icons';
+import { IonButton, IonFooter, IonHeader, IonPage, IonText, IonTitle, modalController } from '@ionic/vue';
 import { Ref, ref } from 'vue';
 
 const modal: Ref<HTMLDivElement | null> = ref(null);
@@ -95,11 +79,11 @@ async function cancel(): Promise<boolean> {
 </script>
 
 <style lang="scss" scoped>
-.ms-small-dsp-modal {
+.ms-small-display-modal {
   padding: 2rem;
 }
 
-.ms-small-dsp-modal-header {
+.ms-small-display-modal-header {
   display: flex;
   flex-direction: column;
   padding-bottom: 0.5rem;
@@ -125,7 +109,7 @@ async function cancel(): Promise<boolean> {
   }
 }
 
-.ms-small-dsp-modal-footer {
+.ms-small-display-modal-footer {
   position: relative;
   z-index: 1;
 
