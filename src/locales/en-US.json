@@ -1,6 +1,7 @@
 {
   "usage": {
     "title": "MegaShark UI/UX library",
+    "displayChoice": "Select platform",
     "components": {
       "title": "Graphical components",
       "actionBar": {
@@ -16,7 +17,7 @@
             "title": "Get password"
           },
           "askQuestion": {
-            "title": "Ask a question"
+            "title": "Ask a question (w/ small display version)"
           },
           "getText": {
             "title": "Get text"

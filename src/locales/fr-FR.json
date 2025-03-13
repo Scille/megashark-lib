@@ -1,6 +1,7 @@
 {
   "usage": {
     "title": "Bibliothèque UI/UX MegaShark",
+    "displayChoice": "Sélection de plateforme",
     "components": {
       "title": "Composants graphiques",
       "actionBar": {
@@ -16,7 +17,7 @@
             "title": "Demander un mot de passe"
           },
           "askQuestion": {
-            "title": "Poser une question"
+            "title": "Poser une question (avec version small display)"
           },
           "getText": {
             "title": "Demander une saisie"

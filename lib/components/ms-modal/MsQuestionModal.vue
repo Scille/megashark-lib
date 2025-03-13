@@ -2,6 +2,7 @@
 
 <template>
   <ms-modal
+    v-show="isLargeDisplay"
     :title="title"
     :subtitle="subtitle"
     :close-button="{ visible: false }"
@@ -18,14 +19,25 @@
     }"
     @on-enter-keyup="onYes"
   />
+  <ms-small-display-question-modal
+    v-show="isSmallDisplay"
+    :title="title"
+    :subtitle="subtitle"
+    :yes-text="yesText"
+    :no-text="noText"
+    :yes-is-dangerous="yesIsDangerous"
+  />
 </template>
 
 <script setup lang="ts">
 import MsModal from '@lib/components/ms-modal/MsModal.vue';
+import MsSmallDisplayQuestionModal from '@lib/components/ms-modal/MsSmallDisplayQuestionModal.vue';
 import { MsModalResult } from '@lib/components/ms-modal/types';
 import { MsReportTheme } from '@lib/components/ms-types';
-import { Translatable } from '@lib/services';
+import { Translatable, useWindowSize } from '@lib/services';
 import { modalController } from '@ionic/vue';
+
+const { isLargeDisplay: isLargeDisplay, isSmallDisplay: isSmallDisplay } = useWindowSize();
 
 defineProps<{
   title: Translatable;
