@@ -1,8 +1,14 @@
 {
   "usage": {
     "title": "Bibliothèque UI/UX MegaShark",
+    "categories": {
+      "components": "Composants",
+      "services": "Services",
+      "transitions": "Transitions",
+      "responsive": "Responsive"
+    },
     "components": {
-      "title": "Composants graphiques",
+      "title": "Composants",
       "actionBar": {
         "title": "Action bar (with buttons)",
         "buttons": {
@@ -149,34 +155,6 @@
       "toggle": {
         "title": "Toggle"
       },
-      "msReportTheme": {
-        "info": "Info",
-        "warning": "Alerte",
-        "error": "Erreur",
-        "success": "Succès"
-      },
-      "toast": {
-        "title": "Toast",
-        "open": "Afficher un toast",
-        "messageTitle": "Un toast d'example",
-        "message": "Un simple petit toast d'exemple pour montrer leur apparence",
-        "offset": "Décalage",
-        "themeTitle": "Thème"
-      },
-      "translation": {
-        "title": "Traductions",
-        "french": "Français",
-        "english": "English"
-      },
-      "theme": {
-        "title": "Thème",
-        "dark": "Sombre",
-        "light": "Clair",
-        "rainbow": "Arc-en-ciel",
-        "synthwave": "Synthwave",
-        "spooky": "Frisson",
-        "christmas": "Noël"
-      },
       "checkbox": {
         "title": "Checkbox",
         "label": "Ma checkbox",
@@ -216,6 +194,55 @@
       },
       "dateTimePicker": {
         "title": "Sélecteur de date et heure"
+      },
+      "slider": {
+        "title": "Slider"
+      },
+      "draggable": {
+        "title": "Draggable",
+        "dragMe": "Déplacez-moi",
+        "enable": "Activer le déplacement",
+        "disable": "Désactiver le déplacement",
+        "enableUp": "Autoriser le déplacement vers le haut",
+        "enableDown": "Autoriser le déplacement vers le bas",
+        "enableLeft": "Autoriser le déplacement  vers la gauche",
+        "enableRight": "Autoriser le déplacement  vers la droite",
+        "disableUp": "Interdire le déplacement  vers le haut",
+        "disableDown": "Interdire le déplacement  vers le bas",
+        "disableLeft": "Interdire le déplacement vers la gauche",
+        "disableRight": "Interdire le déplacement vers la droite",
+        "resetPosition": "Réinitialiser la position"
+      }
+    },
+    "services": {
+      "title": "Services",
+      "toast": {
+        "title": "Toast",
+        "open": "Afficher un toast",
+        "messageTitle": "Un toast d'example",
+        "message": "Un simple petit toast d'exemple pour montrer leur apparence",
+        "offset": "Décalage",
+        "themeTitle": "Thème"
+      },
+      "translation": {
+        "title": "Traductions",
+        "french": "Français",
+        "english": "English"
+      },
+      "theme": {
+        "title": "Thème",
+        "dark": "Sombre",
+        "light": "Clair",
+        "rainbow": "Arc-en-ciel",
+        "synthwave": "Synthwave",
+        "spooky": "Frisson",
+        "christmas": "Noël"
+      },
+      "base64": {
+        "encodeTitle": "Encoder en Base64",
+        "decodeTitle": "Decoder depuis Base64",
+        "encode": "Encoder",
+        "decode": "Decoder"
       }
     },
     "transitions": {
@@ -226,37 +253,35 @@
         "nextButton": "Élément suivant"
       }
     },
-    "slider": {
-      "title": "Slider"
+    "responsive": {
+      "title": "Responsive",
+      "mixin": {
+        "title": "Tailles de fenêtre réactives en CSS",
+        "xs": "Fenêtre extra petite",
+        "sm": "Fenêtre petite",
+        "md": "Fenêtre moyenne",
+        "lg": "Fenêtre large",
+        "xl": "Fenêtre extra-large",
+        "xxl": "Fenêtre XXL",
+        "noMixin": "Pas de mixin",
+        "overlapExplanation": "Le chevauchement est le fait que la règle css s'appliquera à la taille choisie et à toutes les tailles plus petites.",
+        "enableOverlap": "Activer le chevauchement",
+        "disableOverlap": "Désactiver le chevauchement"
+      },
+      "windowWidth": {
+        "title": "Largeur de fenêtre",
+        "label": "Largeur: {width}px",
+        "largeWindow": "Fenêtre large: {value}",
+        "smallWindow": "Petite fenêtre: {value}",
+        "shownOnLargeWindows": "Uniquement sur fenêtre large",
+        "shownOnSmallWindows": "Uniquement sur petite fenêtre"
+      }
     },
-    "base64": {
-      "encodeTitle": "Encoder en Base64",
-      "decodeTitle": "Decoder depuis Base64",
-      "encode": "Encoder",
-      "decode": "Decoder"
-    },
-    "draggable": {
-      "title": "Draggable",
-      "dragMe": "Déplacez-moi",
-      "enable": "Activer le déplacement",
-      "disable": "Désactiver le déplacement",
-      "enableUp": "Autoriser le déplacement vers le haut",
-      "enableDown": "Autoriser le déplacement vers le bas",
-      "enableLeft": "Autoriser le déplacement  vers la gauche",
-      "enableRight": "Autoriser le déplacement  vers la droite",
-      "disableUp": "Interdire le déplacement  vers le haut",
-      "disableDown": "Interdire le déplacement  vers le bas",
-      "disableLeft": "Interdire le déplacement vers la gauche",
-      "disableRight": "Interdire le déplacement vers la droite",
-      "resetPosition": "Réinitialiser la position"
-    },
-    "windowWidth": {
-      "title": "Largeur de fenêtre",
-      "label": "Largeur: {width}px",
-      "largeWindow": "Is large window: {value}",
-      "smallWindow": "Is small window: {value}",
-      "shownOnLargeDisplays": "Only shown on large displays",
-      "shownOnSmallDisplays": "Only shown on small displays"
+    "msReportTheme": {
+      "info": "Info",
+      "warning": "Alerte",
+      "error": "Erreur",
+      "success": "Succès"
     }
   }
 }

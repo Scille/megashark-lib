@@ -1,8 +1,14 @@
 {
   "usage": {
     "title": "MegaShark UI/UX library",
+    "categories": {
+      "components": "Components",
+      "services": "Services",
+      "transitions": "Transitions",
+      "responsive": "Responsive"
+    },
     "components": {
-      "title": "Graphical components",
+      "title": "Components",
       "actionBar": {
         "title": "Action bar (with buttons)",
         "buttons": {
@@ -149,34 +155,6 @@
       "toggle": {
         "title": "Toggle"
       },
-      "msReportTheme": {
-        "info": "Info",
-        "warning": "Warning",
-        "error": "Error",
-        "success": "Success"
-      },
-      "toast": {
-        "title": "Toast",
-        "open": "Show a toast",
-        "messageTitle": "A sample toast",
-        "message": "Just a sample toast to show what they look like.",
-        "offset": "Offset",
-        "themeTitle": "Theme"
-      },
-      "translation": {
-        "title": "Translations",
-        "french": "Français",
-        "english": "English"
-      },
-      "theme": {
-        "title": "Theme",
-        "dark": "Dark",
-        "light": "Light",
-        "rainbow": "Rainbow",
-        "synthwave": "Synthwave",
-        "spooky": "Spooky",
-        "christmas": "Christmas"
-      },
       "checkbox": {
         "title": "Checkbox",
         "label": "My checkbox",
@@ -216,6 +194,55 @@
       },
       "dateTimePicker": {
         "title": "Date Time Picker"
+      },
+      "slider": {
+        "title": "Slider"
+      },
+      "draggable": {
+        "title": "Draggable",
+        "dragMe": "Drag me",
+        "enable": "Enable dragging",
+        "disable": "Disable dragging",
+        "enableUp": "Allow dragging up",
+        "enableDown": "Allow dragging down",
+        "enableLeft": "Allow dragging left",
+        "enableRight": "Allow dragging right",
+        "disableUp": "Disallow dragging up",
+        "disableDown": "Disallow dragging down",
+        "disableLeft": "Disallow dragging left",
+        "disableRight": "Disallow dragging right",
+        "resetPosition": "Reset position"
+      }
+    },
+    "services": {
+      "title": "Services",
+      "toast": {
+        "title": "Toast",
+        "open": "Show a toast",
+        "messageTitle": "A sample toast",
+        "message": "Just a sample toast to show what they look like.",
+        "offset": "Offset",
+        "themeTitle": "Theme"
+      },
+      "translation": {
+        "title": "Translations",
+        "french": "Français",
+        "english": "English"
+      },
+      "theme": {
+        "title": "Theme",
+        "dark": "Dark",
+        "light": "Light",
+        "rainbow": "Rainbow",
+        "synthwave": "Synthwave",
+        "spooky": "Spooky",
+        "christmas": "Christmas"
+      },
+      "base64": {
+        "encodeTitle": "Encode to Base64",
+        "decodeTitle": "Decode from Base64",
+        "encode": "Encode",
+        "decode": "Decode"
       }
     },
     "transitions": {
@@ -226,37 +253,35 @@
         "nextButton": "Next item"
       }
     },
-    "slider": {
-      "title": "Slider"
+    "responsive": {
+      "title": "Responsive",
+      "mixin": {
+        "title": "CSS responsive window sizes",
+        "xs": "Extra small window",
+        "sm": "Small window",
+        "md": "Medium window",
+        "lg": "Large window",
+        "xl": "Extra-large window",
+        "xxl": "XXL window",
+        "noMixin": "No mixin",
+        "overlapExplanation": "The overlap is the fact that the css rule will apply to the chosen size and all the smaller sizes.",
+        "enableOverlap": "Enable overlap",
+        "disableOverlap": "Disable overlap"
+      },
+      "windowWidth": {
+        "title": "Window width",
+        "label": "Width: {width}px",
+        "largeWindow": "Is large window: {value}",
+        "smallWindow": "Is small window: {value}",
+        "shownOnLargeWindows": "Only shown on large windows",
+        "shownOnSmallWindows": "Only shown on small windows"
+      }
     },
-    "base64": {
-      "encodeTitle": "Encode to Base64",
-      "decodeTitle": "Decode from Base64",
-      "encode": "Encode",
-      "decode": "Decode"
-    },
-    "draggable": {
-      "title": "Draggable",
-      "dragMe": "Drag me",
-      "enable": "Enable dragging",
-      "disable": "Disable dragging",
-      "enableUp": "Allow dragging up",
-      "enableDown": "Allow dragging down",
-      "enableLeft": "Allow dragging left",
-      "enableRight": "Allow dragging right",
-      "disableUp": "Disallow dragging up",
-      "disableDown": "Disallow dragging down",
-      "disableLeft": "Disallow dragging left",
-      "disableRight": "Disallow dragging right",
-      "resetPosition": "Reset position"
-    },
-    "windowWidth": {
-      "title": "Window width",
-      "label": "Width: {width}px",
-      "largeWindow": "Is large window: {value}",
-      "smallWindow": "Is small window: {value}",
-      "shownOnLargeDisplays": "Only shown on large displays",
-      "shownOnSmallDisplays": "Only shown on small displays"
+    "msReportTheme": {
+      "info": "Info",
+      "warning": "Warning",
+      "error": "Error",
+      "success": "Success"
     }
   }
 }
