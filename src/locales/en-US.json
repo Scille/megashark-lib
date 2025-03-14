@@ -261,8 +261,8 @@
         "sm": "Small window",
         "md": "Medium window",
         "lg": "Large window",
-        "wide": "Wide window",
-        "ultraWide": "Ultra-wide window",
+        "xl": "Extra-large window",
+        "xxl": "XXL window",
         "noMixin": "No mixin",
         "overlapExplanation": "The overlap is the fact that the css rule will apply to the chosen size and all the smaller sizes.",
         "enableOverlap": "Enable overlap",
@@ -273,8 +273,8 @@
         "label": "Width: {width}px",
         "largeWindow": "Is large window: {value}",
         "smallWindow": "Is small window: {value}",
-        "shownOnLargeDisplays": "Only shown on large displays",
-        "shownOnSmallDisplays": "Only shown on small displays"
+        "shownOnLargeWindows": "Only shown on large windows",
+        "shownOnSmallWindows": "Only shown on small windows"
       }
     },
     "msReportTheme": {

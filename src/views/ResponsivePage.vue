@@ -43,16 +43,16 @@
         {{ $msTranslate('usage.responsive.mixin.lg') }}
       </ion-label>
       <ion-label
-        class="responsive-mixin-block responsive-mixin-block-wide"
+        class="responsive-mixin-block responsive-mixin-block-xl"
         :class="{ 'no-overlap': noResponsiveMixinOverlap }"
       >
-        {{ $msTranslate('usage.responsive.mixin.wide') }}
+        {{ $msTranslate('usage.responsive.mixin.xl') }}
       </ion-label>
       <ion-label
-        class="responsive-mixin-block responsive-mixin-block-ultra-wide"
+        class="responsive-mixin-block responsive-mixin-block-xxl"
         :class="{ 'no-overlap': noResponsiveMixinOverlap }"
       >
-        {{ $msTranslate('usage.responsive.mixin.ultraWide') }}
+        {{ $msTranslate('usage.responsive.mixin.xxl') }}
       </ion-label>
       <ion-label
         class="responsive-mixin-block responsive-mixin-block-no-mixin"
@@ -76,10 +76,10 @@
         {{ $msTranslate({ key: 'usage.responsive.windowWidth.smallWindow', data: { value: isSmallDisplay } }) }}
       </ion-label>
       <ion-label v-show="isLargeDisplay">
-        {{ $msTranslate('usage.responsive.windowWidth.shownOnLargeDisplays') }}
+        {{ $msTranslate('usage.responsive.windowWidth.shownOnLargeWindows') }}
       </ion-label>
       <ion-label v-show="isSmallDisplay">
-        {{ $msTranslate('usage.responsive.windowWidth.shownOnSmallDisplays') }}
+        {{ $msTranslate('usage.responsive.windowWidth.shownOnSmallWindows') }}
       </ion-label>
     </example-block-line>
   </example-block>
@@ -116,9 +116,9 @@ const noResponsiveMixinOverlap = ref(false);
     color: white;
   }
 
-  @include breakpoint('ultra-wide') {
+  @include breakpoint('xxl') {
     background: #ff0000;
-    &-ultra-wide {
+    &-xxl {
       display: block;
     }
 
@@ -127,13 +127,13 @@ const noResponsiveMixinOverlap = ref(false);
     }
   }
 
-  @include breakpoint('wide') {
+  @include breakpoint('xl') {
     background: #ff5500;
-    &-wide {
+    &-xl {
       display: block;
     }
 
-    &-ultra-wide.no-overlap {
+    &-xxl.no-overlap {
       display: none;
     }
   }
@@ -144,7 +144,7 @@ const noResponsiveMixinOverlap = ref(false);
       display: block;
     }
 
-    &-wide.no-overlap {
+    &-xl.no-overlap {
       display: none;
     }
   }
