@@ -2,7 +2,7 @@
 
 <template>
   <ms-modal
-    v-show="isLargeDisplay"
+    v-if="isLargeDisplay"
     :title="title"
     :subtitle="subtitle"
     :close-button="{ visible: false }"
@@ -20,7 +20,7 @@
     @on-enter-keyup="onYes"
   />
   <ms-small-display-question-modal
-    v-show="isSmallDisplay"
+    v-else
     :title="title"
     :subtitle="subtitle"
     :yes-text="yesText"
@@ -37,7 +37,7 @@ import { MsReportTheme } from '@lib/components/ms-types';
 import { Translatable, useWindowSize } from '@lib/services';
 import { modalController } from '@ionic/vue';
 
-const { isLargeDisplay: isLargeDisplay, isSmallDisplay: isSmallDisplay } = useWindowSize();
+const { isLargeDisplay: isLargeDisplay } = useWindowSize();
 
 defineProps<{
   title: Translatable;
