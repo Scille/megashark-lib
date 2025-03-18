@@ -150,6 +150,15 @@ async function cancel(): Promise<void> {
     }
   }
 
+  &:first-of-type {
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      outline: 1px solid var(--parsec-color-light-secondary-medium);
+    }
+  }
+
   &::after {
     content: '';
     position: absolute;

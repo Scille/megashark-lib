@@ -10,7 +10,9 @@ export async function openSmallDisplayDropdown(options: MsOptions, title?: Trans
   const modal = await modalController.create({
     component: MsSmallDisplayDropdown,
     canDismiss: true,
-    cssClass: '',
+    cssClass: 'sheet-modal',
+    breakpoints: [0, 1],
+    initialBreakpoint: 1,
     componentProps: {
       title: title,
       options: options,
