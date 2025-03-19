@@ -3,8 +3,9 @@
 /// <reference types="vitest" />
 
 import vue from '@vitejs/plugin-vue';
+import { copyFileSync, mkdirSync, readdirSync, statSync } from 'fs';
 import path from 'path';
-import { defineConfig, UserConfig } from 'vite';
+import { UserConfig, defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
@@ -18,6 +19,14 @@ const config: UserConfig = {
       rollupTypes: true,
       copyDtsFiles: true,
     }),
+    {
+      name: 'copy-theme-files',
+      closeBundle(): void {
+        console.log('[theme] Copying files...');
+        copyFiles('lib/theme', 'dist/theme');
+        console.log('[theme] Files copied!');
+      },
+    },
   ],
   resolve: {
     alias: {
@@ -61,5 +70,23 @@ const config: UserConfig = {
     },
   },
 };
+
+function isFile(target: string): boolean {
+  return statSync(target).isFile();
+}
+
+function copyFiles(source: string, target: string): void {
+  const dirs = readdirSync(source);
+  for (const d of dirs) {
+    const sourcePath = path.join(source, d);
+    const targetPath = path.join(target, d);
+    if (isFile(sourcePath)) {
+      copyFileSync(sourcePath, targetPath);
+    } else {
+      mkdirSync(targetPath, { recursive: true });
+      copyFiles(sourcePath, targetPath);
+    }
+  }
+}
 
 export default defineConfig(config);

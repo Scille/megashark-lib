@@ -7,7 +7,8 @@
     ".": {
       "import": "./dist/main.js",
       "require": "./dist/main.umd.cjs"
-    }
+    },
+    "./theme": "./dist/theme/index.scss"
   },
   "main": "./dist/main.umd.cjs",
   "module": "./dist/main.js",

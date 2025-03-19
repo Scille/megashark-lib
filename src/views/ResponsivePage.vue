@@ -97,14 +97,14 @@ const noResponsiveMixinOverlap = ref(false);
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .main-title {
   text-align: center;
   margin: 0;
   padding: 0;
   color: var(--parsec-color-light-primary-800);
 }
-
-@import '@lib/theme/variables/responsive-mixin';
 
 .responsive-mixin-block {
   display: none;
@@ -116,7 +116,7 @@ const noResponsiveMixinOverlap = ref(false);
     color: white;
   }
 
-  @include breakpoint('xxl') {
+  @include ms.responsive-breakpoint('xxl') {
     background: #ff0000;
     &-xxl {
       display: block;
@@ -127,7 +127,7 @@ const noResponsiveMixinOverlap = ref(false);
     }
   }
 
-  @include breakpoint('xl') {
+  @include ms.responsive-breakpoint('xl') {
     background: #ff5500;
     &-xl {
       display: block;
@@ -138,7 +138,7 @@ const noResponsiveMixinOverlap = ref(false);
     }
   }
 
-  @include breakpoint('lg') {
+  @include ms.responsive-breakpoint('lg') {
     background: #ffaa00;
     &-lg {
       display: block;
@@ -149,7 +149,7 @@ const noResponsiveMixinOverlap = ref(false);
     }
   }
 
-  @include breakpoint('md') {
+  @include ms.responsive-breakpoint('md') {
     background: #aaff00;
     &-md {
       display: block;
@@ -160,7 +160,7 @@ const noResponsiveMixinOverlap = ref(false);
     }
   }
 
-  @include breakpoint('sm') {
+  @include ms.responsive-breakpoint('sm') {
     background: #55ff00;
     &-sm {
       display: block;
@@ -171,7 +171,7 @@ const noResponsiveMixinOverlap = ref(false);
     }
   }
 
-  @include breakpoint('xs') {
+  @include ms.responsive-breakpoint('xs') {
     background: #00ff00;
     &-xs {
       display: block;
