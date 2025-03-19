@@ -1,6 +1,6 @@
 /* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
 
-@import '@lib/theme/variables/responsive-mixin';
+@use '@lib/theme' as ms;
 
 /* **** Parsec modal **** */
 :root {
@@ -107,7 +107,7 @@ ion-modal .inner-content {
     padding-bottom: 0rem !important;
   }
 
-  @include breakpoint('sm') {
+  @include ms.responsive-breakpoint('sm') {
     &::part(content) {
       max-width: var(--parsec-small-display-modal-width);
       min-width: var(--parsec-small-display-modal-width);
