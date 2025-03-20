@@ -11,6 +11,15 @@ import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
 // https://vitejs.dev/config/
 const config: UserConfig = {
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Needed to avoid using default legacy API till upgrade to Vite 6
+        // https://sass-lang.com/documentation/breaking-changes/legacy-js-api/#bundlers
+        api: 'modern-compiler',
+      },
+    },
+  },
   plugins: [
     vue(),
     libInjectCss(),
@@ -76,14 +85,17 @@ function isFile(target: string): boolean {
 }
 
 function copyFiles(source: string, target: string): void {
-  const dirs = readdirSync(source);
-  for (const d of dirs) {
-    const sourcePath = path.join(source, d);
-    const targetPath = path.join(target, d);
+  const entries = readdirSync(source);
+
+  // Ensure the target directory exists
+  mkdirSync(target, { recursive: true });
+
+  for (const entry of entries) {
+    const sourcePath = path.join(source, entry);
+    const targetPath = path.join(target, entry);
     if (isFile(sourcePath)) {
       copyFileSync(sourcePath, targetPath);
     } else {
-      mkdirSync(targetPath, { recursive: true });
       copyFiles(sourcePath, targetPath);
     }
   }
