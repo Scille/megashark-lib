@@ -4,28 +4,13 @@
 http://ionicframework.com/docs/theming/ */
 
 // Ionic imports
-@import 'ionic';
+@use 'ionic' as ionic;
 
 // import variables
-@import 'variables/colors';
-@import 'variables/colorsIonic';
-@import 'variables/fonts';
-@import 'variables/radius';
-@import 'variables/shadows';
-@import 'variables/spacing';
-@import 'variables/width';
+@use 'variables' as variables;
 
 // import components
-@import 'components/buttons';
-@import 'components/cards';
-@import 'components/inputs';
-@import 'components/modals';
-@import 'components/toasts';
-@import 'components/popovers';
-@import 'components/scrollbars';
-@import 'components/action-bar';
-@import 'components/tags';
-@import 'components/toggles';
+@use 'components' as components;
 
 /**** Global CSS overloads ****/
 
