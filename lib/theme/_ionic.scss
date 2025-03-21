@@ -1,0 +1,17 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+/* Core CSS required for Ionic components to work properly */
+@forward '@ionic/vue/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+@forward '@ionic/vue/css/normalize.css';
+@forward '@ionic/vue/css/structure.css';
+@forward '@ionic/vue/css/typography.css';
+
+/* Optional CSS utils that can be commented out */
+@forward '@ionic/vue/css/display.css';
+@forward '@ionic/vue/css/flex-utils.css';
+@forward '@ionic/vue/css/float-elements.css';
+@forward '@ionic/vue/css/padding.css';
+@forward '@ionic/vue/css/text-alignment.css';
+@forward '@ionic/vue/css/text-transformation.css';
