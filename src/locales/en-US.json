@@ -33,7 +33,11 @@
         }
       },
       "dropdown": {
-        "title": "Dropdown"
+        "title": "Dropdown",
+        "disabled": "Disabled",
+        "disabledReason": "Text explaining why the button is disabled",
+        "smallDescription": "Small description",
+        "bigDescription": "Big description explaining details about the option, big description explaining details about the option."
       },
       "progressBar": {
         "title": "Progress bar"
