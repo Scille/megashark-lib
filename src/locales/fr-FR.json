@@ -142,7 +142,12 @@
         "modalLabel": "Veuillez patienter..."
       },
       "stepper": {
-        "title": "Stepper"
+        "title": "Stepper",
+        "msWizardStepper": {
+          "step1": "Étape 1",
+          "step2": "Étape 2",
+          "step3": "Étape 3"
+        }
       },
       "informativeText": {
         "title": "Informative text",

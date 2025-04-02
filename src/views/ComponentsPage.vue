@@ -265,6 +265,14 @@
   <!-- steppers -->
   <example-block title="usage.components.stepper.title">
     <example-block-line>ms-wizard-stepper</example-block-line>
+    <ms-wizard-stepper
+      :current-index="0"
+      :titles="[
+        'usage.components.stepper.msWizardStepper.step1',
+        'usage.components.stepper.msWizardStepper.step2',
+        'usage.components.stepper.msWizardStepper.step3',
+      ]"
+    />
   </example-block>
 
   <!-- informative-text -->
@@ -458,6 +466,7 @@ import {
   MsChoosePasswordInput,
   MsCodeValidationInput,
   MsInput,
+  MsWizardStepper,
   MsTextarea,
   MsPasswordInput,
   MsSearchInput,
@@ -756,7 +765,7 @@ async function openSDDropdown(withDefault: boolean): Promise<void> {
   flex-direction: column;
   align-items: start;
   background-color: var(--parsec-color-light-secondary-white);
-  flex-shrink: 0;
+  flex-shrink: 1;
 }
 
 .address-input {

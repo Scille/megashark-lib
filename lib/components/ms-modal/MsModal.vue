@@ -10,24 +10,17 @@
       tabindex="0"
       ref="modal"
     >
-      <ion-buttons
-        slot="end"
-        class="closeBtn-container"
+      <ion-button
         v-if="closeButton"
+        v-show="closeButton.visible"
+        @click="closeButton && closeButton.onClick ? closeButton.onClick() : cancel()"
+        class="closeBtn"
       >
-        <ion-button
-          v-show="closeButton.visible"
-          slot="icon-only"
-          @click="closeButton && closeButton.onClick ? closeButton.onClick() : cancel()"
-          class="closeBtn"
-        >
-          <ion-icon
-            :icon="close"
-            size="large"
-            class="closeBtn__icon"
-          />
-        </ion-button>
-      </ion-buttons>
+        <ion-icon
+          :icon="close"
+          class="closeBtn__icon"
+        />
+      </ion-button>
       <div class="ms-modal">
         <ion-header class="ms-modal-header">
           <div
@@ -147,7 +140,7 @@ async function confirm(): Promise<boolean> {
 
 <style lang="scss" scoped>
 .ms-modal {
-  padding: 2.5rem;
+  padding: 2rem;
   justify-content: start;
 }
 

@@ -15,11 +15,13 @@
   gap: 1em;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
 
   &-items {
+    width: 100%;
     display: flex;
     align-items: center;
-    margin: 0.5rem;
+    padding: 0.5rem;
     gap: 1.5em;
     flex-wrap: wrap;
   }
