@@ -68,33 +68,31 @@ ion-modal .inner-content {
 }
 
 // close button
-.closeBtn-container {
+.closeBtn {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 1.5rem;
+  right: 1.5rem;
   border-radius: var(--parsec-radius-6);
+  margin: 0;
+  width: fit-content;
+  height: fit-content;
+  min-height: fit-content;
+  z-index: 1000;
 
-  .closeBtn {
-    margin: 0;
-    --padding-start: 0;
-    --padding-end: 0;
-    width: fit-content;
-    height: fit-content;
+  &::part(native) {
+    background: var(--parsec-color-light-secondary-white);
     --background-hover: var(--parsec-color-light-secondary-medium);
+    padding: 0.125rem;
+  }
 
-    &::part(native) {
-      padding: 0;
-    }
+  &__icon {
+    font-size: 1.75rem;
+    color: var(--parsec-color-light-secondary-grey);
+  }
 
-    &__icon {
-      padding: 0.25rem;
-      color: var(--parsec-color-light-secondary-grey);
-    }
-
-    &:active {
-      --background: var(--parsec-color-light-secondary-medium);
-      --border-radius: var(--parsec-radius-6);
-    }
+  &:active {
+    --background: var(--parsec-color-light-secondary-medium);
+    --border-radius: var(--parsec-radius-6);
   }
 
   &:hover {

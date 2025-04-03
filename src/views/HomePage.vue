@@ -55,6 +55,8 @@ const category = ref<Category>(Category.Components);
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .main-title {
   text-align: center;
   margin: 0;
@@ -73,5 +75,9 @@ ion-content {
   gap: 2rem;
   padding: 3rem;
   background: var(--parsec-color-light-secondary-background);
+
+  @include ms.responsive-breakpoint('sm') {
+    padding: 2rem;
+  }
 }
 </style>

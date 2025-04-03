@@ -7,22 +7,16 @@
       >
         {{ $msTranslate(title) }}
       </ion-text>
-      <ion-buttons
-        slot="end"
-        class="closeBtn-container"
+      <ion-button
+        slot="icon-only"
+        @click="cancel()"
+        class="closeBtn"
       >
-        <ion-button
-          slot="icon-only"
-          @click="cancel()"
-          class="closeBtn"
-        >
-          <ion-icon
-            :icon="close"
-            size="medium"
-            class="closeBtn__icon"
-          />
-        </ion-button>
-      </ion-buttons>
+        <ion-icon
+          :icon="close"
+          class="closeBtn__icon"
+        />
+      </ion-button>
     </div>
     <ion-list>
       <ion-item

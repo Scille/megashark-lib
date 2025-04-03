@@ -123,6 +123,8 @@ function clear(): void {
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .choose-password {
   display: flex;
   flex-direction: column;
@@ -153,6 +155,10 @@ function clear(): void {
 .inputs-container {
   display: flex;
   gap: 1.5rem;
+
+  @include ms.responsive-breakpoint('sm') {
+    flex-direction: column;
+  }
 
   &--column {
     flex-direction: column;
