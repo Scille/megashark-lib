@@ -80,7 +80,7 @@ async function cancel(): Promise<boolean> {
 
 <style lang="scss" scoped>
 .ms-small-display-modal {
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .ms-small-display-modal-header {

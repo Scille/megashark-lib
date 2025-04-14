@@ -139,9 +139,15 @@ async function confirm(): Promise<boolean> {
 </script>
 
 <style lang="scss" scoped>
+@use '@lib/theme' as ms;
+
 .ms-modal {
   padding: 2rem;
   justify-content: start;
+
+  @include ms.responsive-breakpoint('sm') {
+    padding: 1.5rem;
+  }
 }
 
 .ms-modal-header {
