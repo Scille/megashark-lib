@@ -26,7 +26,7 @@
         <ms-action-bar-button
           id="action-bar-button-example"
           button-label="usage.components.actionBar.buttons.getPassword.title"
-          :icon="lockClosed"
+          :image="LockClosedIcon"
           @click="openPasswordInputModal()"
         />
         <ms-action-bar-button
@@ -225,6 +225,7 @@
         default-option="name"
         :sorter-labels="{ asc: 'Asc', desc: 'Desc' }"
         :sort-by-asc="false"
+        :label="'couou'"
         @change="onSortChange($event)"
       />
       <div
@@ -456,7 +457,7 @@
 
 <script setup lang="ts">
 import { IonLabel, modalController, IonButton, IonTitle, IonIcon } from '@ionic/vue';
-import { cog, create, lockClosed, helpCircle, pause, play, warning } from 'ionicons/icons';
+import { cog, create, helpCircle, pause, play, warning } from 'ionicons/icons';
 import {
   Answer,
   MsActionBar,
@@ -519,6 +520,7 @@ import {
   SliderState,
   MsDraggable,
   openSmallDisplayDropdown,
+  LockClosedIcon,
 } from '@lib/components';
 import { DateTime } from 'luxon';
 import { inject, ref, Ref, onMounted } from 'vue';

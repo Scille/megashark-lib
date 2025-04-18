@@ -142,9 +142,8 @@ function clear(): void {
   margin-bottom: 0.5rem;
 
   &__img {
-    width: 3.25rem;
-    height: 3.25rem;
-    margin-right: 0.5rem;
+    width: 1.75rem;
+    height: 1.75rem;
   }
 
   &__text {

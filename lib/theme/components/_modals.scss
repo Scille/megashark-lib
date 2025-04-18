@@ -84,6 +84,7 @@ ion-modal .inner-content {
     background: var(--parsec-color-light-secondary-white);
     --background-hover: var(--parsec-color-light-secondary-medium);
     padding: 0.125rem;
+    height: 2rem;
   }
 
   &__icon {
@@ -125,7 +126,13 @@ ion-modal .inner-content {
   @include ms.responsive-breakpoint('sm') {
     &::part(content) {
       max-width: var(--parsec-small-display-modal-width);
-      min-width: var(--parsec-small-display-modal-width);
+    }
+  }
+
+  @include ms.responsive-breakpoint('xs') {
+    &::part(content) {
+      width: calc(100% - 2rem);
+      min-width: calc(100% - 2rem);
     }
   }
 }

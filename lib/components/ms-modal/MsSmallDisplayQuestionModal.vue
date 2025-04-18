@@ -17,7 +17,7 @@
             </ion-title>
           </div>
           <template v-if="subtitle">
-            <ion-text class="ms-small-display-modal-header__text body-normal">
+            <ion-text class="ms-small-display-modal-header__text body">
               {{ $msTranslate(subtitle) }}
             </ion-text>
           </template>
@@ -79,8 +79,14 @@ async function cancel(): Promise<boolean> {
 </script>
 
 <style lang="scss" scoped>
+@use '@lib/theme' as ms;
+
 .ms-small-display-modal {
   padding: 2rem;
+
+  @include ms.responsive-breakpoint('xs') {
+    padding: 1.5rem;
+  }
 }
 
 .ms-small-display-modal-header {
@@ -117,27 +123,19 @@ async function cancel(): Promise<boolean> {
     margin-top: 2.5rem;
   }
 
-  &::before {
-    background: transparent;
-  }
-
   &-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 1rem;
     margin-top: 1.5rem;
 
     &-cancel {
       display: flex;
-      margin: auto;
-      font-size: medium;
       color: var(--parsec-color-light-secondary-text);
     }
 
     &-confirm {
       display: flex;
-      margin: auto;
-      font-size: medium;
     }
   }
 }
