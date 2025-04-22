@@ -225,7 +225,6 @@
         default-option="name"
         :sorter-labels="{ asc: 'Asc', desc: 'Desc' }"
         :sort-by-asc="false"
-        :label="'couou'"
         @change="onSortChange($event)"
       />
       <div
