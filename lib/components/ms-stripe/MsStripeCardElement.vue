@@ -127,7 +127,7 @@ defineExpose({
 
 <style scoped lang="scss">
 .input-content {
-  padding: 0 1rem;
+  padding: 0 0.75rem;
   align-items: center;
   flex-grow: unset;
 

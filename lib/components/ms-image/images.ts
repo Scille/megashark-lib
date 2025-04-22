@@ -14,7 +14,7 @@ import Css from '@lib/assets/images/css.svg?raw';
 import Device from '@lib/assets/images/device.svg?raw';
 import Doc from '@lib/assets/images/doc.svg?raw';
 import DocumentImport from '@lib/assets/images/document-import.svg?raw';
-import Download from '@lib/assets/images/download.svg?raw';
+import DownloadIcon from '@lib/assets/images/download-icon.svg?raw';
 import Excel from '@lib/assets/images/excel.svg?raw';
 import ExpandIcon from '@lib/assets/images/expand-icon.svg?raw';
 import FileImport from '@lib/assets/images/file-import.svg?raw';
@@ -26,6 +26,8 @@ import Image from '@lib/assets/images/image.svg?raw';
 import ImportMultipleFiles from '@lib/assets/images/import-multiple-files.svg?raw';
 import Iso from '@lib/assets/images/iso.svg?raw';
 import Javascript from '@lib/assets/images/js.svg?raw';
+import LockClosedIcon from '@lib/assets/images/lock-closed-icon.svg?raw';
+import LockOpenIcon from '@lib/assets/images/lock-open-icon.svg?raw';
 import LogoIconGradient from '@lib/assets/images/logo-icon-gradient.svg?raw';
 import LogoIconWhite from '@lib/assets/images/logo-icon-white.svg?raw';
 import LogoMastercard from '@lib/assets/images/logo-mastercard.svg?raw';
@@ -45,6 +47,7 @@ import NoNotification from '@lib/assets/images/no-notification.svg?raw';
 import NoOrganization from '@lib/assets/images/no-organization.svg?raw';
 import NoRevokedUser from '@lib/assets/images/no-revoked-user.svg?raw';
 import NoWorkspace from '@lib/assets/images/no-workspace.svg?raw';
+import OpenIcon from '@lib/assets/images/open-icon.svg?raw';
 import PasswordLock from '@lib/assets/images/password-lock.svg?raw';
 import Pdf from '@lib/assets/images/pdf.svg?raw';
 import Photoshop from '@lib/assets/images/photoshop.svg?raw';
@@ -52,6 +55,7 @@ import Php from '@lib/assets/images/php.svg?raw';
 import PipIcon from '@lib/assets/images/pip-icon.svg?raw';
 import Powerpoint from '@lib/assets/images/powerpoint.svg?raw';
 import RemoveIcon from '@lib/assets/images/remove-icon.svg?raw';
+import RenameIcon from '@lib/assets/images/rename-icon.svg?raw';
 import Restore from '@lib/assets/images/restore.svg?raw';
 import SidebarToggle from '@lib/assets/images/sidebar-toggle-icon.svg?raw';
 import Sql from '@lib/assets/images/sql.svg?raw';
@@ -99,7 +103,7 @@ export {
   Copy,
   Device,
   DocumentImport,
-  Download,
+  DownloadIcon,
   EmptyFolder,
   ExpandIcon,
   File,
@@ -107,6 +111,8 @@ export {
   FitToScreenIcon,
   Folder,
   ImportMultipleFiles,
+  LockClosedIcon,
+  LockOpenIcon,
   LogoIconGradient,
   LogoIconWhite,
   LogoMastercard,
@@ -125,10 +131,12 @@ export {
   NoOrganization,
   NoRevokedUser,
   NoWorkspace,
+  OpenIcon,
   ParsecShareScreen,
   PasswordLock,
   PipIcon,
   RemoveIcon,
+  RenameIcon,
   Restore,
   SidebarToggle,
   SwapArrows,

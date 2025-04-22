@@ -62,6 +62,7 @@ defineProps<{
   &-icon__left {
     margin-inline: 0em;
     margin-right: 0.375rem;
+    width: 1.25rem;
   }
 
   &-icon__right {
