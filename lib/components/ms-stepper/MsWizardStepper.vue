@@ -38,7 +38,7 @@ defineProps<{
 .ms-wizard-stepper {
   background: var(--parsec-color-light-secondary-background);
   display: flex;
-  padding: 2.5rem 6rem;
+  padding: 2rem 1rem;
   justify-content: center;
 
   &__step {

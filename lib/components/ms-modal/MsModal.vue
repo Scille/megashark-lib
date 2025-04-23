@@ -161,7 +161,6 @@ async function confirm(): Promise<boolean> {
 
   &__title {
     padding: 0;
-    margin-bottom: 1rem;
     color: var(--parsec-color-light-primary-800);
     display: flex;
     align-items: center;
@@ -183,7 +182,8 @@ async function confirm(): Promise<boolean> {
   }
 
   &__text {
-    color: var(--parsec-color-light-secondary-grey);
+    color: var(--parsec-color-light-secondary-hard-grey);
+    margin-top: 0.625rem;
   }
 }
 
