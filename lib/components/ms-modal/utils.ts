@@ -7,8 +7,9 @@ import MsSpinnerModal from '@lib/components/ms-modal/MsSpinnerModal.vue';
 import MsTextInputModal from '@lib/components/ms-modal/MsTextInputModal.vue';
 import { GetPasswordOptions, GetTextOptions, MsModalResult } from '@lib/components/ms-modal/types';
 import { Answer } from '@lib/components/ms-types';
-import { Translatable } from '@lib/services';
+import { Translatable, useWindowSize } from '@lib/services';
 
+const { isLargeDisplay } = useWindowSize();
 export interface QuestionOptions {
   yesText?: Translatable;
   noText?: Translatable;
@@ -60,6 +61,11 @@ export async function getPasswordFromUser(options: GetPasswordOptions): Promise<
   const modal = await modalController.create({
     component: MsPasswordInputModal,
     canDismiss: true,
+    backdropDismiss: false,
+    showBackdrop: true,
+    breakpoints: isLargeDisplay.value ? undefined : [0.5, 1],
+    handle: false,
+    initialBreakpoint: isLargeDisplay.value ? undefined : 1,
     cssClass: 'password-input-modal',
     componentProps: options,
   });
@@ -73,6 +79,11 @@ export async function getTextFromUser(options: GetTextOptions): Promise<string |
   const modal = await modalController.create({
     component: MsTextInputModal,
     canDismiss: true,
+    backdropDismiss: false,
+    showBackdrop: true,
+    breakpoints: isLargeDisplay.value ? undefined : [0.5, 1],
+    handle: false,
+    initialBreakpoint: isLargeDisplay.value ? undefined : 1,
     cssClass: 'text-input-modal',
     componentProps: {
       title: options.title,
