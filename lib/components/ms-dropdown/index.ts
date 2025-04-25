@@ -4,5 +4,4 @@ import MsDropdown from '@lib/components/ms-dropdown/MsDropdown.vue';
 import MsSmallDisplayDropdown from '@lib/components/ms-dropdown/MsSmallDisplayDropdown.vue';
 
 export * from '@lib/components/ms-dropdown/types';
-export * from '@lib/components/ms-dropdown/utils';
 export { MsAddressDropdown, MsDropdown, MsSmallDisplayDropdown };

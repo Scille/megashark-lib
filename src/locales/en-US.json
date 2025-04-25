@@ -34,6 +34,7 @@
       },
       "dropdown": {
         "title": "Dropdown",
+        "dropdownTitle": "Dropdown title",
         "disabled": "Disabled",
         "disabledReason": "Text explaining why the button is disabled",
         "smallDescription": "Small description",

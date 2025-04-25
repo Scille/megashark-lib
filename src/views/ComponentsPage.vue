@@ -114,16 +114,11 @@
     <example-block-line>
       <ms-dropdown
         class="dropdown"
+        :title="'usage.components.dropdown.dropdownTitle'"
         :options="msDropdownOptions"
         :default-option-key="msReportTheme"
         @change="changeOption($event.option.key)"
       />
-      <ion-button @click="openSDDropdown(true)">
-        {{ 'SmallDisplayDropdown with default' }}
-      </ion-button>
-      <ion-button @click="openSDDropdown(false)">
-        {{ 'SmallDisplayDropdown without default' }}
-      </ion-button>
     </example-block-line>
   </example-block>
 
@@ -518,7 +513,6 @@ import {
   MsSlider,
   SliderState,
   MsDraggable,
-  openSmallDisplayDropdown,
   LockClosedIcon,
 } from '@lib/components';
 import { DateTime } from 'luxon';
@@ -729,17 +723,6 @@ function onSliderPlayClicked(): void {
   } else {
     sliderStatePlaying.value.progress = 0;
     sliderStatePlaying.value.paused = false;
-  }
-}
-
-async function openSDDropdown(withDefault: boolean): Promise<void> {
-  const result = await openSmallDisplayDropdown(
-    msDropdownOptions,
-    'usage.components.dropdown.title',
-    withDefault ? msReportTheme.value : '',
-  );
-  if (result) {
-    changeOption(result.key);
   }
 }
 </script>
