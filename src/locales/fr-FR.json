@@ -34,6 +34,7 @@
       },
       "dropdown": {
         "title": "Dropdown",
+        "dropdownTitle": "Titre du dropdown",
         "disabled": "Désactivé",
         "disabledReason": "Texte expliquant pourquoi le bouton est désactivé",
 

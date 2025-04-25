@@ -29,10 +29,11 @@
 
 <script setup lang="ts">
 import MsDropdownPopover from '@lib/components/ms-dropdown/MsDropdownPopover.vue';
+import MsSmallDisplayDropdown from '@lib/components/ms-dropdown/MsSmallDisplayDropdown.vue';
 import { MsDropdownChangeEvent } from '@lib/components/ms-dropdown/types';
 import { MsAppearance, MsOption, MsOptions } from '@lib/components/ms-types';
-import { Translatable } from '@lib/services';
-import { IonButton, IonIcon, IonText, popoverController } from '@ionic/vue';
+import { Translatable, useWindowSize } from '@lib/services';
+import { IonButton, IonIcon, IonText, modalController, popoverController } from '@ionic/vue';
 import { PositionAlign } from '@ionic/core';
 import { caretDown, chevronDown } from 'ionicons/icons';
 import { Ref, ref, computed } from 'vue';
@@ -51,6 +52,8 @@ const emits = defineEmits<{
   (e: 'change', value: MsDropdownChangeEvent): void;
 }>();
 
+const { isLargeDisplay } = useWindowSize();
+
 defineExpose({
   setCurrentKey,
 });
@@ -68,17 +71,33 @@ function setCurrentKey(key: any): void {
 }
 
 async function openPopover(event: Event): Promise<void> {
-  const popover = await popoverController.create({
-    component: MsDropdownPopover,
-    cssClass: 'dropdown-popover',
-    componentProps: {
-      options: props.options,
-      defaultOptionKey: selectedOption.value?.key,
-    },
-    event: event,
-    alignment: props.alignment !== undefined ? props.alignment : 'end',
-    showBackdrop: false,
-  });
+  let popover: HTMLIonPopoverElement | HTMLIonModalElement;
+  if (isLargeDisplay.value) {
+    popover = await popoverController.create({
+      component: MsDropdownPopover,
+      cssClass: 'dropdown-popover',
+      componentProps: {
+        options: props.options,
+        defaultOptionKey: selectedOption.value?.key,
+      },
+      event: event,
+      alignment: props.alignment !== undefined ? props.alignment : 'end',
+      showBackdrop: false,
+    });
+  } else {
+    popover = await modalController.create({
+      component: MsSmallDisplayDropdown,
+      canDismiss: true,
+      cssClass: 'sheet-modal',
+      breakpoints: [0, 1],
+      initialBreakpoint: 1,
+      componentProps: {
+        title: props.title,
+        options: props.options,
+        defaultOptionKey: selectedOption.value?.key,
+      },
+    });
+  }
   isPopoverOpen.value = true;
   await popover.present();
   await onDidDismissPopover(popover);

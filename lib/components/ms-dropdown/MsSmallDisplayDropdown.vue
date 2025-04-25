@@ -81,7 +81,6 @@ import { MsOption, MsOptions } from '@lib/components/ms-types';
 import { MsInformationTooltip } from '@lib/components/ms-tooltip';
 import { ref } from 'vue';
 import { checkmark, close } from 'ionicons/icons';
-import { MsModalResult } from '@lib/components/ms-modal/types';
 
 const props = defineProps<{
   title?: string;
@@ -100,15 +99,20 @@ async function onOptionClick(option: MsOption): Promise<void> {
 }
 
 async function confirm(): Promise<void> {
-  await modalController.dismiss(selectedOption.value, MsModalResult.Confirm);
+  await modalController.dismiss({ option: selectedOption.value });
 }
 
 async function cancel(): Promise<void> {
-  await modalController.dismiss(MsModalResult.Cancel);
+  await modalController.dismiss();
 }
 </script>
 
 <style lang="scss" scoped>
+.closeBtn {
+  top: 1rem;
+  right: 1rem;
+}
+
 .dropdown {
   padding-top: 1rem;
 
@@ -213,7 +217,7 @@ async function cancel(): Promise<void> {
 .buttons {
   justify-content: end;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1rem 1rem 2rem;
 
   &-cancel {
     color: var(--parsec-color-light-secondary-text);
