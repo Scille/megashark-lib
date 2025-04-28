@@ -56,10 +56,15 @@ export async function askQuestion(title: Translatable, subtitle: Translatable, o
   return answer;
 }
 
-export async function getPasswordFromUser(options: GetPasswordOptions): Promise<string | null> {
+export async function getPasswordFromUser(options: GetPasswordOptions, isLargeDisplay: boolean): Promise<string | null> {
   const modal = await modalController.create({
     component: MsPasswordInputModal,
     canDismiss: true,
+    backdropDismiss: false,
+    showBackdrop: true,
+    breakpoints: isLargeDisplay ? undefined : [0.5, 1],
+    handle: false,
+    initialBreakpoint: isLargeDisplay ? undefined : 1,
     cssClass: 'password-input-modal',
     componentProps: options,
   });
@@ -69,10 +74,15 @@ export async function getPasswordFromUser(options: GetPasswordOptions): Promise<
   return result.role === MsModalResult.Confirm ? result.data : null;
 }
 
-export async function getTextFromUser(options: GetTextOptions): Promise<string | null> {
+export async function getTextFromUser(options: GetTextOptions, isLargeDisplay: boolean): Promise<string | null> {
   const modal = await modalController.create({
     component: MsTextInputModal,
     canDismiss: true,
+    backdropDismiss: false,
+    showBackdrop: true,
+    breakpoints: isLargeDisplay ? undefined : [0.5, 1],
+    handle: false,
+    initialBreakpoint: isLargeDisplay ? undefined : 1,
     cssClass: 'text-input-modal',
     componentProps: {
       title: options.title,

@@ -39,13 +39,88 @@ ion-modal .ion-page {
     display: flex;
     flex-direction: column;
 
+    @include ms.responsive-breakpoint('sm') {
+      padding: 0;
+    }
+
     &-content {
       display: flex;
       flex-direction: column;
+
+      @include ms.responsive-breakpoint('sm') {
+        padding: 0 1.5rem;
+      }
     }
 
     &-footer {
       margin-top: auto;
+
+      @include ms.responsive-breakpoint('sm') {
+        padding: 1.5rem 1.5rem 3rem;
+      }
+
+      .ms-modal-toolbar {
+        @include ms.responsive-breakpoint('sm') {
+          margin-top: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+.question-modal,
+.information-modal {
+  @include ms.responsive-breakpoint('sm') {
+    &::part(content) {
+      max-width: var(--parsec-small-display-modal-width);
+    }
+  }
+
+  @include ms.responsive-breakpoint('xs') {
+    &::part(content) {
+      width: calc(100% - 2rem);
+      min-width: calc(100% - 2rem);
+    }
+  }
+}
+
+.password-input-modal,
+.text-input-modal {
+  &::part(content) {
+    max-width: var(--parsec-modal-width-sm);
+  }
+
+  @include ms.responsive-breakpoint('sm') {
+    &::part(content) {
+      height: fit-content;
+      border-radius: var(--parsec-radius-12) var(--parsec-radius-12) 0 0;
+    }
+
+    .ms-modal-header {
+      padding: 2rem 3rem 1.5rem 2rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--parsec-color-light-secondary-medium);
+
+      &-text {
+        display: none;
+      }
+
+      &__title {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    .ms-modal-content {
+      height: fit-content;
+    }
+
+    .ms-modal-footer-buttons {
+      flex-direction: column-reverse;
+      width: 100%;
+
+      .button {
+        width: 100%;
+      }
     }
   }
 }
@@ -67,7 +142,6 @@ ion-modal .inner-content {
   }
 }
 
-// close button
 .closeBtn {
   position: absolute;
   top: 1.5rem;
@@ -109,31 +183,6 @@ ion-modal .inner-content {
   & ~ ion-modal.modal-default {
     --backdrop-opacity: var(--ion-backdrop-opacity, 0.32) !important;
     --box-shadow: var(--parsec-shadow-light) !important;
-  }
-}
-
-.question-modal,
-.information-modal {
-  &::part(content) {
-    max-width: var(--parsec-modal-width-sm);
-    width: var(--parsec-modal-width-sm);
-  }
-
-  .ms-modal-header {
-    padding-bottom: 0rem !important;
-  }
-
-  @include ms.responsive-breakpoint('sm') {
-    &::part(content) {
-      max-width: var(--parsec-small-display-modal-width);
-    }
-  }
-
-  @include ms.responsive-breakpoint('xs') {
-    &::part(content) {
-      width: calc(100% - 2rem);
-      min-width: calc(100% - 2rem);
-    }
   }
 }
 

@@ -108,6 +108,8 @@ async function changeLang(lang: Locale): Promise<void> {
 </script>
 
 <style lang="scss" scoped>
+@use '@lib/theme' as ms;
+
 .page {
   --border-radius: var(--parsec-radius-8);
   --background: none;
@@ -121,6 +123,11 @@ async function changeLang(lang: Locale): Promise<void> {
   .menu {
     display: flex;
     gap: 2rem;
+
+    @include ms.responsive-breakpoint('sm') {
+      flex-direction: column;
+      gap: 1rem;
+    }
   }
 
   .menu-list {
@@ -139,7 +146,7 @@ async function changeLang(lang: Locale): Promise<void> {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0.5rem 0.75em;
+        padding: 0.375rem 0.75em;
         gap: 0.375rem;
       }
 
@@ -148,9 +155,8 @@ async function changeLang(lang: Locale): Promise<void> {
       }
 
       &.radio-checked {
-        color: var(--parsec-color-light-primary-600);
-        background: var(--parsec-color-light-primary-30);
-        box-shadow: inset 0px 0px 0px 1px var(--parsec-color-light-primary-600);
+        color: var(--parsec-color-light-secondary-text);
+        background: var(--parsec-color-light-secondary-premiere);
       }
 
       &:hover:not(.radio-checked) {

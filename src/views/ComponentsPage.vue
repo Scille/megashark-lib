@@ -521,8 +521,10 @@ import SettingsModal from '@/views/settings/SettingsModal.vue';
 import { I18n, Address, GEOAPIFY_MOCKED_API_KEY, StripeService, StripeServiceKey, PaymentMethod, PaymentMethodResult } from '@lib/services';
 import { IValidator, Validity } from '@lib/main';
 import { ExampleBlock, ExampleBlockLine } from '@/views/example-block';
+import { useWindowSize } from '@lib/services';
 
 const referenceValue = ref<Answer>(Answer.No);
+const { isLargeDisplay } = useWindowSize();
 
 const msDropdownOptions: MsOptions = new MsOptions([
   {
@@ -636,6 +638,12 @@ async function openSettingsModal(): Promise<void> {
   const modal = await modalController.create({
     component: SettingsModal,
     cssClass: 'settings-modal',
+    showBackdrop: true,
+    handle: false,
+    breakpoints: isLargeDisplay.value ? undefined : [1],
+    // https://ionicframework.com/docs/api/modal#scrolling-content-at-all-breakpoints
+    // expandToScroll: false, should be added to scroll with Ionic 8
+    initialBreakpoint: isLargeDisplay.value ? undefined : 1,
   });
   await modal.present();
   await modal.onWillDismiss();
@@ -663,12 +671,15 @@ async function openAlertModal(): Promise<void> {
 }
 
 async function openPasswordInputModal(): Promise<void> {
-  await getPasswordFromUser({
-    title: 'usage.components.modals.getPassword.passwordNeeded',
-    subtitle: { key: 'usage.components.modals.getPassword.enterPassword' },
-    inputLabel: 'usage.components.modals.getPassword.password',
-    okButtonText: 'usage.components.modals.getPassword.validate',
-  });
+  await getPasswordFromUser(
+    {
+      title: 'usage.components.modals.getPassword.passwordNeeded',
+      subtitle: { key: 'usage.components.modals.getPassword.enterPassword' },
+      inputLabel: 'usage.components.modals.getPassword.password',
+      okButtonText: 'usage.components.modals.getPassword.validate',
+    },
+    isLargeDisplay.value,
+  );
 }
 
 async function openQuestionModal(): Promise<void> {
@@ -680,13 +691,16 @@ async function openQuestionModal(): Promise<void> {
 }
 
 async function openTextInputModal(): Promise<void> {
-  await getTextFromUser({
-    title: 'usage.components.modals.askQuestion.title',
-    trim: true,
-    inputLabel: 'usage.components.modals.askQuestion.label',
-    placeholder: 'usage.components.modals.askQuestion.placeholder',
-    okButtonText: 'usage.components.modals.askQuestion.create',
-  });
+  await getTextFromUser(
+    {
+      title: 'usage.components.modals.askQuestion.title',
+      trim: true,
+      inputLabel: 'usage.components.modals.askQuestion.label',
+      placeholder: 'usage.components.modals.askQuestion.placeholder',
+      okButtonText: 'usage.components.modals.askQuestion.create',
+    },
+    isLargeDisplay.value,
+  );
 }
 
 function onSortChange(event: MsSorterChangeEvent): void {
