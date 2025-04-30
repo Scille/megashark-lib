@@ -132,6 +132,10 @@ async function cancel(): Promise<void> {
   --background: none;
   width: 100%;
 
+  &::part(native) {
+    padding: 0 1rem;
+  }
+
   &-text {
     margin: 0;
     display: flex;

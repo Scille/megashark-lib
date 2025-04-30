@@ -142,22 +142,21 @@ async function confirm(): Promise<boolean> {
 @use '@lib/theme' as ms;
 
 .ms-modal {
+  display: flex;
+  flex-direction: column;
   padding: 2rem;
+  height: 100%;
   justify-content: start;
 
   @include ms.responsive-breakpoint('sm') {
-    padding: 1.5rem;
+    padding: 0;
   }
 }
 
 .ms-modal-header {
   display: flex;
   flex-direction: column;
-  padding-bottom: 0.5rem;
-
-  &:has(.ms-modal-header__text) {
-    padding-bottom: 1.5rem;
-  }
+  padding-bottom: 1.5rem;
 
   &__title {
     padding: 0;
@@ -173,6 +172,12 @@ async function confirm(): Promise<boolean> {
     &-container {
       display: flex;
       align-items: center;
+
+      @include ms.responsive-breakpoint('sm') {
+        padding: 1.5rem 2rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid var(--parsec-color-light-secondary-medium);
+      }
     }
 
     &-icon {
@@ -190,11 +195,22 @@ async function confirm(): Promise<boolean> {
 .ms-modal-content {
   --background: transparent;
   overflow: visible;
+  display: flex;
+  flex-direction: column;
+
+  @include ms.responsive-breakpoint('sm') {
+    padding: 0 1.5rem;
+  }
 }
 
 .ms-modal-footer {
   position: relative;
   z-index: 1;
+  margin-top: auto;
+
+  @include ms.responsive-breakpoint('sm') {
+    padding: 1.5rem 1.5rem 3rem;
+  }
 
   > :first-child:not([hidden]) {
     margin-top: 2.5rem;
@@ -208,6 +224,10 @@ async function confirm(): Promise<boolean> {
     --padding: 0;
     --min-height: 0;
     --margin-inline: 0;
+
+    @include ms.responsive-breakpoint('sm') {
+      margin-top: 0 !important;
+    }
   }
 
   &-buttons {
