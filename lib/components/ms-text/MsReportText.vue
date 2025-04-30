@@ -41,6 +41,7 @@ function getIcon(): string {
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
 .ms-info {
   --ms-alert-text-background-color: var(--parsec-color-light-info-50);
   --ms-alert-text-icon-color: var(--parsec-color-light-info-700);
@@ -67,6 +68,12 @@ function getIcon(): string {
   align-items: center;
   gap: 1rem;
   background-color: var(--ms-alert-text-background-color);
+
+  @include ms.responsive-breakpoint('sm') {
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--parsec-radius-8);
+    border: none;
+  }
 
   &__icon {
     color: var(--ms-alert-text-icon-color);

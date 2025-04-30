@@ -19,6 +19,24 @@ ion-modal {
     border-radius: var(--parsec-radius-8);
   }
 
+  @media screen and (min-width: 768px) {
+    align-items: center;
+
+    &::part(content) {
+      bottom: auto;
+    }
+  }
+
+  // to place the modal at the bottom on small screens
+  @include ms.responsive-breakpoint('sm') {
+    align-items: end;
+
+    &::part(content) {
+      bottom: 0;
+      border-radius: var(--parsec-radius-12) var(--parsec-radius-12) 0 0;
+    }
+  }
+
   &:not(.sheet-modal):part(content) {
     min-width: var(--parsec-modal-width-sm);
     width: fit-content;
@@ -32,39 +50,6 @@ ion-modal .ion-page {
 
   & > div {
     height: 100%;
-  }
-
-  .ms-modal {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-
-    @include ms.responsive-breakpoint('sm') {
-      padding: 0;
-    }
-
-    &-content {
-      display: flex;
-      flex-direction: column;
-
-      @include ms.responsive-breakpoint('sm') {
-        padding: 0 1.5rem;
-      }
-    }
-
-    &-footer {
-      margin-top: auto;
-
-      @include ms.responsive-breakpoint('sm') {
-        padding: 1.5rem 1.5rem 3rem;
-      }
-
-      .ms-modal-toolbar {
-        @include ms.responsive-breakpoint('sm') {
-          margin-top: 0 !important;
-        }
-      }
-    }
   }
 }
 
@@ -97,16 +82,14 @@ ion-modal .ion-page {
     }
 
     .ms-modal-header {
-      padding: 2rem 3rem 1.5rem 2rem;
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid var(--parsec-color-light-secondary-medium);
+      padding-bottom: 1rem !important;
 
-      &-text {
+      &__text {
         display: none;
       }
 
       &__title {
-        margin-bottom: 0 !important;
+        margin-bottom: 0;
       }
     }
 
