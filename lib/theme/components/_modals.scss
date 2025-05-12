@@ -27,6 +27,7 @@ ion-modal {
     }
   }
 
+  // eslint-disable vue-scoped-css/no-unused-selector
   &:not(.question-modal) {
     // to place the modal at the bottom on small screens
     @include ms.responsive-breakpoint('sm') {
