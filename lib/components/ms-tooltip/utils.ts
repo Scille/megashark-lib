@@ -48,63 +48,64 @@ async function openInformationTooltip(event: Event, text: Translatable): Promise
 async function attachMouseOverTooltip(
   el: HTMLElement,
   text: Translatable,
+  delay: number = 500,
   alignment = TooltipAlignment.Center,
   side = TooltipSide.Bottom,
 ): Promise<void> {
   let popover: HTMLIonPopoverElement | undefined;
+  let timeoutId: any = undefined;
 
   el.addEventListener('mouseenter', async (event: MouseEvent): Promise<void> => {
-    if (popover) {
+    if (popover || timeoutId !== undefined) {
       return;
     }
-    // When our element is hovered, we create a tooltip
-    popover = await popoverController.create({
-      component: MsTooltip,
-      event: event,
-      alignment: alignment,
-      side: side,
-      componentProps: {
-        text: text,
-      },
-      cssClass: 'tooltip-popover',
-      showBackdrop: false,
-    });
-    // We watch the actions of the mouse
-    document.addEventListener('mousemove', onDocumentMouseMove);
-    document.addEventListener('mouseup', onDocumentMouseUp);
-    await popover.present();
 
-    function isOverElement(event: MouseEvent): boolean {
-      const rect = el.getBoundingClientRect();
-      return event.clientX >= rect.left && event.clientX <= rect.right && event.clientY >= rect.top && event.clientY <= rect.bottom;
-    }
-
-    async function onDocumentMouseUp(event: MouseEvent): Promise<void> {
-      if (!popover || event.button !== 0) {
-        return;
-      }
-      if (isOverElement(event)) {
-        // Click, we dismiss the popover and forward the click to the element
-        await popover.dismiss();
-        popover = undefined;
-        document.removeEventListener('mousemove', onDocumentMouseMove);
-        document.removeEventListener('mouseup', onDocumentMouseUp);
-        el.click();
-      }
-    }
-
-    async function onDocumentMouseMove(event: MouseEvent): Promise<void> {
-      if (!popover) {
+    timeoutId = setTimeout(async () => {
+      if (popover) {
         return;
       }
 
-      if (!isOverElement(event)) {
-        // The mouse is no longer over our element, we dismiss the popover and remove the listener
-        await popover.dismiss();
-        popover = undefined;
-        document.removeEventListener('mousemove', onDocumentMouseMove);
-        document.removeEventListener('mouseup', onDocumentMouseUp);
+      // When our element is hovered, we create a tooltip
+      popover = await popoverController.create({
+        component: MsTooltip,
+        event: event,
+        alignment: alignment,
+        side: side,
+        componentProps: {
+          text: text,
+        },
+        cssClass: 'tooltip-popover',
+        showBackdrop: false,
+      });
+      // We watch the actions of the mouse
+      document.addEventListener('mousemove', onDocumentMouseMove);
+      popover.style.pointerEvents = 'none';
+      await popover.present();
+
+      function isOverElement(event: MouseEvent): boolean {
+        const rect = el.getBoundingClientRect();
+        return event.clientX >= rect.left && event.clientX <= rect.right && event.clientY >= rect.top && event.clientY <= rect.bottom;
       }
+
+      async function onDocumentMouseMove(event: MouseEvent): Promise<void> {
+        if (!popover) {
+          return;
+        }
+
+        if (!isOverElement(event)) {
+          // The mouse is no longer over our element, we dismiss the popover and remove the listener
+          await popover.dismiss();
+          popover = undefined;
+          document.removeEventListener('mousemove', onDocumentMouseMove);
+        }
+      }
+    }, delay);
+  });
+
+  el.addEventListener('mouseleave', () => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+      timeoutId = undefined;
     }
   });
 }
