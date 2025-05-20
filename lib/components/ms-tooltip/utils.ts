@@ -18,6 +18,8 @@ enum TooltipSide {
   Right = 'right',
 }
 
+let tooltipPopover: HTMLIonPopoverElement | null = null;
+
 async function openTooltip(
   event: Event,
   text: Translatable,
@@ -25,7 +27,7 @@ async function openTooltip(
   side = TooltipSide.Bottom,
 ): Promise<void> {
   event.stopPropagation();
-  const popover = await popoverController.create({
+  tooltipPopover = await popoverController.create({
     component: MsTooltip,
     alignment: alignment,
     side: side,
@@ -36,13 +38,20 @@ async function openTooltip(
     cssClass: 'tooltip-popover',
     showBackdrop: false,
   });
-  await popover.present();
-  await popover.onWillDismiss();
-  await popover.dismiss();
+  await tooltipPopover.present();
+  await tooltipPopover.onWillDismiss();
+  await tooltipPopover.dismiss();
+}
+
+async function dismissTooltip(): Promise<void> {
+  if (tooltipPopover) {
+    await tooltipPopover.dismiss();
+    tooltipPopover = null;
+  }
 }
 
 async function openInformationTooltip(event: Event, text: Translatable): Promise<void> {
   return await openTooltip(event, text, TooltipAlignment.Center, TooltipSide.Bottom);
 }
 
-export { TooltipAlignment, TooltipSide, openInformationTooltip, openTooltip };
+export { TooltipAlignment, TooltipSide, dismissTooltip, openInformationTooltip, openTooltip };

@@ -42,7 +42,7 @@ defineProps<{
   color: var(--parsec-color-light-primary-30);
   max-width: 14.5rem;
   width: fit-content;
-  padding: 0.75rem;
+  padding: 0.375rem 0.5rem;
   position: relative;
   border-radius: var(--parsec-radius-6);
   box-shadow: var(--parsec-shadow-light);
