@@ -299,10 +299,13 @@
   <example-block title="usage.components.informationTooltip.title">
     <example-block-line>
       <ms-information-tooltip
-        :text="$msTranslate('usage.components.informationTooltip.message')"
+        text="usage.components.informationTooltip.message"
         class="information-icon"
         slot="end"
       />
+    </example-block-line>
+    <example-block-line>
+      <ion-button ref="mouseOverTooltipButton">{{ $msTranslate('usage.components.informationTooltip.mouseOverButton') }}</ion-button>
     </example-block-line>
   </example-block>
 
@@ -514,6 +517,7 @@ import {
   SliderState,
   MsDraggable,
   LockClosedIcon,
+  attachMouseOverTooltip,
 } from '@lib/components';
 import { DateTime } from 'luxon';
 import { inject, ref, Ref, onMounted } from 'vue';
@@ -576,6 +580,7 @@ const cardRequireName = ref(false);
 const enableDragging = ref(true);
 const restrictDirection = ref({ up: false, down: false, left: false, right: false });
 const draggableElement = ref();
+const mouseOverTooltipButton = ref();
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
@@ -623,6 +628,8 @@ onMounted(async () => {
       sliderStatePlaying.value.paused = true;
     }
   }, 100);
+
+  await attachMouseOverTooltip(mouseOverTooltipButton.value.$el, 'usage.components.informationTooltip.mouseOverMessage');
 });
 
 function changeOption(key: MsReportTheme): void {
