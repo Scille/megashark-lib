@@ -54,6 +54,9 @@ async function attachMouseOverTooltip(
   let popover: HTMLIonPopoverElement | undefined;
 
   el.addEventListener('mouseenter', async (event: MouseEvent): Promise<void> => {
+    if (popover) {
+      return;
+    }
     // When our element is hovered, we create a tooltip
     popover = await popoverController.create({
       component: MsTooltip,
