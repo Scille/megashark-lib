@@ -161,7 +161,9 @@
       },
       "informationTooltip": {
         "title": "Information tooltip",
-        "message": "Ceci est un message d'exemple."
+        "message": "Ceci est un message d'exemple.",
+        "mouseOverMessage": "Ce message est affiché uniquement quand la souris survole l'élément et disparait quand le pointeur s'en va.",
+        "mouseOverButton": "Survole-moi !"
       },
       "toggle": {
         "title": "Toggle"

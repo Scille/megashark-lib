@@ -160,7 +160,9 @@
       },
       "informationTooltip": {
         "title": "Information tooltip",
-        "message": "This is an example message."
+        "message": "This is an example message.",
+        "mouseOverMessage": "This message is shown when the mouse is over the element and disappears when the mouse leaves.",
+        "mouseOverButton": "Hover me!"
       },
       "toggle": {
         "title": "Toggle"
