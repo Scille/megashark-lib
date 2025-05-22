@@ -1,6 +1,6 @@
 <template>
   <div class="ms-summary-card">
-    <h2 class="ms-summary-card-title title-h3">{{ $msTranslate(title) }}</h2>
+    <ion-title class="ms-summary-card-title title-h3">{{ $msTranslate(title) }}</ion-title>
     <template
       v-for="(row, index) in rows"
       :key="`ms-summary-card-row${index}`"
@@ -49,7 +49,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonButton, IonIcon } from '@ionic/vue';
+import { IonButton, IonIcon, IonTitle } from '@ionic/vue';
 import { MsSummaryCardRowData } from '@lib/components/ms-card/types';
 import MsSummaryCardItem from '@lib/components/ms-card/MsSummaryCardItem.vue';
 import { pencil } from 'ionicons/icons';
@@ -73,16 +73,13 @@ defineEmits<{
 </script>
 
 <style scoped lang="scss">
-.ms-summary-card {
-  h2 {
-    margin: 0;
-    padding: 0;
-  }
+@use '@lib/theme' as ms;
 
+.ms-summary-card {
   display: flex;
   flex-direction: column;
   background: var(--parsec-color-light-secondary-background);
-  border: 1px solid var(--parsec-color-light-secondary-disabled);
+  border: 1px solid var(--parsec-color-light-secondary-medium);
   border-radius: var(--parsec-radius-8);
   gap: 1rem;
   width: 100%;
@@ -91,6 +88,8 @@ defineEmits<{
 
   &-title {
     color: var(--parsec-color-light-secondary-text);
+    margin: 0;
+    padding: 0;
   }
 
   &-row {
@@ -106,7 +105,12 @@ defineEmits<{
     right: 1rem;
     top: 1rem;
 
+    @include ms.responsive-breakpoint('xs') {
+      position: initial;
+    }
+
     &__icon {
+      font-size: 1rem;
       margin-right: 0.5rem;
     }
   }

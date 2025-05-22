@@ -206,6 +206,8 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 @keyframes blinking {
   0% {
     opacity: 1;
@@ -224,17 +226,32 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
   gap: 1rem;
   margin: 0.25rem;
 
+  @include ms.responsive-breakpoint('sm') {
+    gap: 0.5rem;
+  }
   &__item {
     --highlight-color-focused: none;
     color: var(--parsec-color-light-primary-700);
-    background-color: var(--parsec-color-light-secondary-premiere);
+    border: 1px solid var(--parsec-color-light-secondary-disabled);
     caret-color: transparent;
     border-radius: var(--parsec-radius-8);
-    width: 4.5rem;
-    height: 6rem;
+    width: 3.5rem;
+    height: 5rem;
     display: flex;
     text-align: center;
     position: relative;
+
+    @include ms.responsive-breakpoint('sm') {
+      width: 3rem;
+      height: 4rem;
+      font-size: 1.75rem !important;
+    }
+
+    @include ms.responsive-breakpoint('xs') {
+      width: 2.5rem;
+      height: 3.25rem;
+      font-size: 1.25rem !important;
+    }
 
     &:is(.has-focus) {
       &::after {
@@ -262,13 +279,21 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
   gap: 0.5rem;
 
   &__invalid {
-    color: var(--parsec-color-light-danger-700);
-    margin-top: 1rem;
+    color: var(--parsec-color-light-danger-500);
+    margin-top: 0.75rem;
+
+    @include ms.responsive-breakpoint('sm') {
+      font-size: 0.875rem;
+    }
   }
 
   &__valid {
-    color: var(--parsec-color-light-success-700);
-    margin-top: 1rem;
+    color: var(--parsec-color-light-success-500);
+    margin-top: 0.75rem;
+
+    @include ms.responsive-breakpoint('sm') {
+      font-size: 0.875rem;
+    }
   }
 }
 </style>
