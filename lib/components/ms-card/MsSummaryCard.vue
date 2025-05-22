@@ -37,6 +37,7 @@
       class="update-button"
       fill="clear"
       @click="$emit('update')"
+      v-show="!readOnly"
     >
       <ion-icon
         :icon="pencil"
@@ -59,6 +60,7 @@ withDefaults(
     title: Translatable;
     buttonLabel?: Translatable;
     rows: MsSummaryCardRowData[];
+    readOnly?: boolean;
   }>(),
   {
     buttonLabel: 'lib.components.msSummaryCard.updateButtonLabel',
