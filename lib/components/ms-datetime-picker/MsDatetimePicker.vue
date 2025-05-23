@@ -1,7 +1,10 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <vue-date-picker v-bind="$attrs" />
+  <vue-date-picker
+    v-bind="$attrs"
+    class="datetime-picker"
+  />
 </template>
 
 <script setup lang="ts">
