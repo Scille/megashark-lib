@@ -61,3 +61,8 @@ a {
   text-decoration: none;
   color: var(--parsec-color-light-primary-500);
 }
+
+svg {
+  width: fit-content;
+  height: fit-content;
+}

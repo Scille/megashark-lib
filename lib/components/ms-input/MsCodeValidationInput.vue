@@ -254,6 +254,9 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
     }
 
     &:is(.has-focus) {
+      border: 1px solid var(--parsec-color-light-primary-200);
+      background: var(--parsec-color-light-secondary-inversed-contrast);
+
       &::after {
         content: '';
         position: absolute;
@@ -261,14 +264,14 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
         left: 0;
         width: 100%;
         height: 100%;
-        outline: 2px solid var(--parsec-color-light-primary-700);
-        animation: blinking 1.3s infinite ease-out;
+        outline: 5px solid var(--parsec-color-light-outline);
+        animation: blinking 1.4s infinite ease-out;
         border-radius: var(--parsec-radius-8);
       }
     }
 
     &:is(.has-value) {
-      background-color: var(--parsec-color-light-secondary-medium);
+      background-color: var(--parsec-color-light-secondary-premiere);
     }
   }
 }

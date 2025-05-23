@@ -15,7 +15,7 @@
       />
       <ion-text
         v-if="isLargeDisplay"
-        class="sorter-button-content__text button-small"
+        class="sorter-button-content__text"
       >
         {{ $msTranslate(labelRef) }}
       </ion-text>
@@ -94,8 +94,8 @@ async function onDidDismissPopover(popover: any): Promise<void> {
 @use '@lib/theme' as ms;
 
 .sorter-button {
-  --background: none;
-  --background-hover: var(--parsec-color-light-secondary-medium);
+  --background: transparent;
+  --background-hover: transparent;
   --color: var(--parsec-color-light-secondary-text);
   min-height: 1rem;
 
@@ -127,17 +127,18 @@ async function onDidDismissPopover(popover: any): Promise<void> {
 
     &__text {
       color: var(--parsec-color-light-secondary-text);
-      font-size: 0.875rem;
+      font-size: 0.8125rem;
       font-weight: 500;
-    }
-
-    &:focus,
-    &:active {
-      background: var(--parsec-color-light-secondary-medium);
     }
 
     &:hover ion-icon {
       color: var(--parsec-color-light-primary-700);
+    }
+  }
+
+  &:hover {
+    .sorter-button-content {
+      background: var(--parsec-color-light-secondary-medium);
     }
   }
 }

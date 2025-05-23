@@ -12,17 +12,18 @@
       :fill="appearanceRef"
       @click="openPopover($event)"
       id="dropdown-popover-button"
-      class="filter-button form-input"
+      class="dropdown-button form-input"
       :class="isPopoverOpen ? 'active' : ''"
       :disabled="disabled"
     >
-      <ion-icon
-        :class="{ 'popover-is-open': isPopoverOpen }"
-        class="ms-dropdown-icon"
-        slot="end"
-        :icon="getIcon()"
-      />
-      <span class="input-text">{{ $msTranslate(labelRef) }}</span>
+      <div class="dropdown-button-content">
+        <span class="input-text">{{ $msTranslate(labelRef) }}</span>
+        <ion-icon
+          :class="{ 'popover-is-open': isPopoverOpen }"
+          class="ms-dropdown-icon"
+          :icon="getIcon()"
+        />
+      </div>
     </ion-button>
   </div>
 </template>
@@ -130,10 +131,9 @@ function getIcon(): string {
 </script>
 
 <style lang="scss" scoped>
-.filter-button {
+.dropdown-button {
   background: none;
   color: var(--parsec-color-light-primary-800);
-  --border-color-hover: none;
   margin: 0;
 
   .input-text {
@@ -144,6 +144,24 @@ function getIcon(): string {
 
   &::part(native) {
     border-radius: var(--parsec-radius-8);
+    border-color: var(--parsec-color-light-secondary-light);
+    padding: 0 !important;
+    --ripple-color: transparent;
+  }
+
+  &:hover {
+    &::part(native) {
+      border-color: var(--parsec-color-light-primary-300);
+    }
+  }
+
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
   }
 }
 
@@ -162,6 +180,10 @@ function getIcon(): string {
     --background: var(--parsec-color-light-secondary-background);
     outline: var(--offset) solid var(--parsec-color-light-outline);
     border-radius: var(--parsec-radius-8);
+
+    &::part(native) {
+      border: 1px solid var(--parsec-color-light-primary-300);
+    }
   }
 
   .form-label {
@@ -169,15 +191,14 @@ function getIcon(): string {
   }
 
   &.large {
-    .filter-button::part(native) {
+    .dropdown-button::part(native) {
       padding: 0.625rem 1rem;
     }
   }
 }
 
 .ms-dropdown-icon {
-  margin-left: 0.5em;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   transition: transform ease-out 300ms;
   color: var(--parsec-color-light-secondary-grey);
 
