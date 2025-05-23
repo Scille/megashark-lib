@@ -63,15 +63,15 @@ function getClass(status: MsStepStatus): string {
   .left-line,
   .right-line {
     background: var(--parsec-color-light-primary-600);
-    width: 53px; //change to rem
-    height: 2px;
+    width: 3.5625rem;
+    height: 1.5px;
   }
   .circle {
     background: var(--parsec-color-light-secondary-background);
-    width: 24px;
-    height: 20px;
-    border-radius: var(--parsec-radius-32);
-    border: 2px solid var(--parsec-color-light-primary-600);
+    width: 1rem;
+    height: 1rem;
+    border-radius: var(--parsec-radius-circle);
+    border: 1.5px solid var(--parsec-color-light-primary-600);
     position: relative;
     display: flex;
     justify-content: center;
@@ -80,24 +80,43 @@ function getClass(status: MsStepStatus): string {
 }
 
 .done {
-  opacity: 0.4;
+  opacity: 0.5;
   .circle {
     background: var(--parsec-color-light-primary-600);
     .icon-checkmark {
-      color: white;
+      color: var(--parsec-color-light-secondary-white);
     }
   }
 }
 
 .active {
   .left-line {
-    opacity: 0.4;
+    opacity: 0.5;
   }
   .circle {
     background: var(--parsec-color-light-secondary-background);
     .inner-circle-active {
       background: var(--parsec-color-light-primary-600);
-      width: 0.75rem;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: var(--parsec-radius-32);
+      position: absolute;
+    }
+  }
+  .right-line {
+    background: var(--parsec-color-light-secondary-soft-grey);
+  }
+}
+
+.default {
+  .left-line {
+    background: var(--parsec-color-light-secondary-soft-grey);
+  }
+  .circle {
+    border-color: var(--parsec-color-light-secondary-grey);
+
+    .inner-circle-done {
+      width: 0.5rem;
       height: 0.5rem;
       border-radius: var(--parsec-radius-32);
       position: absolute;

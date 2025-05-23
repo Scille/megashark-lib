@@ -12,7 +12,7 @@
       />
       <ion-text
         class="subtitles-sm step-title"
-        :class="index < currentIndex ? MsStepStatus.DONE : ''"
+        :class="index < currentIndex ? MsStepStatus.DONE : index === currentIndex ? MsStepStatus.ACTIVE : MsStepStatus.DEFAULT"
       >
         {{ $msTranslate(title) }}
       </ion-text>
@@ -45,7 +45,7 @@ defineProps<{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     width: 8.125rem;
 
     .step-title {
@@ -53,7 +53,11 @@ defineProps<{
     }
 
     .done {
-      opacity: 0.4;
+      opacity: 0.5;
+    }
+
+    .default {
+      color: var(--parsec-color-light-secondary-grey);
     }
 
     &:first-of-type {
