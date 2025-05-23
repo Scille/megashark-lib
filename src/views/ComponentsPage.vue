@@ -261,7 +261,7 @@
   <example-block title="usage.components.stepper.title">
     <example-block-line>ms-wizard-stepper</example-block-line>
     <ms-wizard-stepper
-      :current-index="0"
+      :current-index="1"
       :titles="[
         'usage.components.stepper.msWizardStepper.step1',
         'usage.components.stepper.msWizardStepper.step2',

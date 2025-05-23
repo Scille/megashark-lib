@@ -64,14 +64,13 @@ function getIcon(): string {
 
 .container-textinfo {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
+  border-radius: var(--parsec-radius-8);
   background-color: var(--ms-alert-text-background-color);
 
   @include ms.responsive-breakpoint('sm') {
     padding: 0.5rem 0.75rem;
-    border-radius: var(--parsec-radius-8);
     border: none;
   }
 
@@ -88,9 +87,7 @@ function getIcon(): string {
   &.ms-success,
   &.ms-warning,
   &.ms-error {
-    border-radius: 0 var(--parsec-radius-4) var(--parsec-radius-4) 0;
-    border-left: 2px solid var(--ms-alert-text-icon-color);
-    padding: 1em;
+    padding: 0.75rem 1rem;
   }
 }
 </style>
