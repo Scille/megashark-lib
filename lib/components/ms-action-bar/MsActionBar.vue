@@ -20,6 +20,7 @@ import { IonItemDivider } from '@ionic/vue';
   background-color: var(--parsec-color-light-secondary-background);
   border-bottom: 1px solid var(--parsec-color-light-secondary-medium);
   border-radius: var(--parsec-radius-12);
+  width: auto;
   width: -webkit-fill-available;
   --inner-padding-end: 0;
   box-shadow: none;
