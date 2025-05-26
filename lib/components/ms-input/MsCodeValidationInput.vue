@@ -8,7 +8,7 @@
         <ion-input
           ref="inputs"
           v-model="codes[i - 1]"
-          class="code-input-list__item title-h1-xl"
+          class="code-input-list__item title-h1"
           :class="{ 'has-values': codes[i - 1] !== '' }"
           type="text"
           inputmode="numeric"
@@ -222,7 +222,6 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
 
 .code-input-list {
   display: flex;
-  justify-content: center;
   gap: 1rem;
   margin: 0.25rem;
 
@@ -231,29 +230,26 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
   }
   &__item {
     --highlight-color-focused: none;
-    color: var(--parsec-color-light-primary-700);
-    border: 1px solid var(--parsec-color-light-secondary-disabled);
+    color: var(--parsec-color-light-secondary-text);
+    background-color: var(--parsec-color-light-secondary-premiere);
     caret-color: transparent;
     border-radius: var(--parsec-radius-8);
     width: 3.5rem;
-    height: 5rem;
+    height: 4.5rem;
     display: flex;
     text-align: center;
     position: relative;
+    font-size: 1.75rem !important;
 
     @include ms.responsive-breakpoint('sm') {
       width: 3rem;
       height: 4rem;
-      font-size: 1.75rem !important;
-    }
-
-    @include ms.responsive-breakpoint('xs') {
-      width: 2.5rem;
-      height: 3.25rem;
-      font-size: 1.25rem !important;
     }
 
     &:is(.has-focus) {
+      border: 1px solid var(--parsec-color-light-primary-200);
+      background: var(--parsec-color-light-secondary-inversed-contrast);
+
       &::after {
         content: '';
         position: absolute;
@@ -261,8 +257,8 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
         left: 0;
         width: 100%;
         height: 100%;
-        outline: 2px solid var(--parsec-color-light-primary-700);
-        animation: blinking 1.3s infinite ease-out;
+        outline: 5px solid var(--parsec-color-light-outline);
+        animation: blinking 1.4s infinite ease-out;
         border-radius: var(--parsec-radius-8);
       }
     }

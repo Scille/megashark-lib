@@ -156,7 +156,6 @@ async function confirm(): Promise<boolean> {
 .ms-modal-header {
   display: flex;
   flex-direction: column;
-  padding-bottom: 1.5rem;
 
   &__title {
     padding: 0;
@@ -189,6 +188,15 @@ async function confirm(): Promise<boolean> {
   &__text {
     color: var(--parsec-color-light-secondary-hard-grey);
     margin-top: 0.625rem;
+
+    @include ms.responsive-breakpoint('sm') {
+      padding: 0 2rem;
+      margin-top: 0;
+    }
+
+    @include ms.responsive-breakpoint('xs') {
+      padding: 0 1.5rem;
+    }
   }
 }
 
