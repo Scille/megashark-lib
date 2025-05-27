@@ -16,7 +16,7 @@
       v-if="!icon && image"
       :image="image"
     />
-    {{ $msTranslate(buttonLabel) }}
+    <span v-if="!iconOnly">{{ $msTranslate(buttonLabel) }}</span>
     <ion-icon
       class="ms-action-bar-button-icon__right"
       v-if="isDropdown"
@@ -37,6 +37,7 @@ defineProps<{
   icon?: string;
   image?: string;
   isDropdown?: boolean;
+  iconOnly?: boolean;
 }>();
 </script>
 
