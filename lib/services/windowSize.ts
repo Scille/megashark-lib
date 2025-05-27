@@ -4,16 +4,19 @@ import { ComputedRef, Ref, computed, inject, onMounted, onUnmounted, ref } from 
 
 interface _WindowSizeAttributes {
   windowWidth: Ref<number>;
-  isLargeDisplay: ComputedRef<boolean>;
   isSmallDisplay: ComputedRef<boolean>;
+  isMediumDisplay: ComputedRef<boolean>;
+  isLargeDisplay: ComputedRef<boolean>;
 }
 
 export function useWindowSize(): _WindowSizeAttributes {
-  const threshold = inject('msWindowWidthThreshold', 768) ?? 768;
+  const thresholdSmall = inject('msWindowWidthThreshold', 768) ?? 768;
+  const thresholdMedium = inject('msWindowWidthThreshold', 992) ?? 992;
 
   const windowWidth = ref(window.innerWidth);
-  const isLargeDisplay = computed(() => windowWidth.value > threshold);
-  const isSmallDisplay = computed(() => windowWidth.value <= threshold);
+  const isSmallDisplay = computed(() => windowWidth.value <= thresholdSmall);
+  const isMediumDisplay = computed(() => windowWidth.value >= thresholdSmall && windowWidth.value <= thresholdMedium);
+  const isLargeDisplay = computed(() => windowWidth.value > thresholdMedium);
 
   const updateWidth = (): void => {
     windowWidth.value = window.innerWidth;
@@ -27,5 +30,5 @@ export function useWindowSize(): _WindowSizeAttributes {
     window.removeEventListener('resize', updateWidth);
   });
 
-  return { windowWidth, isLargeDisplay, isSmallDisplay };
+  return { windowWidth, isSmallDisplay, isMediumDisplay, isLargeDisplay };
 }
