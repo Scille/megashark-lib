@@ -17,8 +17,6 @@
   }
 
   & > div:not(.right-side) {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+    overflow: hidden;
   }
 }
