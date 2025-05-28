@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    schedule:
+      interval: monthly
+    assignees:
+      - Scille/ops-code-owners
+    directory: /
+    open-pull-requests-limit: 5
+    rebase-strategy: auto
+    pull-request-branch-name:
+      separator: "-"
+    groups:
+      actions:
+        patterns:
+          - "*"
