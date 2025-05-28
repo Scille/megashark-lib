@@ -4,44 +4,10 @@
   <!-- action-bar -->
   <example-block title="usage.components.actionBar.title">
     <example-block-line>
-      <ms-action-bar id="ms-action-bar-example">
-        <ms-action-bar-button
-          id="action-bar-button-example"
-          button-label="usage.components.actionBar.buttons.alert.title"
-          :icon="warning"
-          @click="openAlertModal()"
-        />
-        <ms-action-bar-button
-          id="action-bar-button-example"
-          button-label="usage.components.actionBar.buttons.askQuestion.title"
-          :icon="helpCircle"
-          @click="openQuestionModal()"
-        />
-        <ms-action-bar-button
-          id="action-bar-button-example"
-          button-label="usage.components.actionBar.buttons.getText.title"
-          :icon="create"
-          @click="openTextInputModal()"
-        />
-        <ms-action-bar-button
-          id="action-bar-button-example"
-          button-label="usage.components.actionBar.buttons.getPassword.title"
-          :image="LockClosedIcon"
-          @click="openPasswordInputModal()"
-        />
-        <ms-action-bar-button
-          id="action-bar-button-example"
-          button-label="usage.components.actionBar.buttons.settings.title"
-          :icon="cog"
-          @click="openSettingsModal()"
-        />
-        <ms-action-bar-button
-          id="action-bar-button-example"
-          button-label="usage.components.actionBar.buttons.importDocument.title"
-          :image="DocumentImport"
-          :is-dropdown="true"
-        />
-      </ms-action-bar>
+      <ms-action-bar
+        id="ms-action-bar-example"
+        :buttons="actionBarButtons"
+      />
     </example-block-line>
   </example-block>
 
@@ -458,7 +424,6 @@ import { cog, create, helpCircle, pause, play, warning } from 'ionicons/icons';
 import {
   Answer,
   MsActionBar,
-  MsActionBarButton,
   MsDropdown,
   MsImage,
   MsChoosePasswordInput,
@@ -520,7 +485,7 @@ import {
   attachMouseOverTooltip,
 } from '@lib/components';
 import { DateTime } from 'luxon';
-import { inject, ref, Ref, onMounted } from 'vue';
+import { inject, ref, Ref, onMounted, computed } from 'vue';
 import SettingsModal from '@/views/settings/SettingsModal.vue';
 import { I18n, Address, GEOAPIFY_MOCKED_API_KEY, StripeService, StripeServiceKey, PaymentMethod, PaymentMethodResult } from '@lib/services';
 import { IValidator, Validity } from '@lib/main';
@@ -598,6 +563,55 @@ const emailValidator: IValidator = async function (value: string) {
     ? { validity: Validity.Valid }
     : { validity: Validity.Invalid, reason: 'usage.components.inputs.msInput.invalidEmail' };
 };
+
+const actionBarButtons = computed(() => {
+  const actionArray = [];
+
+  actionArray.push(
+    {
+      label: 'usage.components.actionBar.buttons.alert.title',
+      icon: warning,
+      onClick: async (): Promise<void> => {
+        await openAlertModal();
+      },
+    },
+    {
+      label: 'usage.components.actionBar.buttons.askQuestion.title',
+      icon: helpCircle,
+      onClick: async (): Promise<void> => {
+        await openQuestionModal();
+      },
+    },
+    {
+      label: 'usage.components.actionBar.buttons.getText.title',
+      icon: create,
+      onClick: async (): Promise<void> => {
+        await openTextInputModal();
+      },
+    },
+    {
+      label: 'usage.components.actionBar.buttons.getPassword.title',
+      image: LockClosedIcon,
+      onClick: async (): Promise<void> => {
+        await openPasswordInputModal();
+      },
+    },
+    {
+      label: 'usage.components.actionBar.buttons.settings.title',
+      icon: cog,
+      onClick: async (): Promise<void> => {
+        await openSettingsModal();
+      },
+    },
+    {
+      label: 'usage.components.actionBar.buttons.importDocument.title',
+      image: DocumentImport,
+      isDropdown: true,
+    },
+  );
+
+  return actionArray;
+});
 
 interface MsSorterExampleData {
   name: string;

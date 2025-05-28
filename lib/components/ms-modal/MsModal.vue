@@ -156,6 +156,7 @@ async function confirm(): Promise<boolean> {
 .ms-modal-header {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 
   &__title {
     padding: 0;
