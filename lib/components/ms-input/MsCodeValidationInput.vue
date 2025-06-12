@@ -11,7 +11,7 @@
           class="code-input-list__item title-h1"
           :class="{ 'has-values': codes[i - 1] !== '' }"
           type="text"
-          inputmode="numeric"
+          :inputmode="allowedInput === AllowedInput.Numeric ? 'numeric' : 'text'"
           :maxlength="1"
           @keydown="onKeydown($event)"
           @ion-input="onIonInput($event)"
@@ -44,6 +44,7 @@
 import { onMounted, ref, defineEmits, defineExpose } from 'vue';
 import { IonInput, IonText } from '@ionic/vue';
 import { Ref } from 'vue';
+import { AllowedInput, isCharacterAllowed } from '@lib/components/ms-input/types';
 
 const inputs = ref();
 const codes = ref<string[]>([]);
@@ -53,10 +54,17 @@ onMounted(async (): Promise<void> => {
   await focusInputElement(getFirstInputElement());
 });
 
-const props = defineProps<{
-  codeLength: number;
-  validationFunction?: (code: Array<string>) => Promise<boolean>;
-}>();
+const props = withDefaults(
+  defineProps<{
+    codeLength: number;
+    validationFunction?: (code: Array<string>) => Promise<boolean>;
+    allowedInput?: AllowedInput;
+  }>(),
+  {
+    validationFunction: undefined,
+    allowedInput: AllowedInput.Numeric,
+  },
+);
 
 const emits = defineEmits<{
   (e: 'codeComplete', code: Array<string>): void;
@@ -68,7 +76,10 @@ defineExpose({
 
 async function onPaste(event: ClipboardEvent): Promise<void> {
   event.preventDefault();
-  const code = event.clipboardData?.getData('text');
+  let code = event.clipboardData?.getData('text');
+  if (code && props.allowedInput === AllowedInput.UpperAlphaNumeric) {
+    code = code.toLocaleUpperCase();
+  }
   if (code && isValidCode(code)) {
     codes.value = code.split('');
     await focusInputElement(getLastInputElement());
@@ -89,7 +100,9 @@ async function onIonInput(event: CustomEvent): Promise<void> {
   if (input.value === '') {
     codes.value.length = codes.value.filter((code) => code !== '').length;
   }
-
+  if (props.allowedInput === AllowedInput.UpperAlphaNumeric) {
+    codes.value = codes.value.map((c) => c.toLocaleUpperCase());
+  }
   checkCode();
 }
 
@@ -122,18 +135,18 @@ async function checkCode(): Promise<void> {
 }
 
 function onKeydown(event: KeyboardEvent): void {
-  if (!isDigits(event.key) && !event.ctrlKey && !event.metaKey) {
+  let key = event.key;
+
+  if (props.allowedInput === AllowedInput.UpperAlphaNumeric) {
+    key = key.toLocaleUpperCase();
+  }
+  if (!isCharacterAllowed(key, props.allowedInput) && !event.ctrlKey && !event.metaKey) {
     event.preventDefault();
   }
 }
 
-function isDigits(value: string): boolean {
-  const pattern = /^\d+$/;
-  return pattern.test(value);
-}
-
 function isValidCode(value: string = ''): boolean {
-  return value.length === props.codeLength && isDigits(value);
+  return value.length === props.codeLength && isCharacterAllowed(value, props.allowedInput);
 }
 
 function getInputElementAt(index: number): HTMLIonInputElement | undefined {
@@ -194,6 +207,9 @@ function setInputElementValue(input: HTMLIonInputElement | undefined, value: str
   const inputIndex = getInputElementIndex(input);
   if (inputIndex === -1) {
     return;
+  }
+  if (props.allowedInput === AllowedInput.UpperAlphaNumeric) {
+    value = value.toLocaleUpperCase();
   }
   codes.value[inputIndex] = value;
 }

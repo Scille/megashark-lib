@@ -8,4 +8,5 @@ import MsPasswordInput from '@lib/components/ms-input/MsPasswordInput.vue';
 import MsPhoneNumberInput from '@lib/components/ms-input/MsPhoneNumberInput.vue';
 import MsSearchInput from '@lib/components/ms-input/MsSearchInput.vue';
 
+export * from '@lib/components/ms-input/types';
 export { MsAddressInput, MsChoosePasswordInput, MsCodeValidationInput, MsInput, MsPasswordInput, MsPhoneNumberInput, MsSearchInput };
