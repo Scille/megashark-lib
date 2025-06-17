@@ -283,6 +283,12 @@
         :validation-function="validationFunction"
       />
     </example-block-line>
+    <example-block-line>
+      <ms-code-validation-input
+        :code-length="8"
+        :allowed-input="AllowedInput.UpperAlphaNumeric"
+      />
+    </example-block-line>
   </example-block>
 
   <!-- address validation -->
@@ -483,6 +489,7 @@ import {
   MsDraggable,
   LockClosedIcon,
   attachMouseOverTooltip,
+  AllowedInput,
 } from '@lib/components';
 import { DateTime } from 'luxon';
 import { inject, ref, Ref, onMounted, computed } from 'vue';
