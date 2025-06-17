@@ -174,12 +174,16 @@ ion-modal .inner-content {
 
 .ms-spinner-modal {
   &::part(content) {
-    min-width: 25rem;
-    width: 25rem;
+    min-width: 22rem;
+    width: 22rem;
   }
 
   .ms-modal {
-    padding: 1.5rem;
+    padding: 2rem;
+
+    &-header {
+      display: none;
+    }
 
     &-content {
       display: flex;
