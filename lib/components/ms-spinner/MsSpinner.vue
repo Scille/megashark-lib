@@ -52,7 +52,7 @@ const spinnerSizeFormatted = computed(() => `${spinnerSize.value}px`);
   --radius: calc((var(--size) - var(--stroke-width)) / 2);
   --circumference: calc(var(--radius) * pi * 2);
   --dash: calc((30 * var(--circumference)) / 100);
-  animation: rotation 1s linear 0s infinite;
+  animation: rotation 750ms linear 0s infinite;
 }
 
 .circular-progress circle {
