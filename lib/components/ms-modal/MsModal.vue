@@ -80,6 +80,11 @@
                 :disabled="confirmButton.disabled"
               >
                 {{ $msTranslate(confirmButton.label || 'lib.components.msModal.confirmButtonLabel') }}
+                <ms-spinner
+                  class="confirm-button-spinner"
+                  v-show="confirmButton.queryingSpinner"
+                  :size="14"
+                />
               </ion-button>
             </ion-buttons>
           </ion-toolbar>
@@ -91,6 +96,7 @@
 
 <script setup lang="ts">
 import { MsModalConfig, MsModalResult } from '@lib/components/ms-modal/types';
+import { MsSpinner } from '@lib/components/ms-spinner';
 import { MsReportText } from '@lib/components/ms-text';
 import { MsReportTheme } from '@lib/components/ms-types';
 import { IonButton, IonButtons, IonFooter, IonHeader, IonIcon, IonPage, IonText, IonTitle, IonToolbar, modalController } from '@ionic/vue';
@@ -244,6 +250,10 @@ async function confirm(): Promise<boolean> {
     justify-content: end;
     gap: 1rem;
     margin: 0;
+
+    .confirm-button-spinner {
+      margin-left: 0.5rem;
+    }
   }
 }
 

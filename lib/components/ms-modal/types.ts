@@ -48,6 +48,7 @@ export interface MsModalConfig {
     label?: Translatable;
     onClick?: () => Promise<boolean>;
     theme?: MsReportTheme;
+    queryingSpinner?: boolean;
   };
 }
 
