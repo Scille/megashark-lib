@@ -37,7 +37,10 @@
             </ion-text>
           </template>
         </ion-header>
-        <div class="ms-modal-content inner-content">
+        <div
+          class="ms-modal-content inner-content"
+          :class="!title ? 'ms-modal-content--no-header' : ''"
+        >
           <slot />
         </div>
         <ion-footer
@@ -154,12 +157,16 @@ async function confirm(): Promise<boolean> {
   flex-direction: column;
   margin-bottom: 1rem;
 
+  @include ms.responsive-breakpoint('sm') {
+    margin-bottom: 0;
+  }
+
   &__title {
     padding: 0;
     color: var(--parsec-color-light-primary-800);
     display: flex;
     align-items: center;
-    max-width: 22rem;
+    max-width: calc(100% - 2rem);
 
     .toolbar-title {
       text-overflow: clip !important;
@@ -205,6 +212,12 @@ async function confirm(): Promise<boolean> {
 
   @include ms.responsive-breakpoint('sm') {
     padding: 0 1.5rem;
+  }
+
+  &--no-header {
+    @include ms.responsive-breakpoint('sm') {
+      margin-top: 1.5rem;
+    }
   }
 }
 
