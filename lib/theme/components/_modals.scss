@@ -4,7 +4,7 @@
 
 /* **** Parsec modal **** */
 :root {
-  --parsec-modal-width-sm: 33.125rem;
+  --parsec-modal-width-sm: 31rem;
   --parsec-modal-width-md: 42rem;
   --parsec-modal-width-lg: 43.75rem;
   --parsec-modal-max-height: 35rem;
@@ -16,7 +16,7 @@ ion-modal {
   --max-height: auto;
 
   &::part(content) {
-    border-radius: var(--parsec-radius-8);
+    border-radius: var(--parsec-radius-12);
   }
 
   @media screen and (min-width: 768px) {
@@ -58,6 +58,10 @@ ion-modal .ion-page {
 
 .question-modal,
 .information-modal {
+  &::part(content) {
+    max-width: var(--parsec-modal-width-sm);
+  }
+
   @include ms.responsive-breakpoint('sm') {
     &::part(content) {
       max-width: var(--parsec-small-display-modal-width);
