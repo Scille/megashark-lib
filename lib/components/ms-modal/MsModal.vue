@@ -22,26 +22,17 @@
         />
       </ion-button>
       <div class="ms-modal">
-        <ion-header class="ms-modal-header">
-          <div
-            class="ms-modal-header__title-container"
-            v-if="title"
-          >
-            <ion-title class="ms-modal-header__title title-h2">
+        <ion-header
+          class="ms-modal-header"
+          v-if="title"
+        >
+          <div class="ms-modal-header__title-container">
+            <ion-title class="ms-modal-header__title title-h3">
               {{ $msTranslate(title) }}
             </ion-title>
           </div>
           <template v-if="subtitle">
-            <ms-report-text
-              v-if="theme"
-              :theme="theme"
-            >
-              {{ $msTranslate(subtitle) }}
-            </ms-report-text>
-            <ion-text
-              class="ms-modal-header__text body"
-              v-else
-            >
+            <ion-text class="ms-modal-header__text body">
               {{ $msTranslate(subtitle) }}
             </ion-text>
           </template>
@@ -97,7 +88,6 @@
 <script setup lang="ts">
 import { MsModalConfig, MsModalResult } from '@lib/components/ms-modal/types';
 import { MsSpinner } from '@lib/components/ms-spinner';
-import { MsReportText } from '@lib/components/ms-text';
 import { MsReportTheme } from '@lib/components/ms-types';
 import { IonButton, IonButtons, IonFooter, IonHeader, IonIcon, IonPage, IonText, IonTitle, IonToolbar, modalController } from '@ionic/vue';
 import { close } from 'ionicons/icons';
@@ -228,7 +218,7 @@ async function confirm(): Promise<boolean> {
   }
 
   > :first-child:not([hidden]) {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
   }
 
   &::before {
@@ -258,25 +248,21 @@ async function confirm(): Promise<boolean> {
 }
 
 .ms-info {
-  --ms-modal-title-text-color: var(--parsec-color-light-primary-600);
   --ms-modal-next-button-background-color: var(--parsec-color-light-primary-500);
   --ms-modal-next-button-background-hover-color: var(--parsec-color-light-primary-700);
 }
 
 .ms-success {
-  --ms-modal-title-text-color: var(--parsec-color-light-success-500);
   --ms-modal-next-button-background-color: var(--parsec-color-light-success-500);
   --ms-modal-next-button-background-hover-color: var(--parsec-color-light-success-700);
 }
 
 .ms-warning {
-  --ms-modal-title-text-color: var(--parsec-color-light-warning-500);
   --ms-modal-next-button-background-color: var(--parsec-color-light-warning-500);
   --ms-modal-next-button-background-hover-color: var(--parsec-color-light-warning-700);
 }
 
 .ms-error {
-  --ms-modal-title-text-color: var(--parsec-color-light-danger-500);
   --ms-modal-next-button-background-color: var(--parsec-color-light-danger-500);
   --ms-modal-next-button-background-hover-color: var(--parsec-color-light-danger-700);
 }
@@ -286,12 +272,8 @@ async function confirm(): Promise<boolean> {
 .ms-warning,
 .ms-error {
   .ms-modal-header {
-    &__title {
+    &__title-icon {
       color: var(--ms-modal-title-text-color);
-
-      &-icon {
-        color: var(--ms-modal-title-text-color);
-      }
     }
   }
 

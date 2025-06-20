@@ -451,7 +451,6 @@ import {
   getTextFromUser,
   EmptyFolder,
   MsReportTheme,
-  MsAlertModalConfig,
   MsSorterChangeEvent,
   NoNotification,
   NoImportInProgress,
@@ -583,6 +582,13 @@ const actionBarButtons = computed(() => {
       },
     },
     {
+      label: 'usage.components.actionBar.buttons.alert.title',
+      icon: warning,
+      onClick: async (): Promise<void> => {
+        await openAlertModal(true);
+      },
+    },
+    {
       label: 'usage.components.actionBar.buttons.askQuestion.title',
       icon: helpCircle,
       onClick: async (): Promise<void> => {
@@ -632,11 +638,6 @@ const msSorterExampleData: Ref<MsSorterExampleData[]> = ref([
   { name: 'John', birthDate: DateTime.utc(1994, 1, 1), age: 30 },
 ]);
 
-const alertModalConfig: Ref<MsAlertModalConfig> = ref({
-  theme: msReportTheme.value,
-  message: 'alert example',
-});
-
 onMounted(async () => {
   // Simulate some progress
   setInterval(() => {
@@ -655,7 +656,6 @@ onMounted(async () => {
 
 function changeOption(key: MsReportTheme): void {
   msReportTheme.value = key;
-  alertModalConfig.value.theme = key;
 }
 
 function onEnterKeyup(event: any): void {
@@ -686,12 +686,16 @@ async function openSpinnerModal(): Promise<void> {
   }, 2000);
 }
 
-async function openAlertModal(): Promise<void> {
+async function openAlertModal(withTitle?: boolean): Promise<void> {
   const modal = await modalController.create({
     component: MsAlertModal,
     canDismiss: true,
     cssClass: 'information-modal',
-    componentProps: alertModalConfig.value,
+    componentProps: {
+      theme: msReportTheme.value,
+      message: 'alert message',
+      title: withTitle ? 'alert title' : undefined,
+    },
   });
   await modal.present();
   await modal.onWillDismiss();

@@ -3,7 +3,6 @@
 <template>
   <ms-modal
     :title="title"
-    :subtitle="message"
     :theme="theme"
     :close-button="{ visible: false }"
     :confirm-button="{
@@ -12,10 +11,15 @@
       onClick: confirm,
     }"
     @on-enter-keyup="confirm()"
-  />
+  >
+    <ms-report-text :theme="theme">
+      {{ $msTranslate(message) }}
+    </ms-report-text>
+  </ms-modal>
 </template>
 
 <script setup lang="ts">
+import { MsReportText } from '@lib/components/ms-text';
 import MsModal from '@lib/components/ms-modal/MsModal.vue';
 import { MsAlertModalConfig, MsModalResult } from '@lib/components/ms-modal/types';
 import { modalController } from '@ionic/vue';
