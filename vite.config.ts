@@ -11,15 +11,6 @@ import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
 // https://vitejs.dev/config/
 const config: UserConfig = {
-  css: {
-    preprocessorOptions: {
-      scss: {
-        // Needed to avoid using default legacy API till upgrade to Vite 6
-        // https://sass-lang.com/documentation/breaking-changes/legacy-js-api/#bundlers
-        api: 'modern-compiler',
-      },
-    },
-  },
   plugins: [
     vue(),
     libInjectCss(),
@@ -44,7 +35,6 @@ const config: UserConfig = {
       '@megashark': path.resolve(__dirname, './lib'),
     },
   },
-
   test: {
     setupFiles: [path.resolve(__dirname, './tests/support/setup.ts')],
     include: ['tests/components/specs/*.spec.ts', 'tests/unit/specs/*.spec.ts'],
@@ -63,6 +53,7 @@ const config: UserConfig = {
       entry: path.resolve(__dirname, 'lib/main.ts'),
       fileName: 'main',
       name: 'megashark-lib',
+      cssFileName: 'style',
     },
     rollupOptions: {
       external: ['vue', '@ionic/vue', 'vue-i18n', '@capacitor/core'],
