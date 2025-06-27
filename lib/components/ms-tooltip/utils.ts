@@ -110,4 +110,4 @@ async function attachMouseOverTooltip(
   });
 }
 
-export { TooltipAlignment, TooltipSide, attachMouseOverTooltip, openInformationTooltip, openTooltip };
+export { attachMouseOverTooltip, openInformationTooltip, openTooltip, TooltipAlignment, TooltipSide };
