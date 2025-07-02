@@ -18,7 +18,7 @@
     </div>
     <div
       class="code-input-message"
-      v-if="validationFunction"
+      v-if="validationFunction !== undefined"
     >
       <ion-text
         class="code-input-message__invalid subtitle-sm"

@@ -31,11 +31,11 @@
     "prettier:fix": "prettier . --write"
   },
   "dependencies": {
-    "@ionic/vue": "^7.8.6",
+    "@ionic/vue": "^8.6.2",
     "@stripe/stripe-js": "^4.0.0",
     "@vuepic/vue-datepicker": "^9.0.3",
     "axios": "^1.7.2",
-    "ionicons": "^7.4.0",
+    "ionicons": "^8.0.9",
     "luxon": "^3.4.4",
     "vue": "^3.3.0",
     "vue-i18n": "^9.6.5"
@@ -43,7 +43,7 @@
   "devDependencies": {
     "@intlify/eslint-plugin-vue-i18n": "^2.0.0",
     "@ionic/cli": "^7.2.1",
-    "@ionic/vue-router": "^7.8.6",
+    "@ionic/vue-router": "^8.6.2",
     "@rollup/plugin-typescript": "^8.2.1",
     "@types/luxon": "^3.3.4",
     "@types/node": "^20.9.0",
