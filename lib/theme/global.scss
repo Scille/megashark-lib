@@ -55,6 +55,7 @@ ion-icon {
 // fix issue with offset on checkbox
 .in-item:is(ion-checkbox) {
   width: fit-content;
+  flex: none;
 }
 
 a {
@@ -65,4 +66,8 @@ a {
 svg {
   width: fit-content;
   height: fit-content;
+}
+
+ion-button {
+  white-space: nowrap;
 }
