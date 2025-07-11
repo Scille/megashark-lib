@@ -2,14 +2,14 @@
 
 /* **** Parsec button **** */
 
-ion-button,
-.sc-ion-buttons-md-s ion-button:not(.button-round) {
+ion-button {
   text-transform: none;
   --border-radius: var(--parsec-radius-8);
   --box-shadow: none;
   margin-inline-start: 0;
   margin-inline-end: 0;
   margin: 0;
+  flex-shrink: 0;
 }
 
 /* button size */

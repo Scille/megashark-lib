@@ -48,10 +48,7 @@
           v-if="cancelButton || confirmButton"
         >
           <ion-toolbar class="ms-modal-toolbar">
-            <ion-buttons
-              slot="primary"
-              class="ms-modal-footer-buttons"
-            >
+            <div class="ms-modal-footer-buttons">
               <ion-button
                 v-if="cancelButton"
                 fill="clear"
@@ -80,7 +77,7 @@
                   :size="14"
                 />
               </ion-button>
-            </ion-buttons>
+            </div>
           </ion-toolbar>
         </ion-footer>
       </div>
@@ -92,7 +89,7 @@
 import { MsModalConfig, MsModalResult } from '@lib/components/ms-modal/types';
 import { MsSpinner } from '@lib/components/ms-spinner';
 import { MsReportTheme } from '@lib/components/ms-types';
-import { IonButton, IonButtons, IonFooter, IonHeader, IonIcon, IonPage, IonText, IonTitle, IonToolbar, modalController } from '@ionic/vue';
+import { IonButton, IonFooter, IonHeader, IonIcon, IonPage, IonText, IonTitle, IonToolbar, modalController } from '@ionic/vue';
 import { close } from 'ionicons/icons';
 import { Ref, onMounted, ref } from 'vue';
 

@@ -19,9 +19,9 @@
       class="sorter-list"
       id="sort-item-list"
     >
-      <ion-label class="sorter-list__title body-sm">
+      <ion-text class="sorter-list__title body-sm">
         {{ $msTranslate('lib.components.msSorter.sortBy') }}
-      </ion-label>
+      </ion-text>
       <ion-item
         class="sorter-list-item body"
         :class="{ selected: selectedOption?.key === option.key }"
@@ -48,7 +48,7 @@
 <script setup lang="ts">
 import { MsSorterLabels } from '@lib/components/ms-sorter/types';
 import { MsOption, MsOptions } from '@lib/components/ms-types';
-import { IonIcon, IonItem, IonLabel, IonList, popoverController } from '@ionic/vue';
+import { IonIcon, IonItem, IonText, IonList, popoverController } from '@ionic/vue';
 import { arrowDown, arrowUp, checkmark } from 'ionicons/icons';
 import { Ref, ref } from 'vue';
 import { Translatable } from '@lib/services';
@@ -142,9 +142,9 @@ function getSorterLabel(): Translatable {
   &-item {
     --background-hover: var(--parsec-color-light-primary-30);
     --background-hover-opacity: 1;
-    --color: var(--parsec-color-light-secondary-grey);
+    --color: var(--parsec-color-light-secondary-soft-text);
     --color-hover: var(--parsec-color-light-primary-600);
-    --border-radius: var(--parsec-radius-4);
+    --border-radius: var(--parsec-radius-6);
     --padding-top: 0.375rem;
     --padding-bottom: 0.375rem;
     --padding-start: 0.5rem;

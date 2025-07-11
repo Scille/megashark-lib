@@ -140,7 +140,7 @@ async function onChange(value: string): Promise<void> {
   border: 1px solid var(--parsec-color-light-secondary-light);
   border-radius: var(--parsec-radius-8);
   color: var(--parsec-color-light-primary-800);
-  padding: 0.625rem 1rem 0;
+  padding: 0.625rem 0.625rem 0;
 
   &:focus-within {
     border: 1px solid var(--parsec-color-light-primary-400);

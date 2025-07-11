@@ -11,7 +11,7 @@
       :key="option.key"
       @click="onOptionClick(option)"
     >
-      <ion-label class="option-text">
+      <ion-text class="option-text">
         <span class="option-text__label body">
           {{ $msTranslate(option.label) }}
         </span>
@@ -21,7 +21,7 @@
         >
           {{ $msTranslate(option.description) }}
         </span>
-      </ion-label>
+      </ion-text>
       <ion-icon
         slot="end"
         :icon="checkmark"
@@ -42,7 +42,7 @@
 <script setup lang="ts">
 import { MsInformationTooltip } from '@lib/components/ms-tooltip';
 import { MsOption, MsOptions } from '@lib/components/ms-types';
-import { IonIcon, IonItem, IonLabel, IonList, popoverController } from '@ionic/vue';
+import { IonIcon, IonItem, IonList, popoverController } from '@ionic/vue';
 import { checkmark } from 'ionicons/icons';
 
 defineProps<{

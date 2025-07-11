@@ -27,8 +27,8 @@ http://ionicframework.com/docs/theming/ */
 
 .header-md,
 .footer-md {
-  -webkit-box-shadow: inherit;
-  box-shadow: inherit;
+  -webkit-box-shadow: inherit !important;
+  box-shadow: inherit !important;
 }
 
 ion-list.container {
@@ -52,9 +52,15 @@ ion-icon {
   margin-inline: 0;
 }
 
-// fix issue with offset on checkbox
-.in-item:is(ion-checkbox) {
-  width: fit-content;
+// fix issue on ion-checkbox
+ion-checkbox {
+  &.in-item {
+    width: fit-content;
+  }
+
+  .native-wrapper {
+    margin: 0;
+  }
 }
 
 a {
