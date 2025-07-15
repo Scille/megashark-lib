@@ -2,7 +2,7 @@
   <ion-page class="dropdown">
     <div class="dropdown-top">
       <ion-text
-        class="dropdown-title title-h5"
+        class="dropdown-title title-h3"
         v-if="title"
       >
         {{ $msTranslate(title) }}
@@ -28,7 +28,7 @@
         :key="option.key"
         @click="onOptionClick(option)"
       >
-        <ion-label class="option-text">
+        <ion-text class="option-text">
           <span class="option-text__label body">
             {{ $msTranslate(option.label) }}
           </span>
@@ -38,7 +38,7 @@
           >
             {{ $msTranslate(option.description) }}
           </span>
-        </ion-label>
+        </ion-text>
         <ion-icon
           slot="end"
           :icon="checkmark"
@@ -54,7 +54,7 @@
         />
       </ion-item>
     </ion-list>
-    <ion-buttons class="buttons">
+    <div class="buttons">
       <ion-button
         class="buttons-cancel"
         size="default"
@@ -71,12 +71,12 @@
       >
         {{ $msTranslate(validateText || 'lib.components.msModal.confirmButtonLabel') }}
       </ion-button>
-    </ion-buttons>
+    </div>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { IonButton, IonButtons, IonIcon, IonItem, IonLabel, IonList, IonPage, IonText, modalController } from '@ionic/vue';
+import { IonButton, IonIcon, IonItem, IonList, IonPage, IonText, modalController } from '@ionic/vue';
 import { MsOption, MsOptions } from '@lib/components/ms-types';
 import { MsInformationTooltip } from '@lib/components/ms-tooltip';
 import { ref } from 'vue';
@@ -120,7 +120,6 @@ async function cancel(): Promise<void> {
     display: flex;
     padding-left: 1.5rem;
     padding-top: 0.5rem;
-    font-size: 1.5rem;
   }
 
   &-top {
@@ -219,6 +218,7 @@ async function cancel(): Promise<void> {
 }
 
 .buttons {
+  display: flex;
   justify-content: end;
   gap: 1rem;
   padding: 1rem 1rem 2rem;
