@@ -47,7 +47,7 @@
 
 <script setup lang="ts">
 import { IonIcon, IonInput, IonLabel } from '@ionic/vue';
-import { computed, ref, onMounted, inject } from 'vue';
+import { computed, ref, onMounted, inject, useTemplateRef } from 'vue';
 import { MsStripeCardElement } from '@lib/components/ms-stripe';
 import { StripeService, StripeServiceKey, BillingDetails, PaymentMethodResult } from '@lib/services';
 import { personCircle } from 'ionicons/icons';
@@ -56,34 +56,34 @@ const props = defineProps<{
   requireName?: boolean;
 }>();
 
-const cardNumberElement = ref();
-const cardExpiryElement = ref();
-const cardCvcElement = ref();
-const nameElement = ref();
+const cardNumberElementRef = useTemplateRef('cardNumberElement');
+const cardExpiryElementRef = useTemplateRef('cardExpiryElement');
+const cardCvcElementRef = useTemplateRef('cardCvcElement');
+const nameElementRef = useTemplateRef('nameElement');
 const name = ref('');
 const stripeService: StripeService = inject(StripeServiceKey)!;
 const isValid = computed<boolean>(() => {
-  if (!cardNumberElement.value || !cardExpiryElement.value || !cardCvcElement.value || (props.requireName && !name.value)) {
+  if (!cardNumberElementRef.value || !cardExpiryElementRef.value || !cardCvcElementRef.value || (props.requireName && !name.value)) {
     return false;
   }
   return (
-    cardNumberElement.value.isValid &&
-    cardExpiryElement.value.isValid &&
-    cardCvcElement.value.isValid &&
+    cardNumberElementRef.value.isValid &&
+    cardExpiryElementRef.value.isValid &&
+    cardCvcElementRef.value.isValid &&
     (!props.requireName || (props.requireName && name.value.length > 0))
   );
 });
 
 onMounted(async () => {
-  if (props.requireName && nameElement.value) {
-    await nameElement.value.$el.setFocus();
-  } else if (cardNumberElement.value) {
-    await cardNumberElement.value.setFocus();
+  if (props.requireName && nameElementRef.value) {
+    await nameElementRef.value.$el.setFocus();
+  } else if (cardNumberElementRef.value) {
+    await cardNumberElementRef.value.setFocus();
   }
 });
 
 async function submit(billingDetails?: BillingDetails): Promise<PaymentMethodResult | undefined> {
-  if (isValid.value && cardNumberElement.value.getStripeElement()) {
+  if (isValid.value && cardNumberElementRef.value && cardNumberElementRef.value.getStripeElement()) {
     if (props.requireName) {
       if (billingDetails) {
         billingDetails.name = name.value;
@@ -92,12 +92,15 @@ async function submit(billingDetails?: BillingDetails): Promise<PaymentMethodRes
       }
     }
 
-    return await stripeService.createPaymentMethod({
-      type: 'card',
-      card: cardNumberElement.value.getStripeElement(),
-      // eslint-disable-next-line camelcase
-      billing_details: billingDetails,
-    });
+    const stripeElement = cardNumberElementRef.value.getStripeElement();
+    if (stripeElement) {
+      return await stripeService.createPaymentMethod({
+        type: 'card',
+        card: stripeElement as any,
+        // eslint-disable-next-line camelcase
+        billing_details: billingDetails,
+      });
+    }
   }
 }
 

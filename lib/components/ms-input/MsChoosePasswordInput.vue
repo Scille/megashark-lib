@@ -23,7 +23,7 @@
           :label="passwordLabel"
           v-model="password"
           name="password"
-          ref="firstInputFieldRef"
+          ref="firstInputField"
           @on-enter-keyup="$emit('onEnterKeyup', password)"
         />
       </div>
@@ -67,12 +67,12 @@ import { MsImage, PasswordLock } from '@lib/components/ms-image';
 import MsPasswordInput from '@lib/components/ms-input/MsPasswordInput.vue';
 import { Translatable } from '@lib/services';
 import { IonText, IonIcon } from '@ionic/vue';
-import { ref } from 'vue';
+import { ref, useTemplateRef } from 'vue';
 import { checkmarkCircle, close } from 'ionicons/icons';
 
 const password = ref('');
 const passwordConfirm = ref('');
-const firstInputFieldRef = ref();
+const firstInputFieldRef = useTemplateRef('firstInputField');
 
 const CRITERIA = new Map([
   ['length', PasswordValidation.Criteria.Length],

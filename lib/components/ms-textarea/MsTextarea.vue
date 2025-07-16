@@ -15,7 +15,7 @@
       :class="{
         input: !$props.disabled,
       }"
-      ref="textareaRef"
+      ref="textarea"
       :placeholder="$msTranslate(placeholder)"
       v-model="textValue"
       v-bind="$attrs"
@@ -40,7 +40,7 @@
 <script setup lang="ts">
 import { Translatable } from '@lib/services';
 import { IonTextarea } from '@ionic/vue';
-import { ref, watch, onUnmounted, useAttrs } from 'vue';
+import { ref, watch, onUnmounted, useAttrs, useTemplateRef } from 'vue';
 
 // Rows defines the height of the area in number of rows
 // Autogrow is disabled by default, enable stretching the area horizontally and
@@ -72,7 +72,7 @@ const props = withDefaults(defineProps<Props>(), {
   showCount: undefined,
 });
 
-const textareaRef = ref();
+const textareaRef = useTemplateRef('textarea');
 const textValue = ref(props.modelValue ?? '');
 
 const cancelWatch = watch(
@@ -118,6 +118,7 @@ function getCountColor(): TextCountLevel {
 }
 
 async function selectText(range?: [number, number]): Promise<void> {
+  if (!textareaRef.value) return;
   const input = await textareaRef.value.$el.getInputElement();
 
   let begin = 0;

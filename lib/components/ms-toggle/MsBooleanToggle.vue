@@ -4,7 +4,7 @@
   <div
     class="ms-boolean-toggle"
     tabindex="0"
-    ref="toggleRef"
+    ref="toggle"
     @keyup.enter="$emit('update:modelValue', modelValue === Answer.Yes ? Answer.No : Answer.Yes)"
   >
     <ion-text
@@ -32,9 +32,9 @@
 import { Answer } from '@lib/components/ms-types';
 import { Translatable } from '@lib/services';
 import { IonText } from '@ionic/vue';
-import { ref } from 'vue';
+import { useTemplateRef } from 'vue';
 
-const toggleRef = ref<HTMLDivElement>();
+const toggleRef = useTemplateRef<HTMLDivElement>('toggle');
 
 defineProps<{
   modelValue: Answer;

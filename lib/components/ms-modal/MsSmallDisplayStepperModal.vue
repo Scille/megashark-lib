@@ -57,9 +57,7 @@
 import { MsModalResult } from '@lib/components/ms-modal/types';
 import { Translatable } from '@lib/services';
 import { IonButton, IonFooter, IonHeader, IonPage, IonText, IonTitle, modalController } from '@ionic/vue';
-import { Ref, ref } from 'vue';
 
-const modal: Ref<HTMLDivElement | null> = ref(null);
 defineProps<{
   title?: Translatable;
   subtitle?: Translatable;

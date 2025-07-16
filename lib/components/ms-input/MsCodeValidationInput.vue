@@ -38,12 +38,12 @@
 
 <script setup lang="ts">
 import { IonInputCustomEvent, InputInputEventDetail } from '@ionic/core';
-import { onMounted, ref, defineEmits, defineExpose } from 'vue';
+import { onMounted, ref, useTemplateRef } from 'vue';
 import { IonInput, IonText } from '@ionic/vue';
 import { Ref } from 'vue';
 import { AllowedInput, isCharacterAllowed } from '@lib/components/ms-input/types';
 
-const inputs = ref<Array<{ $el: HTMLIonInputElement }>>();
+const inputsRef = useTemplateRef<Array<{ $el: HTMLIonInputElement }>>('inputs');
 const codes = ref<string[]>([]);
 const isFinalCodeValid: Ref<undefined | boolean> = ref(undefined);
 
@@ -160,10 +160,10 @@ function isValidCode(value: string = ''): boolean {
 }
 
 function getInputElementAt(index: number): HTMLIonInputElement | undefined {
-  if (!inputs.value || !inputs.value.at(index)) {
+  if (!inputsRef.value || !inputsRef.value.at(index)) {
     return undefined;
   }
-  return (inputs.value.at(index) as any).$el as HTMLIonInputElement;
+  return (inputsRef.value.at(index) as any).$el as HTMLIonInputElement;
 }
 
 function getFirstInputElement(): HTMLIonInputElement | undefined {
@@ -175,10 +175,10 @@ function getLastInputElement(): HTMLIonInputElement | undefined {
 }
 
 function getInputElementIndex(input: HTMLIonInputElement): number {
-  if (!inputs.value) {
+  if (!inputsRef.value) {
     return -1;
   }
-  return inputs.value.findIndex((inputInstance: any) => inputInstance.$el === input);
+  return inputsRef.value.findIndex((inputInstance: any) => inputInstance.$el === input);
 }
 
 function getPreviousInputElement(input: HTMLIonInputElement): HTMLIonInputElement | undefined {
@@ -202,7 +202,7 @@ async function getNativeInputElement(input: HTMLIonInputElement): Promise<HTMLIn
 }
 
 async function getInputElementFromNativeInputElement(nativeInput: HTMLInputElement): Promise<HTMLIonInputElement | undefined> {
-  for (const ipt of inputs.value ?? []) {
+  for (const ipt of inputsRef.value ?? []) {
     const nativeIpt = await getNativeInputElement(ipt.$el);
     if (nativeIpt === nativeInput) {
       return ipt.$el as HTMLIonInputElement;

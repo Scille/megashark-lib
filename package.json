@@ -37,8 +37,8 @@
     "axios": "^1.7.2",
     "ionicons": "^8.0.9",
     "luxon": "^3.4.4",
-    "vue": "^3.3.0",
-    "vue-i18n": "^9.6.5"
+    "vue": "^3.5.13",
+    "vue-i18n": "^11.1.2"
   },
   "devDependencies": {
     "@intlify/eslint-plugin-vue-i18n": "^2.0.0",
@@ -52,7 +52,7 @@
     "@vitejs/plugin-legacy": "^6.1.1",
     "@vitejs/plugin-vue": "^5.2.4",
     "@vue/eslint-config-typescript": "^12.0.0",
-    "@vue/test-utils": "^2.4.5",
+    "@vue/test-utils": "^2.4.6",
     "@vue/typescript": "^1.8.20",
     "@zxcvbn-ts/core": "^3.0.4",
     "@zxcvbn-ts/language-common": "^3.0.4",
@@ -82,7 +82,7 @@
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-lib-inject-css": "^2.2.2",
     "vitest": "^1.5.1",
-    "vue-router": "^4.2.0",
+    "vue-router": "^4.5.0",
     "vue-tsc": "^2.2.8"
   },
   "description": "MegaShark-Lib"

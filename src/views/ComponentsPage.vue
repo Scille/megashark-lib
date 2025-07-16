@@ -33,7 +33,7 @@
           ref="stripeCardForm"
         />
         <ion-button
-          :disabled="!stripeCardForm?.isValid"
+          :disabled="!stripeCardFormRef?.isValid"
           @click="createStripeCard"
         >
           {{ $msTranslate('usage.components.stripe.submit') }}
@@ -124,12 +124,12 @@
           placeholder="usage.components.inputs.msInput.placeholder"
           name="inputExample"
           v-model="inputExample"
-          ref="msInputRef"
+          ref="msInput"
           :validator="emailValidator"
         />
         <span v-if="msInputRef">
           {{ $msTranslate('usage.components.inputs.msInput.isValidEmail') }}
-          {{ $msTranslate({ key: 'usage.components.inputs.msInput.validity', count: msInputRef.validity }) }}
+          {{ $msTranslate({ key: 'usage.components.inputs.msInput.validity', count: msInputRef?.validity }) }}
         </span>
       </div>
       <div class="input-item">
@@ -376,7 +376,7 @@
       <ion-button @click="enableDragging = !enableDragging">
         {{ enableDragging ? $msTranslate('usage.components.draggable.disable') : $msTranslate('usage.components.draggable.enable') }}
       </ion-button>
-      <ion-button @click="draggableElement.resetPosition()">
+      <ion-button @click="draggableElementRef?.resetPosition()">
         {{ $msTranslate('usage.components.draggable.resetPosition') }}
       </ion-button>
     </example-block-line>
@@ -491,7 +491,7 @@ import {
   AllowedInput,
 } from '@lib/components';
 import { DateTime } from 'luxon';
-import { inject, ref, Ref, onMounted, computed } from 'vue';
+import { inject, ref, Ref, onMounted, computed, useTemplateRef } from 'vue';
 import SettingsModal from '@/views/settings/SettingsModal.vue';
 import { I18n, Address, GEOAPIFY_MOCKED_API_KEY, StripeService, StripeServiceKey, PaymentMethod, PaymentMethodResult } from '@lib/services';
 import { IValidator, Validity } from '@lib/main';
@@ -532,26 +532,25 @@ const msDropdownOptions: MsOptions = new MsOptions([
 const stripeService: StripeService = inject(StripeServiceKey)!;
 
 const inputExample = ref('');
-const msInputRef = ref();
+const msInputRef = useTemplateRef('msInput');
 const textareaExample = ref('');
 const passwordInputExample = ref('');
 const searchInputExample = ref('');
 const msReportTheme = ref(MsReportTheme.Info);
 const checkboxValue = ref(true);
-const addressInput = ref();
-const phoneNumberInput = ref();
+const addressInputRef = useTemplateRef('addressInput');
 const VALID_CODE = ['1', '2', '3', '4', '5', '7'];
 const progress = ref(0);
 const sliderStateStatic = ref<SliderState>({ progress: 50 });
 const sliderStatePlaying = ref<SliderState>({ progress: 0, paused: true });
-const stripeCardForm = ref();
+const stripeCardFormRef = useTemplateRef('stripeCardForm');
 const stripeCardDetails = ref<PaymentMethod.Card>();
 const selectedDateTime = ref(DateTime.now().toJSDate());
 const cardRequireName = ref(false);
 const enableDragging = ref(true);
 const restrictDirection = ref({ up: false, down: false, left: false, right: false });
-const draggableElement = ref();
-const mouseOverTooltipButton = ref();
+const draggableElementRef = useTemplateRef('draggableElement');
+const mouseOverTooltipButtonRef = useTemplateRef('mouseOverTooltipButton');
 
 const msSorterOptions: MsOptions = new MsOptions([
   { label: 'usage.components.sorter.name', key: 'name' },
@@ -651,7 +650,7 @@ onMounted(async () => {
     }
   }, 100);
 
-  await attachMouseOverTooltip(mouseOverTooltipButton.value.$el, 'usage.components.informationTooltip.mouseOverMessage');
+  await attachMouseOverTooltip(mouseOverTooltipButtonRef.value?.$el, 'usage.components.informationTooltip.mouseOverMessage');
 });
 
 function changeOption(key: MsReportTheme): void {
@@ -747,7 +746,11 @@ function onSortChange(event: MsSorterChangeEvent): void {
 }
 
 async function onAddressSelected(addr: Address): Promise<void> {
-  addressInput.value.setValue(`${addr.address} ${addr.address2 ? addr.address2 : ''}, ${addr.postalCode} ${addr.city}, ${addr.country}`);
+  if (addressInputRef.value) {
+    addressInputRef.value.setValue(
+      `${addr.address} ${addr.address2 ? addr.address2 : ''}, ${addr.postalCode} ${addr.city}, ${addr.country}`,
+    );
+  }
 }
 
 async function validationFunction(code: Array<string>): Promise<boolean> {
@@ -755,8 +758,12 @@ async function validationFunction(code: Array<string>): Promise<boolean> {
 }
 
 async function createStripeCard(): Promise<void> {
-  const result: PaymentMethodResult = await stripeCardForm.value.submit();
-  stripeCardDetails.value = result?.paymentMethod?.card;
+  if (stripeCardFormRef.value) {
+    const result: PaymentMethodResult | undefined = await stripeCardFormRef.value.submit();
+    if (result) {
+      stripeCardDetails.value = result.paymentMethod?.card;
+    }
+  }
 }
 
 function onSliderFinished(): void {

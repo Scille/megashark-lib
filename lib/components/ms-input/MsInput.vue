@@ -19,7 +19,7 @@
         :class="{
           input: !$props.disabled,
         }"
-        ref="inputRef"
+        ref="input"
         :placeholder="$msTranslate(placeholder)"
         :value="modelValue"
         @ion-input="onChange($event.detail.value || '')"
@@ -48,7 +48,7 @@ import { IValidator, Validity } from '@lib/common/validation';
 import { Translatable } from '@lib/services';
 import { IonIcon, IonInput } from '@ionic/vue';
 import { warning } from 'ionicons/icons';
-import { Ref, ref, computed } from 'vue';
+import { Ref, ref, computed, useTemplateRef } from 'vue';
 
 const props = defineProps<{
   label?: Translatable;
@@ -58,7 +58,7 @@ const props = defineProps<{
   validator?: IValidator;
 }>();
 
-const inputRef = ref();
+const inputRef = useTemplateRef('input');
 const errorMessage: Ref<Translatable> = ref('');
 const validity = ref(Validity.Intermediate);
 const lostFocus = ref(false);
@@ -103,6 +103,7 @@ async function enterPressed(value: string): Promise<void> {
 }
 
 async function selectText(range?: [number, number]): Promise<void> {
+  if (!inputRef.value) return;
   const input = await inputRef.value.$el.getInputElement();
 
   let begin = 0;
