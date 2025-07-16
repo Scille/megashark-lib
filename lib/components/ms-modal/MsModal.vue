@@ -91,9 +91,9 @@ import { MsSpinner } from '@lib/components/ms-spinner';
 import { MsReportTheme } from '@lib/components/ms-types';
 import { IonButton, IonFooter, IonHeader, IonIcon, IonPage, IonText, IonTitle, IonToolbar, modalController } from '@ionic/vue';
 import { close } from 'ionicons/icons';
-import { Ref, onMounted, ref } from 'vue';
+import { onMounted, useTemplateRef } from 'vue';
 
-const modal: Ref<HTMLDivElement | null> = ref(null);
+const modalRef = useTemplateRef<HTMLDivElement>('modal');
 defineProps<MsModalConfig>();
 defineEmits<{
   (e: 'onEnterKeyup'): void;
@@ -102,7 +102,7 @@ defineEmits<{
 onMounted(() => {
   // we should use onMounted lonely, but for weird reasons onMounted is triggered before the focus is working
   setTimeout(() => {
-    modal.value?.focus();
+    modalRef.value?.focus();
   }, 100);
 });
 

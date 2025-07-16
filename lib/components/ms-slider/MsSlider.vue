@@ -5,7 +5,7 @@
     <div
       class="slider"
       :class="isDragging || isMouseOver ? 'slider-hover' : ''"
-      ref="sliderRef"
+      ref="slider"
       @click="setFocus()"
       @mousedown="onMouseDown($event)"
       @mouseover="isMouseOver = true"
@@ -21,11 +21,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
+import { computed, onMounted, onUnmounted, ref, watch, useTemplateRef } from 'vue';
 import { SliderState } from '@lib/components/ms-slider';
 
 const progressWidthStyle = computed(() => `${(100 * props.modelValue.progress) / props.maxValue}%`);
-const sliderRef = ref();
+const sliderRef = useTemplateRef('slider');
 const isDragging = ref(false);
 const isMouseOver = ref(false);
 const isInProgress = ref(false);
@@ -152,7 +152,9 @@ function onKeydown(event: KeyboardEvent): void {
 }
 
 function setFocus(): void {
-  sliderRef.value.focus();
+  if (sliderRef.value) {
+    sliderRef.value.focus();
+  }
 }
 
 function updateSliderState(progress: number, paused?: boolean): void {
@@ -192,6 +194,7 @@ function onMouseDown(event: MouseEvent): void {
 }
 
 function updateCurrentProgress(event: MouseEvent, paused?: boolean): void {
+  if (!sliderRef.value) return;
   const left = sliderRef.value.getBoundingClientRect().left;
   const right = sliderRef.value.getBoundingClientRect().right;
   if (event.clientX < left) {

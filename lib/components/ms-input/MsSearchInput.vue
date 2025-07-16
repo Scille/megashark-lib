@@ -12,7 +12,7 @@
     />
     <ion-input
       class="form-input input"
-      ref="inputRef"
+      ref="input"
       :value="modelValue"
       :placeholder="$msTranslate(placeholder)"
       :clear-input="true"
@@ -29,7 +29,7 @@
 import { Translatable } from '@lib/services';
 import { IonIcon, IonInput } from '@ionic/vue';
 import { search } from 'ionicons/icons';
-import { ref } from 'vue';
+import { useTemplateRef } from 'vue';
 
 const props = defineProps<{
   modelValue?: string;
@@ -37,7 +37,7 @@ const props = defineProps<{
   debounce?: number;
 }>();
 
-const inputRef = ref();
+const inputRef = useTemplateRef('input');
 
 const emits = defineEmits<{
   (e: 'change', value: string): void;
@@ -59,6 +59,7 @@ function setFocus(): void {
 }
 
 async function selectText(range?: [number, number]): Promise<void> {
+  if (!inputRef.value) return;
   const input = await inputRef.value.$el.getInputElement();
 
   let begin = 0;

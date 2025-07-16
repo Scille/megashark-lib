@@ -18,7 +18,7 @@
   >
     <ms-input
       :label="inputLabel || ''"
-      ref="msInputRef"
+      ref="msInput"
       :placeholder="placeholder || ''"
       v-model="text"
       @on-enter-keyup="confirm()"
@@ -34,10 +34,10 @@ import { MsInput } from '@lib/components/ms-input';
 import MsModal from '@lib/components/ms-modal/MsModal.vue';
 import { GetTextOptions, MsModalResult } from '@lib/components/ms-modal/types';
 import { modalController } from '@ionic/vue';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, useTemplateRef } from 'vue';
 
 const props = defineProps<GetTextOptions>();
-const msInputRef = ref();
+const msInputRef = useTemplateRef('msInput');
 
 const text = ref(props.defaultValue || '');
 const textIsValid = asyncComputed(async () => {
@@ -45,9 +45,11 @@ const textIsValid = asyncComputed(async () => {
 });
 
 onMounted(async () => {
-  msInputRef.value.setFocus();
-  if (props.selectionRange) {
-    await msInputRef.value.selectText(props.selectionRange);
+  if (msInputRef.value) {
+    msInputRef.value.setFocus();
+    if (props.selectionRange) {
+      await msInputRef.value.selectText(props.selectionRange);
+    }
   }
 });
 

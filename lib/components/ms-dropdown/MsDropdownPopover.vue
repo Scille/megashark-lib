@@ -42,7 +42,7 @@
 <script setup lang="ts">
 import { MsInformationTooltip } from '@lib/components/ms-tooltip';
 import { MsOption, MsOptions } from '@lib/components/ms-types';
-import { IonIcon, IonItem, IonList, popoverController } from '@ionic/vue';
+import { IonIcon, IonItem, IonList, IonText, popoverController } from '@ionic/vue';
 import { checkmark } from 'ionicons/icons';
 
 defineProps<{

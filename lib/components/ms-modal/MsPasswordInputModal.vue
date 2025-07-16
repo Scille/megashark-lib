@@ -13,7 +13,7 @@
   >
     <ms-password-input
       :label="inputLabel"
-      ref="passwordInputRef"
+      ref="passwordInput"
       v-model="password"
       @on-enter-keyup="confirm()"
     />
@@ -25,15 +25,17 @@ import { MsPasswordInput } from '@lib/components/ms-input';
 import MsModal from '@lib/components/ms-modal/MsModal.vue';
 import { GetPasswordOptions, MsModalResult } from '@lib/components/ms-modal/types';
 import { modalController } from '@ionic/vue';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, useTemplateRef } from 'vue';
 
 defineProps<GetPasswordOptions>();
 
 const password = ref('');
-const passwordInputRef = ref();
+const passwordInputRef = useTemplateRef('passwordInput');
 
 onMounted(() => {
-  passwordInputRef.value.setFocus();
+  if (passwordInputRef.value) {
+    passwordInputRef.value.setFocus();
+  }
 });
 
 async function confirm(): Promise<boolean> {

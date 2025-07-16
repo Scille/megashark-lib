@@ -15,7 +15,7 @@
     >
       <ion-input
         class="form-input input"
-        ref="inputRef"
+        ref="input"
         aria-labelledby="passwordLabel"
         :type="passwordVisible ? 'text' : 'password'"
         @ion-input="onChange($event.target.value)"
@@ -53,9 +53,9 @@
 import { Translatable } from '@lib/services';
 import { IonIcon, IonInput } from '@ionic/vue';
 import { eye, eyeOff, warning } from 'ionicons/icons';
-import { ref } from 'vue';
+import { ref, useTemplateRef } from 'vue';
 
-const inputRef = ref();
+const inputRef = useTemplateRef('input');
 const passwordVisible = ref(false);
 const hasFocus = ref(false);
 
