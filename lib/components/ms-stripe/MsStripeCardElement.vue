@@ -1,16 +1,19 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 <template>
   <div class="input-container">
-    <ion-label
+    <span
       class="form-label"
       v-show="label"
+      @click="setFocus()"
+      :class="{ focused: hasFocus }"
     >
       {{ $msTranslate(label) }}
-    </ion-label>
+    </span>
     <div class="input-content">
       <ion-icon
         v-if="type !== 'cardNumber' || !_getBrandIcon()"
         class="icon"
+        :class="errorMessage ? 'icon-error' : ''"
         slot="start"
         :icon="_getIcon()"
       />
@@ -34,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonIcon, IonLabel } from '@ionic/vue';
+import { IonIcon } from '@ionic/vue';
 import {
   StripeCardElementType,
   StripeCardElementChangeEventType,
@@ -50,6 +53,7 @@ import { inject, onMounted, onUnmounted, ref } from 'vue';
 let stripeElement: StripeCardElementType | undefined;
 const stripeService: StripeService = inject(StripeServiceKey)!;
 const isValid = ref(false);
+const hasFocus = ref(false);
 const errorMessage = ref<string>('');
 const brand = ref<string>('');
 const props = defineProps<{
@@ -68,6 +72,14 @@ onMounted(async () => {
   });
   if (stripeElement) {
     stripeElement.mount(`#${props.type}`);
+
+    (stripeElement as any).on('focus', () => {
+      hasFocus.value = true;
+    });
+
+    (stripeElement as any).on('blur', () => {
+      hasFocus.value = false;
+    });
   }
 });
 
@@ -76,7 +88,7 @@ function setFocus(): void {
     if (stripeElement) {
       stripeElement.focus();
     }
-  }, 500);
+  }, 100);
 }
 
 function _getBrandIcon(): string {
@@ -111,6 +123,7 @@ onUnmounted(() => {
   if (stripeElement) {
     stripeElement.unmount();
     stripeElement.destroy();
+    hasFocus.value = false;
   }
 });
 
@@ -139,12 +152,11 @@ defineExpose({
 }
 
 .icon {
-  width: 1.25em;
-  font-size: 1.25em;
+  font-size: 1.125em;
   color: var(--parsec-color-light-secondary-light);
-}
 
-.form-error {
-  margin-left: 1rem;
+  &-error {
+    color: var(--parsec-color-light-danger-500);
+  }
 }
 </style>

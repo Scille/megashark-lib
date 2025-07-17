@@ -5,7 +5,9 @@
     <span
       id="passwordLabel"
       class="form-label"
+      :class="{ focused: hasFocus }"
       v-show="label"
+      @click="setFocus()"
     >
       {{ $msTranslate(label) }}
     </span>
@@ -22,8 +24,8 @@
         :value="modelValue"
         id="ms-password-input"
         :clear-on-edit="false"
-        @ion-focus="onFocus"
-        @ion-blur="onFocusLost"
+        @ion-focus="hasFocus = true"
+        @ion-blur="hasFocus = false"
         @keyup.enter="onEnterPress()"
       />
       <div
@@ -75,14 +77,6 @@ const emits = defineEmits<{
 defineExpose({
   setFocus,
 });
-
-async function onFocus(): Promise<void> {
-  hasFocus.value = true;
-}
-
-async function onFocusLost(): Promise<void> {
-  hasFocus.value = false;
-}
 
 function setFocus(): void {
   setTimeout(() => {

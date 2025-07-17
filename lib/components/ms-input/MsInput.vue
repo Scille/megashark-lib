@@ -5,11 +5,12 @@
     <span
       id="label"
       class="form-label"
+      :class="{ focused: hasFocus }"
       v-show="label"
+      @click="setFocus()"
     >
       {{ $msTranslate(label) }}
     </span>
-
     <div
       class="input-content ion-no-padding"
       :class="inputClasses"
@@ -62,6 +63,7 @@ const inputRef = useTemplateRef('input');
 const errorMessage: Ref<Translatable> = ref('');
 const validity = ref(Validity.Intermediate);
 const lostFocus = ref(false);
+const hasFocus = ref(false);
 
 const emits = defineEmits<{
   (e: 'update:modelValue', value: string): void;
@@ -116,6 +118,8 @@ async function selectText(range?: [number, number]): Promise<void> {
 }
 
 async function onFocusChanged(focus: boolean): Promise<void> {
+  hasFocus.value = focus;
+
   if (focus === false) {
     lostFocus.value = true;
   }

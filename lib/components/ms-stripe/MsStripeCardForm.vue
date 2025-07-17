@@ -5,24 +5,28 @@
       class="input-container"
       v-if="requireName"
     >
-      <ion-label class="form-label">
+      <span
+        class="form-label"
+        :class="{ focused: hasFocus }"
+        @click="setFocus()"
+      >
         {{ $msTranslate('lib.components.msStripe.cardHolderLabel') }}
-      </ion-label>
+      </span>
       <div class="input-content">
         <ion-icon
           class="icon"
           slot="start"
           :icon="personCircle"
         />
-        <div class="input form-input">
-          <ion-input
-            class="form-input"
-            ref="nameElement"
-            :placeholder="$msTranslate('lib.components.msStripe.cardHolderPlaceholder')"
-            v-model="name"
-            mode="ios"
-          />
-        </div>
+        <ion-input
+          class="form-input"
+          ref="nameElement"
+          :placeholder="$msTranslate('lib.components.msStripe.cardHolderPlaceholder')"
+          v-model="name"
+          @ion-focus="hasFocus = true"
+          @ion-blur="hasFocus = false"
+          mode="ios"
+        />
       </div>
     </div>
     <ms-stripe-card-element
@@ -46,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonIcon, IonInput, IonLabel } from '@ionic/vue';
+import { IonIcon, IonInput } from '@ionic/vue';
 import { computed, ref, onMounted, inject, useTemplateRef } from 'vue';
 import { MsStripeCardElement } from '@lib/components/ms-stripe';
 import { StripeService, StripeServiceKey, BillingDetails, PaymentMethodResult } from '@lib/services';
@@ -61,6 +65,7 @@ const cardExpiryElementRef = useTemplateRef('cardExpiryElement');
 const cardCvcElementRef = useTemplateRef('cardCvcElement');
 const nameElementRef = useTemplateRef('nameElement');
 const name = ref('');
+const hasFocus = ref(false);
 const stripeService: StripeService = inject(StripeServiceKey)!;
 const isValid = computed<boolean>(() => {
   if (!cardNumberElementRef.value || !cardExpiryElementRef.value || !cardCvcElementRef.value || (props.requireName && !name.value)) {
@@ -73,6 +78,14 @@ const isValid = computed<boolean>(() => {
     (!props.requireName || (props.requireName && name.value.length > 0))
   );
 });
+
+function setFocus(): void {
+  setTimeout(() => {
+    if (nameElementRef.value && nameElementRef.value.$el) {
+      nameElementRef.value.$el.setFocus();
+    }
+  }, 200);
+}
 
 onMounted(async () => {
   if (props.requireName && nameElementRef.value) {
@@ -118,7 +131,6 @@ defineExpose({
 
   .form-row {
     display: flex;
-    justify-content: space-between;
     gap: 1em;
 
     > * {
@@ -127,21 +139,18 @@ defineExpose({
   }
 }
 
-.input-content {
-  padding: 0 1rem;
-  align-items: center;
-  flex-grow: unset;
-
-  &:has(.StripeElement--focus) {
-    // border: 1px solid var(--parsec-color-light-primary-400);
-    background: var(--parsec-color-light-secondary-white);
-    outline: 0.25rem solid var(--parsec-color-light-outline);
+.input-container {
+  .input-content {
+    flex-grow: unset;
   }
-}
 
-.icon {
-  width: 1.25em;
-  font-size: 1.25em;
-  color: var(--parsec-color-light-secondary-light);
+  .form-input {
+    padding-left: 0.625rem !important;
+  }
+
+  .icon {
+    font-size: 1.125em;
+    color: var(--parsec-color-light-secondary-light);
+  }
 }
 </style>

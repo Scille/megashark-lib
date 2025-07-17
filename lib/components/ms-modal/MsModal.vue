@@ -32,7 +32,7 @@
             </ion-title>
           </div>
           <template v-if="subtitle">
-            <ion-text class="ms-modal-header__text body">
+            <ion-text class="ms-modal-header__text body-lg">
               {{ $msTranslate(subtitle) }}
             </ion-text>
           </template>
@@ -187,7 +187,7 @@ async function confirm(): Promise<boolean> {
   }
 
   &__text {
-    color: var(--parsec-color-light-secondary-hard-grey);
+    color: var(--parsec-color-light-secondary-soft-text);
     margin-top: 0.625rem;
 
     @include ms.responsive-breakpoint('sm') {

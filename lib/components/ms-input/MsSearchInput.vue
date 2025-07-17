@@ -4,6 +4,7 @@
   <div
     class="input-content ms-search-input"
     id="ms-search-input"
+    @click="setFocus()"
   >
     <ion-icon
       :icon="search"
@@ -17,6 +18,8 @@
       :placeholder="$msTranslate(placeholder)"
       :clear-input="true"
       @ion-input="onChange($event.target.value)"
+      @ion-focus="hasFocus = true"
+      @ion-blur="hasFocus = false"
       @keyup.enter="onEnterPress()"
       mode="ios"
       :debounce="debounce"
@@ -29,7 +32,7 @@
 import { Translatable } from '@lib/services';
 import { IonIcon, IonInput } from '@ionic/vue';
 import { search } from 'ionicons/icons';
-import { useTemplateRef } from 'vue';
+import { useTemplateRef, ref } from 'vue';
 
 const props = defineProps<{
   modelValue?: string;
@@ -38,6 +41,7 @@ const props = defineProps<{
 }>();
 
 const inputRef = useTemplateRef('input');
+const hasFocus = ref(false);
 
 const emits = defineEmits<{
   (e: 'change', value: string): void;
@@ -55,7 +59,7 @@ function setFocus(): void {
     if (inputRef.value && inputRef.value.$el) {
       inputRef.value.$el.setFocus();
     }
-  }, 200);
+  }, 100);
 }
 
 async function selectText(range?: [number, number]): Promise<void> {
@@ -85,19 +89,17 @@ function onChange(value: any): void {
 
 <style scoped lang="scss">
 .ms-search-input {
-  border: 1px solid var(--parsec-color-light-secondary-light);
+  border: 1px solid var(--parsec-color-light-secondary-disabled);
   padding: 0.25rem 0 0.25rem 0.75rem;
   width: 100%;
-
-  .input {
-    --placeholder-color: var(--parsec-color-light-secondary-light);
-    --placeholder-opacity: 0.8;
-  }
+  position: relative;
+  display: flex;
+  overflow: hidden;
 
   .icon {
-    font-size: 1.125em;
-    margin: 0 0.5rem 0 0;
-    color: var(--parsec-color-light-secondary-light);
+    font-size: 1rem;
+    margin: 0 0.25rem 0 0;
+    opacity: 0.4;
   }
 }
 </style>
