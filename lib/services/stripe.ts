@@ -178,11 +178,14 @@ export const StripeElementBaseStyle = {
   base: {
     color: '#002C66',
     fontFamily: '"Albert Sans", Montserrat, "Helvetica Neue", Helvetica, sans-serif',
-    fontSize: '16px',
+    fontSize: '15px',
     '::placeholder': {
       color: '#8585AD',
     },
     backgroundColor: 'none',
+  },
+  invalid: {
+    color: '#cc3347',
   },
 };
 

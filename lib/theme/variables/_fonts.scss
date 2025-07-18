@@ -62,13 +62,13 @@
     font-weight: 500;
     font-size: 1.125rem;
     line-height: 1.5rem;
-    letter-spacing: 0.15px;
+    letter-spacing: 0.1px;
   }
 
   .subtitles-normal {
     font-weight: 500;
     font-size: 1rem;
-    letter-spacing: 0.15px;
+    letter-spacing: 0.1px;
   }
 
   .subtitles-sm {
@@ -80,21 +80,21 @@
   .body-lg {
     font-size: 1rem;
     line-height: 28.9px;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.1px;
     font-weight: 400;
   }
 
   .body {
     font-size: 0.875rem;
     line-height: 1.5rem;
-    letter-spacing: 0.15px;
+    letter-spacing: 0.1px;
     font-weight: 400;
   }
 
   .body-sm {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     line-height: 1.25rem;
-    letter-spacing: 0.125px;
+    letter-spacing: 0.1px;
     font-weight: 400;
   }
 
@@ -102,19 +102,18 @@
   .button-large {
     font-weight: 500;
     font-size: 1rem;
-    letter-spacing: 0.125px;
+    letter-spacing: 0.1px;
   }
 
   .button-medium {
     font-weight: 500;
-    letter-spacing: 0.125px;
+    letter-spacing: 0.1px;
     font-size: 0.875rem;
   }
 
   .button-small {
     font-weight: 500;
-    letter-spacing: 0.125px;
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
   }
 
   /* ** caption ** */
@@ -129,7 +128,6 @@
   .breadcrumb-normal {
     font-size: 0.875rem;
     font-weight: 500;
-    line-height: 1.25rem;
   }
 
   /* ** menu ** */
@@ -153,14 +151,14 @@
 
   /* ** table ** */
   .cell {
-    letter-spacing: 0.15px;
+    letter-spacing: 0.1px;
     font-size: 0.875rem;
     font-weight: 500;
     line-height: 1.25rem;
   }
 
   .cell-title {
-    letter-spacing: 0.15px;
+    letter-spacing: 0.1px;
     font-size: 0.75rem;
     font-weight: 600;
     line-height: 1.25rem;
@@ -191,8 +189,7 @@
   }
 
   .form-helperText {
-    font-weight: 400;
-    font-size: 0.75rem;
-    letter-spacing: 0.4px;
+    font-weight: 500;
+    font-size: 0.8125rem;
   }
 }

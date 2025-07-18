@@ -5,13 +5,15 @@
     <span
       id="label"
       class="form-label"
+      :class="{ focused: hasFocus }"
       v-show="label"
+      @click="setFocus()"
     >
       {{ $msTranslate(label) }}
     </span>
 
     <ion-textarea
-      class="textarea form-input"
+      class="textarea form-input input-content"
       :class="{
         input: !$props.disabled,
       }"
@@ -20,6 +22,8 @@
       v-model="textValue"
       v-bind="$attrs"
       @ion-input="onChange($event.detail.value || '')"
+      @ion-focus="hasFocus = true"
+      @ion-blur="hasFocus = false"
       :disabled="$props.disabled"
       :rows="rows"
     />
@@ -74,6 +78,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const textareaRef = useTemplateRef('textarea');
 const textValue = ref(props.modelValue ?? '');
+const hasFocus = ref(false);
 
 const cancelWatch = watch(
   () => props.modelValue,
@@ -138,7 +143,7 @@ async function onChange(value: string): Promise<void> {
 
 <style scoped lang="scss">
 .textarea {
-  border: 1px solid var(--parsec-color-light-secondary-light);
+  border: 1px solid var(--parsec-color-light-secondary-disabled);
   border-radius: var(--parsec-radius-8);
   color: var(--parsec-color-light-primary-800);
   padding: 0.625rem 0.625rem 0;
