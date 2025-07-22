@@ -15,6 +15,7 @@
   <example-block title="usage.components.toggle.title">
     <example-block-line>
       <ms-boolean-toggle v-model="referenceValue" />
+      <ms-grid-list-toggle v-model="displayView" />
     </example-block-line>
   </example-block>
 
@@ -443,6 +444,7 @@ import {
   MsSorter,
   MsSpinner,
   MsInformativeText,
+  MsGridListToggle,
   MsReportText,
   MsInformationTooltip,
   MsOptions,
@@ -485,6 +487,7 @@ import {
   MsDatetimePicker,
   MsSlider,
   SliderState,
+  DisplayState,
   MsDraggable,
   LockClosedIcon,
   attachMouseOverTooltip,
@@ -548,6 +551,7 @@ const stripeCardDetails = ref<PaymentMethod.Card>();
 const selectedDateTime = ref(DateTime.now().toJSDate());
 const cardRequireName = ref(false);
 const enableDragging = ref(true);
+const displayView = ref(DisplayState.List);
 const restrictDirection = ref({ up: false, down: false, left: false, right: false });
 const draggableElementRef = useTemplateRef('draggableElement');
 const mouseOverTooltipButtonRef = useTemplateRef('mouseOverTooltipButton');
