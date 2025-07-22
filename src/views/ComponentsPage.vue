@@ -668,8 +668,7 @@ async function openSettingsModal(): Promise<void> {
     showBackdrop: true,
     handle: false,
     breakpoints: isLargeDisplay.value ? undefined : [1],
-    // https://ionicframework.com/docs/api/modal#scrolling-content-at-all-breakpoints
-    // expandToScroll: false, should be added to scroll with Ionic 8
+    expandToScroll: false,
     initialBreakpoint: isLargeDisplay.value ? undefined : 1,
   });
   await modal.present();

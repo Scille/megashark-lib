@@ -91,6 +91,7 @@ async function openPopover(event: Event): Promise<void> {
       canDismiss: true,
       cssClass: 'sheet-modal',
       breakpoints: [0, 1],
+      expandToScroll: false,
       initialBreakpoint: 1,
       componentProps: {
         title: props.title,
