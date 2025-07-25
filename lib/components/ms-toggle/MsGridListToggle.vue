@@ -47,44 +47,46 @@ defineExpose({
 .ms-grid-list-toggle {
   display: flex;
   align-items: center;
-  padding: 0;
-  gap: 0.25rem;
+  border-radius: var(--parsec-radius-8);
+  border: 1px solid var(--parsec-color-light-secondary-medium);
+  background: var(--parsec-color-light-secondary-premiere);
+
+  overflow: hidden;
+  box-shadow: var(--parsec-shadow-low);
 }
 
 .button-view {
   color: var(--parsec-color-light-secondary-light);
-  margin: 0;
-  border-radius: var(--parsec-radius-8);
-  border: 1px solid var(--parsec-color-light-secondary-background);
-  height: auto;
+  min-height: 1rem;
+  --ripple-color: transparent;
 
   &:not(.button-disabled) {
     cursor: pointer;
     --background-hover: none;
 
     &:hover {
-      color: var(--parsec-color-light-secondary-grey);
+      color: var(--parsec-color-light-secondary-soft-grey);
     }
   }
 
   &::part(native) {
-    padding-inline-start: 0px;
-    padding-inline-end: 0px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding: 0px;
   }
 
   ion-icon {
-    font-size: 1.25rem;
-    padding: 0.25rem;
+    font-size: 1.125rem;
+    padding: 0.5rem;
+  }
+
+  &:nth-child(1) {
+    border-right: 1px solid var(--parsec-color-light-secondary-medium);
   }
 }
 
 // eslint-disable-next-line vue-scoped-css/no-unused-selector
 .button-disabled {
-  border: 1px solid var(--parsec-color-light-primary-700);
-  background: var(--parsec-color-light-secondary-premiere);
-  color: var(--parsec-color-light-primary-700);
+  background: var(--parsec-color-light-secondary-white);
+  color: var(--parsec-color-light-secondary-hard-grey);
   opacity: 1;
 }
 </style>
