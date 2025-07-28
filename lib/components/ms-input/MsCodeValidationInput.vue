@@ -70,7 +70,12 @@ const emits = defineEmits<{
 
 defineExpose({
   setFocus,
+  clear,
 });
+
+async function clear(): Promise<void> {
+  codes.value.fill('');
+}
 
 async function onPaste(event: ClipboardEvent): Promise<void> {
   event.preventDefault();

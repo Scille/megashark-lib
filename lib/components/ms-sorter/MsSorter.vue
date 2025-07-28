@@ -105,7 +105,6 @@ async function onDidDismissPopover(popover: any): Promise<void> {
 
   &-content {
     padding: 0.375rem 0.625rem;
-    background: var(--parsec-color-light-secondary-background);
     display: flex;
     align-items: center;
     justify-content: center;

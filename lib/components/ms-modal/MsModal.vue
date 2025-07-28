@@ -27,9 +27,9 @@
           v-if="title"
         >
           <div class="ms-modal-header__title-container">
-            <ion-title class="ms-modal-header__title title-h3">
+            <ion-text class="ms-modal-header__title title-h3">
               {{ $msTranslate(title) }}
-            </ion-title>
+            </ion-text>
           </div>
           <template v-if="subtitle">
             <ion-text class="ms-modal-header__text body-lg">
@@ -89,7 +89,7 @@
 import { MsModalConfig, MsModalResult } from '@lib/components/ms-modal/types';
 import { MsSpinner } from '@lib/components/ms-spinner';
 import { MsReportTheme } from '@lib/components/ms-types';
-import { IonButton, IonFooter, IonHeader, IonIcon, IonPage, IonText, IonTitle, IonToolbar, modalController } from '@ionic/vue';
+import { IonButton, IonFooter, IonHeader, IonIcon, IonPage, IonText, IonToolbar, modalController } from '@ionic/vue';
 import { close } from 'ionicons/icons';
 import { onMounted, useTemplateRef } from 'vue';
 
