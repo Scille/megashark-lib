@@ -32,6 +32,7 @@
         "confirmButtonLabel": "Confirm"
       },
       "msAlertModal": {
+        "cancelButtonLabel": "Cancel",
         "confirmButtonLabel": "Close"
       },
       "msPasswordInputModal": {

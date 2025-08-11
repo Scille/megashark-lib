@@ -8,11 +8,19 @@
     :confirm-button="{
       disabled: false,
       label: 'lib.components.msAlertModal.confirmButtonLabel',
-      onClick: confirm,
+      onClick: customConfirmAction ? customConfirmActionClick : confirm,
     }"
-    @on-enter-keyup="confirm()"
+    :cancel-button="{
+      disabled: false,
+      label: 'lib.components.msAlertModal.cancelButtonLabel',
+      onClick: cancel,
+    }"
+    @on-enter-keyup="customConfirmActionClick() || confirm()"
   >
-    <ms-report-text :theme="theme">
+    <ms-report-text
+      :theme="theme"
+      class="ms-report-text__message"
+    >
       {{ $msTranslate(message) }}
     </ms-report-text>
   </ms-modal>
@@ -26,9 +34,26 @@ import { modalController } from '@ionic/vue';
 
 defineProps<MsAlertModalConfig>();
 
+const emit = defineEmits<{
+  (e: 'onCustomAction'): void;
+}>();
+
 async function confirm(): Promise<boolean> {
+  return modalController.dismiss(null, MsModalResult.Confirm);
+}
+
+async function cancel(): Promise<boolean> {
+  return modalController.dismiss(null, MsModalResult.Cancel);
+}
+
+async function customConfirmActionClick(): Promise<boolean> {
+  emit('onCustomAction');
   return modalController.dismiss(null, MsModalResult.Confirm);
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.ms-report-text__message {
+  margin-top: 0.5rem;
+}
+</style>

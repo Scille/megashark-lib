@@ -27,6 +27,8 @@ export interface MsAlertModalConfig {
   title?: Translatable;
   theme: MsReportTheme;
   message: Translatable;
+  customConfirmAction?: Promise<void>;
+  customConfirmActionLabel?: Translatable;
 }
 
 export interface MsModalConfig {
