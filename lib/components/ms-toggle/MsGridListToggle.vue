@@ -50,7 +50,7 @@ defineExpose({
   border-radius: var(--parsec-radius-8);
   border: 1px solid var(--parsec-color-light-secondary-medium);
   background: var(--parsec-color-light-secondary-premiere);
-
+  flex-shrink: 0;
   overflow: hidden;
   box-shadow: var(--parsec-shadow-low);
 }

@@ -11,12 +11,9 @@
     <div class="sorter-button-content">
       <ion-icon
         class="sorter-button-content__icon ms-sorter-icon"
-        :icon="swapVertical"
+        :icon="sortByAsc ? arrowDown : arrowUp"
       />
-      <ion-text
-        v-if="isLargeDisplay"
-        class="sorter-button-content__text"
-      >
+      <ion-text class="sorter-button-content__text">
         {{ $msTranslate(labelRef) }}
       </ion-text>
     </div>
@@ -27,9 +24,9 @@
 import MsSorterPopover from '@lib/components/ms-sorter/MsSorterPopover.vue';
 import { MsSorterChangeEvent, MsSorterLabels } from '@lib/components/ms-sorter/types';
 import { MsOption, MsOptions } from '@lib/components/ms-types';
-import { Translatable, useWindowSize } from '@lib/services';
+import { Translatable } from '@lib/services';
 import { IonButton, IonIcon, popoverController, IonText } from '@ionic/vue';
-import { swapVertical } from 'ionicons/icons';
+import { arrowUp, arrowDown } from 'ionicons/icons';
 import { Ref, ref } from 'vue';
 
 const props = withDefaults(
@@ -52,7 +49,6 @@ const emits = defineEmits<{
   (e: 'change', value: MsSorterChangeEvent): void;
 }>();
 
-const { isLargeDisplay } = useWindowSize();
 const selectedOption: Ref<MsOption | undefined> = ref(props.defaultOption ? props.options.get(props.defaultOption) : undefined);
 const sortByAsc: Ref<boolean> = ref(props.sortByAsc ?? true);
 const labelRef = ref(selectedOption.value?.label || props.label);
@@ -96,7 +92,7 @@ async function onDidDismissPopover(popover: any): Promise<void> {
 .sorter-button {
   --background: transparent;
   --background-hover: transparent;
-  --color: var(--parsec-color-light-secondary-text);
+  --color: var(--parsec-color-light-secondary-hard-grey);
   min-height: 1rem;
 
   &::part(native) {
@@ -116,7 +112,7 @@ async function onDidDismissPopover(popover: any): Promise<void> {
     }
 
     &__icon {
-      color: var(--parsec-color-light-secondary-grey);
+      color: var(--parsec-color-light-secondary-hard-grey);
       font-size: 1rem;
 
       @include ms.responsive-breakpoint('sm') {
@@ -125,19 +121,23 @@ async function onDidDismissPopover(popover: any): Promise<void> {
     }
 
     &__text {
-      color: var(--parsec-color-light-secondary-text);
+      color: var(--parsec-color-light-secondary-hard-grey);
       font-size: 0.8125rem;
       font-weight: 500;
     }
 
-    &:hover ion-icon {
-      color: var(--parsec-color-light-primary-700);
+    &:hover .sorter-button-content__icon {
+      color: var(--parsec-color-light-secondary-text);
     }
   }
 
   &:hover {
     .sorter-button-content {
       background: var(--parsec-color-light-secondary-medium);
+
+      &__text {
+        color: var(--parsec-color-light-secondary-text);
+      }
     }
   }
 }
