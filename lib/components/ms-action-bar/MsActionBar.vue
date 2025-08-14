@@ -135,6 +135,88 @@ async function isButtonVisible(): Promise<void> {
   });
 }
 
+let checkTimeout: number | null = null;
+
+function checkVisibilityWithDebounce(): void {
+  if (checkTimeout) {
+    clearTimeout(checkTimeout);
+  }
+
+  checkTimeout = window.setTimeout(() => {
+    isButtonVisible();
+  }, 50);
+}
+
+// Observers pour détecter les changements automatiquement
+let mutationObserver: MutationObserver | null = null;
+let resizeObserver: ResizeObserver | null = null;
+
+function setupObservers(): void {
+  if (!actionBarButtonsList.value) return;
+
+  // 1. Observer les changements DOM dans la liste des boutons
+  mutationObserver = new MutationObserver((mutations) => {
+    let shouldRecheck = false;
+
+    mutations.forEach((mutation) => {
+      // Changements d'enfants (ajout/suppression de boutons)
+      if (mutation.type === 'childList') {
+        shouldRecheck = true;
+      }
+
+      // Changements d'attributs (style, class, etc.)
+      if (mutation.type === 'attributes' && (mutation.attributeName === 'style' || mutation.attributeName === 'class')) {
+        shouldRecheck = true;
+      }
+    });
+
+    if (shouldRecheck) {
+      checkVisibilityWithDebounce();
+    }
+  });
+
+  mutationObserver.observe(actionBarButtonsList.value, {
+    childList: true, // Changements d'enfants
+    subtree: true, // Changements dans les sous-éléments
+    attributes: true, // Changements d'attributs
+    attributeFilter: ['style', 'class', 'data-v-key'], // Surveiller les attributs importants
+  });
+
+  // 2. Observer les changements de taille du conteneur
+  resizeObserver = new ResizeObserver(() => {
+    checkVisibilityWithDebounce();
+  });
+
+  resizeObserver.observe(actionBarButtonsList.value);
+
+  // 3. Observer aussi le conteneur parent pour détecter les changements de layout
+  const parentContainer = actionBarButtonsList.value.closest('.action-bar');
+  if (parentContainer) {
+    resizeObserver.observe(parentContainer);
+  }
+}
+
+function cleanupObservers(): void {
+  if (mutationObserver) {
+    mutationObserver.disconnect();
+    mutationObserver = null;
+  }
+
+  if (resizeObserver) {
+    resizeObserver.disconnect();
+    resizeObserver = null;
+  }
+
+  if (checkTimeout) {
+    clearTimeout(checkTimeout);
+    checkTimeout = null;
+  }
+}
+
+// ========================================
+// EVENT HANDLERS (garde le resize en backup)
+// ========================================
+
 let resizeTimeout: number | null = null;
 
 function handleResize(): void {
@@ -166,6 +248,9 @@ async function openPopover(event: Event): Promise<void> {
 onMounted(async () => {
   initializeVisibility();
 
+  // Attendre que tout soit rendu
+  await nextTick();
+
   // Délai pour s'assurer que tous les composants sont rendus
   setTimeout(() => {
     isButtonVisible();
@@ -175,6 +260,7 @@ onMounted(async () => {
 });
 
 onUnmounted(() => {
+  cleanupObservers();
   window.removeEventListener('resize', handleResize);
   if (resizeTimeout) {
     clearTimeout(resizeTimeout);
@@ -187,7 +273,9 @@ watch(
   async () => {
     initializeVisibility();
     await nextTick();
-    isButtonVisible();
+    await isButtonVisible();
+    cleanupObservers();
+    setTimeout(setupObservers, 50); // Assurer que les observers sont mis en place après le rendu
   },
   { deep: true },
 );
