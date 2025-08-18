@@ -160,7 +160,7 @@ async function confirm(): Promise<boolean> {
 
   &__title {
     padding: 0;
-    color: var(--parsec-color-light-primary-800);
+    color: var(--parsec-color-light-secondary-text);
     display: flex;
     align-items: center;
     max-width: calc(100% - 2rem);
@@ -258,8 +258,8 @@ async function confirm(): Promise<boolean> {
 }
 
 .ms-info {
-  --ms-modal-next-button-background-color: var(--parsec-color-light-primary-500);
-  --ms-modal-next-button-background-hover-color: var(--parsec-color-light-primary-700);
+  --ms-modal-next-button-background-color: var(--parsec-color-light-secondary-text);
+  --ms-modal-next-button-background-hover-color: var(--parsec-color-light-secondary-contrast);
 }
 
 .ms-success {
@@ -268,8 +268,8 @@ async function confirm(): Promise<boolean> {
 }
 
 .ms-warning {
-  --ms-modal-next-button-background-color: var(--parsec-color-light-warning-500);
-  --ms-modal-next-button-background-hover-color: var(--parsec-color-light-warning-700);
+  --ms-modal-next-button-background-color: var(--parsec-color-light-secondary-text);
+  --ms-modal-next-button-background-hover-color: var(--parsec-color-light-secondary-contrast);
 }
 
 .ms-error {
