@@ -11,7 +11,7 @@
     <div class="sorter-button-content">
       <ion-icon
         class="sorter-button-content__icon ms-sorter-icon"
-        :icon="sortByAsc ? arrowDown : arrowUp"
+        :icon="sortByAsc ? arrowUp : arrowDown"
       />
       <ion-text class="sorter-button-content__text">
         {{ $msTranslate(labelRef) }}
