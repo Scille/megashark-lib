@@ -17,6 +17,7 @@ import DocumentImport from '@lib/assets/images/document-import.svg?raw';
 import DownloadIcon from '@lib/assets/images/download-icon.svg?raw';
 import Excel from '@lib/assets/images/excel.svg?raw';
 import ExpandIcon from '@lib/assets/images/expand-icon.svg?raw';
+import EyeOpenIcon from '@lib/assets/images/eye-open-icon.svg?raw';
 import FileImport from '@lib/assets/images/file-import.svg?raw';
 import FitToScreenIcon from '@lib/assets/images/fit-to-screen-icon.svg?raw';
 import Folder from '@lib/assets/images/folder.svg?raw';
@@ -106,6 +107,7 @@ export {
   DownloadIcon,
   EmptyFolder,
   ExpandIcon,
+  EyeOpenIcon,
   File,
   FileImport,
   FitToScreenIcon,
