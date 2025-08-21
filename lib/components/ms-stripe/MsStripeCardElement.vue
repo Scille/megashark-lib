@@ -11,20 +11,19 @@
     </span>
     <div class="input-content">
       <ion-icon
-        v-if="type !== 'cardNumber' || !_getBrandIcon()"
         class="icon"
         :class="errorMessage ? 'icon-error' : ''"
         slot="start"
         :icon="_getIcon()"
       />
-      <ms-image
-        v-else
-        class="icon"
-        :image="_getBrandIcon()"
-      />
       <div
         class="input form-input"
         :id="type"
+      />
+      <ms-image
+        v-if="type === 'cardNumber' || _getBrandIcon()"
+        class="icon"
+        :image="_getBrandIcon()"
       />
     </div>
     <span

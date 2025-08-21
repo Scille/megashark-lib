@@ -1,6 +1,8 @@
 <template>
   <div class="ms-summary-card">
-    <ion-title class="ms-summary-card-title title-h3">{{ $msTranslate(title) }}</ion-title>
+    <ion-header class="ms-summary-card-header">
+      <ion-text class="ms-summary-card-header__title title-h3">{{ $msTranslate(title) }}</ion-text>
+    </ion-header>
     <template
       v-for="(row, index) in rows"
       :key="`ms-summary-card-row${index}`"
@@ -34,25 +36,20 @@
     </template>
 
     <ion-button
-      class="update-button"
-      fill="clear"
+      class="update-button button-small"
+      fill="outline"
       @click="$emit('update')"
       v-show="!readOnly"
     >
-      <ion-icon
-        :icon="pencil"
-        class="update-button__icon"
-      />
       {{ $msTranslate(buttonLabel) }}
     </ion-button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { IonButton, IonIcon, IonTitle } from '@ionic/vue';
+import { IonButton, IonText, IonHeader } from '@ionic/vue';
 import { MsSummaryCardRowData } from '@lib/components/ms-card/types';
 import MsSummaryCardItem from '@lib/components/ms-card/MsSummaryCardItem.vue';
-import { pencil } from 'ionicons/icons';
 import { Translatable } from '@lib/services';
 
 withDefaults(
@@ -78,18 +75,20 @@ defineEmits<{
 .ms-summary-card {
   display: flex;
   flex-direction: column;
-  background: var(--parsec-color-light-secondary-background);
-  border: 1px solid var(--parsec-color-light-secondary-medium);
-  border-radius: var(--parsec-radius-8);
   gap: 1rem;
   width: 100%;
   position: relative;
-  padding: 1.5rem;
 
-  &-title {
-    color: var(--parsec-color-light-secondary-text);
-    margin: 0;
-    padding: 0;
+  &-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+
+    &__title {
+      color: var(--parsec-color-light-secondary-text);
+    }
   }
 
   &-row {
@@ -102,16 +101,12 @@ defineEmits<{
 
   .update-button {
     position: absolute;
-    right: 1rem;
-    top: 1rem;
+    right: 0;
+    top: 0;
+    z-index: 2;
 
     @include ms.responsive-breakpoint('xs') {
       position: initial;
-    }
-
-    &__icon {
-      font-size: 1rem;
-      margin-right: 0.5rem;
     }
   }
 }
