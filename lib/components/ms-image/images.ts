@@ -63,6 +63,7 @@ import Sql from '@lib/assets/images/sql.svg?raw';
 import SwapArrows from '@lib/assets/images/swap-arrows.svg?raw';
 import Default from '@lib/assets/images/text.svg?raw';
 import Text from '@lib/assets/images/txt.svg?raw';
+import UnsavedIcon from '@lib/assets/images/unsaved-icon.svg?raw';
 import UpdateRocket from '@lib/assets/images/update-rocket.svg?raw';
 import Vector from '@lib/assets/images/vector.svg?raw';
 import Video from '@lib/assets/images/video.svg?raw';
@@ -142,6 +143,7 @@ export {
   Restore,
   SidebarToggle,
   SwapArrows,
+  UnsavedIcon,
   UpdateRocket,
   VisaCard,
   VisaCardSmall,
