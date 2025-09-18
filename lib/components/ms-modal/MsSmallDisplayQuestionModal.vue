@@ -12,7 +12,7 @@
             class="ms-small-display-modal-header__title-container"
             v-if="title"
           >
-            <ion-title class="ms-small-display-modal-header__title titles-h3">
+            <ion-title class="ms-small-display-modal-header__title title-h3">
               {{ $msTranslate(title) }}
             </ion-title>
           </div>
