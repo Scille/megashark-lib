@@ -17,6 +17,7 @@
       :value="modelValue"
       :placeholder="$msTranslate(placeholder)"
       :clear-input="true"
+      aria-hidden="false"
       @ion-input="onChange($event.target.value)"
       @ion-focus="hasFocus = true"
       @ion-blur="hasFocus = false"

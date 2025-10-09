@@ -158,6 +158,7 @@
         <ms-password-input
           label="usage.components.inputs.msPasswordInput.label"
           v-model="passwordInputExample"
+          auto-complete-info="current-password"
           name="passwordInputExample"
         />
       </div>
