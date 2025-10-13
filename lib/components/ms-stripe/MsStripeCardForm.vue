@@ -21,6 +21,7 @@
         <ion-input
           class="form-input"
           ref="nameElement"
+          :aria-hidden="false"
           :placeholder="$msTranslate('lib.components.msStripe.cardHolderPlaceholder')"
           v-model="name"
           @ion-focus="hasFocus = true"

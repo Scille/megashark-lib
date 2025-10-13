@@ -22,6 +22,7 @@
         }"
         ref="input"
         :placeholder="$msTranslate(placeholder)"
+        aria-hidden="false"
         :value="modelValue"
         @ion-input="onChange($event.detail.value || '')"
         @ion-blur="onFocusChanged(false)"

@@ -4,6 +4,7 @@
       <ion-input
         v-for="i in codeLength"
         :key="`${i}`"
+        aria-hidden="false"
         ref="inputs"
         class="code-input-list__item title-h1"
         :class="{ 'has-values': codes[i - 1] !== '' }"
