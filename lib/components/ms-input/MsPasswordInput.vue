@@ -19,7 +19,9 @@
         class="form-input input"
         ref="input"
         aria-labelledby="passwordLabel"
+        aria-hidden="false"
         :type="passwordVisible ? 'text' : 'password'"
+        :autocomplete="autoCompleteInfo"
         @ion-input="onChange($event.target.value)"
         :value="modelValue"
         id="ms-password-input"
@@ -66,6 +68,7 @@ const props = defineProps<{
   modelValue?: string;
   errorMessage?: Translatable;
   passwordIsInvalid?: boolean;
+  autoCompleteInfo?: 'new-password' | 'current-password';
 }>();
 
 const emits = defineEmits<{

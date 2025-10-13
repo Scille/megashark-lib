@@ -14,6 +14,7 @@
     <ms-password-input
       :label="inputLabel"
       ref="passwordInput"
+      auto-complete-info="current-password"
       v-model="password"
       @on-enter-keyup="confirm()"
     />

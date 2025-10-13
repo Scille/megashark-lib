@@ -14,7 +14,7 @@
         {{ $msTranslate('lib.components.msChoosePasswordInput.description') }}
       </ion-text>
     </div>
-    <div
+    <form
       class="inputs-container"
       :class="{ 'inputs-container--column': !inline }"
     >
@@ -22,6 +22,7 @@
         <ms-password-input
           :label="passwordLabel"
           v-model="password"
+          auto-complete-info="new-password"
           name="password"
           ref="firstInputField"
           @on-enter-keyup="$emit('onEnterKeyup', password)"
@@ -31,6 +32,7 @@
         <ms-password-input
           :label="'lib.components.msChoosePasswordInput.confirmPasswordInputLabel'"
           v-model="passwordConfirm"
+          auto-complete-info="new-password"
           name="confirmPassword"
           @on-enter-keyup="$emit('onEnterKeyup', passwordConfirm)"
         />
@@ -41,7 +43,7 @@
           {{ $msTranslate('lib.components.msChoosePasswordInput.noMatch') }}
         </span>
       </div>
-    </div>
+    </form>
     <div class="password-criteria">
       <ion-text class="password-criteria__title title-h5">
         {{ $msTranslate('lib.components.msChoosePasswordInput.criteria.title') }}
