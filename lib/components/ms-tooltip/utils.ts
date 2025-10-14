@@ -45,6 +45,8 @@ async function openInformationTooltip(event: Event, text: Translatable): Promise
   return await openTooltip(event, text, TooltipAlignment.Center, TooltipSide.Bottom);
 }
 
+const controllers = new WeakMap<HTMLElement, AbortController>();
+
 async function attachMouseOverTooltip(
   el: HTMLElement,
   text: Translatable,
@@ -55,7 +57,7 @@ async function attachMouseOverTooltip(
   let popover: HTMLIonPopoverElement | undefined;
   let timeoutId: any = undefined;
 
-  el.addEventListener('mouseenter', async (event: MouseEvent): Promise<void> => {
+  async function onMouseEnter(event: MouseEvent): Promise<void> {
     if (popover || timeoutId !== undefined) {
       return;
     }
@@ -100,14 +102,33 @@ async function attachMouseOverTooltip(
         }
       }
     }, delay);
-  });
+  }
 
-  el.addEventListener('mouseleave', () => {
+  function onMouseLeave(): void {
     if (timeoutId) {
       clearTimeout(timeoutId);
       timeoutId = undefined;
     }
-  });
+  }
+
+  const prev = controllers.get(el);
+  if (prev) {
+    prev.abort();
+  }
+  const controller = new AbortController();
+  controllers.set(el, controller);
+  const opts: AddEventListenerOptions = { signal: controller.signal };
+
+  el.addEventListener('mouseenter', onMouseEnter, opts);
+  el.addEventListener('mouseleave', onMouseLeave, opts);
 }
 
-export { attachMouseOverTooltip, openInformationTooltip, openTooltip, TooltipAlignment, TooltipSide };
+function detachMouseOverTooltip(el: HTMLElement): void {
+  const controller = controllers.get(el);
+  if (controller) {
+    controller.abort();
+  }
+  controllers.delete(el);
+}
+
+export { attachMouseOverTooltip, detachMouseOverTooltip, openInformationTooltip, openTooltip, TooltipAlignment, TooltipSide };
