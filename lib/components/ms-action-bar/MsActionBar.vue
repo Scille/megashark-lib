@@ -4,12 +4,12 @@
   <ion-item-divider class="toolbar ion-margin-bottom secondary">
     <div
       class="action-bar"
-      ref="actionBarRef"
+      ref="actionBar"
     >
       <div class="action-bar-buttons-content">
         <div
           class="action-bar-buttons-list"
-          ref="actionBarButtonsListRef"
+          ref="actionBarButtonsList"
         >
           <ms-action-bar-button
             v-for="(button, index) in buttons"
@@ -19,7 +19,7 @@
             :image="button.image"
             :is-dropdown="button.isDropdown"
             @click="button.onClick"
-            :ref="(button) => setButtonRef(button, index)"
+            ref="buttonComponents"
             :class="{
               'ms-action-bar-button--visible': buttonVisibilityStates[index],
               'ms-action-bar-button--hidden': !buttonVisibilityStates[index],
@@ -55,7 +55,7 @@ import { IonItemDivider, popoverController, IonButton, IonIcon } from '@ionic/vu
 import { MsActionBarButton } from '@lib/components';
 import { Translatable } from '@lib/services';
 import { chevronDown, ellipsisHorizontal } from 'ionicons/icons';
-import { ref, onMounted, nextTick, watch, computed, onUnmounted } from 'vue';
+import { ref, onMounted, nextTick, watch, computed, onUnmounted, useTemplateRef } from 'vue';
 import MsActionBarPopover from '@lib/components/ms-action-bar/MsActionBarPopover.vue';
 
 const props = defineProps<{
@@ -68,14 +68,13 @@ const props = defineProps<{
   }[];
 }>();
 
-const buttonComponentRefs = ref<any[]>([]);
-const actionBarRef = ref<HTMLElement>();
-const actionBarButtonsListRef = ref<HTMLElement>();
+const buttonComponentRefs = useTemplateRef<Array<InstanceType<typeof MsActionBarButton>>>('buttonComponents');
+const actionBarRef = useTemplateRef<HTMLDivElement>('actionBar');
+const actionBarButtonsListRef = useTemplateRef<HTMLDivElement>('actionBarButtonsList');
 const buttonVisibilityStates = ref<boolean[]>([]);
 const actionBarWidth = ref(0);
-let resizeObserver: ResizeObserver | null = null;
+let resizeObserver: ResizeObserver | undefined = undefined;
 
-// Returns the list of hidden buttons
 const hiddenButtons = computed(() => {
   const hidden = props.buttons.filter((_, index) => buttonVisibilityStates.value[index] === false);
   return hidden;
@@ -140,11 +139,12 @@ function getButtonListWidth(): number {
   return actionBarWidth.value - slotWidth;
 }
 
-// Returns the width of a button
 function getButtonWidth(index: number): number {
+  if (!buttonComponentRefs.value) {
+    return 0;
+  }
   const buttonComponent = buttonComponentRefs.value[index];
-  const buttonElement = buttonComponent?.actionBarButtonRef?.value || buttonComponent?.$el;
-  return buttonElement ? buttonElement.getBoundingClientRect().width : 0;
+  return buttonComponent?.getWidth();
 }
 
 // Watches for changes in the number of buttons
@@ -168,10 +168,12 @@ watch(
   },
 );
 
-// ResizeObserver to monitor action bar width changes
 function setupResizeObserver(): void {
   if (!actionBarRef.value) return;
 
+  if (resizeObserver) {
+    resizeObserver.disconnect();
+  }
   resizeObserver = new ResizeObserver((entries) => {
     for (const entry of entries) {
       const newWidth = entry.contentRect.width;
@@ -196,13 +198,6 @@ function recalculateVisibility(): void {
   }, 10);
 }
 
-// Sets the ref for each button
-function setButtonRef(button: any, index: number): void {
-  if (button) {
-    buttonComponentRefs.value[index] = button;
-  }
-}
-
 async function openActionBarPopover(event: Event): Promise<void> {
   const popover = await popoverController.create({
     component: MsActionBarPopover,
@@ -219,9 +214,6 @@ async function openActionBarPopover(event: Event): Promise<void> {
 }
 
 onMounted(async () => {
-  await nextTick();
-
-  // Configuration initiale
   setupResizeObserver();
 
   if (actionBarRef.value) {

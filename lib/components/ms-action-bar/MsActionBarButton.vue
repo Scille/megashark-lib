@@ -4,7 +4,7 @@
   <ion-button
     class="ms-action-bar-button button-medium"
     size="default"
-    ref="actionBarButtonRef"
+    ref="actionBarButton"
   >
     <ion-icon
       class="ms-action-bar-button-icon__left"
@@ -32,11 +32,9 @@ import { MsImage } from '@lib/components/ms-image';
 import { Translatable } from '@lib/services';
 import { IonButton, IonIcon } from '@ionic/vue';
 import { chevronDown } from 'ionicons/icons';
-import { ref } from 'vue';
+import { useTemplateRef } from 'vue';
 
-const actionBarButtonRef = ref<HTMLElement | null>(null);
-
-defineExpose({ actionBarButtonRef });
+const actionBarButtonRef = useTemplateRef<InstanceType<typeof IonButton>>('actionBarButton');
 
 defineProps<{
   buttonLabel?: Translatable;
@@ -44,6 +42,12 @@ defineProps<{
   image?: string;
   isDropdown?: boolean;
 }>();
+
+defineExpose({ getWidth });
+
+function getWidth(): number {
+  return actionBarButtonRef.value?.$el.getBoundingClientRect().width ?? 0;
+}
 </script>
 
 <style lang="scss" scoped>

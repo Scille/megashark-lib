@@ -47,9 +47,9 @@ defineProps<{
 
 async function handleClick(btn: any): Promise<void> {
   if (btn.onClick) {
+    await popoverController.dismiss();
     await btn.onClick();
   }
-  await popoverController.dismiss();
 }
 </script>
 
