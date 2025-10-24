@@ -58,6 +58,7 @@ defineExpose({
 .button-view {
   color: var(--parsec-color-light-secondary-light);
   min-height: 1rem;
+  height: 100%;
   --ripple-color: transparent;
 
   &:not(.button-disabled) {
