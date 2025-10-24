@@ -75,6 +75,7 @@ const buttonVisibilityStates = ref<boolean[]>([]);
 const actionBarWidth = ref(0);
 let resizeObserver: ResizeObserver | undefined = undefined;
 
+// Returns the list of hidden buttons
 const hiddenButtons = computed(() => {
   const hidden = props.buttons.filter((_, index) => buttonVisibilityStates.value[index] === false);
   return hidden;
@@ -150,7 +151,7 @@ function getButtonWidth(index: number): number {
 // Watches for changes in the number of buttons
 // When buttons are added or removed, recalculates which ones can be displayed
 watch(
-  () => props.buttons.length,
+  () => props.buttons,
   () => {
     nextTick(() => calculateButtonVisibility());
   },
@@ -163,7 +164,7 @@ watch(
   () => actionBarWidth.value,
   (newWidth) => {
     if (newWidth > 0) {
-      calculateButtonVisibility();
+      recalculateVisibility();
     }
   },
 );
@@ -186,16 +187,13 @@ function setupResizeObserver(): void {
   resizeObserver.observe(actionBarRef.value);
 }
 
-// Allows to expose a method to recalculate button visibility
 function recalculateVisibility(): void {
   if (actionBarRef.value) {
     const rect = actionBarRef.value.getBoundingClientRect();
     actionBarWidth.value = rect.width;
   }
 
-  setTimeout(() => {
-    calculateButtonVisibility();
-  }, 10);
+  calculateButtonVisibility();
 }
 
 async function openActionBarPopover(event: Event): Promise<void> {
@@ -228,10 +226,6 @@ onUnmounted(() => {
   if (resizeObserver) {
     resizeObserver.disconnect();
   }
-});
-
-defineExpose({
-  recalculateVisibility,
 });
 </script>
 
