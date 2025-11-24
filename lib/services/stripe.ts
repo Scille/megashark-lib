@@ -7,12 +7,14 @@ import type {
   Stripe,
   StripeCardCvcElement,
   StripeCardCvcElementChangeEvent,
+  StripeCardElementOptions,
   StripeCardExpiryElement,
   StripeCardExpiryElementChangeEvent,
   StripeCardNumberElement,
   StripeCardNumberElementChangeEvent,
   StripeElementLocale,
   StripeElements,
+  StripeElementsOptions,
 } from '@stripe/stripe-js';
 import { App } from 'vue';
 
@@ -98,7 +100,10 @@ export class StripeService implements IStripeService {
     if (!this.elements) {
       return;
     }
-    this.elements.update({ locale: LOCALES.get(locale) });
+    const updateOptions: StripeElementsOptions = {
+      locale: LOCALES.get(locale),
+    };
+    this.elements.update(updateOptions);
   }
 
   _verifyPublishableKey(config: StripeConfig): void {
@@ -132,7 +137,7 @@ export class StripeService implements IStripeService {
 
     let cardElement: StripeCardElementType;
 
-    const options = {
+    const options: StripeCardElementOptions = {
       style: StripeElementBaseStyle,
     };
     switch (type) {
@@ -182,7 +187,7 @@ export const StripeElementBaseStyle = {
     '::placeholder': {
       color: '#8585AD',
     },
-    backgroundColor: 'none',
+    backgroundColor: 'transparent',
   },
   invalid: {
     color: '#cc3347',
