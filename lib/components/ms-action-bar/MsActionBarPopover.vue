@@ -19,7 +19,7 @@
           :image="btn.image"
           class="item-content__icon item-content__icon--left"
         />
-        <ion-label class="item-content__label button-medium">{{ $msTranslate(btn.label) }}</ion-label>
+        <ion-text class="item-content__label button-medium">{{ $msTranslate(btn.label) }}</ion-text>
         <ion-icon
           v-if="btn.isDropdown"
           :icon="chevronDown"
@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonIcon, IonItem, IonLabel, IonList, popoverController } from '@ionic/vue';
+import { IonIcon, IonItem, IonText, IonList, popoverController } from '@ionic/vue';
 import { MsImage } from '@lib/components';
 import { Translatable } from '@lib/services';
 import { chevronDown } from 'ionicons/icons';

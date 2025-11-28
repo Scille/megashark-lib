@@ -140,7 +140,7 @@ async function confirm(): Promise<boolean> {
 .ms-modal {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1.5rem;
   height: 100%;
   justify-content: start;
 
