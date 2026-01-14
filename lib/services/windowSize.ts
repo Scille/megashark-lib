@@ -1,5 +1,6 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
+import { popoverController } from '@ionic/vue';
 import { ComputedRef, Ref, computed, inject, onMounted, onUnmounted, ref } from 'vue';
 
 interface _WindowSizeAttributes {
@@ -26,11 +27,17 @@ export function useWindowSize(): _WindowSizeAttributes {
   const isLargeDisplay = computed(() => windowWidth.value > threshold);
   const isSmallDisplay = computed(() => windowWidth.value <= threshold);
 
-  const updateWidth = (): void => {
+  const updateWidth = async (): Promise<void> => {
+    if (await popoverController.getTop()) {
+      await popoverController.dismiss();
+    }
     windowWidth.value = window.innerWidth;
   };
 
-  const updateHeight = (): void => {
+  const updateHeight = async (): Promise<void> => {
+    if (await popoverController.getTop()) {
+      await popoverController.dismiss();
+    }
     windowHeight.value = window.innerHeight;
   };
 
