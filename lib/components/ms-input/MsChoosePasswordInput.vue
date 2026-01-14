@@ -26,6 +26,8 @@
           name="password"
           ref="firstInputField"
           @on-enter-keyup="$emit('onEnterKeyup', password)"
+          @blur="showNoMatchError = passwordConfirm.length > 0"
+          @change="showNoMatchError = false"
         />
       </div>
       <div class="inputs-container-item">
@@ -35,10 +37,12 @@
           auto-complete-info="new-password"
           name="confirmPassword"
           @on-enter-keyup="$emit('onEnterKeyup', passwordConfirm)"
+          @blur="showNoMatchError = true"
+          @change="showNoMatchError = false"
         />
         <span
           class="form-helperText"
-          v-if="password !== passwordConfirm && passwordConfirm.length > 0"
+          v-if="showNoMatchError && password !== passwordConfirm && passwordConfirm.length > 0"
         >
           {{ $msTranslate('lib.components.msChoosePasswordInput.noMatch') }}
         </span>
@@ -75,6 +79,7 @@ import { checkmarkCircle, close } from 'ionicons/icons';
 const password = ref('');
 const passwordConfirm = ref('');
 const firstInputFieldRef = useTemplateRef('firstInputField');
+const showNoMatchError = ref(false);
 
 const CRITERIA = new Map([
   ['length', PasswordValidation.Criteria.Length],

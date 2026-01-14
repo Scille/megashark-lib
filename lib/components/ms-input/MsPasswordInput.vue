@@ -27,7 +27,7 @@
         id="ms-password-input"
         :clear-on-edit="false"
         @ion-focus="hasFocus = true"
-        @ion-blur="hasFocus = false"
+        @ion-blur="onBlur()"
         @keyup.enter="onEnterPress()"
       />
       <div
@@ -75,6 +75,7 @@ const emits = defineEmits<{
   (e: 'change', value: string): void;
   (e: 'onEnterKeyup', value: string): void;
   (e: 'update:modelValue', value: string): void;
+  (e: 'blur'): void;
 }>();
 
 defineExpose({
@@ -87,6 +88,11 @@ function setFocus(): void {
       inputRef.value.$el.setFocus();
     }
   }, 200);
+}
+
+function onBlur(): void {
+  hasFocus.value = false;
+  emits('blur');
 }
 
 async function onChange(value: any): Promise<void> {
