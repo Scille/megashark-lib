@@ -28,6 +28,7 @@ export class ToastManager {
     confirmButtonLabel?: Translatable;
     duration?: number;
     cssClass?: string | string[];
+    smallDisplay?: boolean;
   }): Promise<any> {
     const duration = toastConfig.duration || DEFAULT_TOAST_DURATION;
 
@@ -46,6 +47,8 @@ export class ToastManager {
       cssClass: toastCls,
       mode: 'ios',
       duration: duration,
+      position: toastConfig.smallDisplay === true ? 'top' : 'bottom',
+      swipeGesture: toastConfig.smallDisplay === true ? 'vertical' : undefined,
       icon: toastConfig.theme ? this._getIcon(toastConfig.theme) : toastConfig.icon,
       buttons: [
         {

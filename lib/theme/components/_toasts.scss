@@ -1,5 +1,7 @@
 /* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
 
+@use '@lib/theme' as ms;
+
 /* **** Parsec toasts **** */
 
 @property --ms-toast-offset {
@@ -12,6 +14,11 @@ ion-toast.notification-toast {
   --background: none;
   --box-shadow: none;
   --start: var(--ms-toast-offset);
+
+  @include ms.responsive-breakpoint('xs') {
+    --start: 1rem;
+    --end: 1rem;
+  }
 
   &.ms-info {
     --ms-notification-toast-text-color: var(--parsec-color-light-info-700);
@@ -61,7 +68,7 @@ ion-toast.notification-toast {
     max-width: 27rem;
     padding: 0.5rem 1rem;
     position: relative;
-    margin: auto auto 2rem;
+    margin: 0.5rem auto 2rem;
     bottom: 0;
     box-shadow: var(--parsec-shadow-light);
 
