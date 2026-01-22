@@ -209,7 +209,6 @@
     <example-block-line>
       <ms-checkbox
         v-model="checkboxValue"
-        label="usage.components.checkbox.label"
       />
       {{ $msTranslate('usage.components.checkbox.value') }} {{ checkboxValue }}
     </example-block-line>
