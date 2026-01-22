@@ -19,6 +19,22 @@ export enum WindowSizeBreakpoints {
   XS = 576,
 }
 
+export function getBreakpointFromWidth(): WindowSizeBreakpoints {
+  const width = window.innerWidth;
+  if (width <= WindowSizeBreakpoints.XS) {
+    return WindowSizeBreakpoints.XS;
+  } else if (width <= WindowSizeBreakpoints.SM) {
+    return WindowSizeBreakpoints.SM;
+  } else if (width <= WindowSizeBreakpoints.MD) {
+    return WindowSizeBreakpoints.MD;
+  } else if (width <= WindowSizeBreakpoints.LG) {
+    return WindowSizeBreakpoints.LG;
+  } else if (width <= WindowSizeBreakpoints.XL) {
+    return WindowSizeBreakpoints.XL;
+  }
+  return WindowSizeBreakpoints.XXL;
+}
+
 export function useWindowSize(): _WindowSizeAttributes {
   const threshold = inject('msWindowWidthThreshold', 768) ?? 768;
 
