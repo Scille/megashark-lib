@@ -45,9 +45,6 @@
       <ion-button @click="openToast">
         {{ $msTranslate('usage.services.toast.open') }}
       </ion-button>
-      <ion-button @click="openToast(true)">
-        {{ $msTranslate('usage.services.toast.openSmall') }}
-      </ion-button>
     </example-block-line>
   </example-block>
 
@@ -126,14 +123,13 @@ function decodeFromB64(): void {
   b64DecodedResult.value = Base64.decode(b64EncodedString.value);
 }
 
-async function openToast(smallDisplay?: boolean): Promise<void> {
+async function openToast(): Promise<void> {
   document.documentElement.style.setProperty('--ms-toast-offset', `${toastOffset.value}px`);
 
   await toastManager.createAndPresent({
     title: 'usage.services.toast.messageTitle',
     message: 'usage.services.toast.message',
     theme: toastTheme.value,
-    smallDisplay: smallDisplay,
   });
 }
 

@@ -231,7 +231,6 @@
       "toast": {
         "title": "Toast",
         "open": "Show a toast",
-        "openSmall": "Show a toast (small display)",
         "messageTitle": "A sample toast",
         "message": "Just a sample toast to show what they look like.",
         "offset": "Offset",

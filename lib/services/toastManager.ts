@@ -2,7 +2,7 @@
 
 import { toastController } from '@ionic/vue';
 import { MsReportTheme } from '@lib/components';
-import { I18n, Translatable } from '@lib/services';
+import { I18n, Translatable, WindowSizeBreakpoints, getBreakpointFromWidth } from '@lib/services';
 import { checkmark, closeCircle, information, warning } from 'ionicons/icons';
 
 const DEFAULT_TOAST_DURATION = 5000;
@@ -28,9 +28,9 @@ export class ToastManager {
     confirmButtonLabel?: Translatable;
     duration?: number;
     cssClass?: string | string[];
-    smallDisplay?: boolean;
   }): Promise<any> {
     const duration = toastConfig.duration || DEFAULT_TOAST_DURATION;
+    const isSmallDisplay = [WindowSizeBreakpoints.XS, WindowSizeBreakpoints.SM].includes(getBreakpointFromWidth());
 
     const toastCls = ['notification-toast', toastConfig.theme];
     if (toastConfig.cssClass) {
@@ -47,8 +47,8 @@ export class ToastManager {
       cssClass: toastCls,
       mode: 'ios',
       duration: duration,
-      position: toastConfig.smallDisplay === true ? 'top' : 'bottom',
-      swipeGesture: toastConfig.smallDisplay === true ? 'vertical' : undefined,
+      position: isSmallDisplay === true ? 'top' : 'bottom',
+      swipeGesture: isSmallDisplay === true ? 'vertical' : undefined,
       icon: toastConfig.theme ? this._getIcon(toastConfig.theme) : toastConfig.icon,
       buttons: [
         {
