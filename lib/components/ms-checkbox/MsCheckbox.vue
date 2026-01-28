@@ -7,9 +7,9 @@
       'indeterminate' : indeterminate,
       [labelPosition]: true,
     }"
-    @change="onChange"
   >
     <input
+      @change="onChange"
       class="ms-checkbox"
       type="checkbox"
       ref="checkboxRef"
