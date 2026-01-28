@@ -3,7 +3,7 @@
 <template>
   <div
     class="checkbox-container"
-    :class="{labelPosition}"
+    :class="{ labelPosition }"
   >
     <input
       @change="onChange"
