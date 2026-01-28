@@ -3,12 +3,14 @@
 <template>
   <div
     class="checkbox-container"
-    :class="labelPosition"
+    :class="{
+      'indeterminate' : indeterminate,
+      [labelPosition]: true,
+    }"
     @change="onChange"
   >
     <input
       class="ms-checkbox"
-      :class="{ 'indeterminate' : indeterminate }"
       type="checkbox"
       ref="checkboxRef"
       :name="customName"
@@ -17,6 +19,7 @@
       :checked="checked"
     />
     <label
+      v-if="$slots.default"
       :for="customName"
       class="button-medium ms-checkbox-label"
     >
