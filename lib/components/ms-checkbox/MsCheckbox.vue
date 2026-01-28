@@ -90,10 +90,10 @@ async function onChange(_event: Event): Promise<void> {
 
   &.right {
     flex-direction: row;
-    justify-content: space-between;
   }
 
   &.left {
+    justify-content: space-between;
     flex-direction: row-reverse;
   }
 
