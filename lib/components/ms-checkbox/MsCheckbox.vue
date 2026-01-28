@@ -1,7 +1,10 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <div class="checkbox-container">
+  <div
+    class="checkbox-container"
+    :class="labelPosition"
+  >
     <input
       class="ms-checkbox"
       type="checkbox"
@@ -30,12 +33,14 @@ const props = withDefaults(
     checked?: boolean;
     indeterminate?: boolean;
     customName?: string;
+    labelPosition?: 'left' | 'right';
   }>(),
   {
     modelValue: undefined,
     checked: undefined,
     indeterminate: undefined,
     customName: () => `input-${Math.random().toString(36).substring(2, 9)}`,
+    labelPosition: 'right',
   },
 );
 
@@ -82,13 +87,23 @@ async function onChange(_event: Event): Promise<void> {
   gap: 0.5em;
   padding: 0.25rem 0;
   cursor: pointer;
+
+  &.right {
+    flex-direction: row;
+  }
+
+  &.left {
+    flex-direction: row-reverse;
+  }
 }
 
 .ms-checkbox {
   appearance: none;
   -webkit-appearance: none;
   width: 20px;
+  min-width: 20px;
   height: 20px;
+  min-height: 20px;
   border-radius: var(--parsec-radius-6);
   border: 2px solid var(--parsec-color-light-secondary-light);
   background: var(--parsec-color-light-secondary-white);
