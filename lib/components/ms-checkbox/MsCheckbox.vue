@@ -192,7 +192,7 @@ async function onChange(_event: Event): Promise<void> {
   right: 1.5px;
 }
 
-.checkbox-container[ms-indeterminate="true"] {
+.checkbox-container[ms-indeterminate="true"] .ms-checkbox {
   background: var(--parsec-color-light-primary-600);
   border-color: var(--parsec-color-light-primary-600);
 
