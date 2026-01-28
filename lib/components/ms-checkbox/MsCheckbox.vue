@@ -8,9 +8,6 @@
   >
     <input
       class="ms-checkbox"
-      :class="{
-        'indeterminate' : indeterminate,
-      }"
       type="checkbox"
       ref="checkboxRef"
       :name="customName"
@@ -195,7 +192,7 @@ async function onChange(_event: Event): Promise<void> {
   right: 1.5px;
 }
 
-.ms-checkbox.indeterminate {
+.checkbox-container[ms-indeterminate="true"] {
   background: var(--parsec-color-light-primary-600);
   border-color: var(--parsec-color-light-primary-600);
 
