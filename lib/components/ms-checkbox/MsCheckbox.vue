@@ -3,10 +3,7 @@
 <template>
   <div
     class="checkbox-container"
-    :class="{
-      'indeterminate' : indeterminate,
-      [labelPosition]: true,
-    }"
+    :class="{labelPosition}"
   >
     <input
       @change="onChange"
