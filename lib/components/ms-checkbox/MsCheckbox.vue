@@ -4,6 +4,7 @@
   <div
     class="checkbox-container"
     :class="labelPosition"
+    @change="onChange"
   >
     <input
       class="ms-checkbox"
@@ -13,7 +14,6 @@
       :id="customName"
       :ms-indeterminate="indeterminate"
       :checked="checked"
-      @change="onChange"
     />
     <label
       :for="customName"
@@ -90,10 +90,18 @@ async function onChange(_event: Event): Promise<void> {
 
   &.right {
     flex-direction: row;
+    justify-content: space-between;
   }
 
   &.left {
     flex-direction: row-reverse;
+  }
+
+  &:hover {
+    .ms-checkbox {
+      outline: 1px solid var(--parsec-color-light-primary-300);
+      outline-offset: 2px;
+    }
   }
 }
 
@@ -194,10 +202,5 @@ async function onChange(_event: Event): Promise<void> {
     opacity: 1;
     transition: opacity 0.12s ease;
   }
-}
-
-.ms-checkbox:hover {
-  outline: 1px solid var(--parsec-color-light-primary-500);
-  outline-offset: 2px;
 }
 </style>
