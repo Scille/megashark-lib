@@ -1,16 +1,23 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <div>
+  <div class="checkbox-container">
     <input
       class="ms-checkbox"
       type="checkbox"
       ref="checkboxRef"
+      :name="customName"
+      :id="customName"
       :ms-indeterminate="indeterminate"
       :checked="checked"
       @change="onChange"
     />
-    <slot />
+    <label
+      :for="customName"
+      class="button-medium ms-checkbox-label"
+    >
+      <slot />
+    </label>
   </div>
 </template>
 
@@ -22,11 +29,13 @@ const props = withDefaults(
     modelValue?: boolean;
     checked?: boolean;
     indeterminate?: boolean;
+    customName?: string;
   }>(),
   {
     modelValue: undefined,
     checked: undefined,
     indeterminate: undefined,
+    customName: () => `input-${Math.random().toString(36).substring(2, 9)}`,
   },
 );
 
@@ -67,73 +76,113 @@ async function onChange(_event: Event): Promise<void> {
 </script>
 
 <style lang="scss" scoped>
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.25rem 0;
+  cursor: pointer;
+}
+
 .ms-checkbox {
   appearance: none;
   -webkit-appearance: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  border: 2px solid #c7c9d1;
-  background: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--parsec-radius-6);
+  border: 2px solid var(--parsec-color-light-secondary-light);
+  background: var(--parsec-color-light-secondary-white);
   cursor: pointer;
   position: relative;
+  display: grid;
+  place-content: center;
+  outline: 1px solid transparent;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.12s ease,
+    outline 0.12s linear;
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 2px;
+    background: var(--parsec-color-light-secondary-white);
+    opacity: 0;
+    border-radius: 1px;
+    transform: rotate(0deg) scale(1);
+    top: calc(50% - 1px);
+    right: calc(50% - 0.5px );
+    transition:
+      transform 0.18s ease,
+      opacity 0.18s ease;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background: var(--parsec-color-light-secondary-white);
+    opacity: 0;
+    border-radius: 1px;
+    transform: rotate(0deg) scale(1);
+    top: calc(50% - 1px);
+    right: calc(50% - 6px);
+    transition:
+      transform 0.18s ease,
+      opacity 0.12s ease;
+  }
+
+  &-label {
+    user-select: none;
+    cursor: pointer;
+    color: var(--parsec-color-light-secondary-text);
+  }
 }
 
-/* Checked */
 .ms-checkbox:checked {
-  background: #1a73e8;
-  border-color: #1a73e8;
+  background: var(--parsec-color-light-primary-600);
+  border-color: var(--parsec-color-light-primary-600);
+}
+
+.ms-checkbox:checked::before {
+  transform: rotate(45deg) scale(1);
+  opacity: 1;
+  top: 9px;
+  right: 8px;
 }
 
 .ms-checkbox:checked::after {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: 2px;
-  width: 6px;
-  height: 12px;
-  border: solid #fff;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+  transform: rotate(-50deg) scale(1);
+  opacity: 1;
+  top: 7px;
+  right: 1.5px;
 }
 
-/* Indeterminate */
-.ms-checkbox:indeterminate {
-  background: #1a73e8;
-  border-color: #1a73e8;
+.ms-checkbox[ms-indeterminate] {
+  background: var(--parsec-color-light-primary-600);
+  border-color: var(--parsec-color-light-primary-600);
+
+  &::before {
+    opacity: 1;
+    border-radius: 1px;
+    transition: opacity 0.12s ease;
+  }
+
+  &::after {
+    opacity: 1;
+    transition: opacity 0.12s ease;
+  }
 }
 
-.ms-checkbox:indeterminate::after {
-  content: "";
-  position: absolute;
-  top: 9px;
-  left: 4px;
-  width: 12px;
-  height: 2px;
-  background: #fff;
-  border-radius: 1px;
+.ms-checkbox:hover {
+  outline: 1px solid var(--parsec-color-light-primary-500);
+  outline-offset: 2px;
 }
-
-// .checkbox {
-//   margin: 0;
-//   --size: 1.25rem;
-//   --checkbox-background-checked: var(--parsec-color-light-primary-600);
-//   --checkbox-border-checked: var(--parsec-color-light-primary-600);
-
-//   &::part(container) {
-//     border: 2px solid var(--parsec-color-light-secondary-light);
-//     border-radius: var(--parsec-radius-6);
-//     padding: 2px;
-//   }
-
-//   // eslint-disable-next-line vue-scoped-css/no-unused-selector
-//   &-checked::part(container) {
-//     border: 2px solid var(--parsec-color-light-primary-600);
-//   }
-
-//   // eslint-disable-next-line vue-scoped-css/no-unused-selector
-//   &-indeterminate::part(container) {
-//     border: 2px solid var(--parsec-color-light-primary-600);
-//   }
-// }
 </style>
