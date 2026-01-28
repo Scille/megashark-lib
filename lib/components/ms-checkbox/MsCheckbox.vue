@@ -1,12 +1,12 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <div
+  <label
     class="checkbox-container"
     :class="labelPosition"
-    @change="onChange"
   >
     <input
+      @change="onChange"
       class="ms-checkbox"
       type="checkbox"
       ref="checkboxRef"
@@ -15,14 +15,14 @@
       :ms-indeterminate="indeterminate"
       :checked="checked"
     />
-    <label
+    <div
       v-if="$slots.default"
       :for="customName"
       class="button-medium ms-checkbox-label"
     >
       <slot />
-    </label>
-  </div>
+    </div>
+  </label>
 </template>
 
 <script setup lang="ts">
@@ -192,7 +192,7 @@ async function onChange(_event: Event): Promise<void> {
   right: 1.5px;
 }
 
-.ms-checkbox[ms-indeterminate="true"] {
+.ms-checkbox[ms-indeterminate='true'] {
   background: var(--parsec-color-light-primary-600);
   border-color: var(--parsec-color-light-primary-600);
 
