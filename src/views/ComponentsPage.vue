@@ -23,9 +23,7 @@
   <example-block title="usage.components.stripe.title">
     <template v-if="stripeService.isInitialized()">
       <example-block-line>
-        <ms-checkbox
-          v-model="cardRequireName"
-        >
+        <ms-checkbox v-model="cardRequireName">
           {{ $msTranslate('usage.components.stripe.requireNameLabel') }}
         </ms-checkbox>
       </example-block-line>
@@ -209,9 +207,7 @@
   <!-- checkbox -->
   <example-block title="usage.components.checkbox.title">
     <example-block-line>
-      <ms-checkbox v-model="checkboxValue">
-        {{ $msTranslate('usage.components.checkbox.value') }} {{ checkboxValue }}
-      </ms-checkbox>
+      <ms-checkbox v-model="checkboxValue"> {{ $msTranslate('usage.components.checkbox.value') }} {{ checkboxValue }} </ms-checkbox>
     </example-block-line>
   </example-block>
 

@@ -12,7 +12,7 @@
       ref="checkboxRef"
       :name="customName"
       :id="customName"
-      :ms-indeterminate="indeterminate"
+      :indeterminate="indeterminate"
       :checked="checked"
     />
     <label
@@ -67,11 +67,14 @@ onMounted(() => {
   }
 });
 
-watch(() => props.indeterminate, () => {
-  if (checkbox.value) {
-    checkbox.value.indeterminate = !!props.indeterminate;
-  }
-});
+watch(
+  () => props.indeterminate,
+  () => {
+    if (checkbox.value) {
+      checkbox.value.indeterminate = !!props.indeterminate;
+    }
+  },
+);
 
 async function onChange(_event: Event): Promise<void> {
   const value = checkbox.value?.checked ?? false;
@@ -140,7 +143,7 @@ async function onChange(_event: Event): Promise<void> {
     border-radius: 1px;
     transform: rotate(0deg) scale(1);
     top: calc(50% - 1px);
-    right: calc(50% - 0.5px );
+    right: calc(50% - 0.5px);
     transition:
       transform 0.18s ease,
       opacity 0.18s ease;
@@ -188,7 +191,7 @@ async function onChange(_event: Event): Promise<void> {
   right: 1.5px;
 }
 
-.ms-checkbox[ms-indeterminate] {
+.ms-checkbox[indeterminate] {
   background: var(--parsec-color-light-primary-600);
   border-color: var(--parsec-color-light-primary-600);
 
