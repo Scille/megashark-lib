@@ -3,11 +3,14 @@
 <template>
   <div
     class="checkbox-container"
-    :class="{ labelPosition }"
+    :class="{labelPosition}"
+    @change="onChange"
   >
     <input
-      @change="onChange"
       class="ms-checkbox"
+      :class="{
+        'indeterminate' : indeterminate,
+      }"
       type="checkbox"
       ref="checkboxRef"
       :name="customName"
