@@ -3,6 +3,7 @@
 <template>
   <label
     class="checkbox-container"
+    :for="customName"
     :class="labelPosition"
   >
     <input
@@ -17,8 +18,7 @@
     />
     <div
       v-if="$slots.default"
-      :for="customName"
-      class="button-medium ms-checkbox-label"
+      class="button-medium ms-checkbox-text"
     >
       <slot />
     </div>
@@ -166,10 +166,10 @@ async function onChange(_event: Event): Promise<void> {
       opacity 0.12s ease;
   }
 
-  &-label {
+  &-text {
     user-select: none;
     cursor: pointer;
-    color: var(--parsec-color-light-secondary-text);
+    color: var(--parsec-color-light-secondary-soft-text);
   }
 }
 
