@@ -3,16 +3,19 @@
 <template>
   <label
     class="checkbox-container"
-    :for="customName"
-    :class="labelPosition"
+    :for="elName"
+    :class="{
+      'checkbox-container-right': computedLabelPosition === 'right',
+      'checkbox-container-left': computedLabelPosition === 'left',
+    }"
   >
     <input
       @change="onChange"
       class="ms-checkbox"
       type="checkbox"
       ref="checkboxRef"
-      :name="customName"
-      :id="customName"
+      :name="elName"
+      :id="elName"
       :ms-indeterminate="indeterminate"
       :checked="checked"
     />
@@ -26,31 +29,43 @@
 </template>
 
 <script setup lang="ts">
-import { watch, useTemplateRef, computed, onMounted } from 'vue';
+import { watch, useTemplateRef, computed, onMounted, useSlots } from 'vue';
 
 const props = withDefaults(
   defineProps<{
     modelValue?: boolean;
     checked?: boolean;
     indeterminate?: boolean;
-    customName?: string;
     labelPosition?: 'left' | 'right';
   }>(),
   {
     modelValue: undefined,
     checked: undefined,
     indeterminate: undefined,
-    customName: () => `input-${Math.random().toString(36).substring(2, 9)}`,
-    labelPosition: 'right',
+    labelPosition: undefined,
   },
 );
+
+const slots = useSlots();
 
 const emits = defineEmits<{
   (e: 'change', value: boolean): void;
   (e: 'update:modelValue', value: boolean): void;
 }>();
 
+const elName = `ms-checkbox-${window.crypto.randomUUID()}`;
+
 const checkbox = useTemplateRef<HTMLInputElement>('checkboxRef');
+
+const computedLabelPosition = computed(() => {
+  if (props.labelPosition !== undefined) {
+    return props.labelPosition;
+  }
+  if (slots.default) {
+    return 'right';
+  }
+  return undefined;
+});
 
 const checked = computed(() => {
   if (props.modelValue !== undefined) {
@@ -92,11 +107,11 @@ async function onChange(_event: Event): Promise<void> {
   padding: 0.25rem 0;
   cursor: pointer;
 
-  &.right {
+  &-right {
     flex-direction: row;
   }
 
-  &.left {
+  &-left {
     justify-content: space-between;
     flex-direction: row-reverse;
   }
