@@ -47,5 +47,6 @@ defineProps<{
   border-radius: var(--parsec-radius-6);
   box-shadow: var(--parsec-shadow-light);
   text-align: center;
+  white-space: pre-line;
 }
 </style>
