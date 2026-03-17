@@ -66,21 +66,21 @@ function getClass(status: MsStepStatus): string {
     height: 1.5px;
   }
   .left-line {
-    background: var(--parsec-color-light-primary-600);
+    background: var(--parsec-color-primary-600);
   }
   .circle {
-    background: var(--parsec-color-light-secondary-background);
+    background: var(--parsec-color-secondary-background);
     width: 1rem;
     height: 1rem;
     border-radius: var(--parsec-radius-circle);
-    border: 1.5px solid var(--parsec-color-light-primary-600);
+    border: 1.5px solid var(--parsec-color-primary-600);
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .right-line {
-    background: var(--parsec-color-light-secondary-soft-grey);
+    background: var(--parsec-color-secondary-soft-grey);
   }
 }
 
@@ -88,13 +88,13 @@ function getClass(status: MsStepStatus): string {
   opacity: 0.5;
 
   .right-line {
-    background: var(--parsec-color-light-primary-600);
+    background: var(--parsec-color-primary-600);
   }
 
   .circle {
-    background: var(--parsec-color-light-primary-600);
+    background: var(--parsec-color-primary-600);
     .icon-checkmark {
-      color: var(--parsec-color-light-secondary-white);
+      color: var(--parsec-color-secondary-white);
     }
   }
 }
@@ -104,9 +104,9 @@ function getClass(status: MsStepStatus): string {
     opacity: 0.5;
   }
   .circle {
-    background: var(--parsec-color-light-secondary-background);
+    background: var(--parsec-color-secondary-background);
     .inner-circle-active {
-      background: var(--parsec-color-light-primary-600);
+      background: var(--parsec-color-primary-600);
       width: 0.5rem;
       height: 0.5rem;
       border-radius: var(--parsec-radius-32);
@@ -114,16 +114,16 @@ function getClass(status: MsStepStatus): string {
     }
   }
   .right-line {
-    background: var(--parsec-color-light-secondary-soft-grey);
+    background: var(--parsec-color-secondary-soft-grey);
   }
 }
 
 .default {
   .left-line {
-    background: var(--parsec-color-light-secondary-soft-grey);
+    background: var(--parsec-color-secondary-soft-grey);
   }
   .circle {
-    border-color: var(--parsec-color-light-secondary-grey);
+    border-color: var(--parsec-color-secondary-grey);
 
     .inner-circle-done {
       width: 0.5rem;

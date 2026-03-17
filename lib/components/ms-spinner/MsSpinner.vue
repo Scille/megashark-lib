@@ -39,7 +39,7 @@ const spinnerSizeFormatted = computed(() => `${spinnerSize.value}px`);
   gap: 0.5rem;
 
   &-text {
-    color: var(--parsec-color-light-secondary-grey);
+    color: var(--parsec-color-secondary-grey);
   }
 }
 
@@ -65,7 +65,7 @@ const spinnerSizeFormatted = computed(() => `${spinnerSize.value}px`);
 }
 
 .circular-progress circle.bg {
-  stroke: var(--parsec-color-light-primary-50);
+  stroke: var(--parsec-color-primary-50);
 }
 
 .circular-progress circle.fg {
@@ -73,7 +73,7 @@ const spinnerSizeFormatted = computed(() => `${spinnerSize.value}px`);
   transform-origin: var(--half-size) var(--half-size);
   stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
   transition: stroke-dasharray 0.3s linear 0s;
-  stroke: var(--parsec-color-light-primary-500);
+  stroke: var(--parsec-color-primary-500);
 }
 
 @property --progress {

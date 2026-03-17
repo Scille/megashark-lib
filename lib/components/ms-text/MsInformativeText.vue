@@ -32,13 +32,13 @@ defineProps<{
   max-width: 37.5rem;
 
   &__icon {
-    color: var(--parsec-color-light-primary-600);
+    color: var(--parsec-color-primary-600);
     font-size: 1.25rem;
     min-width: 1.25rem;
   }
 
   &__text {
-    color: var(--parsec-color-light-secondary-grey);
+    color: var(--parsec-color-secondary-grey);
   }
 }
 </style>

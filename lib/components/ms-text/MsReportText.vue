@@ -43,23 +43,23 @@ function getIcon(): string {
 <style scoped lang="scss">
 @use '@lib/theme' as ms;
 .ms-info {
-  --ms-alert-text-background-color: var(--parsec-color-light-info-50);
-  --ms-alert-text-icon-color: var(--parsec-color-light-info-700);
+  --ms-alert-text-background-color: var(--parsec-color-info-50);
+  --ms-alert-text-icon-color: var(--parsec-color-info-700);
 }
 
 .ms-success {
-  --ms-alert-text-background-color: var(--parsec-color-light-success-50);
-  --ms-alert-text-icon-color: var(--parsec-color-light-success-700);
+  --ms-alert-text-background-color: var(--parsec-color-success-50);
+  --ms-alert-text-icon-color: var(--parsec-color-success-700);
 }
 
 .ms-warning {
-  --ms-alert-text-background-color: var(--parsec-color-light-warning-50);
-  --ms-alert-text-icon-color: var(--parsec-color-light-warning-700);
+  --ms-alert-text-background-color: var(--parsec-color-warning-50);
+  --ms-alert-text-icon-color: var(--parsec-color-warning-700);
 }
 
 .ms-error {
-  --ms-alert-text-background-color: var(--parsec-color-light-danger-50);
-  --ms-alert-text-icon-color: var(--parsec-color-light-danger-700);
+  --ms-alert-text-background-color: var(--parsec-color-danger-50);
+  --ms-alert-text-icon-color: var(--parsec-color-danger-700);
 }
 
 .container-textinfo {
@@ -81,7 +81,7 @@ function getIcon(): string {
   }
 
   &__text {
-    color: var(--parsec-color-light-secondary-text);
+    color: var(--parsec-color-secondary-text);
   }
   &.ms-info,
   &.ms-success,

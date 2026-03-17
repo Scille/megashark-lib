@@ -160,7 +160,7 @@ async function confirm(): Promise<boolean> {
 
   &__title {
     padding: 0;
-    color: var(--parsec-color-light-secondary-text);
+    color: var(--parsec-color-secondary-text);
     display: flex;
     align-items: center;
     max-width: calc(100% - 2rem);
@@ -176,18 +176,18 @@ async function confirm(): Promise<boolean> {
       @include ms.responsive-breakpoint('sm') {
         padding: 1.5rem 2rem;
         margin-bottom: 1rem;
-        border-bottom: 1px solid var(--parsec-color-light-secondary-medium);
+        border-bottom: 1px solid var(--parsec-color-secondary-medium);
       }
     }
 
     &-icon {
-      color: var(--parsec-color-light-primary-600);
+      color: var(--parsec-color-primary-600);
       margin-right: 4px;
     }
   }
 
   &__text {
-    color: var(--parsec-color-light-secondary-soft-text);
+    color: var(--parsec-color-secondary-soft-text);
     margin-top: 0.625rem;
 
     @include ms.responsive-breakpoint('sm') {
@@ -258,23 +258,23 @@ async function confirm(): Promise<boolean> {
 }
 
 .ms-info {
-  --ms-modal-next-button-background-color: var(--parsec-color-light-secondary-text);
-  --ms-modal-next-button-background-hover-color: var(--parsec-color-light-secondary-contrast);
+  --ms-modal-next-button-background-color: var(--parsec-color-secondary-text);
+  --ms-modal-next-button-background-hover-color: var(--parsec-color-secondary-contrast);
 }
 
 .ms-success {
-  --ms-modal-next-button-background-color: var(--parsec-color-light-success-500);
-  --ms-modal-next-button-background-hover-color: var(--parsec-color-light-success-700);
+  --ms-modal-next-button-background-color: var(--parsec-color-success-500);
+  --ms-modal-next-button-background-hover-color: var(--parsec-color-success-700);
 }
 
 .ms-warning {
-  --ms-modal-next-button-background-color: var(--parsec-color-light-secondary-text);
-  --ms-modal-next-button-background-hover-color: var(--parsec-color-light-secondary-contrast);
+  --ms-modal-next-button-background-color: var(--parsec-color-secondary-text);
+  --ms-modal-next-button-background-hover-color: var(--parsec-color-secondary-contrast);
 }
 
 .ms-error {
-  --ms-modal-next-button-background-color: var(--parsec-color-light-danger-500);
-  --ms-modal-next-button-background-hover-color: var(--parsec-color-light-danger-700);
+  --ms-modal-next-button-background-color: var(--parsec-color-danger-500);
+  --ms-modal-next-button-background-hover-color: var(--parsec-color-danger-700);
 }
 
 .ms-info,

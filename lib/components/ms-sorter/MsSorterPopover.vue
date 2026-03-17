@@ -91,7 +91,7 @@ function getSorterLabel(): Translatable {
 
 #sort-order-button {
   --background: none;
-  --color: var(--parsec-color-light-secondary-grey);
+  --color: var(--parsec-color-secondary-grey);
   --border-radius: var(--parsec-radius-4);
   --padding-top: 0.375rem;
   --padding-bottom: 0.375rem;
@@ -102,7 +102,7 @@ function getSorterLabel(): Translatable {
   width: 100%;
   margin-left: auto;
   transition: transform 0.2s ease-in-out;
-  border-bottom: 1px solid var(--parsec-color-light-secondary-disabled);
+  border-bottom: 1px solid var(--parsec-color-secondary-disabled);
   cursor: pointer;
 
   &::part(native) {
@@ -111,17 +111,17 @@ function getSorterLabel(): Translatable {
   }
 
   &:hover {
-    background: var(--parsec-color-light-secondary-background);
+    background: var(--parsec-color-secondary-background);
     --background-hover: none;
-    --color-hover: var(--parsec-color-light-secondary-text);
+    --color-hover: var(--parsec-color-secondary-text);
 
     ion-icon {
-      color: var(--parsec-color-light-secondary-text);
+      color: var(--parsec-color-secondary-text);
     }
   }
 
   ion-icon {
-    color: var(--parsec-color-light-secondary-grey);
+    color: var(--parsec-color-secondary-grey);
     margin: 0;
     padding-left: 0.375rem;
     font-size: 1rem;
@@ -134,16 +134,16 @@ function getSorterLabel(): Translatable {
   flex-direction: column;
 
   &__title {
-    color: var(--parsec-color-light-secondary-grey);
+    color: var(--parsec-color-secondary-grey);
     opacity: 0.7;
     margin-bottom: 0.5rem;
   }
 
   &-item {
-    --background-hover: var(--parsec-color-light-primary-30);
+    --background-hover: var(--parsec-color-primary-30);
     --background-hover-opacity: 1;
-    --color: var(--parsec-color-light-secondary-soft-text);
-    --color-hover: var(--parsec-color-light-primary-600);
+    --color: var(--parsec-color-secondary-soft-text);
+    --color-hover: var(--parsec-color-primary-600);
     --border-radius: var(--parsec-radius-6);
     --padding-top: 0.375rem;
     --padding-bottom: 0.375rem;
@@ -152,8 +152,8 @@ function getSorterLabel(): Translatable {
     --inner-padding-end: 0;
 
     &.selected {
-      color: var(--parsec-color-light-primary-700);
-      --color-hover: var(--parsec-color-light-primary-700);
+      color: var(--parsec-color-primary-700);
+      --color-hover: var(--parsec-color-primary-700);
       --background-hover: none;
 
       span {
@@ -161,7 +161,7 @@ function getSorterLabel(): Translatable {
       }
     }
     .checked.selected {
-      color: var(--parsec-color-light-primary-700);
+      color: var(--parsec-color-primary-700);
     }
 
     ion-icon {
