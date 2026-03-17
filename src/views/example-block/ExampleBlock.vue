@@ -22,15 +22,15 @@ defineProps<{ title: Translatable }>();
   display: flex;
   flex-direction: column;
   align-items: start;
-  background-color: var(--parsec-color-light-secondary-white);
+  background-color: var(--parsec-color-secondary-surface);
   border-radius: var(--parsec-radius-12);
   box-shadow: var(--parsec-shadow-light);
   --inner-padding-end: 0;
   overflow: visible;
 
   ion-label.title-h2 {
-    background: var(--parsec-color-light-secondary-medium);
-    color: var(--parsec-color-light-secondary-text);
+    background: var(--parsec-color-secondary-medium);
+    color: var(--parsec-color-secondary-text);
     width: 100%;
     border-radius: var(--parsec-radius-8) var(--parsec-radius-8) 0 0;
     margin: 0;

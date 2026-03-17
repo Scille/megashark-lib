@@ -95,7 +95,7 @@ async function cancel(): Promise<boolean> {
   &__title {
     padding: 0;
     margin-bottom: 1rem;
-    color: var(--parsec-color-light-primary-700);
+    color: var(--parsec-color-primary-700);
     display: flex;
     align-items: center;
     max-width: 22rem;
@@ -108,7 +108,7 @@ async function cancel(): Promise<boolean> {
   }
 
   &__text {
-    color: var(--parsec-color-light-secondary-soft-text);
+    color: var(--parsec-color-secondary-soft-text);
     font-weight: 400;
   }
 }
@@ -129,7 +129,7 @@ async function cancel(): Promise<boolean> {
 
     &-cancel {
       display: flex;
-      color: var(--parsec-color-light-secondary-text);
+      color: var(--parsec-color-secondary-text);
     }
 
     &-confirm {

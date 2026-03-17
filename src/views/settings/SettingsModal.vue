@@ -139,7 +139,7 @@ async function changeLang(lang: Locale): Promise<void> {
 
     // eslint-disable-next-line vue-scoped-css/no-unused-selector
     &__item {
-      color: var(--parsec-color-light-secondary-grey);
+      color: var(--parsec-color-secondary-grey);
       border-radius: var(--parsec-radius-6);
 
       .item-container {
@@ -155,13 +155,13 @@ async function changeLang(lang: Locale): Promise<void> {
       }
 
       &.radio-checked {
-        color: var(--parsec-color-light-secondary-text);
-        background: var(--parsec-color-light-secondary-premiere);
+        color: var(--parsec-color-secondary-text);
+        background: var(--parsec-color-secondary-premiere);
       }
 
       &:hover:not(.radio-checked) {
-        background: var(--parsec-color-light-secondary-premiere);
-        color: var(--parsec-color-light-secondary-text);
+        background: var(--parsec-color-secondary-premiere);
+        color: var(--parsec-color-secondary-text);
       }
 
       ion-icon {

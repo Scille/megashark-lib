@@ -61,14 +61,14 @@ function getWidth(): number {
   --padding-end: 0.5rem;
   --padding-bottom: 0.25rem;
   --padding-start: 0.5rem;
-  color: var(--parsec-color-light-secondary-soft-text);
-  --fill-color: var(--parsec-color-light-secondary-soft-text);
+  color: var(--parsec-color-secondary-soft-text);
+  --fill-color: var(--parsec-color-secondary-soft-text);
   border-radius: var(--parsec-radius-8);
 
   &:hover {
-    color: var(--parsec-color-light-primary-600);
-    --fill-color: var(--parsec-color-light-primary-600);
-    background: var(--parsec-color-light-secondary-medium);
+    color: var(--parsec-color-primary-600);
+    --fill-color: var(--parsec-color-primary-600);
+    background: var(--parsec-color-secondary-medium);
   }
 
   &-icon__left {

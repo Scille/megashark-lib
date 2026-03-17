@@ -134,7 +134,7 @@ function getIcon(): string {
 <style lang="scss" scoped>
 .dropdown-button {
   background: none;
-  color: var(--parsec-color-light-primary-800);
+  color: var(--parsec-color-secondary-text);
   margin: 0;
 
   .input-text {
@@ -145,14 +145,14 @@ function getIcon(): string {
 
   &::part(native) {
     border-radius: var(--parsec-radius-8);
-    border-color: var(--parsec-color-light-secondary-light);
+    border-color: var(--parsec-color-secondary-light);
     padding: 0 !important;
     --ripple-color: transparent;
   }
 
   &:hover {
     &::part(native) {
-      border-color: var(--parsec-color-light-primary-300);
+      border-color: var(--parsec-color-primary-300);
     }
   }
 
@@ -178,17 +178,17 @@ function getIcon(): string {
   gap: 0.5rem;
 
   .active {
-    --background: var(--parsec-color-light-secondary-background);
-    outline: var(--offset) solid var(--parsec-color-light-outline);
+    --background: var(--parsec-color-secondary-background);
+    outline: var(--offset) solid var(--parsec-color-outline);
     border-radius: var(--parsec-radius-8);
 
     &::part(native) {
-      border: 1px solid var(--parsec-color-light-primary-300);
+      border: 1px solid var(--parsec-color-primary-300);
     }
   }
 
   .form-label {
-    color: var(--parsec-color-light-primary-700);
+    color: var(--parsec-color-secondary-text);
   }
 
   &.large {
@@ -201,7 +201,7 @@ function getIcon(): string {
 .ms-dropdown-icon {
   font-size: 1.125rem;
   transition: transform ease-out 300ms;
-  color: var(--parsec-color-light-secondary-grey);
+  color: var(--parsec-color-secondary-grey);
 
   &.popover-is-open {
     transform: rotate(180deg);
