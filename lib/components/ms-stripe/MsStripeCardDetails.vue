@@ -76,7 +76,7 @@ function getBrandImageUrl(brand: string): string {
     letter-spacing: 0.15em;
 
     p {
-      color: var(--parsec-color-light-secondary-white);
+      color: var(--parsec-color-secondary-white);
       margin: 0;
     }
 
@@ -112,14 +112,14 @@ function getBrandImageUrl(brand: string): string {
       flex-direction: column;
 
       .number-digits {
-        color: var(--parsec-color-light-secondary-soft-text);
+        color: var(--parsec-color-secondary-soft-text);
         font-size: 1rem;
         font-weight: 500;
         margin: 0;
       }
 
       .number-expiration {
-        color: var(--parsec-color-light-secondary-hard-grey);
+        color: var(--parsec-color-secondary-hard-grey);
         font-size: 0.875rem;
         margin: 0;
       }

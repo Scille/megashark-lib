@@ -220,13 +220,13 @@ function updateCurrentProgress(event: MouseEvent, paused?: boolean): void {
     align-items: flex-start;
     width: 100%;
     height: 0.25rem;
-    background: var(--parsec-color-light-secondary-premiere);
+    background: var(--parsec-color-secondary-premiere);
     border-radius: var(--parsec-radius-8);
     transition: height 100ms ease-in;
 
     .full {
       width: v-bind(progressWidthStyle);
-      background: var(--parsec-color-light-primary-700);
+      background: var(--parsec-color-primary-700);
       opacity: 0.9;
       height: 0.25rem;
       border-radius: var(--parsec-radius-6);
@@ -245,14 +245,14 @@ function updateCurrentProgress(event: MouseEvent, paused?: boolean): void {
       cursor: pointer;
 
       .full {
-        background: var(--parsec-color-light-gradient);
+        background: var(--parsec-color-gradient);
 
         .dot {
           right: -0.275rem;
           top: -4px;
           height: 0.75rem;
           width: 0.75rem;
-          background-color: var(--parsec-color-light-primary-700);
+          background-color: var(--parsec-color-primary-700);
           border-radius: var(--parsec-radius-circle);
           box-shadow: var(--parsec-shadow-strong);
         }

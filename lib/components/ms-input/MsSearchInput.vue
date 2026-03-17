@@ -90,7 +90,7 @@ function onChange(value: any): void {
 
 <style scoped lang="scss">
 .ms-search-input {
-  border: 1px solid var(--parsec-color-light-secondary-disabled);
+  border: 1px solid var(--parsec-color-secondary-disabled);
   padding: 0.25rem 0 0.25rem 0.75rem;
   width: 100%;
   position: relative;

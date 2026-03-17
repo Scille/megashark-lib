@@ -103,21 +103,21 @@ const noResponsiveMixinOverlap = ref(false);
   text-align: center;
   margin: 0;
   padding: 0;
-  color: var(--parsec-color-light-primary-800);
+  color: var(--parsec-color-primary-800);
 }
 
 .responsive-mixin-block {
   display: none;
   padding: 0.5em;
   border-radius: 0.5em;
-  background: blue;
+  background: var(--parsec-color-primary-500);
   &-no-mixin {
     display: block;
     color: white;
   }
 
   @include ms.responsive-breakpoint('xxl') {
-    background: #ff0000;
+    background: var(--parsec-color-primary-700);
     &-xxl {
       display: block;
     }
@@ -128,7 +128,7 @@ const noResponsiveMixinOverlap = ref(false);
   }
 
   @include ms.responsive-breakpoint('xl') {
-    background: #ff5500;
+    background: var(--parsec-color-primary-600);
     &-xl {
       display: block;
     }
@@ -139,7 +139,7 @@ const noResponsiveMixinOverlap = ref(false);
   }
 
   @include ms.responsive-breakpoint('lg') {
-    background: #ffaa00;
+    background: var(--parsec-color-primary-400);
     &-lg {
       display: block;
     }
@@ -150,7 +150,7 @@ const noResponsiveMixinOverlap = ref(false);
   }
 
   @include ms.responsive-breakpoint('md') {
-    background: #aaff00;
+    background: var(--parsec-color-primary-300);
     &-md {
       display: block;
     }
@@ -161,7 +161,7 @@ const noResponsiveMixinOverlap = ref(false);
   }
 
   @include ms.responsive-breakpoint('sm') {
-    background: #55ff00;
+    background: var(--parsec-color-primary-200);
     &-sm {
       display: block;
     }
@@ -172,7 +172,7 @@ const noResponsiveMixinOverlap = ref(false);
   }
 
   @include ms.responsive-breakpoint('xs') {
-    background: #00ff00;
+    background: var(--parsec-color-primary-100);
     &-xs {
       display: block;
     }

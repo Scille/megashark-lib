@@ -68,7 +68,7 @@ async function onOptionClick(option: MsOption): Promise<void> {
 // eslint-disable-next-line vue-scoped-css/no-unused-selector
 .option {
   --background-hover: none;
-  --color: var(--parsec-color-light-secondary-grey);
+  --color: var(--parsec-color-secondary-grey);
   padding: 0.375rem 0.75rem;
   --background: none;
   border-radius: var(--parsec-radius-6);
@@ -79,8 +79,8 @@ async function onOptionClick(option: MsOption): Promise<void> {
   pointer-events: auto;
 
   &:hover:not(.item-disabled) {
-    background: var(--parsec-color-light-primary-50);
-    --background-hover: var(--parsec-color-light-primary-50);
+    background: var(--parsec-color-primary-50);
+    --background-hover: var(--parsec-color-primary-50);
   }
 
   &::part(native) {
@@ -94,7 +94,7 @@ async function onOptionClick(option: MsOption): Promise<void> {
     gap: 0.25rem;
 
     &__label {
-      color: var(--parsec-color-light-secondary-text);
+      color: var(--parsec-color-secondary-text);
     }
   }
 
@@ -106,16 +106,16 @@ async function onOptionClick(option: MsOption): Promise<void> {
   &.selected {
     .option-text {
       &__label {
-        color: var(--parsec-color-light-primary-700);
+        color: var(--parsec-color-secondary-text);
       }
 
       &__description {
-        color: var(--parsec-color-light-secondary-grey);
+        color: var(--parsec-color-secondary-grey);
       }
     }
 
     .icon {
-      color: var(--parsec-color-light-primary-700);
+      color: var(--parsec-color-secondary-text);
     }
   }
 
@@ -127,11 +127,11 @@ async function onOptionClick(option: MsOption): Promise<void> {
       opacity: 0.5;
 
       &__label {
-        --color: var(--parsec-color-light-secondary-text);
+        --color: var(--parsec-color-secondary-text);
       }
 
       &__description {
-        --color: var(--parsec-color-light-secondary-grey);
+        --color: var(--parsec-color-secondary-grey);
       }
     }
 

@@ -142,11 +142,11 @@ async function cancel(): Promise<void> {
     padding: 0.5rem;
 
     &__label {
-      color: var(--parsec-color-light-secondary-text);
+      color: var(--parsec-color-secondary-text);
     }
 
     &__description {
-      color: var(--parsec-color-light-secondary-grey);
+      color: var(--parsec-color-secondary-grey);
     }
   }
 
@@ -155,7 +155,7 @@ async function cancel(): Promise<void> {
       content: '';
       position: absolute;
       width: 100%;
-      outline: 1px solid var(--parsec-color-light-secondary-medium);
+      outline: 1px solid var(--parsec-color-secondary-medium);
     }
   }
 
@@ -163,28 +163,28 @@ async function cancel(): Promise<void> {
     content: '';
     position: absolute;
     width: 100%;
-    outline: 1px solid var(--parsec-color-light-secondary-medium);
+    outline: 1px solid var(--parsec-color-secondary-medium);
   }
 
   &:hover:not(.item-disabled) {
-    background: var(--parsec-color-light-secondary-background);
+    background: var(--parsec-color-secondary-background);
   }
 
   &.selected {
-    background: var(--parsec-color-light-secondary-background);
+    background: var(--parsec-color-secondary-background);
 
     .option-text {
       &__label {
-        color: var(--parsec-color-light-primary-700);
+        color: var(--parsec-color-secondary-text);
       }
 
       &__description {
-        color: var(--parsec-color-light-secondary-grey);
+        color: var(--parsec-color-secondary-grey);
       }
     }
 
     .icon {
-      color: var(--parsec-color-light-primary-700);
+      color: var(--parsec-color-secondary-text);
     }
   }
 
@@ -201,11 +201,11 @@ async function cancel(): Promise<void> {
       opacity: 0.5;
 
       &__label {
-        --color: var(--parsec-color-light-secondary-text);
+        --color: var(--parsec-color-secondary-text);
       }
 
       &__description {
-        --color: var(--parsec-color-light-secondary-grey);
+        --color: var(--parsec-color-secondary-grey);
       }
     }
 
@@ -224,7 +224,7 @@ async function cancel(): Promise<void> {
   padding: 1rem 1rem 2rem;
 
   &-cancel {
-    color: var(--parsec-color-light-secondary-text);
+    color: var(--parsec-color-secondary-text);
   }
 }
 </style>

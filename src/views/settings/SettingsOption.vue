@@ -30,7 +30,7 @@ defineProps<{
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1rem 0.75rem 0;
-  border-bottom: 1px solid var(--parsec-color-light-secondary-disabled);
+  border-bottom: 1px solid var(--parsec-color-secondary-disabled);
   gap: 1.5rem;
 
   &__content {
@@ -40,11 +40,11 @@ defineProps<{
     gap: 0.25rem;
 
     .title {
-      color: var(--parsec-color-light-primary-700);
+      color: var(--parsec-color-primary-700);
     }
 
     .description {
-      color: var(--parsec-color-light-secondary-grey);
+      color: var(--parsec-color-secondary-grey);
     }
   }
 }

@@ -92,7 +92,7 @@ async function onDidDismissPopover(popover: any): Promise<void> {
 .sorter-button {
   --background: transparent;
   --background-hover: transparent;
-  --color: var(--parsec-color-light-secondary-hard-grey);
+  --color: var(--parsec-color-secondary-hard-grey);
   min-height: 1rem;
 
   &::part(native) {
@@ -112,7 +112,7 @@ async function onDidDismissPopover(popover: any): Promise<void> {
     }
 
     &__icon {
-      color: var(--parsec-color-light-secondary-hard-grey);
+      color: var(--parsec-color-secondary-hard-grey);
       font-size: 1rem;
 
       @include ms.responsive-breakpoint('sm') {
@@ -121,22 +121,22 @@ async function onDidDismissPopover(popover: any): Promise<void> {
     }
 
     &__text {
-      color: var(--parsec-color-light-secondary-hard-grey);
+      color: var(--parsec-color-secondary-hard-grey);
       font-size: 0.8125rem;
       font-weight: 500;
     }
 
     &:hover .sorter-button-content__icon {
-      color: var(--parsec-color-light-secondary-text);
+      color: var(--parsec-color-secondary-text);
     }
   }
 
   &:hover {
     .sorter-button-content {
-      background: var(--parsec-color-light-secondary-medium);
+      background: var(--parsec-color-secondary-medium);
 
       &__text {
-        color: var(--parsec-color-light-secondary-text);
+        color: var(--parsec-color-secondary-text);
       }
     }
   }

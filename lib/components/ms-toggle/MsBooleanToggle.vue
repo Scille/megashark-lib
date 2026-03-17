@@ -65,16 +65,16 @@ function setFocus(): void {
   display: flex;
   padding: 0.25rem;
   border-radius: 1.5rem;
-  border: 1px solid var(--parsec-color-light-secondary-disabled);
+  border: 1px solid var(--parsec-color-secondary-disabled);
   &:focus-within {
-    border: 1px solid var(--parsec-color-light-primary-400);
-    background: var(--parsec-color-light-secondary-white);
-    outline: 0.25rem solid var(--parsec-color-light-outline);
+    border: 1px solid var(--parsec-color-primary-400);
+    background: var(--parsec-color-secondary-surface);
+    outline: 0.25rem solid var(--parsec-color-outline);
   }
 }
 
 .button-view {
-  color: var(--parsec-color-light-secondary-grey);
+  color: var(--parsec-color-secondary-grey);
   padding: 0.125rem 1.5rem;
   border-radius: 1.5rem;
   position: relative;
@@ -87,13 +87,13 @@ function setFocus(): void {
     position: relative;
 
     &:hover {
-      background: var(--parsec-color-light-secondary-premiere);
+      background: var(--parsec-color-secondary-premiere);
     }
   }
 }
 
 .button-disabled {
-  background: var(--parsec-color-light-primary-50);
-  color: var(--parsec-color-light-primary-600);
+  background: var(--parsec-color-primary-50);
+  color: var(--parsec-color-primary-600);
 }
 </style>
