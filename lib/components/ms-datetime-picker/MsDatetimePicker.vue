@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import VueDatePicker from '@vuepic/vue-datepicker';
+import { VueDatePicker } from '@vuepic/vue-datepicker';
 </script>
 
 <style lang="scss" scoped></style>
