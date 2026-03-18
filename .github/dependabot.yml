@@ -14,3 +14,21 @@ updates:
       actions:
         patterns:
           - "*"
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    rebase-strategy: auto
+    pull-request-branch-name:
+      separator: "-"
+    groups:
+      prod-deps:
+        dependency-type: production
+        patterns:
+          - "*"
+      dev-deps:
+        dependency-type: development
+        patterns:
+          - "*"
