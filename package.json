@@ -81,7 +81,7 @@
     "vite": "^6.3.5",
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-lib-inject-css": "^2.2.2",
-    "vitest": "^1.5.1",
+    "vitest": "^4.1.0",
     "vue-router": "^4.6.4",
     "vue-tsc": "^2.2.8"
   },

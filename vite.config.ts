@@ -1,6 +1,6 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 // eslint-disable-next-line spaced-comment
-/// <reference types="vitest" />
+/// <reference types="vitest/config" />
 
 import vue from '@vitejs/plugin-vue';
 import { copyFileSync, mkdirSync, readdirSync, statSync } from 'fs';
@@ -35,6 +35,7 @@ const config: UserConfig = {
       '@megashark': path.resolve(__dirname, './lib'),
     },
   },
+  // The 'test' property is specific to vitest (see reference types directive above)
   test: {
     setupFiles: [path.resolve(__dirname, './tests/support/setup.ts')],
     include: ['tests/components/specs/*.spec.ts', 'tests/unit/specs/*.spec.ts'],
