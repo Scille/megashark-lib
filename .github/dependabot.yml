@@ -15,6 +15,19 @@ updates:
         patterns:
           - "*"
 
+  - package-ecosystem: pre-commit
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    rebase-strategy: auto
+    pull-request-branch-name:
+      separator: "-"
+    groups:
+      pre-commit:
+        patterns:
+          - "*"
+
   - package-ecosystem: npm
     directory: /
     schedule:
