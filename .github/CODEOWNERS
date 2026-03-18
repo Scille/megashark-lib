@@ -1,0 +1,16 @@
+# This file lists the owners of the sub-parts in our monorepo.
+# These parts are assigned to a specific team whose members are proficient in them.
+# If you think you belongs to one of these teams because you're proficient in one of those parts, ask @touilleMan.
+
+package.json            @Scille/js-code-owners
+package-lock.json       @Scille/js-code-owners
+*.js                    @Scille/js-code-owners
+*.cjs                   @Scille/js-code-owners
+*.ts                    @Scille/js-code-owners
+*.vue                   @Scille/js-code-owners
+*.css                   @Scille/js-code-owners
+*.scss                  @Scille/js-code-owners
+*.html                  @Scille/js-code-owners
+
+# Ops team is responsible for the CI & the packaging system.
+/.github/               @Scille/ops-code-owners
