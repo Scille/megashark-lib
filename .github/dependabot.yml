@@ -37,11 +37,25 @@ updates:
     pull-request-branch-name:
       separator: "-"
     groups:
-      prod-deps:
-        dependency-type: production
+      dev-linter:
+        dependency-type: development
         patterns:
-          - "*"
+          - "@intlify/eslint*"
+          - "@typescript-eslint*"
+          - "@vue/eslint*"
+          - eslint*
+          - prettier*
+      dev-vite:
+        dependency-type: development
+        patterns:
+          - "@vitejs/*"
+          - vite*
+          - vitest
       dev-deps:
         dependency-type: development
+        patterns:
+          - "*"
+      prod-deps:
+        dependency-type: production
         patterns:
           - "*"
