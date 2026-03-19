@@ -1,5 +1,7 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
+import { Translatable } from '@lib/services';
+
 enum AllowedInput {
   Numeric = 'numeric',
   Alpha = 'alpha',
@@ -18,6 +20,14 @@ const checkAllowedFunctions: Record<AllowedInput, (input: string) => boolean> = 
 
 function isCharacterAllowed(input: string, authInput: AllowedInput): boolean {
   return checkAllowedFunctions[authInput](input);
+}
+
+export interface MsActionBarAction {
+  label: Translatable;
+  icon?: string;
+  image?: string;
+  isDropdown?: boolean;
+  onClick?: (event: MouseEvent) => Promise<void>;
 }
 
 export { AllowedInput, isCharacterAllowed };

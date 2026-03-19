@@ -52,20 +52,13 @@
 
 <script setup lang="ts">
 import { IonItemDivider, popoverController, IonButton, IonIcon } from '@ionic/vue';
-import { MsActionBarButton } from '@lib/components';
-import { Translatable } from '@lib/services';
+import { MsActionBarAction, MsActionBarButton } from '@lib/components';
 import { chevronDown, ellipsisHorizontal } from 'ionicons/icons';
 import { ref, onMounted, nextTick, watch, computed, onUnmounted, useTemplateRef } from 'vue';
 import MsActionBarPopover from '@lib/components/ms-action-bar/MsActionBarPopover.vue';
 
 const props = defineProps<{
-  buttons: {
-    label: Translatable;
-    icon?: string;
-    image?: string;
-    isDropdown?: boolean;
-    onClick?: (event: MouseEvent) => Promise<void>;
-  }[];
+  buttons: MsActionBarAction[];
 }>();
 
 const buttonComponentRefs = useTemplateRef<Array<InstanceType<typeof MsActionBarButton>>>('buttonComponents');
