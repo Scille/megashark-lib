@@ -28,6 +28,8 @@ export class ToastManager {
     confirmButtonLabel?: Translatable;
     duration?: number;
     cssClass?: string | string[];
+    action?: () => Promise<void>;
+    onTimeout?: () => Promise<void>;
   }): Promise<any> {
     const duration = toastConfig.duration || DEFAULT_TOAST_DURATION;
     const isSmallDisplay = [WindowSizeBreakpoints.XS, WindowSizeBreakpoints.SM].includes(getBreakpointFromWidth());
@@ -55,6 +57,7 @@ export class ToastManager {
           text: I18n.translate(toastConfig.confirmButtonLabel || 'lib.services.toastManager.confirmButtonLabel'),
           role: 'confirm',
           side: 'end',
+          handler: toastConfig.action,
         },
       ],
     });
@@ -64,6 +67,9 @@ export class ToastManager {
 
     const result = await toast.onDidDismiss();
     if (result) {
+      if (result.role === 'timeout' && toastConfig.onTimeout) {
+        toastConfig.onTimeout();
+      }
       this.toasts.splice(this.toasts.indexOf(toast), 1);
       await this.managePresentQueue();
     }

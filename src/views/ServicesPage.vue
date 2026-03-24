@@ -130,6 +130,12 @@ async function openToast(): Promise<void> {
     title: 'usage.services.toast.messageTitle',
     message: 'usage.services.toast.message',
     theme: toastTheme.value,
+    action: async (): Promise<void> => {
+      console.log('Called when dismissing the toast');
+    },
+    onTimeout: async (): Promise<void> => {
+      console.log('Called when the toast times out');
+    },
   });
 }
 
