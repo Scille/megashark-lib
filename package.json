@@ -30,16 +30,18 @@
     "prettier:check": "prettier . --check",
     "prettier:fix": "prettier . --write"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@ionic/vue": "^8.8.1",
-    "@stripe/stripe-js": "^8.11.0",
-    "@vuepic/vue-datepicker": "^12.1.0",
     "axios": "^1.13.6",
-    "date-fns": "^4.1.0",
-    "ionicons": "^8.0.9",
     "luxon": "^3.4.4",
     "vue": "^3.5.30",
     "vue-i18n": "^11.3.0"
+  },
+  "dependencies": {
+    "@stripe/stripe-js": "^8.11.0",
+    "@vuepic/vue-datepicker": "^12.1.0",
+    "date-fns": "^4.1.0",
+    "ionicons": "^8.0.9"
   },
   "devDependencies": {
     "@intlify/eslint-plugin-vue-i18n": "^2.0.0",
