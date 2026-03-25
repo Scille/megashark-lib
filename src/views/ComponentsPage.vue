@@ -335,6 +335,7 @@
         v-model="selectedDateTime"
         :min-date="DateTime.now().minus({ days: 7 }).toJSDate()"
         :max-date="DateTime.now().plus({ days: 7 }).toJSDate()"
+        :locale="I18n.getLocale()"
       />
       {{ DateTime.fromJSDate(selectedDateTime).toISO() }}
     </example-block-line>

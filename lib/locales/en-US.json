@@ -22,6 +22,9 @@
           "special": "1 special character"
         }
       },
+      "msDatetimePicker": {
+        "select": "Select"
+      },
       "msCodeValidationInput": {
         "title": "Code validation",
         "codeValid": "The code is valid",
