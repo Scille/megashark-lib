@@ -71,7 +71,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-vue": "^9.18.1",
     "eslint-plugin-vue-scoped-css": "^2.5.1",
-    "happy-dom": "^20.8.4",
+    "happy-dom": "^20.8.9",
     "jsdom": "^24.1.0",
     "prettier": "3.1.0",
     "prettier-plugin-organize-imports": "^3.2.4",
