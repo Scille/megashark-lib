@@ -61,11 +61,11 @@ const category = ref<Category>(Category.Components);
   text-align: center;
   margin: 0;
   padding: 0;
-  color: var(--parsec-color-light-primary-800);
+  color: var(--parsec-color-primary-800);
 }
 
 ion-content {
-  --background: var(--parsec-color-light-secondary-background);
+  --background: var(--parsec-color-secondary-background);
 }
 
 #container {
@@ -74,7 +74,7 @@ ion-content {
   align-items: start;
   gap: 2rem;
   padding: 3rem;
-  background: var(--parsec-color-light-secondary-background);
+  background: var(--parsec-color-secondary-background);
 
   @include ms.responsive-breakpoint('sm') {
     padding: 2rem;

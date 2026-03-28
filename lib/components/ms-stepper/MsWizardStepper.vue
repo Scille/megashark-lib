@@ -40,7 +40,7 @@ defineProps<{
 <!-- eslint-disable-next-line vue-scoped-css/enforce-style-type -->
 <style lang="scss">
 .ms-wizard-stepper {
-  background: var(--parsec-color-light-secondary-background);
+  background: var(--parsec-color-secondary-background);
   display: flex;
   padding: 2rem 1rem;
   justify-content: center;
@@ -53,7 +53,7 @@ defineProps<{
     width: 8.125rem;
 
     .step-title {
-      color: var(--parsec-color-light-primary-600);
+      color: var(--parsec-color-primary-600);
     }
 
     .done {
@@ -61,7 +61,7 @@ defineProps<{
     }
 
     .default {
-      color: var(--parsec-color-light-secondary-grey);
+      color: var(--parsec-color-secondary-grey);
     }
 
     &:first-of-type {

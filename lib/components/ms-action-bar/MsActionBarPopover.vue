@@ -55,9 +55,9 @@ async function handleClick(btn: any): Promise<void> {
 
 <style lang="scss" scoped>
 .list-action-bar-popover {
-  --background: var(--parsec-color-light-secondary-soft);
+  --background: var(--parsec-color-secondary-soft);
   --ion-item-background: transparent;
-  --ion-item-color: var(--parsec-color-light-secondary-soft-text);
+  --ion-item-color: var(--parsec-color-secondary-soft-text);
   --ion-item-border-color: transparent;
   padding: 0.5rem 0.25rem;
 
@@ -69,15 +69,15 @@ async function handleClick(btn: any): Promise<void> {
     padding: 0.5rem 0.5rem;
 
     &__label {
-      color: var(--parsec-color-light-secondary-soft-text);
+      color: var(--parsec-color-secondary-soft-text);
     }
 
     &__icon {
       font-size: 1.125rem;
       width: 1.125rem;
       height: 1.125rem;
-      --fill-color: var(--parsec-color-light-secondary-soft-text);
-      color: var(--parsec-color-light-secondary-soft-text);
+      --fill-color: var(--parsec-color-secondary-soft-text);
+      color: var(--parsec-color-secondary-soft-text);
     }
 
     &__icon--right {
@@ -95,12 +95,12 @@ async function handleClick(btn: any): Promise<void> {
     }
 
     &:hover {
-      background: var(--parsec-color-light-secondary-premiere);
+      background: var(--parsec-color-secondary-premiere);
 
       .item-content__icon,
       .item-content__label {
-        --fill-color: var(--parsec-color-light-primary-600);
-        color: var(--parsec-color-light-primary-600);
+        --fill-color: var(--parsec-color-primary-600);
+        color: var(--parsec-color-primary-600);
       }
     }
   }

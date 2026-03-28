@@ -134,7 +134,7 @@ ion-modal .inner-content {
   // manage the handle
   &::part(handle) {
     margin: 0.5rem auto;
-    background: var(--parsec-color-light-secondary-light);
+    background: var(--parsec-color-secondary-light);
   }
 }
 
@@ -151,8 +151,8 @@ ion-modal .inner-content {
   z-index: 1000;
 
   &::part(native) {
-    background: var(--parsec-color-light-secondary-white);
-    --background-hover: var(--parsec-color-light-secondary-medium);
+    background: var(--parsec-color-secondary-surface);
+    --background-hover: var(--parsec-color-secondary-medium);
     padding: 0.125rem;
     height: 2rem;
   }
@@ -164,17 +164,17 @@ ion-modal .inner-content {
 
   &__icon {
     font-size: 1.75rem;
-    color: var(--parsec-color-light-secondary-grey);
+    color: var(--parsec-color-secondary-grey);
   }
 
   &:active {
-    --background: var(--parsec-color-light-secondary-medium);
+    --background: var(--parsec-color-secondary-medium);
     --border-radius: var(--parsec-radius-6);
   }
 
   &:hover {
     ion-icon {
-      color: var(--parsec-color-light-secondary-text);
+      color: var(--parsec-color-secondary-text);
     }
   }
 }
@@ -208,6 +208,6 @@ ion-modal .inner-content {
     }
   }
   .spinner-label__text {
-    color: var(--parsec-color-light-secondary-soft-text);
+    color: var(--parsec-color-secondary-soft-text);
   }
 }

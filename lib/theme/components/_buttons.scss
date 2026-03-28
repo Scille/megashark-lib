@@ -52,41 +52,41 @@ ion-button.button-small {
 
 /* button default */
 ion-button:not(.button-outline):not(.button-clear) {
-  --background: var(--parsec-color-light-primary-500);
-  --background-hover: var(--parsec-color-light-primary-700);
+  --background: var(--parsec-color-primary-500);
+  --background-hover: var(--parsec-color-primary-700);
   --background-hover-opacity: none;
 }
 
 /* button outline */
 ion-button.button-outline {
-  --border-color: var(--parsec-color-light-primary-500);
+  --border-color: var(--parsec-color-primary-500);
   --border-width: 1px;
   --background: none;
-  --color: var(--parsec-color-light-primary-500);
-  --color-hover: var(--parsec-color-light-primary-600);
+  --color: var(--parsec-color-primary-500);
+  --color-hover: var(--parsec-color-primary-600);
   --background-hover: none;
   --background-hover-opacity: none;
 
   &:hover {
-    --border-color: var(--parsec-color-light-primary-600);
+    --border-color: var(--parsec-color-primary-600);
   }
 }
 
 /* ghost */
 .sc-ion-buttons-md-s .button-clear,
 .button-clear {
-  --color: var(--parsec-color-light-primary-500);
-  --color-hover: var(--parsec-color-light-primary-700);
-  --background-hover: var(--parsec-color-light-primary-50);
+  --color: var(--parsec-color-primary-500);
+  --color-hover: var(--parsec-color-primary-700);
+  --background-hover: var(--parsec-color-primary-50);
   --background-hover-opacity: none;
 }
 
 /* solid */
 ion-button.button-solid {
-  --background: var(--parsec-color-light-primary-100);
+  --background: var(--parsec-color-primary-100);
 }
 
 .danger {
-  color: var(--parsec-color-light-danger-500);
-  --background-hover: var(--parsec-color-light-danger-100) !important;
+  color: var(--parsec-color-danger-500);
+  --background-hover: var(--parsec-color-danger-100) !important;
 }
