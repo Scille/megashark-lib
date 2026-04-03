@@ -40,6 +40,10 @@ jobs:
         run: npm run prettier:check
         timeout-minutes: 2
 
+      - name: Check knip
+        run: npm run knip
+        timeout-minutes: 2
+
   test:
     name: Test
     runs-on: ubuntu-22.04
