@@ -28,7 +28,9 @@
     "prepare": "npm run build",
     "test:unit": "vitest run",
     "prettier:check": "prettier . --check",
-    "prettier:fix": "prettier . --write"
+    "prettier:fix": "prettier . --write",
+    "knip": "knip",
+    "knip:fix": "knip --fix"
   },
   "peerDependencies": {
     "@ionic/vue": "^8.8.1",
@@ -71,6 +73,7 @@
     "eslint-plugin-vue": "^9.18.1",
     "eslint-plugin-vue-scoped-css": "^2.5.1",
     "jsdom": "^24.1.0",
+    "knip": "^6.1.1",
     "prettier": "3.1.0",
     "prettier-plugin-organize-imports": "^3.2.4",
     "sass": "^1.85.1",

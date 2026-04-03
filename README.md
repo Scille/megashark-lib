@@ -1,6 +1,7 @@
 # Generic UI library based on Ionic
 
-The megashark-lib is a UI component library. It is used to centralize all the elements that will be reused throughout the various Parsec projects (images, typography, UI components, global translation).
+The megashark-lib is a UI component library. It is used to centralize all the elements that will be reused
+throughout the various Parsec projects (images, typography, UI components, global translation).
 
 ## 🏁 Installation
 
@@ -8,14 +9,14 @@ The megashark-lib is a UI component library. It is used to centralize all the el
 
 You will need to clone the library directory locally using git.
 
-```
+```shell
 git clone git@github.com:Scille/megashark-lib.git
 ```
 
-### Install the library using npm.
+### Install the library using npm
 
-```
-npm install
+```shell
+npm clean-install
 ```
 
 ## 📁 Folder names
@@ -26,15 +27,13 @@ npm install
 
 ## Use the library in your project
 
-> In **your project** and precisely in the `package.json` file:
+> In **your project**'s `package.json` file:
 
-In order to create the link between the project and the megashark-lib, you should add the link.
-
-`git`+ `https://github/...`
+Link megashark-lib to your project by adding the link to the repository:
 
 > Example:
 
-```
+```shell
 "megashark-lib": "git+https://github.com/Company/megashark-lib.git",
 ```
 
@@ -42,23 +41,24 @@ In order to create the link between the project and the megashark-lib, you shoul
 
 > In **megashark-lib**:
 
-```
+```shell
 npm run web:open
 ```
 
 ## Make modifications in **megashark-lib** and update a local project using the library at the same time
 
-This allows you to see changes made to the library and see them displayed in real time in the project using this library. Please follow all the commands in the order below.
+This allows you to see changes made to the library and see them displayed in real time in the project using this library.
+Please follow all the commands in the order below.
 
 ### 1️⃣ Build the project and install it globally
 
 > In **megashark-lib**
 
-```
+```shell
 npm run build:local
 ```
 
-The command includes (not to be written in the terminal) :
+The command includes (not to be written in the terminal):
 
 `npm link`: to create a link to another project from a local environment.
 `vite build --watch`: to rebuild automatically as soon as there is a modification.
@@ -67,18 +67,19 @@ The command includes (not to be written in the terminal) :
 
 > In **your project**
 
-```
+```shell
 npm run megashark:local:start
 ```
 
 The command includes (not to be written in the terminal):
+
 `npm link megashark-lib`: allows you to link the megashark-lib library (installed from the machine to github)
 
 ### 3️⃣ Start development
 
 > In **your project**
 
-```
+```shell
 # For web project
 npm run web:open
 
@@ -92,8 +93,8 @@ npm run electron:open
 
 > In **your project**
 
-```
+```shell
 npm run megashark:local:stop
 ```
 
-→ All modifications made in real time in **megashark-lib** are instantly visible without reload / rebuild!
+→ All modifications made in real time in **megashark-lib** are instantly visible without reload/rebuild!
