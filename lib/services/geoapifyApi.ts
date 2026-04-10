@@ -1,5 +1,3 @@
-import axios, { AxiosInstance } from 'axios';
-
 // Only the interesting subset
 interface GeoapifyAutocompleteResult {
   name: string;
@@ -42,16 +40,13 @@ export interface Address {
 
 export const GEOAPIFY_MOCKED_API_KEY = 'GEOAPIFY_MOCKED';
 
+const BASE_URL = 'https://api.geoapify.com';
+
 export class GeoapifyAPI {
-  axiosInstance: AxiosInstance;
   apiKey: string;
 
   constructor(apiKey: string) {
     this.apiKey = apiKey;
-    this.axiosInstance = axios.create({
-      baseURL: 'https://api.geoapify.com',
-      timeout: 5000,
-    });
   }
 
   async autocomplete(query: string): Promise<Array<Address>> {
@@ -84,21 +79,28 @@ export class GeoapifyAPI {
       ];
     }
 
-    const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${query}&format=json&apiKey=${this.apiKey}`;
+    const url = `${BASE_URL}/v1/geocode/autocomplete?text=${query}&format=json&apiKey=${this.apiKey}`;
 
-    const response = await axios.get(url);
-    if (response.status !== 200) {
-      console.warn(`Error when trying to autocomplete address: ${response.statusText} ${response.data}`);
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      console.warn(`Error when trying to autocomplete address: ${response.statusText}`);
       return [];
     }
-    const result = response.data.results as Array<GeoapifyAutocompleteResult>;
-    return result.map((addr) => {
-      return {
-        country: addr.country,
-        postalCode: addr.postcode,
-        city: addr.city,
-        address: addr.address_line1,
-      };
-    });
+    try {
+      const content = await response.json();
+      const result = content.results as Array<GeoapifyAutocompleteResult>;
+      return result.map((addr) => {
+        return {
+          country: addr.country,
+          postalCode: addr.postcode,
+          city: addr.city,
+          address: addr.address_line1,
+        };
+      });
+    } catch (err: unknown) {
+      console.warn(`Failed to parse geopapify response: ${err}`);
+      return [];
+    }
   }
 }
