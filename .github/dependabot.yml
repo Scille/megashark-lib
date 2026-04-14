@@ -38,18 +38,21 @@ updates:
       default-days: 10
     schedule:
       interval: monthly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 15
     rebase-strategy: auto
     pull-request-branch-name:
       separator: "-"
     groups:
-      dev-linter:
+      dev-eslint:
         dependency-type: development
         patterns:
-          - "@intlify/eslint*"
           - "@typescript-eslint*"
           - "@vue/eslint*"
           - eslint*
+          - vue/eslint*
+      dev-prettier:
+        dependency-type: development
+        patterns:
           - prettier*
       dev-vite:
         dependency-type: development
@@ -57,11 +60,3 @@ updates:
           - "@vitejs/*"
           - vite*
           - vitest
-      dev-deps:
-        dependency-type: development
-        patterns:
-          - "*"
-      prod-deps:
-        dependency-type: production
-        patterns:
-          - "*"
