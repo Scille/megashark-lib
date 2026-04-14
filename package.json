@@ -33,6 +33,7 @@
     "knip:fix": "knip --fix"
   },
   "peerDependencies": {
+    "@ionic/core": "^8.8.1",
     "@ionic/vue": "^8.8.1",
     "luxon": "^3.4.4",
     "vue": "^3.5.30",
@@ -70,6 +71,7 @@
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-lib-inject-css": "^2.2.2",
     "vitest": "^4.1.0",
+    "vue-eslint-parser": "^10.4.0",
     "vue-router": "^4.6.4",
     "vue-tsc": "^2.2.8"
   },
