@@ -6,6 +6,7 @@
   "extends": "./tsconfig.json",
   "include": [
     ".eslintrc.cjs",
+    "knip.config.ts",
     "vite.config.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
