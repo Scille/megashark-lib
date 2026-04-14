@@ -32,18 +32,15 @@ const config = {
   tags: ['-lintignore'],
   // Add entry files from "lib/" directory (not added by knip's default entry file patterns)
   // See: https://knip.dev/explanations/entry-files#default-entry-file-patterns
-  entry: [
-      'lib/index.ts',
-      'lib/theme/index.scss'
-  ],
+  entry: ['lib/index.ts', 'lib/theme/index.scss'],
   // Enable 'vue' plugin
   // For some reason, knip does not enable it automatically (maybe because 'vue' is listed
   // as a peerDependency instead of a regular dependency?)
   vue: true,
   // Customize compiler for the 'vue' plugin (see comments at the top of the file)
   compilers: {
-    vue: (text: string, filename: string) => {
-      const { descriptor } = parse(text, { filename, sourceMap: false });
+    vue: (source: string, filename: string): string => {
+      const { descriptor } = parse(source, { filename, sourceMap: false });
       return [
         ...getScriptBlockContent(descriptor.script),
         ...getScriptBlockContent(descriptor.scriptSetup),
@@ -52,11 +49,11 @@ const config = {
     },
   },
   ignoreFiles: [
-    "lib/components/ms-modal/MsSmallDisplayStepperModal.vue" // TODO: knip reports it as unused, check if still needed?
+    'lib/components/ms-modal/MsSmallDisplayStepperModal.vue', // TODO: knip reports it as unused, check if still needed?
   ],
   ignoreUnresolved: [
-    "./@lib/theme" // TODO: knip reports "use ./@lib/theme as ms" in .scss files as unresolved imports, why?
-  ]
+    './@lib/theme', // TODO: knip reports "use ./@lib/theme as ms" in .scss files as unresolved imports, why?
+  ],
 } satisfies KnipConfig;
 
 export default config;
