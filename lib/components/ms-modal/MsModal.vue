@@ -26,13 +26,11 @@
           class="ms-modal-header"
           v-if="title"
         >
-          <div class="ms-modal-header__title-container">
-            <ion-text class="ms-modal-header__title title-h3">
-              {{ $msTranslate(title) }}
-            </ion-text>
-          </div>
+          <ion-text class="ms-modal-header__title title-h3">
+            {{ $msTranslate(title) }}
+          </ion-text>
           <template v-if="subtitle">
-            <ion-text class="ms-modal-header__text body-lg">
+            <ion-text class="ms-modal-header__subtitle subtitles-normal">
               {{ $msTranslate(subtitle) }}
             </ion-text>
           </template>
@@ -54,7 +52,6 @@
                 fill="clear"
                 size="default"
                 id="cancel-button"
-                :color="themeToButtonColor(cancelButton.theme)"
                 @click="cancelButton && cancelButton.onClick ? cancelButton.onClick() : cancel()"
                 :disabled="cancelButton.disabled"
               >
@@ -66,7 +63,6 @@
                 size="default"
                 id="next-button"
                 type="submit"
-                :color="themeToButtonColor(confirmButton.theme)"
                 @click="confirmButton && confirmButton.onClick ? confirmButton.onClick() : confirm()"
                 :disabled="confirmButton.disabled"
               >
@@ -89,7 +85,6 @@
 import { IonButton, IonFooter, IonHeader, IonIcon, IonPage, IonText, IonToolbar, modalController } from '@ionic/vue';
 import { MsModalConfig, MsModalResult } from '@lib/components/ms-modal/types';
 import { MsSpinner } from '@lib/components/ms-spinner';
-import { MsReportTheme } from '@lib/components/ms-types';
 import { close } from 'ionicons/icons';
 import { onMounted, useTemplateRef } from 'vue';
 
@@ -105,25 +100,6 @@ onMounted(() => {
     modalRef.value?.focus();
   }, 100);
 });
-
-function themeToButtonColor(_theme?: MsReportTheme): string | undefined {
-  // Buttons do not correctly handle colors right now.
-  // Once they do, remove the early return and uncomment the switch/case.
-
-  return undefined;
-
-  // switch (theme) {
-  //   case MsReportTheme.Success:
-  //     return 'success';
-  //   case MsReportTheme.Warning:
-  //     return 'warning';
-  //   case MsReportTheme.Error:
-  //     return 'error';
-  //   case MsReportTheme.Info:
-  //   default:
-  //     return undefined;
-  // }
-}
 
 async function cancel(): Promise<boolean> {
   return modalController.dismiss(null, MsModalResult.Cancel);
@@ -152,10 +128,12 @@ async function confirm(): Promise<boolean> {
 .ms-modal-header {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
 
   @include ms.responsive-breakpoint('sm') {
     margin-bottom: 0;
+    gap: 0;
   }
 
   &__title {
@@ -186,13 +164,11 @@ async function confirm(): Promise<boolean> {
     }
   }
 
-  &__text {
-    color: var(--parsec-color-light-secondary-soft-text);
-    margin-top: 0.625rem;
+  &__subtitle {
+    color: var(--parsec-color-light-secondary-hard-grey);
 
     @include ms.responsive-breakpoint('sm') {
       padding: 0 2rem;
-      margin-top: 0;
     }
 
     @include ms.responsive-breakpoint('xs') {
@@ -251,6 +227,10 @@ async function confirm(): Promise<boolean> {
     gap: 1rem;
     margin: 0;
 
+    ion-button {
+      min-width: 4.5rem;
+    }
+
     .confirm-button-spinner {
       margin-left: 0.5rem;
     }
@@ -277,7 +257,12 @@ async function confirm(): Promise<boolean> {
   --ms-modal-next-button-background-hover-color: var(--parsec-color-light-danger-700);
 }
 
-.ms-info,
+.ms-light {
+  --ms-modal-next-button-background-color: var(--parsec-color-light-secondary-text);
+  --ms-modal-next-button-background-hover-color: var(--parsec-color-light-secondary-contrast);
+}
+
+.ms-light,
 .ms-success,
 .ms-warning,
 .ms-error {
@@ -290,7 +275,13 @@ async function confirm(): Promise<boolean> {
   .ms-modal-footer {
     margin-top: 0;
 
-    &-buttons #next-button {
+    #cancel-button {
+      --background: var(--parsec-color-light-secondary-white) !important;
+      --color: var(--parsec-color-light-secondary-text) !important;
+      --background-hover: var(--parsec-color-light-secondary-premiere) !important;
+    }
+
+    #next-button {
       --background: var(--ms-modal-next-button-background-color);
       --background-hover: var(--ms-modal-next-button-background-hover-color);
     }

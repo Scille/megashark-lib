@@ -12,11 +12,23 @@ ion-button {
   flex-shrink: 0;
   min-height: 0 !important;
   letter-spacing: 0.01rem;
-}
+  --padding-top: 0.75rem;
+  --padding-end: 1.125rem;
+  --padding-bottom: 0.75rem;
+  --padding-start: 1.125rem;
 
-ion-button.ios {
-  --background-activated: transparent;
-  --background-focused: transparent;
+  .button-icon-right {
+    margin-left: 0.5rem;
+  }
+
+  .button-icon-left {
+    margin-right: 0.5rem;
+  }
+
+  &.ios {
+    --background-activated: transparent;
+    --background-focused: transparent;
+  }
 }
 
 /* button size */
@@ -32,15 +44,7 @@ ion-button.button-large {
 
   ion-icon {
     font-size: 1.125rem;
-    margin-right: 0.5rem;
   }
-}
-
-ion-button.button-default {
-  --padding-top: 0.75rem;
-  --padding-end: 1.125rem;
-  --padding-bottom: 0.75rem;
-  --padding-start: 1.125rem;
 }
 
 ion-button.button-small {

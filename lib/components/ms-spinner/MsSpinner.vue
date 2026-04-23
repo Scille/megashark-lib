@@ -39,7 +39,7 @@ const spinnerSizeFormatted = computed(() => `${spinnerSize.value}px`);
   gap: 0.5rem;
 
   &-text {
-    color: var(--parsec-color-light-secondary-grey);
+    color: var(--parsec-color-light-secondary-hard-grey);
   }
 }
 

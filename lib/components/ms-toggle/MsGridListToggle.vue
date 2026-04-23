@@ -47,12 +47,12 @@ defineExpose({
 .ms-grid-list-toggle {
   display: flex;
   align-items: center;
-  border-radius: var(--parsec-radius-8);
+  border-radius: var(--parsec-radius-10);
   border: 1px solid var(--parsec-color-light-secondary-medium);
+  padding: 0.25rem;
   background: var(--parsec-color-light-secondary-premiere);
   flex-shrink: 0;
   overflow: hidden;
-  box-shadow: var(--parsec-shadow-low);
 }
 
 .button-view {
@@ -60,6 +60,7 @@ defineExpose({
   min-height: 1rem;
   height: 100%;
   --ripple-color: transparent;
+  border-radius: var(--parsec-radius-6);
 
   &:not(.button-disabled) {
     cursor: pointer;
@@ -76,11 +77,7 @@ defineExpose({
 
   ion-icon {
     font-size: 1.125rem;
-    padding: 0.5rem;
-  }
-
-  &:nth-child(1) {
-    border-right: 1px solid var(--parsec-color-light-secondary-medium);
+    padding: 0.3125rem;
   }
 }
 
@@ -89,5 +86,8 @@ defineExpose({
   background: var(--parsec-color-light-secondary-white);
   color: var(--parsec-color-light-secondary-hard-grey);
   opacity: 1;
+  box-shadow:
+    0 3px 5px 0 rgba(0, 0, 0, 0.02),
+    0 1px 1px 0 rgba(0, 0, 0, 0.03);
 }
 </style>
