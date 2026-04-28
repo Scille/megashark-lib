@@ -13,20 +13,20 @@ describe('Choose password', () => {
 
   it('Validate the fields', async () => {
     // Fields are empty, obviously not valid
-    expect(await wrapper.vm.areFieldsCorrect()).to.be.false;
+    expect(await wrapper.vm.areFieldsCorrect()).toBe(false);
 
     const ionInputs = wrapper.findAllComponents(IonInput);
     ionInputs[0].vm.$emit('ionInput', { target: { value: 'P@ssw0rd.' } });
     expect(wrapper.vm.password).to.equal('P@ssw0rd.');
 
     // Confirmation is not filled, not valid
-    expect(await wrapper.vm.areFieldsCorrect()).to.be.false;
+    expect(await wrapper.vm.areFieldsCorrect()).toBe(false);
 
     ionInputs[1].vm.$emit('ionInput', { target: { value: 'P@ssw0rd.' } });
     expect(wrapper.vm.passwordConfirm).to.equal('P@ssw0rd.');
 
     // P@ssw0rd is not strong enough
-    expect(await wrapper.vm.areFieldsCorrect()).to.be.false;
+    expect(await wrapper.vm.areFieldsCorrect()).toBe(false);
 
     ionInputs[0].vm.$emit('ionInput', {
       target: { value: 'ABiggerSaferPassword123!!' },
@@ -34,12 +34,12 @@ describe('Choose password', () => {
     expect(wrapper.vm.password).to.equal('ABiggerSaferPassword123!!');
 
     // Password is strong enough but password and confirmation don't match
-    expect(await wrapper.vm.areFieldsCorrect()).to.be.false;
+    expect(await wrapper.vm.areFieldsCorrect()).toBe(false);
 
     ionInputs[1].vm.$emit('ionInput', {
       target: { value: 'ABiggerSaferPassword123!!' },
     });
     expect(wrapper.vm.passwordConfirm).to.equal('ABiggerSaferPassword123!!');
-    expect(await wrapper.vm.areFieldsCorrect()).to.be.true;
+    expect(await wrapper.vm.areFieldsCorrect()).toBe(true);
   });
 });

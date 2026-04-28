@@ -22,12 +22,7 @@ interface RawToken {
 }
 
 export function decodeToken(token: string): TokenInfo | undefined {
-  let encoded = '';
-  if (token.includes('.')) {
-    encoded = token.split('.')[1];
-  } else {
-    encoded = token;
-  }
+  const encoded = token.includes('.') ? token.split('.')[1] : token;
   try {
     const decoded = Base64.toObject(encoded) as RawToken;
     return {
@@ -38,7 +33,7 @@ export function decodeToken(token: string): TokenInfo | undefined {
       expiresAt: DateTime.fromSeconds(decoded.exp),
       createdAt: DateTime.fromSeconds(decoded.iat),
     };
-  } catch (error: any) {
+  } catch {
     console.error('Failed to decode JWT token');
   }
 }

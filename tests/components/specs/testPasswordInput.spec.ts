@@ -33,14 +33,14 @@ describe('Password Input', () => {
   it('should not emit enter when input is empty', async () => {
     const ionInput = wrapper.findComponent(IonInput);
     await ionInput.trigger('keyup.enter');
-    expect(wrapper.emitted('onEnterKeyup')).to.be.undefined;
+    expect(wrapper.emitted('onEnterKeyup')).toBeUndefined();
   });
 
   it('should toggle password visibility button icon and password input type on password visibility button click', async () => {
-    expect((wrapper.vm as any).passwordVisible).to.be.false;
+    expect((wrapper.vm as any).passwordVisible).toBe(false);
     await wrapper.find('.input-icon').trigger('click');
-    expect((wrapper.vm as any).passwordVisible).to.be.true;
+    expect((wrapper.vm as any).passwordVisible).toBe(true);
     await wrapper.find('.input-icon').trigger('click');
-    expect((wrapper.vm as any).passwordVisible).to.be.false;
+    expect((wrapper.vm as any).passwordVisible).toBe(false);
   });
 });
