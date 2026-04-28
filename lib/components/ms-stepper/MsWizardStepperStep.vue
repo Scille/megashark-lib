@@ -30,8 +30,8 @@
 </template>
 
 <script setup lang="ts">
-import { MsStepStatus } from '@lib/components/ms-stepper/types';
 import { IonIcon } from '@ionic/vue';
+import { MsStepStatus } from '@lib/components/ms-stepper/types';
 import { checkmark } from 'ionicons/icons';
 
 defineProps<{

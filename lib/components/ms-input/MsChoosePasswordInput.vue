@@ -68,13 +68,13 @@
 </template>
 
 <script setup lang="ts">
+import { IonIcon, IonText } from '@ionic/vue';
 import { PasswordValidation } from '@lib/common/validation';
 import { MsImage, PasswordLock } from '@lib/components/ms-image';
 import MsPasswordInput from '@lib/components/ms-input/MsPasswordInput.vue';
 import { Translatable } from '@lib/services';
-import { IonText, IonIcon } from '@ionic/vue';
-import { ref, useTemplateRef } from 'vue';
 import { checkmarkCircle, close } from 'ionicons/icons';
+import { ref, useTemplateRef } from 'vue';
 
 const password = ref('');
 const passwordConfirm = ref('');

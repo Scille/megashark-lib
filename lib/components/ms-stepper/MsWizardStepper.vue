@@ -25,10 +25,10 @@
 </template>
 
 <script setup lang="ts">
+import { IonText } from '@ionic/vue';
 import MsWizardStepperStep from '@lib/components/ms-stepper/MsWizardStepperStep.vue';
 import { MsStepStatus } from '@lib/components/ms-stepper/types';
 import { Translatable } from '@lib/services';
-import { IonText } from '@ionic/vue';
 
 defineProps<{
   titles: Translatable[];

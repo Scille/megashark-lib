@@ -30,10 +30,10 @@
 </template>
 
 <script setup lang="ts">
-import { Translatable } from '@lib/services';
 import { IonIcon, IonInput } from '@ionic/vue';
+import { Translatable } from '@lib/services';
 import { search } from 'ionicons/icons';
-import { useTemplateRef, ref } from 'vue';
+import { ref, useTemplateRef } from 'vue';
 
 const props = defineProps<{
   modelValue?: string;

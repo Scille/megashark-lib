@@ -21,12 +21,12 @@
 </template>
 
 <script setup lang="ts">
+import { IonButton, IonIcon, IonText, popoverController } from '@ionic/vue';
 import MsSorterPopover from '@lib/components/ms-sorter/MsSorterPopover.vue';
 import { MsSorterChangeEvent, MsSorterLabels } from '@lib/components/ms-sorter/types';
 import { MsOption, MsOptions } from '@lib/components/ms-types';
 import { Translatable } from '@lib/services';
-import { IonButton, IonIcon, popoverController, IonText } from '@ionic/vue';
-import { arrowUp, arrowDown } from 'ionicons/icons';
+import { arrowDown, arrowUp } from 'ionicons/icons';
 import { Ref, ref } from 'vue';
 
 const props = withDefaults(

@@ -46,11 +46,11 @@
 </template>
 
 <script setup lang="ts">
+import { IonIcon, IonInput } from '@ionic/vue';
 import { IValidator, Validity } from '@lib/common/validation';
 import { Translatable } from '@lib/services';
-import { IonIcon, IonInput } from '@ionic/vue';
 import { warning } from 'ionicons/icons';
-import { Ref, ref, computed, useTemplateRef } from 'vue';
+import { computed, Ref, ref, useTemplateRef } from 'vue';
 
 const props = defineProps<{
   label?: Translatable;

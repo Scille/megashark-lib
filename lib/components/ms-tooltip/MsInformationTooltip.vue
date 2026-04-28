@@ -10,9 +10,9 @@
 </template>
 
 <script setup lang="ts">
+import { IonIcon } from '@ionic/vue';
 import { openInformationTooltip } from '@lib/components/ms-tooltip/utils';
 import { Translatable } from '@lib/services';
-import { IonIcon } from '@ionic/vue';
 import { informationCircle } from 'ionicons/icons';
 
 defineProps<{

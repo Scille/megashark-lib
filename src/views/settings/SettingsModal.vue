@@ -83,10 +83,10 @@
 </template>
 
 <script setup lang="ts">
-import { MsDropdown, MsModal, MsOptions } from '@lib/components';
 import SettingsOption from '@/views/settings/SettingsOption.vue';
-import { Locale, I18n, LocaleOptions, Theme, ThemeManager, ThemeOptions } from '@lib/services';
 import { IonIcon, IonList, IonPage, IonRadio, IonRadioGroup, IonText } from '@ionic/vue';
+import { MsDropdown, MsModal, MsOptions } from '@lib/components';
+import { I18n, Locale, LocaleOptions, Theme, ThemeManager, ThemeOptions } from '@lib/services';
 import { cog, options } from 'ionicons/icons';
 import { ref } from 'vue';
 

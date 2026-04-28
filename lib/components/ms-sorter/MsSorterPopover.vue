@@ -46,12 +46,12 @@
 </template>
 
 <script setup lang="ts">
+import { IonIcon, IonItem, IonList, IonText, popoverController } from '@ionic/vue';
 import { MsSorterLabels } from '@lib/components/ms-sorter/types';
 import { MsOption, MsOptions } from '@lib/components/ms-types';
-import { IonIcon, IonItem, IonText, IonList, popoverController } from '@ionic/vue';
+import { Translatable } from '@lib/services';
 import { arrowDown, arrowUp, checkmark } from 'ionicons/icons';
 import { Ref, ref } from 'vue';
-import { Translatable } from '@lib/services';
 
 const props = defineProps<{
   defaultOption?: any;

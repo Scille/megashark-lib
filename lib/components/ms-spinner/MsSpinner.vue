@@ -19,9 +19,9 @@
 </template>
 
 <script setup lang="ts">
-import { Translatable } from '@lib/services';
 import { IonText } from '@ionic/vue';
-import { ref, computed } from 'vue';
+import { Translatable } from '@lib/services';
+import { computed, ref } from 'vue';
 
 const props = defineProps<{
   title?: Translatable;

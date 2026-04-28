@@ -38,11 +38,10 @@
 </template>
 
 <script setup lang="ts">
-import { IonInputCustomEvent, InputInputEventDetail } from '@ionic/core';
-import { onMounted, ref, useTemplateRef } from 'vue';
+import { InputInputEventDetail, IonInputCustomEvent } from '@ionic/core';
 import { IonInput, IonText } from '@ionic/vue';
-import { Ref } from 'vue';
 import { AllowedInput, isCharacterAllowed } from '@lib/components/ms-input/types';
+import { onMounted, ref, Ref, useTemplateRef } from 'vue';
 
 const inputsRef = useTemplateRef<Array<{ $el: HTMLIonInputElement }>>('inputs');
 const codes = ref<string[]>([]);

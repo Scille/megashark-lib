@@ -10,9 +10,9 @@
 </template>
 
 <script setup lang="ts">
+import { I18n, Locale } from '@lib/services';
 import { VueDatePicker } from '@vuepic/vue-datepicker';
-import { Locale, I18n } from '@lib/services';
-import { fr, enUS, Locale as DateFnsLocale } from 'date-fns/locale';
+import { Locale as DateFnsLocale, enUS, fr } from 'date-fns/locale';
 import { computed, ComputedRef } from 'vue';
 
 const props = defineProps<{

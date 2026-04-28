@@ -29,13 +29,13 @@
 </template>
 
 <script setup lang="ts">
+import ComponentsPage from '@/views/ComponentsPage.vue';
+import ResponsivePage from '@/views/ResponsivePage.vue';
+import ServicesPage from '@/views/ServicesPage.vue';
+import TransitionsPage from '@/views/TransitionsPage.vue';
 import { IonContent, IonPage, IonTitle } from '@ionic/vue';
 import { MsDropdown, MsOptions } from '@lib/components';
 import { ref } from 'vue';
-import ComponentsPage from '@/views/ComponentsPage.vue';
-import ServicesPage from '@/views/ServicesPage.vue';
-import ResponsivePage from '@/views/ResponsivePage.vue';
-import TransitionsPage from '@/views/TransitionsPage.vue';
 
 enum Category {
   Components,

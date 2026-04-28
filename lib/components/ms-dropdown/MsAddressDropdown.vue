@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonList, IonItem, IonText } from '@ionic/vue';
+import { IonItem, IonList, IonText } from '@ionic/vue';
 import { Address } from '@lib/services';
 
 defineProps<{

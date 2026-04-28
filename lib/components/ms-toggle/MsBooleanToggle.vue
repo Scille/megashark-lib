@@ -29,9 +29,9 @@
 </template>
 
 <script setup lang="ts">
+import { IonText } from '@ionic/vue';
 import { Answer } from '@lib/components/ms-types';
 import { Translatable } from '@lib/services';
-import { IonText } from '@ionic/vue';
 import { useTemplateRef } from 'vue';
 
 const toggleRef = useTemplateRef<HTMLDivElement>('toggle');

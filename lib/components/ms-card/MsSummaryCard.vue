@@ -47,9 +47,9 @@
 </template>
 
 <script setup lang="ts">
-import { IonButton, IonText, IonHeader } from '@ionic/vue';
-import { MsSummaryCardRowData } from '@lib/components/ms-card/types';
+import { IonButton, IonHeader, IonText } from '@ionic/vue';
 import MsSummaryCardItem from '@lib/components/ms-card/MsSummaryCardItem.vue';
+import { MsSummaryCardRowData } from '@lib/components/ms-card/types';
 import { Translatable } from '@lib/services';
 
 withDefaults(

@@ -19,10 +19,10 @@
 </template>
 
 <script setup lang="ts">
-import { MsReportText } from '@lib/components/ms-text';
+import { modalController } from '@ionic/vue';
 import MsModal from '@lib/components/ms-modal/MsModal.vue';
 import { MsAlertModalConfig, MsModalResult } from '@lib/components/ms-modal/types';
-import { modalController } from '@ionic/vue';
+import { MsReportText } from '@lib/components/ms-text';
 
 defineProps<MsAlertModalConfig>();
 

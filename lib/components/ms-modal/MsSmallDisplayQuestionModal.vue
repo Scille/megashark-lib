@@ -54,9 +54,9 @@
 </template>
 
 <script setup lang="ts">
+import { IonButton, IonFooter, IonHeader, IonPage, IonText, IonTitle, modalController } from '@ionic/vue';
 import { MsModalResult } from '@lib/components/ms-modal/types';
 import { Translatable } from '@lib/services';
-import { IonButton, IonFooter, IonHeader, IonPage, IonText, IonTitle, modalController } from '@ionic/vue';
 
 defineProps<{
   title?: Translatable;

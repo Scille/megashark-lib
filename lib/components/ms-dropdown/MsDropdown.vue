@@ -29,15 +29,15 @@
 </template>
 
 <script setup lang="ts">
+import { PositionAlign } from '@ionic/core';
+import { IonButton, IonIcon, IonText, modalController, popoverController } from '@ionic/vue';
 import MsDropdownPopover from '@lib/components/ms-dropdown/MsDropdownPopover.vue';
 import MsSmallDisplayDropdown from '@lib/components/ms-dropdown/MsSmallDisplayDropdown.vue';
 import { MsDropdownChangeEvent } from '@lib/components/ms-dropdown/types';
 import { MsAppearance, MsOption, MsOptions } from '@lib/components/ms-types';
 import { Translatable, useWindowSize } from '@lib/services';
-import { IonButton, IonIcon, IonText, modalController, popoverController } from '@ionic/vue';
-import { PositionAlign } from '@ionic/core';
 import { caretDown, chevronDown } from 'ionicons/icons';
-import { Ref, ref, computed } from 'vue';
+import { computed, Ref, ref } from 'vue';
 
 const props = defineProps<{
   defaultOptionKey?: any;

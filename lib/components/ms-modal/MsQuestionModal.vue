@@ -30,12 +30,12 @@
 </template>
 
 <script setup lang="ts">
+import { modalController } from '@ionic/vue';
 import MsModal from '@lib/components/ms-modal/MsModal.vue';
 import MsSmallDisplayQuestionModal from '@lib/components/ms-modal/MsSmallDisplayQuestionModal.vue';
 import { MsModalResult } from '@lib/components/ms-modal/types';
 import { MsReportTheme } from '@lib/components/ms-types';
 import { Translatable, useWindowSize } from '@lib/services';
-import { modalController } from '@ionic/vue';
 
 const { isLargeDisplay: isLargeDisplay } = useWindowSize();
 

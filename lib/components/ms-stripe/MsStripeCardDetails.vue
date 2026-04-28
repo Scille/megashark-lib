@@ -25,13 +25,13 @@
 </template>
 
 <script setup lang="ts">
-import { PaymentMethod } from '@lib/services';
 import MastercardCardSmall from '@lib/assets/images/card-mastercard-small.svg';
-import VisaCardSmall from '@lib/assets/images/card-visa-small.svg';
 import MastercardCard from '@lib/assets/images/card-mastercard.svg';
+import VisaCardSmall from '@lib/assets/images/card-visa-small.svg';
 import VisaCard from '@lib/assets/images/card-visa.svg';
+import { PaymentMethod } from '@lib/services';
 import { DateTime } from 'luxon';
-import { ref, computed } from 'vue';
+import { computed, ref } from 'vue';
 
 const props = defineProps<{
   card: PaymentMethod.Card;
