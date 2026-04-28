@@ -24,7 +24,7 @@ function isSvg(imageData: string): boolean {
 
 <style scoped lang="scss">
 .svg-container {
-  color: var(--fill-color, var(--parsec-color-light-primary-700));
+  color: var(--fill-color, var(--parsec-color-primary-700));
   display: flex;
 }
 </style>

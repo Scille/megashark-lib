@@ -23,10 +23,10 @@ defineProps<{
 
 <style scoped lang="scss">
 .icon {
-  --color: var(--parsec-color-light-secondary-grey);
+  --color: var(--parsec-color-secondary-grey);
 
   &:hover {
-    color: var(--parsec-color-light-secondary-text);
+    color: var(--parsec-color-secondary-text);
   }
 }
 </style>

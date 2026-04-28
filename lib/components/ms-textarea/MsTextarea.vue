@@ -143,19 +143,19 @@ async function onChange(value: string): Promise<void> {
 
 <style scoped lang="scss">
 .textarea {
-  border: 1px solid var(--parsec-color-light-secondary-disabled);
+  border: 1px solid var(--parsec-color-secondary-disabled);
   border-radius: var(--parsec-radius-8);
-  color: var(--parsec-color-light-primary-800);
+  color: var(--parsec-color-primary-800);
   padding: 0.625rem 0.625rem 0;
 
   &:focus-within {
-    border: 1px solid var(--parsec-color-light-primary-400);
-    background: var(--parsec-color-light-secondary-white);
-    outline: 0.25rem solid var(--parsec-color-light-outline);
+    border: 1px solid var(--parsec-color-primary-400);
+    background: var(--parsec-color-secondary-surface);
+    outline: 0.25rem solid var(--parsec-color-outline);
   }
 
   &:hover {
-    border: 1px solid var(--parsec-color-light-primary-300);
+    border: 1px solid var(--parsec-color-primary-300);
   }
 }
 
@@ -164,15 +164,15 @@ async function onChange(value: string): Promise<void> {
   margin-left: auto;
 
   &-default {
-    color: var(--parsec-color-light-secondary-grey);
+    color: var(--parsec-color-secondary-grey);
   }
 
   &-warn {
-    color: var(--parsec-color-light-warning-500);
+    color: var(--parsec-color-warning-500);
   }
 
   &-full {
-    color: var(--parsec-color-light-danger-500);
+    color: var(--parsec-color-danger-500);
   }
 }
 </style>

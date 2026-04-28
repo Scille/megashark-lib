@@ -248,8 +248,8 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
   }
   &__item {
     --highlight-color-focused: none;
-    color: var(--parsec-color-light-secondary-text);
-    background-color: var(--parsec-color-light-secondary-premiere);
+    color: var(--parsec-color-secondary-text);
+    background-color: var(--parsec-color-secondary-premiere);
     caret-color: transparent;
     border-radius: var(--parsec-radius-8);
     width: 3.5rem;
@@ -265,8 +265,8 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
     }
 
     &:is(.has-focus) {
-      border: 1px solid var(--parsec-color-light-primary-200);
-      background: var(--parsec-color-light-secondary-inversed-contrast);
+      border: 1px solid var(--parsec-color-primary-200);
+      background: var(--parsec-color-secondary-inversed-contrast);
 
       &::after {
         content: '';
@@ -275,14 +275,14 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
         left: 0;
         width: 100%;
         height: 100%;
-        outline: 5px solid var(--parsec-color-light-outline);
+        outline: 5px solid var(--parsec-color-outline);
         animation: blinking 1.4s infinite ease-out;
         border-radius: var(--parsec-radius-8);
       }
     }
 
     &:is(.has-value) {
-      background-color: var(--parsec-color-light-secondary-medium);
+      background-color: var(--parsec-color-secondary-medium);
     }
   }
 }
@@ -293,7 +293,7 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
   gap: 0.5rem;
 
   &__invalid {
-    color: var(--parsec-color-light-danger-500);
+    color: var(--parsec-color-danger-500);
     margin-top: 0.75rem;
 
     @include ms.responsive-breakpoint('sm') {
@@ -302,7 +302,7 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
   }
 
   &__valid {
-    color: var(--parsec-color-light-success-500);
+    color: var(--parsec-color-success-500);
     margin-top: 0.75rem;
 
     @include ms.responsive-breakpoint('sm') {

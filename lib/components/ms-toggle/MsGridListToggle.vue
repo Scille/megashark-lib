@@ -48,15 +48,15 @@ defineExpose({
   display: flex;
   align-items: center;
   border-radius: var(--parsec-radius-8);
-  border: 1px solid var(--parsec-color-light-secondary-medium);
-  background: var(--parsec-color-light-secondary-premiere);
+  border: 1px solid var(--parsec-color-secondary-medium);
+  background: var(--parsec-color-secondary-premiere);
   flex-shrink: 0;
   overflow: hidden;
   box-shadow: var(--parsec-shadow-low);
 }
 
 .button-view {
-  color: var(--parsec-color-light-secondary-light);
+  color: var(--parsec-color-secondary-light);
   min-height: 1rem;
   height: 100%;
   --ripple-color: transparent;
@@ -66,7 +66,7 @@ defineExpose({
     --background-hover: none;
 
     &:hover {
-      color: var(--parsec-color-light-secondary-soft-grey);
+      color: var(--parsec-color-secondary-soft-grey);
     }
   }
 
@@ -80,14 +80,14 @@ defineExpose({
   }
 
   &:nth-child(1) {
-    border-right: 1px solid var(--parsec-color-light-secondary-medium);
+    border-right: 1px solid var(--parsec-color-secondary-medium);
   }
 }
 
 // eslint-disable-next-line vue-scoped-css/no-unused-selector
 .button-disabled {
-  background: var(--parsec-color-light-secondary-white);
-  color: var(--parsec-color-light-secondary-hard-grey);
+  background: var(--parsec-color-secondary-surface);
+  color: var(--parsec-color-secondary-hard-grey);
   opacity: 1;
 }
 </style>

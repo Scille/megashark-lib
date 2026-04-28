@@ -26,7 +26,7 @@ defineProps<{
   display: flex;
   align-items: center;
   flex-direction: column;
-  --fill-color: var(--parsec-color-light-primary-900);
+  --fill-color: var(--parsec-color-primary-900);
 
   // &.bottom {
   //   flex-direction: column-reverse;
@@ -38,8 +38,8 @@ defineProps<{
 }
 
 .tooltip-content {
-  background: var(--parsec-color-light-primary-900);
-  color: var(--parsec-color-light-primary-30);
+  background: var(--parsec-color-primary-900);
+  color: var(--parsec-color-primary-30);
   max-width: 14.5rem;
   width: fit-content;
   padding: 0.375rem 0.5rem;
