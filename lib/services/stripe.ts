@@ -84,7 +84,7 @@ export class StripeService implements IStripeService {
       }
       this.isInit = true;
       return true;
-    } catch (error: any) {
+    } catch {
       console.error('Failed to init Stripe');
       this.isInit = false;
       return false;

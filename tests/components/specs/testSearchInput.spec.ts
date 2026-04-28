@@ -32,6 +32,6 @@ describe('Search Input', () => {
   it('should not emit enter when input is empty', async () => {
     const ionInput = wrapper.findComponent(IonInput);
     await ionInput.trigger('keyup.enter');
-    expect(wrapper.emitted('enter')).to.be.undefined;
+    expect(wrapper.emitted('enter')).toBeUndefined();
   });
 });

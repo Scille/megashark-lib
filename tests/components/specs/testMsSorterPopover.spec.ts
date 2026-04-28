@@ -34,14 +34,14 @@ describe('Select popover', () => {
     expect(items.length).to.equal(4);
     // Use first option as default
     expect((wrapper.vm as any).selectedOption).to.deep.equal(defaultOptions.at(0));
-    expect((wrapper.vm as any).sortByAsc).to.be.true;
+    expect((wrapper.vm as any).sortByAsc).toBe(true);
     expect(items.at(1)?.text()).to.equal('Label A');
     expect(items.at(2)?.text()).to.equal('Label B');
     expect(items.at(3)?.text()).to.equal('Label C');
 
     expect(items.at(1)?.find('ion-icon').classes()).to.include('checked');
-    expect(items.at(2)?.find('ion-icon').exists()).to.be.false;
-    expect(items.at(3)?.find('ion-icon').exists()).to.be.false;
+    expect(items.at(2)?.find('ion-icon').exists()).toBe(false);
+    expect(items.at(3)?.find('ion-icon').exists()).toBe(false);
   });
 
   it('changes order when clicked', () => {

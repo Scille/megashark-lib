@@ -4,7 +4,7 @@ async function writeText(text: string): Promise<boolean> {
   try {
     await navigator.clipboard.writeText(text);
     return true;
-  } catch (_error) {
+  } catch {
     return false;
   }
 }
