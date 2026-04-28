@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/typings.d.ts",
       "import": "./dist/main.js",
       "require": "./dist/main.umd.cjs"
     },
