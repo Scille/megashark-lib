@@ -15,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import { Translatable } from '@lib/services';
 import { IonText } from '@ionic/vue';
+import { Translatable } from '@lib/services';
 
 defineProps<{
   title: Translatable;

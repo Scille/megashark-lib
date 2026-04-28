@@ -22,10 +22,10 @@
 </template>
 
 <script setup lang="ts">
+import { modalController } from '@ionic/vue';
 import { MsPasswordInput } from '@lib/components/ms-input';
 import MsModal from '@lib/components/ms-modal/MsModal.vue';
 import { GetPasswordOptions, MsModalResult } from '@lib/components/ms-modal/types';
-import { modalController } from '@ionic/vue';
 import { onMounted, ref, useTemplateRef } from 'vue';
 
 defineProps<GetPasswordOptions>();

@@ -52,10 +52,10 @@
 
 <script setup lang="ts">
 import { IonIcon, IonInput } from '@ionic/vue';
-import { computed, ref, onMounted, inject, useTemplateRef } from 'vue';
 import { MsStripeCardElement } from '@lib/components/ms-stripe';
-import { StripeService, StripeServiceKey, BillingDetails, PaymentMethodResult } from '@lib/services';
+import { BillingDetails, PaymentMethodResult, StripeService, StripeServiceKey } from '@lib/services';
 import { personCircle } from 'ionicons/icons';
+import { computed, inject, onMounted, ref, useTemplateRef } from 'vue';
 
 const props = defineProps<{
   requireName?: boolean;

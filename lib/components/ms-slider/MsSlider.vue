@@ -21,8 +21,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, watch, useTemplateRef } from 'vue';
 import { SliderState } from '@lib/components/ms-slider';
+import { computed, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue';
 
 const progressWidthStyle = computed(() => `${(100 * props.modelValue.progress) / props.maxValue}%`);
 const sliderRef = useTemplateRef('slider');

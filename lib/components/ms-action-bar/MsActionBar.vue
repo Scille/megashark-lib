@@ -51,11 +51,11 @@
 </template>
 
 <script setup lang="ts">
-import { IonItemDivider, popoverController, IonButton, IonIcon } from '@ionic/vue';
+import { IonButton, IonIcon, IonItemDivider, popoverController } from '@ionic/vue';
 import { MsActionBarAction, MsActionBarButton } from '@lib/components';
-import { chevronDown, ellipsisHorizontal } from 'ionicons/icons';
-import { ref, onMounted, nextTick, watch, computed, onUnmounted, useTemplateRef } from 'vue';
 import MsActionBarPopover from '@lib/components/ms-action-bar/MsActionBarPopover.vue';
+import { chevronDown, ellipsisHorizontal } from 'ionicons/icons';
+import { computed, nextTick, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue';
 
 const props = defineProps<{
   buttons: MsActionBarAction[];

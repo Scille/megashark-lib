@@ -77,10 +77,10 @@
 
 <script setup lang="ts">
 import { IonButton, IonIcon, IonItem, IonList, IonPage, IonText, modalController } from '@ionic/vue';
-import { MsOption, MsOptions } from '@lib/components/ms-types';
 import { MsInformationTooltip } from '@lib/components/ms-tooltip';
-import { ref } from 'vue';
+import { MsOption, MsOptions } from '@lib/components/ms-types';
 import { checkmark, close } from 'ionicons/icons';
+import { ref } from 'vue';
 
 const props = defineProps<{
   title?: string;

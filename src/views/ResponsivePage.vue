@@ -86,11 +86,11 @@
 </template>
 
 <script setup lang="ts">
-import { IonLabel, IonButton, IonTitle } from '@ionic/vue';
-import { ref } from 'vue';
+import { ExampleBlock, ExampleBlockLine } from '@/views/example-block';
+import { IonButton, IonLabel, IonTitle } from '@ionic/vue';
 import { MsInformativeText } from '@lib/components';
 import { useWindowSize } from '@lib/services';
-import { ExampleBlock, ExampleBlockLine } from '@/views/example-block';
+import { ref } from 'vue';
 
 const { windowWidth, isLargeDisplay, isSmallDisplay } = useWindowSize();
 const noResponsiveMixinOverlap = ref(false);

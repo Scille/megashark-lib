@@ -54,8 +54,8 @@
 </template>
 
 <script setup lang="ts">
-import { Translatable } from '@lib/services';
 import { IonIcon, IonInput } from '@ionic/vue';
+import { Translatable } from '@lib/services';
 import { eye, eyeOff, warning } from 'ionicons/icons';
 import { ref, useTemplateRef } from 'vue';
 

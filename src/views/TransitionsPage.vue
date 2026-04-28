@@ -26,10 +26,10 @@
 </template>
 
 <script setup lang="ts">
-import { IonLabel, IonButton, IonTitle } from '@ionic/vue';
+import { ExampleBlock, ExampleBlockLine } from '@/views/example-block';
+import { IonButton, IonLabel, IonTitle } from '@ionic/vue';
 import { Position, SlideHorizontal } from '@lib/transitions';
 import { ref } from 'vue';
-import { ExampleBlock, ExampleBlockLine } from '@/views/example-block';
 
 enum SlideHorizontalItem {
   First,

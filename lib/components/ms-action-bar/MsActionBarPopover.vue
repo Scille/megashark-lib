@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonIcon, IonItem, IonText, IonList, popoverController } from '@ionic/vue';
+import { IonIcon, IonItem, IonList, IonText, popoverController } from '@ionic/vue';
 import { MsImage } from '@lib/components';
 import { Translatable } from '@lib/services';
 import { chevronDown } from 'ionicons/icons';

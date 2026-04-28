@@ -37,16 +37,16 @@
 
 <script setup lang="ts">
 import { IonIcon } from '@ionic/vue';
+import { LogoMastercard, LogoVisa, MsImage } from '@lib/components/ms-image';
 import {
-  StripeCardElementType,
   StripeCardElementChangeEventType,
+  StripeCardElementType,
+  StripeCardNumberElementChangeEvent,
   StripeService,
   StripeServiceKey,
-  StripeCardNumberElementChangeEvent,
   Translatable,
 } from '@lib/services';
-import { card, lockClosed, calendarNumber } from 'ionicons/icons';
-import { LogoMastercard, LogoVisa, MsImage } from '@lib/components/ms-image';
+import { calendarNumber, card, lockClosed } from 'ionicons/icons';
 import { inject, onMounted, onUnmounted, ref } from 'vue';
 
 let stripeElement: StripeCardElementType | undefined;

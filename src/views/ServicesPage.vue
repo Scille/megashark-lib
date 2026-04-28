@@ -76,12 +76,12 @@
 </template>
 
 <script setup lang="ts">
-import { IonButton, IonTitle } from '@ionic/vue';
-import { MsDropdown, MsInput, MsOptions, MsReportTheme, MsDropdownChangeEvent } from '@lib/components';
-import { inject, ref } from 'vue';
-import { I18n, LocaleOptions, ThemeOptions, ToastManager, Theme, ThemeManager, StripeService, StripeServiceKey } from '@lib/services';
-import { Base64 } from '@lib/main';
 import { ExampleBlock, ExampleBlockLine } from '@/views/example-block';
+import { IonButton, IonTitle } from '@ionic/vue';
+import { MsDropdown, MsDropdownChangeEvent, MsInput, MsOptions, MsReportTheme } from '@lib/components';
+import { Base64 } from '@lib/main';
+import { I18n, LocaleOptions, StripeService, StripeServiceKey, Theme, ThemeManager, ThemeOptions, ToastManager } from '@lib/services';
+import { inject, ref } from 'vue';
 
 const msDropdownOptions: MsOptions = new MsOptions([
   {

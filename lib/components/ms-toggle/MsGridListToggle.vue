@@ -26,8 +26,8 @@
 </template>
 
 <script setup lang="ts">
-import { DisplayState } from '@lib/components/ms-toggle/types';
 import { IonButton, IonIcon } from '@ionic/vue';
+import { DisplayState } from '@lib/components/ms-toggle/types';
 import { grid, list } from 'ionicons/icons';
 
 defineProps<{

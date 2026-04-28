@@ -86,10 +86,10 @@
 </template>
 
 <script setup lang="ts">
+import { IonButton, IonFooter, IonHeader, IonIcon, IonPage, IonText, IonToolbar, modalController } from '@ionic/vue';
 import { MsModalConfig, MsModalResult } from '@lib/components/ms-modal/types';
 import { MsSpinner } from '@lib/components/ms-spinner';
 import { MsReportTheme } from '@lib/components/ms-types';
-import { IonButton, IonFooter, IonHeader, IonIcon, IonPage, IonText, IonToolbar, modalController } from '@ionic/vue';
 import { close } from 'ionicons/icons';
 import { onMounted, useTemplateRef } from 'vue';
 

@@ -28,9 +28,9 @@
 </template>
 
 <script setup lang="ts">
+import { IonButton, IonIcon } from '@ionic/vue';
 import { MsImage } from '@lib/components/ms-image';
 import { Translatable } from '@lib/services';
-import { IonButton, IonIcon } from '@ionic/vue';
 import { chevronDown } from 'ionicons/icons';
 import { useTemplateRef } from 'vue';
 

@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { watch, useTemplateRef, computed, onMounted, useSlots } from 'vue';
+import { computed, onMounted, useSlots, useTemplateRef, watch } from 'vue';
 
 const props = withDefaults(
   defineProps<{

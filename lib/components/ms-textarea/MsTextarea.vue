@@ -42,9 +42,9 @@
 </template>
 
 <script setup lang="ts">
-import { Translatable } from '@lib/services';
 import { IonTextarea } from '@ionic/vue';
-import { ref, watch, onUnmounted, useAttrs, useTemplateRef } from 'vue';
+import { Translatable } from '@lib/services';
+import { onUnmounted, ref, useAttrs, useTemplateRef, watch } from 'vue';
 
 // Rows defines the height of the area in number of rows
 // Autogrow is disabled by default, enable stretching the area horizontally and

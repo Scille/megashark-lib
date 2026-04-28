@@ -13,10 +13,10 @@
 </template>
 
 <script setup lang="ts">
-import MsModal from '@lib/components/ms-modal/MsModal.vue';
-import { Translatable } from '@lib/services';
-import MsSpinner from '@lib/components/ms-spinner/MsSpinner.vue';
 import { IonText } from '@ionic/vue';
+import MsModal from '@lib/components/ms-modal/MsModal.vue';
+import MsSpinner from '@lib/components/ms-spinner/MsSpinner.vue';
+import { Translatable } from '@lib/services';
 
 defineProps<{
   label?: Translatable;

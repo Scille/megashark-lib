@@ -22,9 +22,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
 import { IonText } from '@ionic/vue';
 import { MsProgressAppearance } from '@lib/components/ms-progress/types';
+import { computed } from 'vue';
 
 const props = defineProps({
   progress: {
