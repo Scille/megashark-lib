@@ -10,12 +10,12 @@
       :key="index"
       @click="$emit('addressSelected', addr)"
     >
-      <ion-text class="option-text subtitles-sm">
-        <span class="option-text__label">
+      <ion-text class="option-text">
+        <span class="option-text__label subtitles-sm">
           {{ addr.address }}
         </span>
-        <span class="option-text__description">
-          {{ `${addr.city} (${addr.country})` }}
+        <span class="option-text__description subtitles-sm">
+          {{ `${addr.city}, ${addr.country}` }}
         </span>
       </ion-text>
     </ion-item>
@@ -42,7 +42,7 @@ defineEmits<{
   flex-direction: column;
   position: absolute;
   width: 100%;
-  border: 1px solid var(--parsec-color-light-secondary-light);
+  border: 1px solid var(--parsec-color-light-secondary-medium);
   background: var(--parsec-color-light-secondary-white);
   border-radius: var(--parsec-radius-8);
   margin-top: 0.5rem;
@@ -51,7 +51,7 @@ defineEmits<{
 
 .option {
   --background-hover: none;
-  --color: var(--parsec-color-light-secondary-grey);
+  --color: var(--parsec-color-light-secondary-hard-grey);
   padding: 0.75rem 1rem;
   --background: none;
   --min-height: 0;
@@ -72,10 +72,14 @@ defineEmits<{
   &-text {
     margin: 0;
     display: flex;
-    gap: 0.5rem;
+    gap: 0.375rem;
 
     &__label {
       color: var(--parsec-color-light-secondary-text);
+    }
+
+    &__description {
+      color: var(--parsec-color-light-secondary-grey);
     }
   }
 }

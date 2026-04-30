@@ -2,14 +2,32 @@
 
 /* **** Parsec shadow **** */
 :root {
-  --parsec-shadow-low: 0px 1px 2px 0px rgba(0, 0, 0, 0.04);
-  --parsec-shadow-soft: 0px 1px 5px 0px rgba(0, 0, 0, 0.08);
-  --parsec-shadow-light: 0px 4px 12px rgba(0, 0, 0, 0.08);
-  --parsec-shadow-strong: 0px 4px 20px rgba(0, 0, 0, 0.15);
-  --parsec-shadow-toggle: -2px 1px 6px rgba(0, 0, 0, 0.24);
+  // ----- base shadows -----
+  // Use: badge
+  --parsec-elevation-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 0 1px 0 rgba(0, 0, 0, 0.15);
+
+  // Use: card, input
+  --parsec-elevation-sm: 0 1px 1px 0 rgba(0, 0, 0, 0.05), 0 1px 4px 0 rgba(0, 0, 0, 0.03), 0 0 1px 0 rgba(0, 0, 0, 0.2);
+
+  // Use: dialog, dropdown, card-hover
+  --parsec-elevation-md: 0 2px 4px 0 rgba(0, 0, 0, 0.07), 0 1px 8px 0 rgba(0, 0, 0, 0.05), 0 0 1px 0 rgba(0, 0, 0, 0.22);
+
+  // Use: popover, tooltip
+  --parsec-elevation-lg: 0 4px 8px 0 rgba(0, 0, 0, 0.09), 0 2px 16px 0 rgba(0, 0, 0, 0.07), 0 0 1px 0 rgba(0, 0, 0, 0.24);
+
+  // Use: elevated elements
+  --parsec-elevation-xl: 0 8px 16px 0 rgba(0, 0, 0, 0.12), 0 4px 32px 0 rgba(0, 0, 0, 0.09), 0 0 1px 0 rgba(0, 0, 0, 0.26);
+
+  // Use: modal
+  --parsec-elevation-2xl: 0 16px 32px 0 rgba(0, 0, 0, 0.16), 0 8px 64px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.28);
+
+  // ----- specific shadows -----
+  --parsec-shadow-light: var(--parsec-elevation-sm);
+  --parsec-shadow-strong: var(--parsec-elevation-md);
+  --parsec-shadow-card: var(--parsec-elevation-sm);
+  --parsec-shadow-toggle: 0 3px 5px 0 rgba(0, 0, 0, 0.02), 0 1px 1px 0 rgba(0, 0, 0, 0.03);
   --parsec-shadow-top: 0px -4px 39px 0px rgba(0, 0, 0, 0.15);
   --parsec-shadow-input: 0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 5px rgba(0, 0, 0, 0.02);
-  --parsec-shadow-card: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   --parsec-shadow-3d-light: 0px 0px 25px 0px rgba(34, 129, 254, 0.1) inset, 0px 0px 12px 0px rgba(64, 146, 255, 0.1);
   --parsec-shadow-3d-strong: 0px 0px 49px 0px rgba(0, 0, 0, 0.05), 0px 4px 84px 0px rgba(58, 160, 255, 0.25) inset;
 }

@@ -6,6 +6,7 @@
     :title="title"
     :subtitle="subtitle"
     :close-button="{ visible: false }"
+    :theme="yesIsDangerous ? MsReportTheme.Error : undefined"
     :cancel-button="{
       disabled: false,
       label: noText || 'lib.components.msQuestionModal.cancelButtonLabel',
@@ -15,7 +16,6 @@
       disabled: false,
       label: yesText || 'lib.components.msQuestionModal.confirmButtonLabel',
       onClick: onYes,
-      theme: yesIsDangerous ? MsReportTheme.Error : undefined,
     }"
     @on-enter-keyup="onYes"
   />
