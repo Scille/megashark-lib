@@ -15,6 +15,7 @@
       disabled: !textIsValid,
       onClick: confirm,
     }"
+    :theme="theme"
   >
     <ms-input
       :label="inputLabel || ''"
