@@ -27,6 +27,14 @@ const config: UserConfig = {
         console.log('[theme] Files copied!');
       },
     },
+    {
+      name: 'copy-asset-files',
+      closeBundle(): void {
+        console.log('[assets] Copying files...');
+        copyFiles('lib/assets', 'dist/assets');
+        console.log('[assets] Files copied!');
+      },
+    },
   ],
   resolve: {
     alias: {
