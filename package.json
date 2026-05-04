@@ -5,7 +5,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/typings.d.ts",
+      "types": "./dist/main.d.ts",
       "import": "./dist/main.js",
       "require": "./dist/main.umd.cjs"
     },
@@ -16,7 +16,7 @@
   "files": [
     "dist"
   ],
-  "types": "./dist/typings.d.ts",
+  "types": "./dist/main.d.ts",
   "scripts": {
     "dev": "vite",
     "web:open": "vite --open",

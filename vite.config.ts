@@ -16,8 +16,13 @@ const config: UserConfig = {
     libInjectCss(),
     dts({
       include: ['lib'],
-      rollupTypes: true,
+      exclude: ['lib/lib.d.ts'],
+      entryRoot: 'lib',
+      rollupTypes: false,
       copyDtsFiles: true,
+      compilerOptions: {
+        rootDir: path.resolve(__dirname, 'lib'),
+      },
     }),
     {
       name: 'copy-theme-files',
