@@ -96,6 +96,7 @@ export async function getTextFromUser(options: GetTextOptions, isLargeDisplay: b
       okButtonText: options.okButtonText,
       defaultValue: options.defaultValue,
       selectionRange: options.selectionRange,
+      theme: options.theme,
     },
   });
   await modal.present();

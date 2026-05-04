@@ -738,6 +738,7 @@ async function openTextInputModal(): Promise<void> {
       inputLabel: 'usage.components.modals.askQuestion.label',
       placeholder: 'usage.components.modals.askQuestion.placeholder',
       okButtonText: 'usage.components.modals.askQuestion.create',
+      theme: MsReportTheme.Error,
     },
     isLargeDisplay.value,
   );

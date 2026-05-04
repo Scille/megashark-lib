@@ -14,6 +14,7 @@ export interface GetTextOptions {
   okButtonText?: Translatable;
   defaultValue?: string;
   selectionRange?: [number, number];
+  theme?: MsReportTheme;
 }
 
 export interface GetPasswordOptions {
