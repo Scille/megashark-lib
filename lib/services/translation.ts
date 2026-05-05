@@ -40,6 +40,14 @@ export const LocaleOptions: LocaleOption[] = [
   },
 ];
 
+// Needed for the linter
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
+    $msTranslate: (translatable: Translatable | undefined) => string;
+    $msFormatCurrency: (n: number) => string;
+  }
+}
+
 export const TranslationPlugin = {
   install: (app: App<any>, config: I18nConfig): void => {
     const i18n = init(config);
