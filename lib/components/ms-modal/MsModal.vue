@@ -26,9 +26,11 @@
           class="ms-modal-header"
           v-if="title"
         >
-          <ion-text class="ms-modal-header__title title-h3">
-            {{ $msTranslate(title) }}
-          </ion-text>
+          <div class="ms-modal-header__title-container">
+            <ion-text class="ms-modal-header__title title-h3">
+              {{ $msTranslate(title) }}
+            </ion-text>
+          </div>
           <template v-if="subtitle">
             <ion-text class="ms-modal-header__subtitle subtitles-normal">
               {{ $msTranslate(subtitle) }}
