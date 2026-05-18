@@ -211,3 +211,76 @@ ion-modal .inner-content {
     color: var(--parsec-color-light-secondary-soft-text);
   }
 }
+
+/* Theme color definitions */
+.small-display-modal.ms-info,
+.modal.ms-info {
+  --ms-modal-button-background-color: var(--parsec-color-light-primary-500);
+  --ms-modal-button-background-hover-color: var(--parsec-color-light-primary-600);
+}
+
+.small-display-modal.ms-success,
+.modal.ms-success {
+  --ms-modal-button-background-color: var(--parsec-color-light-success-500);
+  --ms-modal-button-background-hover-color: var(--parsec-color-light-success-700);
+}
+
+.small-display-modal.ms-warning,
+.modal.ms-warning {
+  --ms-modal-button-background-color: var(--parsec-color-light-warning-500);
+  --ms-modal-button-background-hover-color: var(--parsec-color-light-warning-700);
+}
+
+.small-display-modal.ms-error,
+.modal.ms-error {
+  --ms-modal-button-background-color: var(--parsec-color-light-danger-500);
+  --ms-modal-button-background-hover-color: var(--parsec-color-light-danger-700);
+}
+
+.small-display-modal.ms-light,
+.modal.ms-light {
+  --ms-modal-button-background-color: var(--parsec-color-light-secondary-text);
+  --ms-modal-button-background-hover-color: var(--parsec-color-light-secondary-contrast);
+}
+
+.modal.ms-info,
+.modal.ms-light,
+.modal.ms-success,
+.modal.ms-warning,
+.modal.ms-error,
+.small-display-modal.ms-info,
+.small-display-modal.ms-light,
+.small-display-modal.ms-success,
+.small-display-modal.ms-warning,
+.small-display-modal.ms-error {
+  .ms-modal-header {
+    &__title-icon {
+      color: var(--ms-modal-title-text-color);
+    }
+  }
+
+  .ms-modal-footer-buttons,
+  .ms-small-display-modal-footer-buttons {
+    margin-top: 0;
+
+    #cancel-button {
+      --background: var(--parsec-color-light-secondary-white) !important;
+      --color: var(--parsec-color-light-secondary-soft-text) !important;
+
+      &::part(native) {
+        --background-hover: var(--parsec-color-light-secondary-premiere) !important;
+        border: 1px solid var(--parsec-color-light-secondary-medium);
+      }
+    }
+
+    #next-button,
+    #confirm-button {
+      --background: var(--ms-modal-button-background-color);
+      --background-hover: var(--ms-modal-button-background-hover-color);
+
+      &::part(native) {
+        box-shadow: var(--parsec-shadow-toggle);
+      }
+    }
+  }
+}

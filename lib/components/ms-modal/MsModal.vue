@@ -26,13 +26,11 @@
           class="ms-modal-header"
           v-if="title"
         >
-          <div class="ms-modal-header__title-container">
-            <ion-text class="ms-modal-header__title title-h3">
-              {{ $msTranslate(title) }}
-            </ion-text>
-          </div>
+          <ion-text class="ms-modal-header__title title-h3">
+            {{ $msTranslate(title) }}
+          </ion-text>
           <template v-if="subtitle">
-            <ion-text class="ms-modal-header__subtitle subtitles-normal">
+            <ion-text class="ms-modal-header__subtitle body-lg">
               {{ $msTranslate(subtitle) }}
             </ion-text>
           </template>
@@ -134,8 +132,15 @@ async function confirm(): Promise<boolean> {
   gap: 1rem;
 
   @include ms.responsive-breakpoint('sm') {
+    padding: 1.5rem;
     margin-bottom: 0;
     gap: 0;
+  }
+
+  &:has(.ms-modal-header__subtitle) {
+    @include ms.responsive-breakpoint('sm') {
+      gap: 0.75rem;
+    }
   }
 
   &__title {
@@ -168,14 +173,6 @@ async function confirm(): Promise<boolean> {
 
   &__subtitle {
     color: var(--parsec-color-light-secondary-hard-grey);
-
-    @include ms.responsive-breakpoint('sm') {
-      padding: 0 2rem;
-    }
-
-    @include ms.responsive-breakpoint('xs') {
-      padding: 0 1.5rem;
-    }
   }
 }
 
@@ -235,57 +232,6 @@ async function confirm(): Promise<boolean> {
 
     .confirm-button-spinner {
       margin-left: 0.5rem;
-    }
-  }
-}
-
-.ms-info {
-  --ms-modal-next-button-background-color: var(--parsec-color-light-secondary-text);
-  --ms-modal-next-button-background-hover-color: var(--parsec-color-light-secondary-contrast);
-}
-
-.ms-success {
-  --ms-modal-next-button-background-color: var(--parsec-color-light-success-500);
-  --ms-modal-next-button-background-hover-color: var(--parsec-color-light-success-700);
-}
-
-.ms-warning {
-  --ms-modal-next-button-background-color: var(--parsec-color-light-secondary-text);
-  --ms-modal-next-button-background-hover-color: var(--parsec-color-light-secondary-contrast);
-}
-
-.ms-error {
-  --ms-modal-next-button-background-color: var(--parsec-color-light-danger-500);
-  --ms-modal-next-button-background-hover-color: var(--parsec-color-light-danger-700);
-}
-
-.ms-light {
-  --ms-modal-next-button-background-color: var(--parsec-color-light-secondary-text);
-  --ms-modal-next-button-background-hover-color: var(--parsec-color-light-secondary-contrast);
-}
-
-.ms-light,
-.ms-success,
-.ms-warning,
-.ms-error {
-  .ms-modal-header {
-    &__title-icon {
-      color: var(--ms-modal-title-text-color);
-    }
-  }
-
-  .ms-modal-footer {
-    margin-top: 0;
-
-    #cancel-button {
-      --background: var(--parsec-color-light-secondary-white) !important;
-      --color: var(--parsec-color-light-secondary-text) !important;
-      --background-hover: var(--parsec-color-light-secondary-premiere) !important;
-    }
-
-    #next-button {
-      --background: var(--ms-modal-next-button-background-color);
-      --background-hover: var(--ms-modal-next-button-background-hover-color);
     }
   }
 }

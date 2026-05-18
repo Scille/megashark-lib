@@ -6,7 +6,7 @@
     :title="title"
     :subtitle="subtitle"
     :close-button="{ visible: false }"
-    :theme="yesIsDangerous ? MsReportTheme.Error : undefined"
+    :theme="yesIsDangerous ? MsReportTheme.Error : MsReportTheme.Info"
     :cancel-button="{
       disabled: false,
       label: noText || 'lib.components.msQuestionModal.cancelButtonLabel',
@@ -25,7 +25,7 @@
     :subtitle="subtitle"
     :yes-text="yesText"
     :no-text="noText"
-    :yes-is-dangerous="yesIsDangerous"
+    :theme="yesIsDangerous ? MsReportTheme.Error : MsReportTheme.Info"
   />
 </template>
 
@@ -37,7 +37,7 @@ import { MsModalResult } from '@lib/components/ms-modal/types';
 import { MsReportTheme } from '@lib/components/ms-types';
 import { Translatable, useWindowSize } from '@lib/services';
 
-const { isLargeDisplay: isLargeDisplay } = useWindowSize();
+const { isLargeDisplay } = useWindowSize();
 
 defineProps<{
   title: Translatable;
