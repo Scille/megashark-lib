@@ -1,21 +1,22 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <ion-page class="small-display-modal">
+  <ion-page
+    class="small-display-modal"
+    :class="theme"
+  >
     <div
       tabindex="0"
       ref="modal"
     >
       <div class="ms-small-display-modal">
-        <ion-header class="ms-small-display-modal-header">
-          <div
-            class="ms-small-display-modal-header__title-container"
-            v-if="title"
-          >
-            <ion-title class="ms-small-display-modal-header__title title-h3">
-              {{ $msTranslate(title) }}
-            </ion-title>
-          </div>
+        <ion-header
+          class="ms-small-display-modal-header"
+          v-if="title"
+        >
+          <ion-title class="ms-small-display-modal-header__title title-h3">
+            {{ $msTranslate(title) }}
+          </ion-title>
           <template v-if="subtitle">
             <ion-text class="ms-small-display-modal-header__text body">
               {{ $msTranslate(subtitle) }}
@@ -56,14 +57,15 @@
 <script setup lang="ts">
 import { IonButton, IonFooter, IonHeader, IonPage, IonText, IonTitle, modalController } from '@ionic/vue';
 import { MsModalResult } from '@lib/components/ms-modal/types';
+import { MsReportTheme } from '@lib/components/ms-types';
 import { Translatable } from '@lib/services';
 
 defineProps<{
   title?: Translatable;
   subtitle?: Translatable;
+  theme?: MsReportTheme;
   yesText?: Translatable;
   noText?: Translatable;
-  yesIsDangerous?: boolean;
 }>();
 
 async function onYes(): Promise<boolean> {
@@ -80,11 +82,7 @@ async function cancel(): Promise<boolean> {
 @use '@lib/theme' as ms;
 
 .ms-small-display-modal {
-  padding: 2rem;
-
-  @include ms.responsive-breakpoint('xs') {
-    padding: 1.5rem;
-  }
+  padding: 1.5rem;
 }
 
 .ms-small-display-modal-header {
@@ -100,11 +98,6 @@ async function cancel(): Promise<boolean> {
     align-items: center;
     max-width: 22rem;
     font-weight: 600;
-
-    &-container {
-      display: flex;
-      align-items: center;
-    }
   }
 
   &__text {
@@ -127,13 +120,17 @@ async function cancel(): Promise<boolean> {
     gap: 1rem;
     margin-top: 1.5rem;
 
-    &-cancel {
+    #cancel-button {
       display: flex;
-      color: var(--parsec-color-light-secondary-text);
+      --background: var(--parsec-color-light-secondary-white) !important;
+      --color: var(--parsec-color-light-secondary-text) !important;
+      --background-hover: var(--parsec-color-light-secondary-premiere) !important;
     }
 
-    &-confirm {
+    #confirm-button {
       display: flex;
+      --background: var(--ms-modal-button-background-color);
+      --background-hover: var(--ms-modal-button-background-hover-color);
     }
   }
 }

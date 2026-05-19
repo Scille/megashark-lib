@@ -7,15 +7,13 @@
       ref="modal"
     >
       <div class="ms-small-display-modal">
-        <ion-header class="ms-small-display-modal-header">
-          <div
-            class="ms-small-display-modal-header__title-container"
-            v-if="title"
-          >
-            <ion-title class="ms-small-display-modal-header__title title-h3">
-              {{ $msTranslate(title) }}
-            </ion-title>
-          </div>
+        <ion-header
+          v-if="title"
+          class="ms-small-display-modal-header"
+        >
+          <ion-title class="ms-small-display-modal-header__title title-h3">
+            {{ $msTranslate(title) }}
+          </ion-title>
           <template v-if="subtitle">
             <ion-text class="ms-small-display-modal-header__text body-normal">
               {{ $msTranslate(subtitle) }}
@@ -63,7 +61,6 @@ defineProps<{
   subtitle?: Translatable;
   yesText?: Translatable;
   noText?: Translatable;
-  yesIsDangerous?: boolean;
 }>();
 
 async function onYes(): Promise<boolean> {
@@ -87,18 +84,13 @@ async function cancel(): Promise<boolean> {
   padding-bottom: 0.5rem;
 
   &__title {
-    padding: 0;
+    padding: 1.5rem;
     margin-bottom: 1rem;
     color: var(--parsec-color-light-primary-700);
     display: flex;
     align-items: center;
     max-width: 22rem;
     font-weight: 600;
-
-    &-container {
-      display: flex;
-      align-items: center;
-    }
   }
 
   &__text {
