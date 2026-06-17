@@ -45,8 +45,6 @@ async function openInformationTooltip(event: Event, text: Translatable): Promise
   return await openTooltip(event, text, TooltipAlignment.Center, TooltipSide.Bottom);
 }
 
-const controllers = new WeakMap<HTMLElement, AbortController>();
-
 async function attachMouseOverTooltip(
   el: HTMLElement,
   text: Translatable,
@@ -111,24 +109,11 @@ async function attachMouseOverTooltip(
     }
   }
 
-  const prev = controllers.get(el);
-  if (prev) {
-    prev.abort();
-  }
   const controller = new AbortController();
-  controllers.set(el, controller);
   const opts: AddEventListenerOptions = { signal: controller.signal };
 
   el.addEventListener('mouseenter', onMouseEnter, opts);
   el.addEventListener('mouseleave', onMouseLeave, opts);
 }
 
-function detachMouseOverTooltip(el: HTMLElement): void {
-  const controller = controllers.get(el);
-  if (controller) {
-    controller.abort();
-  }
-  controllers.delete(el);
-}
-
-export { attachMouseOverTooltip, detachMouseOverTooltip, openInformationTooltip, openTooltip, TooltipAlignment, TooltipSide };
+export { attachMouseOverTooltip, openInformationTooltip, openTooltip, TooltipAlignment, TooltipSide };
