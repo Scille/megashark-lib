@@ -13,8 +13,12 @@ export interface GetTextOptions {
   placeholder?: Translatable;
   okButtonText?: Translatable;
   defaultValue?: string;
+  yesIsDangerous?: boolean;
   selectionRange?: [number, number];
-  theme?: MsReportTheme;
+  additionalMessage?: {
+    theme: MsReportTheme;
+    message: Translatable;
+  };
 }
 
 export interface GetPasswordOptions {
@@ -22,6 +26,10 @@ export interface GetPasswordOptions {
   subtitle?: Translatable;
   inputLabel?: Translatable;
   okButtonText?: Translatable;
+  additionalMessage?: {
+    theme: MsReportTheme;
+    message: Translatable;
+  };
 }
 
 export interface MsAlertModalConfig {

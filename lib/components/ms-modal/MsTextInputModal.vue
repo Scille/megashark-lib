@@ -5,6 +5,7 @@
     :title="title"
     :subtitle="subtitle"
     :close-button="{ visible: true }"
+    :theme="yesIsDangerous ? MsReportTheme.Error : MsReportTheme.Info"
     :cancel-button="{
       label: 'lib.components.msTextInputModal.cancelButtonLabel',
       disabled: false,
@@ -15,8 +16,15 @@
       disabled: !textIsValid,
       onClick: confirm,
     }"
-    :theme="theme"
   >
+    <ms-report-text
+      v-if="additionalMessage"
+      class="report"
+      :theme="additionalMessage.theme"
+    >
+      <ms-rich-text :text="additionalMessage.message" />
+    </ms-report-text>
+
     <ms-input
       :label="inputLabel || ''"
       ref="msInput"
@@ -35,6 +43,8 @@ import { Validity } from '@lib/common/validation';
 import { MsInput } from '@lib/components/ms-input';
 import MsModal from '@lib/components/ms-modal/MsModal.vue';
 import { GetTextOptions, MsModalResult } from '@lib/components/ms-modal/types';
+import { MsReportText, MsRichText } from '@lib/components/ms-text';
+import { MsReportTheme } from '@lib/components/ms-types';
 import { onMounted, ref, useTemplateRef } from 'vue';
 
 const props = defineProps<GetTextOptions>();

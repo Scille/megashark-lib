@@ -180,7 +180,11 @@ function translate(content: Translatable | undefined): string {
 
   const { t } = i18n.global;
 
-  return typeof content === 'string' ? t(content) : t(content.key, content.data, content.count);
+  if (typeof content === 'string') {
+    return t(content);
+  }
+
+  return t(content.key, content.data, { plural: content.count, escapeParameter: true });
 }
 
 function formatCurrency(total: number): string {
