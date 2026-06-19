@@ -61,32 +61,35 @@
   .subtitles-lg {
     font-weight: 500;
     font-size: 1.125rem;
-    line-height: 1.5rem;
+    line-height: 25px;
     letter-spacing: 0.1px;
   }
 
   .subtitles-normal {
     font-weight: 500;
     font-size: 1rem;
+    line-height: 22px;
     letter-spacing: 0.1px;
   }
 
   .subtitles-sm {
     font-weight: 500;
     font-size: 0.875rem;
+    line-height: 20px;
+    letter-spacing: 0.1px;
   }
 
   /* ** body ** */
   .body-lg {
     font-size: 0.9375rem;
-    line-height: 26px;
+    line-height: 22px;
     letter-spacing: 0.1px;
     font-weight: 400;
   }
 
   .body {
     font-size: 0.875rem;
-    line-height: 1.25rem;
+    line-height: 20px;
     letter-spacing: 0.1px;
     font-weight: 400;
   }

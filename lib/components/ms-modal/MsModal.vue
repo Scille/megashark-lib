@@ -129,7 +129,7 @@ async function confirm(): Promise<boolean> {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5rem;
-  gap: 1rem;
+  gap: 0.75rem;
 
   @include ms.responsive-breakpoint('sm') {
     padding: 1.5rem;
