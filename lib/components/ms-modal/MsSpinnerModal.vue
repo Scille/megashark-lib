@@ -6,7 +6,7 @@
       v-if="label"
       class="subtitles-normal spinner-label__text"
     >
-      {{ $msTranslate(label) }}
+      <ms-rich-text :text="label" />
     </ion-text>
     <ms-spinner />
   </ms-modal>
@@ -16,6 +16,7 @@
 import { IonText } from '@ionic/vue';
 import MsModal from '@lib/components/ms-modal/MsModal.vue';
 import MsSpinner from '@lib/components/ms-spinner/MsSpinner.vue';
+import { MsRichText } from '@lib/components/ms-text';
 import { Translatable } from '@lib/services';
 
 defineProps<{

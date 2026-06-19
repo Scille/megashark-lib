@@ -86,7 +86,8 @@
           "otherError": "An error has occurred."
         },
         "askQuestion": {
-          "title": "Invite a new user",
+          "title": "Ask a question",
+          "subtitle": "This modal allows you to ask a question with or without a report-text.",
           "label": "User's email",
           "placeholder": "john.smith{'@'}example.com",
           "create": "Invite"
@@ -157,6 +158,10 @@
         "title": "Report text",
         "message": "This is an example message and {important}.",
         "important": "this is the important part"
+      },
+      "richText": {
+        "title": "Rich text",
+        "text": "A more complicated text.<br />The variable <b>{value1}</b> and the variable {value2}.<br /><br />And some line breaks."
       },
       "informationTooltip": {
         "title": "Information tooltip",

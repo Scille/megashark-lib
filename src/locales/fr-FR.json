@@ -87,7 +87,8 @@
           "otherError": "Une erreur est survenue."
         },
         "askQuestion": {
-          "title": "Inviter un nouvel utilisateur",
+          "title": "Poser une question à l'utilisateur",
+          "subtitle": "Cette modale vous permet de poser une question, avec ou sans texte ms-report-text.",
           "label": "Email de l'utilisateur",
           "placeholder": "jean.martin{'@'}exemple.com",
           "create": "Inviter"
@@ -158,6 +159,10 @@
         "title": "Report text",
         "message": "Ceci est un message d'exemple et {important}.",
         "important": "ceci est la partie importante"
+      },
+      "richText": {
+        "title": "Texte enrichi",
+        "text": "Un texte plus complexe.<br />La variable <b>{value1}</b> et la variable <i>{value2}</i>.<br /><br />Et des sauts de ligne."
       },
       "informationTooltip": {
         "title": "Information tooltip",

@@ -11,6 +11,13 @@
     </example-block-line>
   </example-block>
 
+  <!-- rich text -->
+  <example-block title="usage.components.richText.title">
+    <example-block-line>
+      <ms-rich-text :text="{ key: 'usage.components.richText.text', data: { value1: 42, value2: 'VALUE' } }" />
+    </example-block-line>
+  </example-block>
+
   <!-- toggle -->
   <example-block title="usage.components.toggle.title">
     <example-block-line>
@@ -462,6 +469,7 @@ import {
   MsProgressAppearance,
   MsReportText,
   MsReportTheme,
+  MsRichText,
   MsSearchInput,
   MsSlider,
   MsSorter,
@@ -723,10 +731,14 @@ async function openPasswordInputModal(): Promise<void> {
 }
 
 async function openQuestionModal(): Promise<void> {
-  await askQuestion('title', 'subtitle', {
+  await askQuestion('usage.components.modals.askQuestion.title', 'usage.components.modals.askQuestion.subtitle', {
     yesIsDangerous: true,
     yesText: 'yes',
     noText: 'no',
+    additionalMessage: {
+      theme: MsReportTheme.Error,
+      message: { key: 'usage.components.richText.text', data: { value1: 42, value2: 'VALUE' } },
+    },
   });
 }
 
@@ -738,7 +750,10 @@ async function openTextInputModal(): Promise<void> {
       inputLabel: 'usage.components.modals.askQuestion.label',
       placeholder: 'usage.components.modals.askQuestion.placeholder',
       okButtonText: 'usage.components.modals.askQuestion.create',
-      theme: MsReportTheme.Info,
+      additionalMessage: {
+        message: { key: 'usage.components.richText.text', data: { value1: 42, value2: 'VALUE' } },
+        theme: MsReportTheme.Info,
+      },
     },
     isLargeDisplay.value,
   );

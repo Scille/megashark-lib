@@ -11,6 +11,13 @@
       onClick: confirm,
     }"
   >
+    <ms-report-text
+      v-if="additionalMessage"
+      :theme="additionalMessage.theme"
+    >
+      <ms-rich-text :text="additionalMessage.message" />
+    </ms-report-text>
+
     <ms-password-input
       :label="inputLabel"
       ref="passwordInput"
@@ -26,6 +33,7 @@ import { modalController } from '@ionic/vue';
 import { MsPasswordInput } from '@lib/components/ms-input';
 import MsModal from '@lib/components/ms-modal/MsModal.vue';
 import { GetPasswordOptions, MsModalResult } from '@lib/components/ms-modal/types';
+import { MsReportText, MsRichText } from '@lib/components/ms-text';
 import { onMounted, ref, useTemplateRef } from 'vue';
 
 defineProps<GetPasswordOptions>();

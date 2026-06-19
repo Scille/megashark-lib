@@ -6,7 +6,7 @@ import MsQuestionModal from '@lib/components/ms-modal/MsQuestionModal.vue';
 import MsSpinnerModal from '@lib/components/ms-modal/MsSpinnerModal.vue';
 import MsTextInputModal from '@lib/components/ms-modal/MsTextInputModal.vue';
 import { GetPasswordOptions, GetTextOptions, MsModalResult } from '@lib/components/ms-modal/types';
-import { Answer } from '@lib/components/ms-types';
+import { Answer, MsReportTheme } from '@lib/components/ms-types';
 import { Translatable } from '@lib/services';
 
 export interface QuestionOptions {
@@ -15,6 +15,10 @@ export interface QuestionOptions {
   keepMainModalHiddenOnYes?: boolean;
   yesIsDangerous?: boolean;
   backdropDismiss?: boolean;
+  additionalMessage?: {
+    message: Translatable;
+    theme: MsReportTheme;
+  };
 }
 
 export async function askQuestion(title: Translatable, subtitle: Translatable, options?: QuestionOptions): Promise<Answer> {
@@ -34,6 +38,7 @@ export async function askQuestion(title: Translatable, subtitle: Translatable, o
       yesText: options?.yesText,
       noText: options?.noText,
       yesIsDangerous: options?.yesIsDangerous,
+      additionalMessage: options?.additionalMessage,
     },
   });
   await modal.present();
@@ -96,7 +101,7 @@ export async function getTextFromUser(options: GetTextOptions, isLargeDisplay: b
       okButtonText: options.okButtonText,
       defaultValue: options.defaultValue,
       selectionRange: options.selectionRange,
-      theme: options.theme,
+      additionalMessage: options.additionalMessage,
     },
   });
   await modal.present();

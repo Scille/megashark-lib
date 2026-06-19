@@ -13,7 +13,7 @@
     @on-enter-keyup="confirm()"
   >
     <ms-report-text :theme="theme">
-      {{ $msTranslate(message) }}
+      <ms-rich-text :text="message" />
     </ms-report-text>
   </ms-modal>
 </template>
@@ -22,7 +22,7 @@
 import { modalController } from '@ionic/vue';
 import MsModal from '@lib/components/ms-modal/MsModal.vue';
 import { MsAlertModalConfig, MsModalResult } from '@lib/components/ms-modal/types';
-import { MsReportText } from '@lib/components/ms-text';
+import { MsReportText, MsRichText } from '@lib/components/ms-text';
 
 defineProps<MsAlertModalConfig>();
 

@@ -18,7 +18,14 @@
       onClick: onYes,
     }"
     @on-enter-keyup="onYes"
-  />
+  >
+    <ms-report-text
+      v-if="additionalMessage"
+      :theme="additionalMessage.theme"
+    >
+      <ms-rich-text :text="additionalMessage.message" />
+    </ms-report-text>
+  </ms-modal>
   <ms-small-display-question-modal
     v-else
     :title="title"
@@ -34,6 +41,7 @@ import { modalController } from '@ionic/vue';
 import MsModal from '@lib/components/ms-modal/MsModal.vue';
 import MsSmallDisplayQuestionModal from '@lib/components/ms-modal/MsSmallDisplayQuestionModal.vue';
 import { MsModalResult } from '@lib/components/ms-modal/types';
+import { MsReportText, MsRichText } from '@lib/components/ms-text';
 import { MsReportTheme } from '@lib/components/ms-types';
 import { Translatable, useWindowSize } from '@lib/services';
 
@@ -45,6 +53,10 @@ defineProps<{
   yesText?: Translatable;
   noText?: Translatable;
   yesIsDangerous?: boolean;
+  additionalMessage?: {
+    theme: MsReportTheme;
+    message: Translatable;
+  };
 }>();
 
 async function onYes(): Promise<boolean> {
