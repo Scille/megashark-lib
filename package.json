@@ -63,7 +63,7 @@
     "eslint-plugin-vue-scoped-css": "^3.0.0",
     "globals": "^17.6.0",
     "jsdom": "^29.1.1",
-    "knip": "^6.1.1",
+    "knip": "^6.16.1",
     "postcss-scss": "^4.0.9",
     "prettier": "3.8.3",
     "prettier-plugin-organize-imports": "^4.3.0",
