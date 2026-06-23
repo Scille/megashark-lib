@@ -184,7 +184,7 @@ function translate(content: Translatable | undefined): string {
     return t(content);
   }
 
-  return t(content.key, content.data, { plural: content.count, escapeParameter: true });
+  return t(content.key, content.data, content.count);
 }
 
 function formatCurrency(total: number): string {
