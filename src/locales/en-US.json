@@ -32,6 +32,12 @@
           }
         }
       },
+      "button": {
+        "title": "Buttons",
+        "normalState": "Click Me",
+        "failureState": "Failure!",
+        "successState": "Success!"
+      },
       "dropdown": {
         "title": "Dropdown",
         "dropdownTitle": "Dropdown title",

@@ -11,6 +11,34 @@
     </example-block-line>
   </example-block>
 
+  <!-- button -->
+  <example-block title="usage.components.button.title">
+    <example-block-line>
+      <ms-feedback-button
+        fill="outline"
+        :callback="async () => Math.random() < 0.5"
+        :normal-state="{ text: 'usage.components.button.normalState', icon: create }"
+        :failure-state="{ text: 'usage.components.button.failureState' }"
+        :success-state="{ text: 'usage.components.button.successState' }"
+        :timeout="2000"
+      />
+      <ms-feedback-button
+        :callback="async () => Math.random() < 0.5"
+        icon-position="right"
+        :normal-state="{ text: 'usage.components.button.normalState', icon: create }"
+        :failure-state="{ text: 'usage.components.button.failureState', icon: warning }"
+        :success-state="{ text: 'usage.components.button.successState', icon: cog }"
+        :timeout="2000"
+      />
+      <ms-feedback-button
+        fill="clear"
+        :callback="async () => Math.random() < 0.5"
+        :normal-state="{ icon: create }"
+        :timeout="2000"
+      />
+    </example-block-line>
+  </example-block>
+
   <!-- rich text -->
   <example-block title="usage.components.richText.title">
     <example-block-line>
@@ -457,6 +485,7 @@ import {
   MsDatetimePicker,
   MsDraggable,
   MsDropdown,
+  MsFeedbackButton,
   MsGridListToggle,
   MsImage,
   MsInformationTooltip,
