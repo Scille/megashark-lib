@@ -59,3 +59,6 @@ export * from '@lib/components/ms-slider';
 
 // ** ms-draggable ** //
 export * from '@lib/components/ms-draggable';
+
+// ** ms-button ** //
+export * from '@lib/components/ms-button';
