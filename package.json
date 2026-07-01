@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@stripe/stripe-js": "^9.2.0",
-    "@vuepic/vue-datepicker": "^12.1.0",
+    "@vuepic/vue-datepicker": "^14.0.0",
     "date-fns": "^4.1.0",
     "ionicons": "^8.0.9"
   },
