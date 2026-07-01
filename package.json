@@ -65,7 +65,7 @@
     "jsdom": "^29.1.1",
     "knip": "^6.1.1",
     "postcss-scss": "^4.0.9",
-    "prettier": "3.8.3",
+    "prettier": "3.8.4",
     "prettier-plugin-organize-imports": "^4.3.0",
     "sass": "^1.99.0",
     "terser": "^5.46.1",
