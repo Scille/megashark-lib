@@ -15,11 +15,11 @@
           v-if="title"
         >
           <ion-title class="ms-small-display-modal-header__title title-h3">
-            {{ $msTranslate(title) }}
+            <ms-rich-text :text="title" />
           </ion-title>
           <template v-if="subtitle">
             <ion-text class="ms-small-display-modal-header__text body">
-              {{ $msTranslate(subtitle) }}
+              <ms-rich-text :text="subtitle" />
             </ion-text>
           </template>
         </ion-header>
@@ -57,6 +57,7 @@
 <script setup lang="ts">
 import { IonButton, IonFooter, IonHeader, IonPage, IonText, IonTitle, modalController } from '@ionic/vue';
 import { MsModalResult } from '@lib/components/ms-modal/types';
+import { MsRichText } from '@lib/components/ms-text';
 import { MsReportTheme } from '@lib/components/ms-types';
 import { Translatable } from '@lib/services';
 
