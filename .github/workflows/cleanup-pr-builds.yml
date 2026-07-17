@@ -1,0 +1,28 @@
+name: Cleanup PR builds
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    name: Delete PR build releases
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # pin v7.0.0
+        timeout-minutes: 2
+
+      - name: Delete releases and tags for this PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          prefix="build-pr${{ github.event.pull_request.number }}-"
+          for tag in $(gh release list --repo "${{ github.repository }}" --limit 1000 --json tagName --jq ".[] | select(.tagName | startswith(\"$prefix\")) | .tagName"); do
+            echo "Deleting release/tag: $tag"
+            gh release delete "$tag" --repo "${{ github.repository }}" --yes --cleanup-tag
+          done
+        timeout-minutes: 2
