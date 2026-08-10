@@ -2,7 +2,7 @@
 
 import { StringValidation } from '@lib/common/validation/string';
 import { Translatable } from '@lib/services';
-import { zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core';
+import { ZxcvbnFactory } from '@zxcvbn-ts/core';
 import * as zxcvbnCommonPackage from '@zxcvbn-ts/language-common';
 
 enum StrengthLevel {
@@ -17,7 +17,7 @@ export interface PasswordStrength {
   label: Translatable;
 }
 
-zxcvbnOptions.setOptions({
+const zxcvbn = new ZxcvbnFactory({
   graphs: zxcvbnCommonPackage.adjacencyGraphs,
   dictionary: {
     ...zxcvbnCommonPackage.dictionary,
@@ -32,7 +32,7 @@ function getStrength(password: string): PasswordStrength {
     };
   }
 
-  const result = zxcvbn(password);
+  const result = zxcvbn.check(password);
 
   if (result.score === 0 || result.score === 1) {
     return {
