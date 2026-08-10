@@ -32,7 +32,19 @@ const config = {
   tags: ['-lintignore'],
   // Add entry files from "lib/" directory (not added by knip's default entry file patterns)
   // See: https://knip.dev/explanations/entry-files#default-entry-file-patterns
-  entry: ['lib/index.ts', 'lib/theme/index.scss'],
+  //
+  // The 3 'index.scss' files below are reached through directory-style Sass imports
+  // (e.g. `@use 'variables'`, `@forward 'mixins'`), which knip's scss compiler is
+  // unable to resolve (it only resolves `name.scss`/`_name.scss`, never `name/index.scss`).
+  // Declaring them as entry files works around this, since they're otherwise reached
+  // exclusively through paths knip can't follow.
+  entry: [
+    'lib/index.ts',
+    'lib/theme/index.scss',
+    'lib/theme/components/index.scss',
+    'lib/theme/mixins/index.scss',
+    'lib/theme/variables/index.scss',
+  ],
   // Enable 'vue' plugin
   // For some reason, knip does not enable it automatically (maybe because 'vue' is listed
   // as a peerDependency instead of a regular dependency?)
@@ -51,9 +63,7 @@ const config = {
   ignoreFiles: [
     'lib/components/ms-modal/MsSmallDisplayStepperModal.vue', // TODO: knip reports it as unused, check if still needed?
   ],
-  ignoreUnresolved: [
-    './@lib/theme', // TODO: knip reports "use ./@lib/theme as ms" in .scss files as unresolved imports, why?
-  ],
+  ignoreUnresolved: [],
 } satisfies KnipConfig;
 
 export default config;
