@@ -25,12 +25,10 @@ function decode(b64url: string): string {
   // Replace back the special chars used to make base64 string url safe.
   const input = b64url.replace(/-/g, '+').replace(/_/g, '/');
   const binString = atob(input);
-  const bytes = Uint8Array.from(
-    binString,
-    (c) =>
-      // codePointAt may return undefined if the char is outside of valid UTF-16 range,
-      // But since we come from a base64 encoded string, we know that all chars are valid
-      c.codePointAt(0)!,
+  const bytes = Uint8Array.from(binString, (c) =>
+    // codePointAt may return undefined if the char is outside of valid UTF-16 range,
+    // But since we come from a base64 encoded string, we know that all chars are valid
+    c.codePointAt(0)!,
   );
   const decoder = new TextDecoder();
   // Decode the utf-8 bytes to a string

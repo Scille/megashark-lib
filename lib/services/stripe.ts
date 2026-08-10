@@ -175,9 +175,7 @@ export class StripeService implements IStripeService {
 
 export type StripeCardElementType = StripeCardCvcElement | StripeCardExpiryElement | StripeCardNumberElement;
 export type StripeCardElementChangeEventType =
-  | StripeCardCvcElementChangeEvent
-  | StripeCardExpiryElementChangeEvent
-  | StripeCardNumberElementChangeEvent;
+  StripeCardCvcElementChangeEvent | StripeCardExpiryElementChangeEvent | StripeCardNumberElementChangeEvent;
 
 export const StripeElementBaseStyle = {
   base: {
