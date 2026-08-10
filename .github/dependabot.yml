@@ -5,8 +5,6 @@ updates:
       default-days: 10
     schedule:
       interval: monthly
-    assignees:
-      - Scille/ops-code-owners
     directory: /
     open-pull-requests-limit: 5
     rebase-strategy: auto
