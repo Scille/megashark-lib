@@ -18,10 +18,9 @@ const config: UserConfig = {
       include: ['lib'],
       exclude: ['lib/lib.d.ts'],
       entryRoot: 'lib',
-      rollupTypes: false,
       copyDtsFiles: true,
       compilerOptions: {
-        rootDir: path.resolve(__dirname, 'lib'),
+        rootDir: path.resolve(import.meta.dirname, 'lib'),
       },
     }),
     {
@@ -43,19 +42,19 @@ const config: UserConfig = {
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@lib': path.resolve(__dirname, './lib'),
-      '@megashark': path.resolve(__dirname, './lib'),
+      '@': path.resolve(import.meta.dirname, './src'),
+      '@lib': path.resolve(import.meta.dirname, './lib'),
+      '@megashark': path.resolve(import.meta.dirname, './lib'),
     },
   },
   // The 'test' property is specific to vitest (see reference types directive above)
   test: {
-    setupFiles: [path.resolve(__dirname, './tests/support/setup.ts')],
+    setupFiles: [path.resolve(import.meta.dirname, './tests/support/setup.ts')],
     include: ['tests/components/specs/*.spec.ts', 'tests/unit/specs/*.spec.ts'],
     globals: true,
     alias: {
-      '@lib': path.resolve(__dirname, './lib'),
-      '@tests': path.resolve(__dirname, './tests'),
+      '@lib': path.resolve(import.meta.dirname, './lib'),
+      '@tests': path.resolve(import.meta.dirname, './tests'),
     },
     environment: 'jsdom',
   },
@@ -64,7 +63,7 @@ const config: UserConfig = {
     minify: true,
     reportCompressedSize: true,
     lib: {
-      entry: path.resolve(__dirname, 'lib/main.ts'),
+      entry: path.resolve(import.meta.dirname, 'lib/main.ts'),
       fileName: 'main',
       name: 'megashark-lib',
       cssFileName: 'style',
