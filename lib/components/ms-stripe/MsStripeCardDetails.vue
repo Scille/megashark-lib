@@ -76,7 +76,7 @@ function getBrandImageUrl(brand: string): string {
     letter-spacing: 0.15em;
 
     p {
-      color: var(--parsec-color-secondary-white);
+      color: var(--parsec-color-secondary-surface);
       margin: 0;
     }
 

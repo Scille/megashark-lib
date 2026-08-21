@@ -118,6 +118,7 @@ const noResponsiveMixinOverlap = ref(false);
 
   @include ms.responsive-breakpoint('xxl') {
     background: var(--parsec-color-primary-700);
+    color: var(--parsec-color-secondary-white);
     &-xxl {
       display: block;
     }
@@ -140,6 +141,7 @@ const noResponsiveMixinOverlap = ref(false);
 
   @include ms.responsive-breakpoint('lg') {
     background: var(--parsec-color-primary-400);
+
     &-lg {
       display: block;
     }
@@ -150,7 +152,7 @@ const noResponsiveMixinOverlap = ref(false);
   }
 
   @include ms.responsive-breakpoint('md') {
-    background: var(--parsec-color-primary-300);
+    color: var(--parsec-color-secondary-black);
     &-md {
       display: block;
     }

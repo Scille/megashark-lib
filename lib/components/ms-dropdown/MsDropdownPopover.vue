@@ -106,7 +106,7 @@ async function onOptionClick(option: MsOption): Promise<void> {
   &.selected {
     .option-text {
       &__label {
-        color: var(--parsec-color-secondary-text);
+        color: var(--parsec-color-primary-700);
       }
 
       &__description {
@@ -115,7 +115,7 @@ async function onOptionClick(option: MsOption): Promise<void> {
     }
 
     .icon {
-      color: var(--parsec-color-secondary-text);
+      color: var(--parsec-color-primary-700);
     }
   }
 

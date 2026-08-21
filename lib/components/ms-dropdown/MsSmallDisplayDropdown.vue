@@ -175,7 +175,7 @@ async function cancel(): Promise<void> {
 
     .option-text {
       &__label {
-        color: var(--parsec-color-secondary-text);
+        color: var(--parsec-color-primary-700);
       }
 
       &__description {
@@ -184,7 +184,7 @@ async function cancel(): Promise<void> {
     }
 
     .icon {
-      color: var(--parsec-color-secondary-text);
+      color: var(--parsec-color-primary-700);
     }
   }
 

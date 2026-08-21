@@ -236,44 +236,4 @@ async function confirm(): Promise<boolean> {
     }
   }
 }
-
-.ms-info {
-  --ms-modal-next-button-background-color: var(--parsec-color-secondary-text);
-  --ms-modal-next-button-background-hover-color: var(--parsec-color-secondary-contrast);
-}
-
-.ms-success {
-  --ms-modal-next-button-background-color: var(--parsec-color-success-500);
-  --ms-modal-next-button-background-hover-color: var(--parsec-color-success-700);
-}
-
-.ms-warning {
-  --ms-modal-next-button-background-color: var(--parsec-color-secondary-text);
-  --ms-modal-next-button-background-hover-color: var(--parsec-color-secondary-contrast);
-}
-
-.ms-error {
-  --ms-modal-next-button-background-color: var(--parsec-color-danger-500);
-  --ms-modal-next-button-background-hover-color: var(--parsec-color-danger-700);
-}
-
-.ms-info,
-.ms-success,
-.ms-warning,
-.ms-error {
-  .ms-modal-header {
-    &__title-icon {
-      color: var(--ms-modal-title-text-color);
-    }
-  }
-
-  .ms-modal-footer {
-    margin-top: 0;
-
-    &-buttons #next-button {
-      --background: var(--ms-modal-next-button-background-color);
-      --background-hover: var(--ms-modal-next-button-background-hover-color);
-    }
-  }
-}
 </style>

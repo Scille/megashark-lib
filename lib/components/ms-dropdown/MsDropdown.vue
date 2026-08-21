@@ -134,7 +134,7 @@ function getIcon(): string {
 <style lang="scss" scoped>
 .dropdown-button {
   background: none;
-  color: var(--parsec-color-secondary-text);
+  color: var(--parsec-color-primary-800);
   margin: 0;
 
   .input-text {
@@ -188,7 +188,7 @@ function getIcon(): string {
   }
 
   .form-label {
-    color: var(--parsec-color-secondary-text);
+    color: var(--parsec-color-primary-700);
   }
 
   &.large {

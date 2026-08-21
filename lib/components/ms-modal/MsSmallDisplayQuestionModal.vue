@@ -123,7 +123,7 @@ async function cancel(): Promise<boolean> {
 
     #cancel-button {
       display: flex;
-      --background: var(--parsec-color-secondary-white) !important;
+      --background: var(--parsec-color-secondary-surface) !important;
       --color: var(--parsec-color-secondary-text) !important;
       --background-hover: var(--parsec-color-secondary-premiere) !important;
     }

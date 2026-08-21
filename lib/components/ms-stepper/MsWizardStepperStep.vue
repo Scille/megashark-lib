@@ -94,7 +94,7 @@ function getClass(status: MsStepStatus): string {
   .circle {
     background: var(--parsec-color-primary-600);
     .icon-checkmark {
-      color: var(--parsec-color-secondary-white);
+      color: var(--parsec-color-secondary-surface);
     }
   }
 }

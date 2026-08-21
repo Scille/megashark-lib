@@ -42,8 +42,8 @@ defineEmits<{
   flex-direction: column;
   position: absolute;
   width: 100%;
-  border: 1px solid var(--parsec-color-light-secondary-medium);
-  background: var(--parsec-color-light-secondary-white);
+  border: 1px solid var(--parsec-color-secondary-medium);
+  background: var(--parsec-color-secondary-surface);
   border-radius: var(--parsec-radius-8);
   margin-top: 0.5rem;
   z-index: 12;
@@ -76,10 +76,6 @@ defineEmits<{
 
     &__label {
       color: var(--parsec-color-secondary-text);
-    }
-
-    &__description {
-      color: var(--parsec-color-secondary-grey);
     }
 
     &__description {
