@@ -9,6 +9,8 @@ import { UserConfig, defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
+const themeDir = path.resolve(import.meta.dirname, 'lib/theme');
+
 // https://vitejs.dev/config/
 const config: UserConfig = {
   plugins: [
@@ -45,6 +47,18 @@ const config: UserConfig = {
       '@': path.resolve(import.meta.dirname, './src'),
       '@lib': path.resolve(import.meta.dirname, './lib'),
       '@megashark': path.resolve(import.meta.dirname, './lib'),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: (source: string, filename: string): string => {
+          if (filename.startsWith(themeDir)) {
+            return source;
+          }
+          return `@use '@lib/theme' as ms;\n${source}`;
+        },
+      },
     },
   },
   // The 'test' property is specific to vitest (see reference types directive above)
