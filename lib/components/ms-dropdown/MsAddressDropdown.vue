@@ -42,8 +42,8 @@ defineEmits<{
   flex-direction: column;
   position: absolute;
   width: 100%;
-  border: 1px solid var(--parsec-color-light-secondary-medium);
-  background: var(--parsec-color-light-secondary-white);
+  border: 1px solid var(--parsec-color-secondary-medium);
+  background: var(--parsec-color-secondary-surface);
   border-radius: var(--parsec-radius-8);
   margin-top: 0.5rem;
   z-index: 12;
@@ -51,7 +51,7 @@ defineEmits<{
 
 .option {
   --background-hover: none;
-  --color: var(--parsec-color-light-secondary-hard-grey);
+  --color: var(--parsec-color-secondary-hard-grey);
   padding: 0.75rem 1rem;
   --background: none;
   --min-height: 0;
@@ -63,8 +63,8 @@ defineEmits<{
   cursor: pointer;
 
   &:hover:not(.item-disabled) {
-    background: var(--parsec-color-light-primary-30);
-    --background-hover: var(--parsec-color-light-primary-30);
+    background: var(--parsec-color-primary-30);
+    --background-hover: var(--parsec-color-primary-30);
   }
   &::part(native) {
     padding: 0;
@@ -75,11 +75,11 @@ defineEmits<{
     gap: 0.375rem;
 
     &__label {
-      color: var(--parsec-color-light-secondary-text);
+      color: var(--parsec-color-secondary-text);
     }
 
     &__description {
-      color: var(--parsec-color-light-secondary-grey);
+      color: var(--parsec-color-secondary-grey);
     }
   }
 }

@@ -94,7 +94,7 @@ async function cancel(): Promise<boolean> {
   &__title {
     padding: 0;
     margin-bottom: 1rem;
-    color: var(--parsec-color-light-primary-700);
+    color: var(--parsec-color-primary-700);
     display: flex;
     align-items: center;
     max-width: 22rem;
@@ -102,7 +102,7 @@ async function cancel(): Promise<boolean> {
   }
 
   &__text {
-    color: var(--parsec-color-light-secondary-soft-text);
+    color: var(--parsec-color-secondary-soft-text);
     font-weight: 400;
   }
 }
@@ -123,9 +123,9 @@ async function cancel(): Promise<boolean> {
 
     #cancel-button {
       display: flex;
-      --background: var(--parsec-color-light-secondary-white) !important;
-      --color: var(--parsec-color-light-secondary-text) !important;
-      --background-hover: var(--parsec-color-light-secondary-premiere) !important;
+      --background: var(--parsec-color-secondary-surface) !important;
+      --color: var(--parsec-color-secondary-text) !important;
+      --background-hover: var(--parsec-color-secondary-premiere) !important;
     }
 
     #confirm-button {

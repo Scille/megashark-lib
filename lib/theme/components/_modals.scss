@@ -140,7 +140,7 @@ ion-modal .inner-content {
   // manage the handle
   &::part(handle) {
     margin: 0.5rem auto;
-    background: var(--parsec-color-light-secondary-light);
+    background: var(--parsec-color-secondary-light);
   }
 }
 
@@ -157,8 +157,8 @@ ion-modal .inner-content {
   z-index: 1000;
 
   &::part(native) {
-    background: var(--parsec-color-light-secondary-white);
-    --background-hover: var(--parsec-color-light-secondary-medium);
+    background: var(--parsec-color-secondary-surface);
+    --background-hover: var(--parsec-color-secondary-medium);
     padding: 0.125rem;
     height: 2rem;
   }
@@ -170,17 +170,17 @@ ion-modal .inner-content {
 
   &__icon {
     font-size: 1.75rem;
-    color: var(--parsec-color-light-secondary-grey);
+    color: var(--parsec-color-secondary-grey);
   }
 
   &:active {
-    --background: var(--parsec-color-light-secondary-medium);
+    --background: var(--parsec-color-secondary-medium);
     --border-radius: var(--parsec-radius-6);
   }
 
   &:hover {
     ion-icon {
-      color: var(--parsec-color-light-secondary-text);
+      color: var(--parsec-color-secondary-text);
     }
   }
 }
@@ -214,39 +214,39 @@ ion-modal .inner-content {
     }
   }
   .spinner-label__text {
-    color: var(--parsec-color-light-secondary-soft-text);
+    color: var(--parsec-color-secondary-soft-text);
   }
 }
 
 /* Theme color definitions */
 .small-display-modal.ms-info,
 .modal.ms-info {
-  --ms-modal-button-background-color: var(--parsec-color-light-primary-500);
-  --ms-modal-button-background-hover-color: var(--parsec-color-light-primary-600);
+  --ms-modal-button-background-color: var(--parsec-color-primary-500);
+  --ms-modal-button-background-hover-color: var(--parsec-color-primary-600);
 }
 
 .small-display-modal.ms-success,
 .modal.ms-success {
-  --ms-modal-button-background-color: var(--parsec-color-light-success-500);
-  --ms-modal-button-background-hover-color: var(--parsec-color-light-success-700);
+  --ms-modal-button-background-color: var(--parsec-color-success-500);
+  --ms-modal-button-background-hover-color: var(--parsec-color-success-700);
 }
 
 .small-display-modal.ms-warning,
 .modal.ms-warning {
-  --ms-modal-button-background-color: var(--parsec-color-light-warning-500);
-  --ms-modal-button-background-hover-color: var(--parsec-color-light-warning-700);
+  --ms-modal-button-background-color: var(--parsec-color-warning-500);
+  --ms-modal-button-background-hover-color: var(--parsec-color-warning-700);
 }
 
 .small-display-modal.ms-error,
 .modal.ms-error {
-  --ms-modal-button-background-color: var(--parsec-color-light-danger-500);
-  --ms-modal-button-background-hover-color: var(--parsec-color-light-danger-700);
+  --ms-modal-button-background-color: var(--parsec-color-danger-500);
+  --ms-modal-button-background-hover-color: var(--parsec-color-danger-700);
 }
 
 .small-display-modal.ms-light,
 .modal.ms-light {
-  --ms-modal-button-background-color: var(--parsec-color-light-secondary-text);
-  --ms-modal-button-background-hover-color: var(--parsec-color-light-secondary-contrast);
+  --ms-modal-button-background-color: var(--parsec-color-secondary-text);
+  --ms-modal-button-background-hover-color: var(--parsec-color-secondary-contrast);
 }
 
 .modal.ms-info,
@@ -270,12 +270,12 @@ ion-modal .inner-content {
     margin-top: 0;
 
     #cancel-button {
-      --background: var(--parsec-color-light-secondary-white) !important;
-      --color: var(--parsec-color-light-secondary-soft-text) !important;
+      --background: var(--parsec-color-secondary-surface) !important;
+      --color: var(--parsec-color-secondary-soft-text) !important;
 
       &::part(native) {
-        --background-hover: var(--parsec-color-light-secondary-premiere) !important;
-        border: 1px solid var(--parsec-color-light-secondary-medium);
+        --background-hover: var(--parsec-color-secondary-premiere) !important;
+        border: 1px solid var(--parsec-color-secondary-medium);
       }
     }
 

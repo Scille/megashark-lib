@@ -42,11 +42,11 @@ defineProps<MsSummaryCardItemData>();
   }
 
   &__label {
-    color: var(--parsec-color-light-secondary-soft-grey);
+    color: var(--parsec-color-secondary-soft-grey);
   }
 
   &__text {
-    color: var(--parsec-color-light-secondary-text);
+    color: var(--parsec-color-secondary-text);
     display: block;
     gap: 0.5rem;
     overflow: hidden;

@@ -227,8 +227,8 @@ onUnmounted(() => {
   margin: 0 1.25rem;
   padding: 0 1em;
   min-height: 3rem;
-  background-color: var(--parsec-color-light-secondary-background);
-  border-bottom: 1px solid var(--parsec-color-light-secondary-medium);
+  background-color: var(--parsec-color-secondary-background);
+  border-bottom: 1px solid var(--parsec-color-secondary-medium);
   border-radius: var(--parsec-radius-12);
   width: auto;
   width: -webkit-fill-available;
@@ -243,8 +243,8 @@ onUnmounted(() => {
 
 #action-bar-more-button {
   --background: transparent;
-  --background-hover: var(--parsec-color-light-secondary-medium);
-  --color: var(--parsec-color-light-secondary-text);
+  --background-hover: var(--parsec-color-secondary-medium);
+  --color: var(--parsec-color-secondary-text);
   margin-left: 0.5rem;
   min-height: 1rem;
 
@@ -254,20 +254,20 @@ onUnmounted(() => {
 
   .more-icon__ellipsis {
     font-size: 1.125rem;
-    color: var(--parsec-color-light-secondary-soft-text);
+    color: var(--parsec-color-secondary-soft-text);
   }
 
   .more-icon__chevron {
     margin-inline: 0em;
     margin-left: 0.375rem;
     font-size: 1rem;
-    color: var(--parsec-color-light-secondary-soft-text);
+    color: var(--parsec-color-secondary-soft-text);
   }
 
   &:hover {
     .more-icon__chevron,
     .more-icon__ellipsis {
-      color: var(--parsec-color-light-primary-600);
+      color: var(--parsec-color-primary-600);
     }
   }
 }

@@ -1,0 +1,221 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+/**** Parsec color primitives (theme-agnostic) ****/
+/* Collection "_root colors", mode "Primitives" - single mode, shared by light and dark themes. */
+:root {
+  /* color/base */
+  --parsec-color-base-black: #000000;
+  --parsec-color-base-white: #ffffff;
+
+  /* color/brand */
+  --parsec-color-brand-30: #f0f6ff;
+  --parsec-color-brand-50: #e0efff;
+  --parsec-color-brand-100: #d1e5ff;
+  --parsec-color-brand-200: #add1ff;
+  --parsec-color-brand-300: #66a8ff;
+  --parsec-color-brand-400: #338bff;
+  --parsec-color-brand-500: #006eff;
+  --parsec-color-brand-600: #0058cc;
+  --parsec-color-brand-700: #004299;
+  --parsec-color-brand-800: #002c66;
+  --parsec-color-brand-900: #001633;
+
+  /* color/grey */
+  --parsec-color-grey-10: #fcfcfd;
+  --parsec-color-grey-30: #f6f6f9;
+  --parsec-color-grey-50: #ededf3;
+  --parsec-color-grey-100: #eaeaf1;
+  --parsec-color-grey-200: #e0e0eb;
+  --parsec-color-grey-300: #cecede;
+  --parsec-color-grey-400: #b2b2cc;
+  --parsec-color-grey-500: #8585ad;
+  --parsec-color-grey-600: #5e5e8d;
+  --parsec-color-grey-700: #454569;
+  --parsec-color-grey-800: #373753;
+  --parsec-color-grey-900: #232334;
+  --parsec-color-grey-950: #171724;
+  --parsec-color-grey-970: #0f0f18;
+  --parsec-color-grey-990: #08080d;
+  --parsec-color-grey-890: #202032;
+
+  /* color/blue */
+  --parsec-color-blue-30: #f1f7fe;
+  --parsec-color-blue-50: #e2effd;
+  --parsec-color-blue-100: #d3e7fd;
+  --parsec-color-blue-200: #b2d4fb;
+  --parsec-color-blue-300: #6eaef7;
+  --parsec-color-blue-400: #3e93f4;
+  --parsec-color-blue-500: #0c6cd9;
+  --parsec-color-blue-600: #0b60c1;
+  --parsec-color-blue-700: #084891;
+  --parsec-color-blue-800: #053061;
+  --parsec-color-blue-900: #031830;
+
+  /* color/red */
+  --parsec-color-red-30: #fcf3f4;
+  --parsec-color-red-50: #f9e7e9;
+  --parsec-color-red-100: #f6dade;
+  --parsec-color-red-200: #efbdc4;
+  --parsec-color-red-300: #e18490;
+  --parsec-color-red-400: #d75b6b;
+  --parsec-color-red-500: #b82e40;
+  --parsec-color-red-600: #c20a22;
+  --parsec-color-red-700: #910819;
+  --parsec-color-red-800: #610511;
+  --parsec-color-red-900: #310309;
+
+  /* color/green */
+  --parsec-color-green-30: #f3fcf6;
+  --parsec-color-green-50: #e6f9ee;
+  --parsec-color-green-100: #daf6e5;
+  --parsec-color-green-200: #beefd1;
+  --parsec-color-green-300: #83e2a9;
+  --parsec-color-green-400: #5ad88c;
+  --parsec-color-green-500: #2eb865;
+  --parsec-color-green-600: #29a35a;
+  --parsec-color-green-700: #1d7c43;
+  --parsec-color-green-800: #14522d;
+  --parsec-color-green-900: #0a2916;
+
+  /* color/yellow */
+  --parsec-color-yellow-30: #fefbf0;
+  --parsec-color-yellow-50: #fef7e2;
+  --parsec-color-yellow-100: #fdf3d3;
+  --parsec-color-yellow-200: #efe2be;
+  --parsec-color-yellow-300: #e0c985;
+  --parsec-color-yellow-400: #d6b85c;
+  --parsec-color-yellow-500: #b8952e;
+  --parsec-color-yellow-600: #a38529;
+  --parsec-color-yellow-700: #917008;
+  --parsec-color-yellow-800: #614b05;
+  --parsec-color-yellow-900: #312603;
+
+  /* color/orange */
+  --parsec-color-orange-30: #fff9f0;
+  --parsec-color-orange-50: #fff2e0;
+  --parsec-color-orange-100: #ffecd1;
+  --parsec-color-orange-200: #ffddad;
+  --parsec-color-orange-300: #ffbf66;
+  --parsec-color-orange-400: #ffaa33;
+  --parsec-color-orange-500: #e58600;
+  --parsec-color-orange-600: #cc7700;
+  --parsec-color-orange-700: #995900;
+  --parsec-color-orange-800: #663c00;
+  --parsec-color-orange-900: #331e00;
+
+  /* color/purple */
+  --parsec-color-purple-30: #f7f0ff;
+  --parsec-color-purple-50: #f0e0ff;
+  --parsec-color-purple-100: #e8d1ff;
+  --parsec-color-purple-200: #d6adff;
+  --parsec-color-purple-300: #b266ff;
+  --parsec-color-purple-400: #9933ff;
+  --parsec-color-purple-500: #7300e5;
+  --parsec-color-purple-600: #6600cc;
+  --parsec-color-purple-700: #4d0099;
+  --parsec-color-purple-800: #330066;
+  --parsec-color-purple-900: #1a0033;
+
+  /* color/emerald */
+  --parsec-color-emerald-30: #f0fffc;
+  --parsec-color-emerald-50: #e0fff8;
+  --parsec-color-emerald-100: #d1fff5;
+  --parsec-color-emerald-200: #adffed;
+  --parsec-color-emerald-300: #66ffde;
+  --parsec-color-emerald-400: #33ffd3;
+  --parsec-color-emerald-500: #00e5b4;
+  --parsec-color-emerald-600: #00cca0;
+  --parsec-color-emerald-700: #009978;
+  --parsec-color-emerald-800: #006650;
+  --parsec-color-emerald-900: #003328;
+
+  /* opacity/neutral */
+  --parsec-color-opacity-neutral-50: rgba(21, 21, 30, 0.02);
+  --parsec-color-opacity-neutral-100: rgba(21, 21, 30, 0.04);
+  --parsec-color-opacity-neutral-200: rgba(21, 21, 30, 0.06);
+  --parsec-color-opacity-neutral-300: rgba(21, 21, 30, 0.08);
+  --parsec-color-opacity-neutral-400: rgba(21, 21, 30, 0.1);
+  --parsec-color-opacity-neutral-500: rgba(21, 21, 30, 0.14);
+  --parsec-color-opacity-neutral-600: rgba(21, 21, 30, 0.18);
+  --parsec-color-opacity-neutral-700: rgba(21, 21, 30, 0.24);
+  --parsec-color-opacity-neutral-800: rgba(21, 21, 30, 0.32);
+  --parsec-color-opacity-neutral-900: rgba(21, 21, 30, 0.4);
+
+  /* opacity/inverse */
+  --parsec-color-opacity-inverse-050: rgba(249, 249, 251, 0.02);
+  --parsec-color-opacity-inverse-100: rgba(249, 249, 251, 0.04);
+  --parsec-color-opacity-inverse-200: rgba(249, 249, 251, 0.06);
+  --parsec-color-opacity-inverse-300: rgba(249, 249, 251, 0.08);
+  --parsec-color-opacity-inverse-400: rgba(249, 249, 251, 0.1);
+  --parsec-color-opacity-inverse-500: rgba(249, 249, 251, 0.14);
+  --parsec-color-opacity-inverse-600: rgba(246, 247, 249, 0.18);
+  --parsec-color-opacity-inverse-700: rgba(249, 249, 251, 0.24);
+  --parsec-color-opacity-inverse-800: rgba(249, 249, 251, 0.32);
+  --parsec-color-opacity-inverse-900: rgba(249, 249, 251, 0.4);
+
+  /* shadow/brand */
+  --parsec-color-shadow-brand-100: rgba(0, 110, 255, 0.05);
+  --parsec-color-shadow-brand-200: rgba(0, 110, 255, 0.1);
+  --parsec-color-shadow-brand-300: rgba(0, 110, 255, 0.15);
+  --parsec-color-shadow-brand-400: rgba(0, 110, 255, 0.22);
+  --parsec-color-shadow-brand-500: rgba(0, 110, 255, 0.25);
+  --parsec-color-shadow-brand-600: rgba(0, 110, 255, 0.3);
+  --parsec-color-shadow-brand-700: rgba(0, 110, 255, 0.35);
+  --parsec-color-shadow-brand-800: rgba(0, 110, 255, 0.4);
+  --parsec-color-shadow-brand-900: rgba(0, 110, 255, 0.45);
+
+  /* shadow/grey */
+  --parsec-color-shadow-grey-100: rgba(178, 178, 204, 0.06);
+  --parsec-color-shadow-grey-200: rgba(178, 178, 204, 0.1);
+  --parsec-color-shadow-grey-300: rgba(178, 178, 204, 0.15);
+  --parsec-color-shadow-grey-400: rgba(178, 178, 204, 0.2);
+  --parsec-color-shadow-grey-500: rgba(178, 178, 204, 0.25);
+  --parsec-color-shadow-grey-600: rgba(178, 178, 204, 0.3);
+  --parsec-color-shadow-grey-700: rgba(178, 178, 204, 0.35);
+  --parsec-color-shadow-grey-800: rgba(178, 178, 204, 0.4);
+  --parsec-color-shadow-grey-900: rgba(178, 178, 204, 0.45);
+
+  /* shadow/blue */
+  --parsec-color-shadow-blue-100: rgba(11, 96, 193, 0.05);
+  --parsec-color-shadow-blue-200: rgba(11, 96, 193, 0.1);
+  --parsec-color-shadow-blue-300: rgba(11, 96, 193, 0.15);
+  --parsec-color-shadow-blue-400: rgba(11, 96, 193, 0.2);
+  --parsec-color-shadow-blue-500: rgba(11, 96, 193, 0.25);
+  --parsec-color-shadow-blue-600: rgba(11, 96, 193, 0.3);
+  --parsec-color-shadow-blue-700: rgba(11, 96, 193, 0.35);
+  --parsec-color-shadow-blue-800: rgba(11, 96, 193, 0.4);
+  --parsec-color-shadow-blue-900: rgba(11, 96, 193, 0.45);
+
+  /* shadow/red */
+  --parsec-color-shadow-red-100: rgba(194, 10, 34, 0.05);
+  --parsec-color-shadow-red-200: rgba(194, 10, 34, 0.1);
+  --parsec-color-shadow-red-300: rgba(194, 10, 34, 0.15);
+  --parsec-color-shadow-red-400: rgba(194, 10, 34, 0.2);
+  --parsec-color-shadow-red-500: rgba(194, 10, 34, 0.25);
+  --parsec-color-shadow-red-600: rgba(194, 10, 34, 0.3);
+  --parsec-color-shadow-red-700: rgba(194, 10, 34, 0.35);
+  --parsec-color-shadow-red-800: rgba(194, 10, 34, 0.4);
+  --parsec-color-shadow-red-900: rgba(194, 10, 34, 0.45);
+
+  /* shadow/green */
+  --parsec-color-shadow-green-100: rgba(41, 163, 90, 0.05);
+  --parsec-color-shadow-green-200: rgba(41, 163, 90, 0.1);
+  --parsec-color-shadow-green-300: rgba(41, 163, 90, 0.15);
+  --parsec-color-shadow-green-400: rgba(41, 163, 90, 0.2);
+  --parsec-color-shadow-green-500: rgba(41, 163, 90, 0.25);
+  --parsec-color-shadow-green-600: rgba(41, 163, 90, 0.3);
+  --parsec-color-shadow-green-700: rgba(41, 163, 90, 0.35);
+  --parsec-color-shadow-green-800: rgba(41, 163, 90, 0.4);
+  --parsec-color-shadow-green-900: rgba(41, 163, 90, 0.45);
+
+  /* shadow/yellow */
+  --parsec-color-shadow-yellow-100: rgba(163, 133, 41, 0.05);
+  --parsec-color-shadow-yellow-200: rgba(163, 133, 41, 0.1);
+  --parsec-color-shadow-yellow-300: rgba(163, 133, 41, 0.15);
+  --parsec-color-shadow-yellow-400: rgba(163, 133, 41, 0.2);
+  --parsec-color-shadow-yellow-500: rgba(163, 133, 41, 0.25);
+  --parsec-color-shadow-yellow-600: rgba(163, 133, 41, 0.3);
+  --parsec-color-shadow-yellow-700: rgba(163, 133, 41, 0.35);
+  --parsec-color-shadow-yellow-800: rgba(163, 133, 41, 0.4);
+  --parsec-color-shadow-yellow-900: rgba(163, 133, 41, 0.45);
+}

@@ -1,0 +1,80 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+/**** Parsec light theme colors ****/
+:root {
+  /* gradient */
+  --parsec-color-light-gradient: linear-gradient(113.02deg, hsl(214, 100%, 50%) -1.49%, hsl(214, 100%, 40%) 100%);
+  --parsec-color-light-gradient-background: linear-gradient(
+    113deg,
+    var(--parsec-color-light-primary-500) -1.49%,
+    var(--parsec-color-light-primary-600) 100%
+  );
+
+  /* Outline */
+  --parsec-color-light-outline: hsla(214, 100%, 50%, 0.25);
+
+  /* Primary (root/color/brand) */
+  --parsec-color-light-primary-30-opacity15: hsla(214, 100%, 97%, 0.15);
+  --parsec-color-light-primary-30: hsl(214, 100%, 97%);
+  --parsec-color-light-primary-50: hsl(214, 100%, 94%);
+  --parsec-color-light-primary-100: hsl(214, 100%, 91%);
+  --parsec-color-light-primary-200: hsl(214, 100%, 84%);
+  --parsec-color-light-primary-300: hsl(214, 100%, 70%);
+  --parsec-color-light-primary-400: hsl(214, 100%, 60%);
+  --parsec-color-light-primary-500: hsl(214, 100%, 50%);
+  --parsec-color-light-primary-600: hsl(214, 100%, 40%);
+  --parsec-color-light-primary-700: hsl(214, 100%, 30%);
+  --parsec-color-light-primary-800: hsl(214, 100%, 20%);
+  --parsec-color-light-primary-900: hsl(214, 100%, 10%);
+
+  /* Secondary (root/color/grey) */
+  --parsec-color-light-secondary-opacity30: hsla(0, 0%, 100%, 0.3);
+  --parsec-color-light-secondary-black: hsl(240, 22%, 12%);
+  --parsec-color-light-secondary-contrast: hsl(240, 20%, 17%);
+  --parsec-color-light-secondary-text: hsl(240, 20%, 27%);
+  --parsec-color-light-secondary-soft-text: hsl(240, 21%, 34%);
+  --parsec-color-light-secondary-hard-grey: hsl(240, 20%, 46%);
+  --parsec-color-light-secondary-grey: hsl(240, 20%, 60%);
+  --parsec-color-light-secondary-soft-grey: hsl(240, 20%, 75%);
+  --parsec-color-light-secondary-light: hsl(240, 20%, 84%);
+  --parsec-color-light-secondary-disabled: hsl(240, 22%, 90%);
+  --parsec-color-light-secondary-medium: hsl(240, 20%, 93%);
+  --parsec-color-light-secondary-premiere: hsl(240, 20%, 94%);
+  --parsec-color-light-secondary-background: hsl(240, 20%, 97%);
+  --parsec-color-light-secondary-inversed-contrast: hsl(240, 20%, 99%);
+  --parsec-color-light-secondary-white: hsl(0, 0%, 100%);
+  --parsec-color-light-secondary-surface: hsl(0, 0%, 100%);
+
+  /* ------ alerts light ------ */
+  --parsec-color-light-info-50: hsl(212, 87%, 94%);
+  --parsec-color-light-info-100: hsl(212, 91%, 91%);
+  --parsec-color-light-info-500: hsl(212, 90%, 45%);
+  --parsec-color-light-info-700: hsl(212, 90%, 30%);
+
+  --parsec-color-light-success-50: hsl(144, 61%, 94%);
+  --parsec-color-light-success-100: hsl(144, 61%, 91%);
+  --parsec-color-light-success-500: hsl(144, 60%, 45%);
+  --parsec-color-light-success-700: hsl(144, 62%, 30%);
+
+  --parsec-color-light-warning-50: hsl(46, 93%, 94%);
+  --parsec-color-light-warning-100: hsl(46, 91%, 91%);
+  --parsec-color-light-warning-500: hsl(46, 60%, 45%);
+  --parsec-color-light-warning-700: hsl(46, 90%, 30%);
+
+  --parsec-color-light-danger-50: hsl(353, 60%, 94%);
+  --parsec-color-light-danger-100: hsl(351, 61%, 91%);
+  --parsec-color-light-danger-500: hsl(352, 60%, 45%);
+  --parsec-color-light-danger-700: hsl(353, 90%, 30%);
+
+  /* ------ tags light ------ */
+  --parsec-color-light-tags-indigo-50: hsl(271, 100%, 94%);
+  --parsec-color-light-tags-indigo-700: hsl(271, 100%, 30%);
+  --parsec-color-light-tags-blue-50: var(--parsec-color-light-primary-50);
+  --parsec-color-light-tags-blue-700: var(--parsec-color-light-primary-700);
+  --parsec-color-light-tags-orange-50: hsl(35, 100%, 94%);
+  --parsec-color-light-tags-orange-700: hsl(35, 100%, 30%);
+
+  --parsec-color-light-scrollbar-thumb: hsl(240, 5%, 74%);
+  --parsec-color-light-scrollbar-thumb-hover: hsl(240, 5%, 55%);
+  --parsec-color-light-scrollbar-track: hsla(0, 0%, 100%, 0);
+}

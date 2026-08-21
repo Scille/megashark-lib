@@ -65,7 +65,7 @@ function onNextItemSlideHorizontalClick(): void {
   text-align: center;
   margin: 0;
   padding: 0;
-  color: var(--parsec-color-light-primary-800);
+  color: var(--parsec-color-primary-800);
 }
 
 .slider-container ion-label {

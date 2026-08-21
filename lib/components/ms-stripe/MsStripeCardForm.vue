@@ -151,7 +151,7 @@ defineExpose({
 
   .icon {
     font-size: 1.125em;
-    color: var(--parsec-color-light-secondary-light);
+    color: var(--parsec-color-secondary-light);
   }
 }
 </style>

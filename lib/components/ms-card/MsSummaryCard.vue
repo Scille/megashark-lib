@@ -87,7 +87,7 @@ defineEmits<{
     z-index: 1;
 
     &__title {
-      color: var(--parsec-color-light-secondary-text);
+      color: var(--parsec-color-secondary-text);
     }
   }
 

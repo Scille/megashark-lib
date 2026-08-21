@@ -56,14 +56,14 @@ const progressWidthStyle = computed(() => `${props.progress}%`);
   align-items: flex-start;
   width: 100%;
   height: 0.725rem;
-  background: var(--parsec-color-light-secondary-premiere);
+  background: var(--parsec-color-secondary-premiere);
   border-radius: var(--parsec-radius-8);
 
   .completed {
     transition: width 0.35s ease-in-out;
     width: v-bind(progressWidthStyle);
     height: 0.5rem;
-    background: var(--parsec-color-light-gradient);
+    background: var(--parsec-color-gradient);
     border-radius: var(--parsec-radius-6);
     flex: none;
     order: 0;
@@ -105,6 +105,6 @@ const progressWidthStyle = computed(() => `${props.progress}%`);
 }
 
 .progress-text {
-  color: var(--parsec-color-light-primary-600);
+  color: var(--parsec-color-primary-600);
 }
 </style>

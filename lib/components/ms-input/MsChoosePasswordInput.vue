@@ -139,7 +139,7 @@ function clear(): void {
 }
 
 .info {
-  background: var(--parsec-color-light-primary-30);
+  background: var(--parsec-color-primary-30);
   display: flex;
   align-items: center;
   gap: 0.625rem;
@@ -154,7 +154,7 @@ function clear(): void {
   }
 
   &__text {
-    color: var(--parsec-color-light-secondary-text);
+    color: var(--parsec-color-secondary-text);
   }
 }
 
@@ -178,7 +178,7 @@ function clear(): void {
     display: flex;
     flex-direction: column;
     margin-top: 0.5rem;
-    color: var(--parsec-color-light-danger-500);
+    color: var(--parsec-color-danger-500);
   }
 }
 
@@ -188,7 +188,7 @@ function clear(): void {
   gap: 1rem;
 
   &__title {
-    color: var(--parsec-color-light-secondary-grey);
+    color: var(--parsec-color-secondary-grey);
   }
 
   &-list {
@@ -202,14 +202,14 @@ function clear(): void {
     align-items: center;
     padding: 0 0.5rem;
     gap: 0.5em;
-    background: var(--parsec-color-light-secondary-premiere);
-    color: var(--parsec-color-light-secondary-hard-grey);
+    background: var(--parsec-color-secondary-premiere);
+    color: var(--parsec-color-secondary-hard-grey);
     margin: 0;
     border-radius: var(--parsec-radius-12);
 
     &.matches {
-      color: var(--parsec-color-light-success-700);
-      background: var(--parsec-color-light-success-50);
+      color: var(--parsec-color-success-700);
+      background: var(--parsec-color-success-50);
       font-weight: 500;
     }
   }

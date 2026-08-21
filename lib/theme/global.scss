@@ -3,13 +3,8 @@
 /* Ionic Variables and Theming. For more info, please see:
 http://ionicframework.com/docs/theming/ */
 
-// Ionic imports
 @use 'ionic' as ionic;
-
-// import variables
 @use 'variables' as variables;
-
-// import components
 @use 'components' as components;
 
 /**** Global CSS overloads ****/
@@ -65,7 +60,7 @@ ion-checkbox {
 
 a {
   text-decoration: none;
-  color: var(--parsec-color-light-primary-500);
+  color: var(--parsec-color-primary-500);
 }
 
 svg {

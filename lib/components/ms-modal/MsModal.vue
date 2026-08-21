@@ -146,7 +146,7 @@ async function confirm(): Promise<boolean> {
 
   &__title {
     padding: 0;
-    color: var(--parsec-color-light-secondary-text);
+    color: var(--parsec-color-secondary-text);
     display: flex;
     align-items: center;
     max-width: calc(100% - 2rem);
@@ -162,18 +162,18 @@ async function confirm(): Promise<boolean> {
       @include ms.responsive-breakpoint('sm') {
         padding: 1.5rem 2rem;
         margin-bottom: 1rem;
-        border-bottom: 1px solid var(--parsec-color-light-secondary-medium);
+        border-bottom: 1px solid var(--parsec-color-secondary-medium);
       }
     }
 
     &-icon {
-      color: var(--parsec-color-light-primary-600);
+      color: var(--parsec-color-primary-600);
       margin-right: 4px;
     }
   }
 
   &__subtitle {
-    color: var(--parsec-color-light-secondary-hard-grey);
+    color: var(--parsec-color-secondary-hard-grey);
   }
 }
 

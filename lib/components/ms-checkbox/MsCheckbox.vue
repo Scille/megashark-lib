@@ -118,7 +118,7 @@ async function onChange(_event: Event): Promise<void> {
 
   &:hover {
     .ms-checkbox {
-      outline: 1px solid var(--parsec-color-light-primary-300);
+      outline: 1px solid var(--parsec-color-primary-300);
       outline-offset: 2px;
     }
   }
@@ -132,8 +132,8 @@ async function onChange(_event: Event): Promise<void> {
   height: 20px;
   min-height: 20px;
   border-radius: var(--parsec-radius-6);
-  border: 2px solid var(--parsec-color-light-secondary-light);
-  background: var(--parsec-color-light-secondary-white);
+  border: 2px solid var(--parsec-color-secondary-light);
+  background: var(--parsec-color-secondary-surface);
   cursor: pointer;
   position: relative;
   display: grid;
@@ -154,7 +154,7 @@ async function onChange(_event: Event): Promise<void> {
     position: absolute;
     width: 6px;
     height: 2px;
-    background: var(--parsec-color-light-secondary-white);
+    background: var(--parsec-color-secondary-surface);
     opacity: 0;
     border-radius: 1px;
     transform: rotate(0deg) scale(1);
@@ -170,7 +170,7 @@ async function onChange(_event: Event): Promise<void> {
     position: absolute;
     width: 10px;
     height: 2px;
-    background: var(--parsec-color-light-secondary-white);
+    background: var(--parsec-color-secondary-surface);
     opacity: 0;
     border-radius: 1px;
     transform: rotate(0deg) scale(1);
@@ -184,13 +184,13 @@ async function onChange(_event: Event): Promise<void> {
   &-text {
     user-select: none;
     cursor: pointer;
-    color: var(--parsec-color-light-secondary-soft-text);
+    color: var(--parsec-color-secondary-soft-text);
   }
 }
 
 .ms-checkbox:checked {
-  background: var(--parsec-color-light-primary-600);
-  border-color: var(--parsec-color-light-primary-600);
+  background: var(--parsec-color-primary-600);
+  border-color: var(--parsec-color-primary-600);
 }
 
 .ms-checkbox:checked::before {
@@ -208,8 +208,8 @@ async function onChange(_event: Event): Promise<void> {
 }
 
 .ms-checkbox[ms-indeterminate='true'] {
-  background: var(--parsec-color-light-primary-600);
-  border-color: var(--parsec-color-light-primary-600);
+  background: var(--parsec-color-primary-600);
+  border-color: var(--parsec-color-primary-600);
 
   &::before {
     opacity: 1;
