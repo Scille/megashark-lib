@@ -5,6 +5,7 @@
     class="ms-action-bar-button button-medium"
     size="default"
     ref="actionBarButton"
+    fill="clear"
   >
     <ion-icon
       class="ms-action-bar-button-icon__left"

@@ -28,6 +28,7 @@
           <ion-button
             id="action-bar-more-button"
             class="button-medium"
+            fill="clear"
             @click="openActionBarPopover($event)"
             v-show="hiddenButtons.length > 0"
             ref="actionBarMoreButtonRef"
