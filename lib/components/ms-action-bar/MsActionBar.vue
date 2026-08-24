@@ -28,6 +28,7 @@
           <ion-button
             id="action-bar-more-button"
             class="button-medium"
+            fill="clear"
             @click="openActionBarPopover($event)"
             v-show="hiddenButtons.length > 0"
             ref="actionBarMoreButtonRef"
@@ -223,12 +224,14 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .toolbar {
   margin: 0 1.25rem;
   padding: 0 1em;
   min-height: 3rem;
-  background-color: var(--parsec-color-secondary-background);
-  border-bottom: 1px solid var(--parsec-color-secondary-medium);
+  background-color: ms.color('surface-base-default-secondary');
+  border-bottom: 1px solid ms.color('border-base-default');
   border-radius: var(--parsec-radius-12);
   width: auto;
   width: -webkit-fill-available;
@@ -243,8 +246,8 @@ onUnmounted(() => {
 
 #action-bar-more-button {
   --background: transparent;
-  --background-hover: var(--parsec-color-secondary-medium);
-  --color: var(--parsec-color-secondary-text);
+  --background-hover: #{ms.color('secondary-medium')};
+  --color: #{ms.color('icon-neutral-default')};
   margin-left: 0.5rem;
   min-height: 1rem;
 
@@ -254,20 +257,20 @@ onUnmounted(() => {
 
   .more-icon__ellipsis {
     font-size: 1.125rem;
-    color: var(--parsec-color-secondary-soft-text);
+    color: ms.color('secondary-soft-text');
   }
 
   .more-icon__chevron {
     margin-inline: 0em;
     margin-left: 0.375rem;
     font-size: 1rem;
-    color: var(--parsec-color-secondary-soft-text);
+    color: ms.color('secondary-soft-text');
   }
 
   &:hover {
     .more-icon__chevron,
     .more-icon__ellipsis {
-      color: var(--parsec-color-primary-600);
+      color: ms.color('primary-600');
     }
   }
 }
