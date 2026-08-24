@@ -28,6 +28,7 @@
           <ion-button
             id="action-bar-more-button"
             class="button-medium"
+            fill="clear"
             @click="openActionBarPopover($event)"
             v-show="hiddenButtons.length > 0"
             ref="actionBarMoreButtonRef"
@@ -223,51 +224,53 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .toolbar {
   margin: 0 1.25rem;
-  padding: 0 1em;
+  padding: ms.spacing('padding-none') ms.spacing('padding-3xl');
   min-height: 3rem;
-  background-color: var(--parsec-color-secondary-background);
-  border-bottom: 1px solid var(--parsec-color-secondary-medium);
-  border-radius: var(--parsec-radius-12);
+  background-color: ms.color('surface-base-default-secondary');
+  border-bottom: ms.border('thin') solid ms.color('border-base-default');
+  border-radius: ms.radius('2xl');
   width: auto;
   width: -webkit-fill-available;
-  --inner-padding-end: 0;
+  --inner-padding-end: ms.spacing('padding-none');
   box-shadow: none;
 }
 
 .action-bar {
   display: flex;
-  gap: 0.5rem;
+  gap: ms.spacing('gap-lg');
 }
 
 #action-bar-more-button {
   --background: transparent;
-  --background-hover: var(--parsec-color-secondary-medium);
-  --color: var(--parsec-color-secondary-text);
+  --background-hover: #{ms.color('surface-base-page-secondary')};
+  --color: #{ms.color('icon-neutral-default')};
   margin-left: 0.5rem;
   min-height: 1rem;
 
   &::part(native) {
-    padding: 0.25rem 0.5rem;
+    padding: ms.spacing('padding-sm') ms.spacing('padding-lg');
   }
 
   .more-icon__ellipsis {
     font-size: 1.125rem;
-    color: var(--parsec-color-secondary-soft-text);
+    color: ms.color('icon-neutral-default');
   }
 
   .more-icon__chevron {
     margin-inline: 0em;
     margin-left: 0.375rem;
     font-size: 1rem;
-    color: var(--parsec-color-secondary-soft-text);
+    color: ms.color('icon-neutral-default');
   }
 
   &:hover {
     .more-icon__chevron,
     .more-icon__ellipsis {
-      color: var(--parsec-color-primary-600);
+      color: ms.color('icon-neutral-default-hover');
     }
   }
 }
@@ -281,7 +284,7 @@ onUnmounted(() => {
   width: calc(100% - 2rem);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: ms.spacing('gap-lg');
 }
 
 .ms-action-bar-button--visible {
