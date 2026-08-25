@@ -14,6 +14,76 @@
   src: url('../assets/fonts/AlbertSans-Italic-VariableFont_wght.ttf');
 }
 
+/* **** Parsec font tokens **** */
+
+:root {
+  // ----- family -----
+  --parsec-font-family-heading: 'Albert Sans';
+  --parsec-font-family-paragraph: 'Albert Sans';
+
+  // ----- weight -----
+  --parsec-font-weight-regular: 400;
+  --parsec-font-weight-medium: 500;
+  --parsec-font-weight-emphasis: 600;
+  --parsec-font-weight-bold: 700;
+
+  // ----- heading -----
+  --parsec-font-heading-h1-text-size: 2rem;
+  --parsec-font-heading-h1-line-height: 2.375rem;
+  --parsec-font-heading-h1-letter-spacing: 0.1px;
+
+  --parsec-font-heading-h2-text-size: 1.5rem;
+  --parsec-font-heading-h2-line-height: 2rem;
+  --parsec-font-heading-h2-letter-spacing: 0.1px;
+
+  --parsec-font-heading-h3-text-size: 1.25rem;
+  --parsec-font-heading-h3-line-height: 1.5rem;
+  --parsec-font-heading-h3-letter-spacing: 0.1px;
+
+  --parsec-font-heading-h4-text-size: 1.125rem;
+  --parsec-font-heading-h4-line-height: 1.375rem;
+  --parsec-font-heading-h4-letter-spacing: 0.1px;
+
+  --parsec-font-heading-h5-text-size: 1rem;
+  --parsec-font-heading-h5-line-height: 1.25rem;
+  --parsec-font-heading-h5-letter-spacing: 0.1px;
+
+  --parsec-font-heading-h6-text-size: 0.875rem;
+  --parsec-font-heading-h6-line-height: 1.125rem;
+  --parsec-font-heading-h6-letter-spacing: 0.1px;
+
+  // ----- body -----
+  --parsec-font-body-xs-text-size: 0.75rem;
+  --parsec-font-body-xs-line-height: 1.125rem;
+  --parsec-font-body-xs-letter-spacing: 0.1px;
+
+  --parsec-font-body-sm-text-size: 0.8125rem;
+  --parsec-font-body-sm-line-height: 1.125rem;
+  --parsec-font-body-sm-letter-spacing: 0.1px;
+
+  --parsec-font-body-md-text-size: 0.875rem;
+  --parsec-font-body-md-line-height: 1.375rem;
+  --parsec-font-body-md-letter-spacing: 0.1px;
+
+  --parsec-font-body-lg-text-size: 1rem;
+  --parsec-font-body-lg-line-height: 1.5rem;
+  --parsec-font-body-lg-letter-spacing: 0.1px;
+
+  --parsec-font-body-xl-text-size: 1.125rem;
+  --parsec-font-body-xl-line-height: 1.75rem;
+  --parsec-font-body-xl-letter-spacing: 0.1px;
+
+  // ----- label -----
+  --parsec-font-label-sm-text-size: 0.8125rem;
+  --parsec-font-label-sm-letter-spacing: 0.2px;
+
+  --parsec-font-label-md-text-size: 0.875rem;
+  --parsec-font-label-md-letter-spacing: 0.2px;
+
+  --parsec-font-label-lg-text-size: 1rem;
+  --parsec-font-label-lg-letter-spacing: 0.2px;
+}
+
 /* **** Parsec typography **** */
 * {
   font-synthesis: none;
