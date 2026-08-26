@@ -1,0 +1,18 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+/* **** Parsec border-radius **** */
+
+:root {
+  --parsec-radius-none: var(--parsec-root-radius-0);
+  --parsec-radius-xs: var(--parsec-root-radius-1);
+  --parsec-radius-sm: var(--parsec-root-radius-2);
+  --parsec-radius-md: var(--parsec-root-radius-3);
+  --parsec-radius-lg: var(--parsec-root-radius-4);
+  --parsec-radius-xl: var(--parsec-root-radius-5);
+  --parsec-radius-2xl: var(--parsec-root-radius-6);
+  --parsec-radius-3xl: var(--parsec-root-radius-7);
+  --parsec-radius-4xl: var(--parsec-root-radius-8);
+  --parsec-radius-5xl: var(--parsec-root-radius-9);
+  --parsec-radius-6xl: var(--parsec-root-radius-10);
+  --parsec-radius-full: var(--parsec-root-radius-full);
+}
