@@ -60,23 +60,28 @@ function setFocus(): void {
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .ms-boolean-toggle {
   width: fit-content;
   display: flex;
-  padding: 0.25rem;
-  border-radius: 1.5rem;
-  border: 1px solid var(--parsec-color-secondary-disabled);
+  padding: ms.spacing('padding-sm');
+  border-radius: ms.radius('5xl');
+  border: ms.border('thin') solid ms.color('border-base-default');
+  box-shadow: none;
+  transition: box-shadow 150ms ease-in-out;
+
   &:focus-within {
-    border: 1px solid var(--parsec-color-primary-400);
-    background: var(--parsec-color-secondary-surface);
-    outline: 0.25rem solid var(--parsec-color-outline);
+    border: ms.border('thin') solid ms.color('primary-400');
+    background: ms.color('secondary-surface');
+    box-shadow: ms.shadow('focus-brand');
   }
 }
 
 .button-view {
-  color: var(--parsec-color-secondary-grey);
-  padding: 0.125rem 1.5rem;
-  border-radius: 1.5rem;
+  color: ms.color('secondary-grey');
+  padding: ms.spacing('padding-xs') ms.spacing('padding-4xl');
+  border-radius: ms.radius('5xl');
   position: relative;
   z-index: 1;
   transition: background 150ms ease-in-out;
@@ -87,13 +92,13 @@ function setFocus(): void {
     position: relative;
 
     &:hover {
-      background: var(--parsec-color-secondary-premiere);
+      background: ms.color('secondary-premiere');
     }
   }
 }
 
 .button-disabled {
-  background: var(--parsec-color-primary-50);
-  color: var(--parsec-color-primary-600);
+  background: ms.color('primary-50');
+  color: ms.color('primary-600');
 }
 </style>
