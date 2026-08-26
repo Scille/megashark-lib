@@ -1,0 +1,33 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+/* **** Parsec spacing **** */
+
+:root {
+  --parsec-spacing-gap-none: var(--parsec-root-space-0);
+  --parsec-spacing-gap-xs: var(--parsec-root-space-1);
+  --parsec-spacing-gap-sm: var(--parsec-root-space-2);
+  --parsec-spacing-gap-md: var(--parsec-root-space-3);
+  --parsec-spacing-gap-lg: var(--parsec-root-space-4);
+  --parsec-spacing-gap-xl: var(--parsec-root-space-5);
+  --parsec-spacing-gap-2lg: var(--parsec-root-space-6);
+  --parsec-spacing-gap-3xl: var(--parsec-root-space-7);
+  --parsec-spacing-gap-4xl: var(--parsec-root-space-9);
+  --parsec-spacing-gap-5xl: var(--parsec-root-space-10);
+  --parsec-spacing-gap-6xl: var(--parsec-root-space-11);
+
+  --parsec-spacing-padding-none: var(--parsec-root-space-0);
+  --parsec-spacing-padding-xs: var(--parsec-root-space-1);
+  --parsec-spacing-padding-sm: var(--parsec-root-space-2);
+  --parsec-spacing-padding-md: var(--parsec-root-space-3);
+  --parsec-spacing-padding-lg: var(--parsec-root-space-4);
+  --parsec-spacing-padding-xl: var(--parsec-root-space-5);
+  --parsec-spacing-padding-2xl: var(--parsec-root-space-6);
+  --parsec-spacing-padding-3xl: var(--parsec-root-space-7);
+  --parsec-spacing-padding-4xl: var(--parsec-root-space-9);
+  --parsec-spacing-padding-5xl: var(--parsec-root-space-10);
+  --parsec-spacing-padding-6xl: var(--parsec-root-space-11);
+  --parsec-spacing-padding-7xl: var(--parsec-root-space-12);
+  --parsec-spacing-padding-8xl: var(--parsec-root-space-13);
+  --parsec-spacing-padding-9xl: var(--parsec-root-space-14);
+  --parsec-spacing-padding-10xl: var(--parsec-root-space-16);
+}

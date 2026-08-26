@@ -1,0 +1,10 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+/* **** Parsec border **** */
+
+:root {
+  --parsec-border-none: var(--parsec-root-border-width-0);
+  --parsec-border-thin: var(--parsec-root-border-width-1);
+  --parsec-border-thick: var(--parsec-root-border-width-2);
+  --parsec-border-thicker: var(--parsec-root-border-width-4);
+}

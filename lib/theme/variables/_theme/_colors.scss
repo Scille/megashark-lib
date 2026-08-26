@@ -18,6 +18,8 @@
 
   --parsec-color-surface-gradient-from: var(--parsec-color-brand-500);
   --parsec-color-surface-gradient-to: var(--parsec-color-brand-700);
+  --parsec-color-surface-gradient-from-hover: var(--parsec-color-brand-600);
+  --parsec-color-surface-gradient-to-hover: var(--parsec-color-brand-800);
 
   --parsec-color-surface-brand-default: var(--parsec-color-brand-500);
   --parsec-color-surface-brand-default-hover: var(--parsec-color-brand-600);
@@ -206,6 +208,7 @@
 
   // ----------- border colors ------------
   --parsec-color-border-base-default: var(--parsec-color-grey-200);
+  --parsec-color-border-base-default-hover: var(--parsec-color-grey-300);
   --parsec-color-border-base-on-color: var(--parsec-color-base-white);
 
   --parsec-color-border-elevated-default: var(--parsec-color-grey-700);
@@ -298,6 +301,9 @@ body.ms-theme-dark {
   --parsec-color-surface-elevated-secondary: var(--parsec-color-base-black);
   --parsec-color-surface-elevated-subtle: var(--parsec-color-grey-970);
   --parsec-color-surface-elevated-subtle-hover: var(--parsec-color-grey-950);
+
+  --parsec-color-surface-gradient-from-hover: var(--parsec-color-brand-400);
+  --parsec-color-surface-gradient-to-hover: var(--parsec-color-brand-200);
 
   --parsec-color-surface-brand-default: var(--parsec-color-brand-500);
   --parsec-color-surface-brand-default-hover: var(--parsec-color-brand-400);
@@ -486,6 +492,7 @@ body.ms-theme-dark {
 
   // ----------- border colors ------------
   --parsec-color-border-base-default: var(--parsec-color-grey-600);
+  --parsec-color-border-base-default-hover: var(--parsec-color-grey-500);
   --parsec-color-border-base-on-color: var(--parsec-color-grey-890);
 
   --parsec-color-border-elevated-default: var(--parsec-color-grey-800);
