@@ -1,0 +1,50 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+@use '@lib/theme' as ms;
+
+/* **** Parsec shadow **** */
+:root {
+  // ----- base shadows -----
+  // Use: badge
+  --parsec-shadow-elevation-xs: 0 1px 2px 0 #{ms.color('shadow-neutral-lighter')};
+
+  // Use: card, input
+  --parsec-shadow-elevation-sm: 0 0 2px 0 #{ms.color('shadow-neutral-lighter')}, 0 2px 4px -2px #{ms.color('shadow-neutral-lighter')};
+
+  // Use: dialog, dropdown, card-hover
+  --parsec-shadow-elevation-md: 0 0 3px 0 #{ms.color('shadow-neutral-lighter')}, 0 4px 14px -8px #{ms.color('shadow-neutral-lighter')};
+
+  // Use: popover, tooltip
+  --parsec-shadow-elevation-lg:
+    0 4px 6px -2px #{ms.color('shadow-neutral-lighter')}, 0 10px 14px -4px #{ms.color('shadow-neutral-lighter')};
+
+  // Use: elevated elements
+  --parsec-shadow-elevation-xl:
+    0 10px 10px -6px #{ms.color('shadow-neutral-lighter')}, 0 20px 24px -6px #{ms.color('shadow-neutral-moderate')};
+
+  // Use: modal
+  --parsec-shadow-elevation-2xl: 0 24px 48px -12px #{ms.color('shadow-neutral-moderate')};
+
+  // Use: overlay
+  --parsec-shadow-elevation-3xl:
+    0 32px 48px -12px #{ms.color('shadow-neutral-moderate')}, 0 32px 48px -12px #{ms.color('shadow-neutral-lighter')};
+
+  // ----- specific shadows -----
+  // Aliases onto the base scale above
+  --parsec-shadow-light: var(--parsec-shadow-elevation-sm);
+  --parsec-shadow-strong: var(--parsec-shadow-elevation-md);
+  --parsec-shadow-card: var(--parsec-shadow-elevation-sm);
+
+  // Hand-tuned values, not yet mapped onto the token scale above
+  --parsec-shadow-toggle: 0 3px 5px 0 rgba(0, 0, 0, 0.02), 0 1px 1px 0 rgba(0, 0, 0, 0.03);
+  --parsec-shadow-input: 0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 5px rgba(0, 0, 0, 0.02);
+  --parsec-shadow-3d-light: 0px 0px 25px 0px rgba(34, 129, 254, 0.1) inset, 0px 0px 12px 0px rgba(64, 146, 255, 0.1); // used in parsec-sign
+  --parsec-shadow-3d-strong: 0px 0px 49px 0px rgba(0, 0, 0, 0.05), 0px 4px 84px 0px rgba(58, 160, 255, 0.25) inset;
+
+  --parsec-shadow-focus-brand: 0 0 0 3px #{ms.color('shadow-brand-moderate')};
+  --parsec-shadow-focus-neutral: 0 0 0 3px #{ms.color('shadow-neutral-moderate')};
+  --parsec-shadow-focus-error: 0 0 0 3px #{ms.color('shadow-error-moderate')};
+  --parsec-shadow-focus-success: 0 0 0 3px #{ms.color('shadow-success-moderate')};
+  --parsec-shadow-focus-warning: 0 0 0 3px #{ms.color('shadow-warning-moderate')};
+  --parsec-shadow-focus-information: 0 0 0 3px #{ms.color('shadow-information-moderate')};
+}

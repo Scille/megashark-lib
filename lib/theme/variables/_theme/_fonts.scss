@@ -1,0 +1,179 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+/* **** Parsec fonts **** */
+
+@font-face {
+  font-family: 'Albert Sans';
+  font-style: normal;
+  src: url('../assets/fonts/AlbertSans-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'Albert Sans';
+  font-style: italic;
+  src: url('../assets/fonts/AlbertSans-Italic-VariableFont_wght.ttf');
+}
+
+/* **** Parsec font tokens **** */
+
+:root {
+  // ----- family -----
+  --parsec-font-family-heading: var(--parsec-root-font-family-heading);
+  --parsec-font-family-paragraph: var(--parsec-root-font-family-paragraph);
+
+  // ----- weight -----
+  --parsec-font-weight-regular: var(--parsec-root-font-weight-regular);
+  --parsec-font-weight-medium: var(--parsec-root-font-weight-medium);
+  --parsec-font-weight-emphasis: var(--parsec-root-font-weight-semi-bold);
+  --parsec-font-weight-bold: var(--parsec-root-font-weight-bold);
+
+  // ----- heading (single weight per size) -----
+  --parsec-font-heading-h1-text-size: var(--parsec-root-font-size-4xl);
+  --parsec-font-heading-h1-line-height: normal;
+  --parsec-font-heading-h1-letter-spacing: normal;
+  --parsec-font-heading-h1-weight: var(--parsec-font-weight-emphasis);
+
+  --parsec-font-heading-h2-text-size: var(--parsec-root-font-size-2xl);
+  --parsec-font-heading-h2-line-height: var(--parsec-root-line-height-4xl);
+  --parsec-font-heading-h2-letter-spacing: normal;
+  --parsec-font-heading-h2-weight: var(--parsec-font-weight-emphasis);
+
+  --parsec-font-heading-h3-text-size: var(--parsec-root-font-size-xl);
+  --parsec-font-heading-h3-line-height: var(--parsec-root-line-height-2xl);
+  --parsec-font-heading-h3-letter-spacing: normal;
+  --parsec-font-heading-h3-weight: var(--parsec-font-weight-emphasis);
+
+  --parsec-font-heading-h4-text-size: var(--parsec-root-font-size-lg);
+  --parsec-font-heading-h4-line-height: normal;
+  --parsec-font-heading-h4-letter-spacing: normal;
+  --parsec-font-heading-h4-weight: var(--parsec-font-weight-emphasis);
+
+  --parsec-font-heading-h5-text-size: var(--parsec-root-font-size-md);
+  --parsec-font-heading-h5-line-height: normal;
+  --parsec-font-heading-h5-letter-spacing: normal;
+  --parsec-font-heading-h5-weight: var(--parsec-font-weight-emphasis);
+
+  --parsec-font-heading-h6-text-size: var(--parsec-root-font-size-sm);
+  --parsec-font-heading-h6-line-height: normal;
+  --parsec-font-heading-h6-letter-spacing: normal;
+  --parsec-font-heading-h6-weight: var(--parsec-font-weight-emphasis);
+
+  // ----- body (bold / medium / regular per size) -----
+  --parsec-font-body-xl-bold-text-size: var(--parsec-root-font-size-lg);
+  --parsec-font-body-xl-bold-line-height: var(--parsec-root-line-height-3xl);
+  --parsec-font-body-xl-bold-letter-spacing: normal;
+  --parsec-font-body-xl-bold-weight: var(--parsec-font-weight-bold);
+
+  --parsec-font-body-xl-medium-text-size: var(--parsec-root-font-size-lg);
+  --parsec-font-body-xl-medium-line-height: var(--parsec-root-line-height-3xl);
+  --parsec-font-body-xl-medium-letter-spacing: normal;
+  --parsec-font-body-xl-medium-weight: var(--parsec-font-weight-medium);
+
+  --parsec-font-body-xl-regular-text-size: var(--parsec-root-font-size-lg);
+  --parsec-font-body-xl-regular-line-height: var(--parsec-root-line-height-3xl);
+  --parsec-font-body-xl-regular-letter-spacing: normal;
+  --parsec-font-body-xl-regular-weight: var(--parsec-font-weight-regular);
+
+  --parsec-font-body-lg-bold-text-size: var(--parsec-root-font-size-md);
+  --parsec-font-body-lg-bold-line-height: var(--parsec-root-line-height-2xl);
+  --parsec-font-body-lg-bold-letter-spacing: normal;
+  --parsec-font-body-lg-bold-weight: var(--parsec-font-weight-bold);
+
+  --parsec-font-body-lg-medium-text-size: var(--parsec-root-font-size-md);
+  --parsec-font-body-lg-medium-line-height: var(--parsec-root-line-height-2xl);
+  --parsec-font-body-lg-medium-letter-spacing: normal;
+  --parsec-font-body-lg-medium-weight: var(--parsec-font-weight-medium);
+
+  --parsec-font-body-lg-regular-text-size: var(--parsec-root-font-size-md);
+  --parsec-font-body-lg-regular-line-height: var(--parsec-root-line-height-2xl);
+  --parsec-font-body-lg-regular-letter-spacing: normal;
+  --parsec-font-body-lg-regular-weight: var(--parsec-font-weight-regular);
+
+  --parsec-font-body-md-bold-text-size: var(--parsec-root-font-size-sm);
+  --parsec-font-body-md-bold-line-height: var(--parsec-root-line-height-xl);
+  --parsec-font-body-md-bold-letter-spacing: normal;
+  --parsec-font-body-md-bold-weight: var(--parsec-font-weight-bold);
+
+  --parsec-font-body-md-medium-text-size: var(--parsec-root-font-size-sm);
+  --parsec-font-body-md-medium-line-height: var(--parsec-root-line-height-xl);
+  --parsec-font-body-md-medium-letter-spacing: normal;
+  --parsec-font-body-md-medium-weight: var(--parsec-font-weight-medium);
+
+  --parsec-font-body-md-regular-text-size: var(--parsec-root-font-size-sm);
+  --parsec-font-body-md-regular-line-height: var(--parsec-root-line-height-xl);
+  --parsec-font-body-md-regular-letter-spacing: normal;
+  --parsec-font-body-md-regular-weight: var(--parsec-font-weight-regular);
+
+  --parsec-font-body-sm-bold-text-size: var(--parsec-root-font-size-xs);
+  --parsec-font-body-sm-bold-line-height: var(--parsec-root-line-height-md);
+  --parsec-font-body-sm-bold-letter-spacing: normal;
+  --parsec-font-body-sm-bold-weight: var(--parsec-font-weight-bold);
+
+  --parsec-font-body-sm-medium-text-size: var(--parsec-root-font-size-xs);
+  --parsec-font-body-sm-medium-line-height: var(--parsec-root-line-height-md);
+  --parsec-font-body-sm-medium-letter-spacing: normal;
+  --parsec-font-body-sm-medium-weight: var(--parsec-font-weight-medium);
+
+  --parsec-font-body-sm-regular-text-size: var(--parsec-root-font-size-xs);
+  --parsec-font-body-sm-regular-line-height: var(--parsec-root-line-height-md);
+  --parsec-font-body-sm-regular-letter-spacing: normal;
+  --parsec-font-body-sm-regular-weight: var(--parsec-font-weight-regular);
+
+  // ----- label (emphasis / medium per size) -----
+  --parsec-font-label-lg-emphasis-text-size: var(--parsec-root-font-size-md);
+  --parsec-font-label-lg-emphasis-line-height: normal;
+  --parsec-font-label-lg-emphasis-letter-spacing: normal;
+  --parsec-font-label-lg-emphasis-weight: var(--parsec-font-weight-emphasis);
+
+  --parsec-font-label-lg-medium-text-size: var(--parsec-root-font-size-md);
+  --parsec-font-label-lg-medium-line-height: normal;
+  --parsec-font-label-lg-medium-letter-spacing: normal;
+  --parsec-font-label-lg-medium-weight: var(--parsec-font-weight-medium);
+
+  --parsec-font-label-md-emphasis-text-size: var(--parsec-root-font-size-sm);
+  --parsec-font-label-md-emphasis-line-height: normal;
+  --parsec-font-label-md-emphasis-letter-spacing: normal;
+  --parsec-font-label-md-emphasis-weight: var(--parsec-font-weight-emphasis);
+
+  --parsec-font-label-md-medium-text-size: var(--parsec-root-font-size-sm);
+  --parsec-font-label-md-medium-line-height: normal;
+  --parsec-font-label-md-medium-letter-spacing: normal;
+  --parsec-font-label-md-medium-weight: var(--parsec-font-weight-medium);
+
+  --parsec-font-label-sm-emphasis-text-size: var(--parsec-root-font-size-xs);
+  --parsec-font-label-sm-emphasis-line-height: normal;
+  --parsec-font-label-sm-emphasis-letter-spacing: normal;
+  --parsec-font-label-sm-emphasis-weight: var(--parsec-font-weight-emphasis);
+
+  --parsec-font-label-sm-medium-text-size: var(--parsec-root-font-size-xs);
+  --parsec-font-label-sm-medium-line-height: normal;
+  --parsec-font-label-sm-medium-letter-spacing: normal;
+  --parsec-font-label-sm-medium-weight: var(--parsec-font-weight-medium);
+
+  --parsec-font-label-xs-emphasis-text-size: var(--parsec-root-font-size-2xs);
+  --parsec-font-label-xs-emphasis-line-height: normal;
+  --parsec-font-label-xs-emphasis-letter-spacing: normal;
+  --parsec-font-label-xs-emphasis-weight: var(--parsec-font-weight-emphasis);
+
+  --parsec-font-label-xs-medium-text-size: var(--parsec-root-font-size-2xs);
+  --parsec-font-label-xs-medium-line-height: normal;
+  --parsec-font-label-xs-medium-letter-spacing: normal;
+  --parsec-font-label-xs-medium-weight: var(--parsec-font-weight-medium);
+
+  // ----- paragraph spacing (Figma scopes: PARAGRAPH_SPACING, PARAGRAPH_INDENT) -----
+  --parsec-font-layout-xs: var(--parsec-root-space-1);
+  --parsec-font-layout-sm: var(--parsec-root-space-2);
+  --parsec-font-layout-md: var(--parsec-root-space-3);
+  --parsec-font-layout-lg: var(--parsec-root-space-4);
+  --parsec-font-layout-xl: var(--parsec-root-space-5);
+  --parsec-font-layout-2xl: var(--parsec-root-space-6);
+  --parsec-font-layout-3xl: var(--parsec-root-space-7);
+  --parsec-font-layout-4xl: var(--parsec-root-space-8);
+  --parsec-font-layout-5xl: var(--parsec-root-space-9);
+  --parsec-font-layout-6xl: var(--parsec-root-space-10);
+}
+
+/* **** Parsec typography **** */
+* {
+  font-synthesis: none;
+}
