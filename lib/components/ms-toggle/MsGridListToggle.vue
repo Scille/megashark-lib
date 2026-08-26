@@ -3,30 +3,38 @@
 <template>
   <div class="ms-grid-list-toggle">
     <!-- grid -->
-    <ion-button
-      fill="clear"
+    <div
+      button
       class="button-view"
+      :class="modelValue === DisplayState.Grid ? 'button-disabled' : ''"
       id="grid-view"
       :disabled="modelValue === DisplayState.Grid"
       @click="$emit('update:modelValue', modelValue === DisplayState.Grid ? DisplayState.List : DisplayState.Grid)"
     >
-      <ion-icon :icon="grid" />
-    </ion-button>
+      <ion-icon
+        class="button-icon"
+        :icon="grid"
+      />
+    </div>
     <!-- list -->
-    <ion-button
-      fill="clear"
+    <div
+      button
       class="button-view"
+      :class="modelValue === DisplayState.List ? 'button-disabled' : ''"
       id="list-view"
       :disabled="modelValue === DisplayState.List"
       @click="$emit('update:modelValue', modelValue === DisplayState.Grid ? DisplayState.List : DisplayState.Grid)"
     >
-      <ion-icon :icon="list" />
-    </ion-button>
+      <ion-icon
+        class="button-icon"
+        :icon="list"
+      />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { IonButton, IonIcon } from '@ionic/vue';
+import { IonIcon } from '@ionic/vue';
 import { DisplayState } from '@lib/components/ms-toggle/types';
 import { grid, list } from 'ionicons/icons';
 
@@ -44,50 +52,55 @@ defineExpose({
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .ms-grid-list-toggle {
   display: flex;
   align-items: center;
-  border-radius: var(--parsec-radius-10);
-  border: 1px solid var(--parsec-color-secondary-medium);
-  padding: 0.25rem;
-  background: var(--parsec-color-secondary-premiere);
+  border-radius: ms.radius('lg');
+  padding: ms.spacing('padding-sm');
+  background: ms.color('surface-base-page-secondary');
   flex-shrink: 0;
   overflow: hidden;
 }
 
 .button-view {
-  color: var(--parsec-color-secondary-light);
   min-height: 1rem;
   height: 100%;
-  --ripple-color: transparent;
-  border-radius: var(--parsec-radius-6);
+  border-radius: ms.radius('md');
+  display: flex;
+
+  .button-icon {
+    color: ms.color('icon-neutral-default');
+    font-size: 1.25rem;
+    padding: ms.spacing('padding-sm');
+  }
 
   &:not(.button-disabled) {
     cursor: pointer;
-    --background-hover: none;
+    opacity: ms.opacity('disabled');
 
     &:hover {
-      color: var(--parsec-color-secondary-soft-grey);
+      background: ms.color('surface-base-default');
+
+      .button-icon {
+        color: ms.color('icon-neutral-default-hover');
+      }
     }
   }
 
   &::part(native) {
     padding: 0px;
   }
-
-  ion-icon {
-    font-size: 1.125rem;
-    padding: 0.3125rem;
-  }
 }
 
-// eslint-disable-next-line vue-scoped-css/no-unused-selector
 .button-disabled {
-  background: var(--parsec-color-secondary-surface);
-  color: var(--parsec-color-secondary-hard-grey);
+  background: ms.color('surface-base-default');
   opacity: 1;
-  box-shadow:
-    0 3px 5px 0 rgba(0, 0, 0, 0.02),
-    0 1px 1px 0 rgba(0, 0, 0, 0.03);
+  box-shadow: ms.shadow('toggle');
+
+  .button-icon {
+    color: ms.color('icon-neutral-default');
+  }
 }
 </style>
