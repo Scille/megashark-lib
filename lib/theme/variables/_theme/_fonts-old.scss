@@ -1,0 +1,181 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+/* **** Parsec typography **** */
+* {
+  font-synthesis: none;
+}
+
+:root {
+  /* ** title ** */
+  .title-h1-xl {
+    font-size: 2rem;
+    line-height: 120%;
+    font-weight: 600;
+  }
+
+  .title-h1 {
+    line-height: 120%;
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+
+  .title-h2 {
+    line-height: 120%;
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+  .title-h3 {
+    line-height: 120%;
+    font-weight: 600;
+    font-size: 1.125rem;
+  }
+
+  .title-h4 {
+    line-height: 120%;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .title-h5 {
+    line-height: 120%;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  /* ** subtitle ** */
+  .subtitles-lg {
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.1px;
+  }
+
+  .subtitles-normal {
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.1px;
+  }
+
+  .subtitles-sm {
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+
+  /* ** body ** */
+  .body-lg {
+    font-size: 0.9375rem;
+    line-height: 26px;
+    letter-spacing: 0.1px;
+    font-weight: 400;
+  }
+
+  .body {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.1px;
+    font-weight: 400;
+  }
+
+  .body-sm {
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.1px;
+    font-weight: 400;
+  }
+
+  /* ** button ** */
+  .button-large {
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.1px;
+  }
+
+  .button-medium {
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    font-size: 0.875rem;
+  }
+
+  .button-small {
+    font-weight: 500;
+    font-size: 0.8125rem;
+  }
+
+  /* ** caption ** */
+  .code {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 9px;
+    text-transform: uppercase;
+  }
+
+  /* ** breadcrumb ** */
+  .breadcrumb-normal {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  /* ** menu ** */
+  .menu-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+  }
+
+  .menu-default {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+  }
+
+  .menu-active {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+  }
+
+  /* ** table ** */
+  .cell {
+    letter-spacing: 0.1px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+  }
+
+  .cell-title {
+    letter-spacing: 0.1px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+  }
+
+  /* ** calendar ** */
+  .calendar-day {
+    font-weight: 400;
+    font-size: 0.875rem;
+  }
+
+  .calendar-weekday {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+  }
+
+  /* ** form ** */
+  .form-label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.15px;
+  }
+
+  .form-input {
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+
+  .form-helperText {
+    font-weight: 500;
+    font-size: 0.8125rem;
+  }
+}

@@ -2,6 +2,7 @@
 
 /** Root variables **/
 @forward '_root/colors-ionic';
+@forward '_root/colors-light';
 @forward '_root/colors-primitives';
 @forward '_root/global-primitives';
 
@@ -10,6 +11,7 @@
 @forward '_theme/colors';
 @forward '_theme/colors-old'; //should be removed when all components will have _colors.scss variables.
 @forward '_theme/fonts';
+@forward '_theme/fonts-old'; //should be removed when all components will have _fonts.scss variables.
 @forward '_theme/opacity';
 @forward '_theme/radius';
 @forward '_theme/radius-old'; //should be removed when all components will have _radius.scss variables.
