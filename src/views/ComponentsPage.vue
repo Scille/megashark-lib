@@ -14,8 +14,51 @@
   <!-- button -->
   <example-block title="usage.components.button.title">
     <example-block-line>
+      <ion-button
+        fill="solid"
+        size="large"
+      >
+        <ion-icon
+          :icon="chevronBack"
+          class="button-icon-left"
+        />
+        {{ $msTranslate('usage.components.button.default') }}
+      </ion-button>
+      <ion-button
+        fill="solid"
+        size="default"
+      >
+        <ion-icon
+          :icon="chevronBack"
+          class="button-icon-left"
+        />
+        {{ $msTranslate('usage.components.button.default') }}
+      </ion-button>
+      <ion-button
+        fill="solid"
+        size="small"
+      >
+        {{ $msTranslate('usage.components.button.default') }}
+        <ion-icon
+          :icon="chevronForward"
+          class="button-icon-right"
+        />
+      </ion-button>
+      <ion-button
+        fill="solid"
+        size="small"
+        slot="icon-only"
+      >
+        <ion-icon
+          :icon="chevronBack"
+          class="button-icon-left"
+        />
+      </ion-button>
+    </example-block-line>
+    <example-block-line>
       <ms-feedback-button
         fill="outline"
+        size="large"
         :callback="async () => Math.random() < 0.5"
         :normal-state="{ text: 'usage.components.button.normalState', icon: create }"
         :failure-state="{ text: 'usage.components.button.failureState' }"
@@ -25,6 +68,7 @@
       <ms-feedback-button
         :callback="async () => Math.random() < 0.5"
         icon-position="right"
+        size="medium"
         :normal-state="{ text: 'usage.components.button.normalState', icon: create }"
         :failure-state="{ text: 'usage.components.button.failureState', icon: warning }"
         :success-state="{ text: 'usage.components.button.successState', icon: cog }"
@@ -32,6 +76,7 @@
       />
       <ms-feedback-button
         fill="clear"
+        size="small"
         :callback="async () => Math.random() < 0.5"
         :normal-state="{ icon: create }"
         :timeout="2000"
@@ -540,7 +585,7 @@ import {
   StripeServiceKey,
   useWindowSize,
 } from '@lib/services';
-import { cog, create, helpCircle, pause, play, warning } from 'ionicons/icons';
+import { chevronBack, chevronForward, cog, create, helpCircle, pause, play, warning } from 'ionicons/icons';
 import { DateTime } from 'luxon';
 import { Ref, computed, inject, onMounted, ref, useTemplateRef } from 'vue';
 
