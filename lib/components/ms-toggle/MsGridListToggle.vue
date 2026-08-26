@@ -72,7 +72,7 @@ defineExpose({
 
   .button-icon {
     color: ms.color('icon-neutral-default');
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     padding: ms.spacing('padding-sm');
   }
 
