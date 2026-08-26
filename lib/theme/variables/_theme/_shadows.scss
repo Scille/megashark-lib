@@ -6,22 +6,25 @@
 :root {
   // ----- base shadows -----
   // Use: badge
-  --parsec-elevation-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 0 1px 0 rgba(0, 0, 0, 0.15);
+  --parsec-elevation-xs: 0 1px 2px 0 #{ms.color('shadow-neutral-lighter')};
 
   // Use: card, input
-  --parsec-elevation-sm: 0 1px 1px 0 rgba(0, 0, 0, 0.05), 0 1px 4px 0 rgba(0, 0, 0, 0.03), 0 0 1px 0 rgba(0, 0, 0, 0.2);
+  --parsec-elevation-sm: 0 0 2px 0 #{ms.color('shadow-neutral-lighter')}, 0 2px 4px -2px #{ms.color('shadow-neutral-lighter')};
 
   // Use: dialog, dropdown, card-hover
-  --parsec-elevation-md: 0 2px 4px 0 rgba(0, 0, 0, 0.07), 0 1px 8px 0 rgba(0, 0, 0, 0.05), 0 0 1px 0 rgba(0, 0, 0, 0.22);
+  --parsec-elevation-md: 0 0 3px 0 #{ms.color('shadow-neutral-lighter')}, 0 4px 14px -8px #{ms.color('shadow-neutral-lighter')};
 
   // Use: popover, tooltip
-  --parsec-elevation-lg: 0 4px 8px 0 rgba(0, 0, 0, 0.09), 0 2px 16px 0 rgba(0, 0, 0, 0.07), 0 0 1px 0 rgba(0, 0, 0, 0.24);
+  --parsec-elevation-lg: 0 4px 6px -2px #{ms.color('shadow-neutral-lighter')}, 0 10px 14px -4px #{ms.color('shadow-neutral-lighter')};
 
   // Use: elevated elements
-  --parsec-elevation-xl: 0 8px 16px 0 rgba(0, 0, 0, 0.12), 0 4px 32px 0 rgba(0, 0, 0, 0.09), 0 0 1px 0 rgba(0, 0, 0, 0.26);
+  --parsec-elevation-xl: 0 10px 10px -6px rgba(17, 24, 39, 0.06), 0 20px 24px -6px #{ms.color('shadow-neutral-moderate')};
 
   // Use: modal
-  --parsec-elevation-2xl: 0 16px 32px 0 rgba(0, 0, 0, 0.16), 0 8px 64px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.28);
+  --parsec-elevation-2xl: 0 24px 48px -12px #{ms.color('shadow-neutral-moderate')};
+
+  // Use: overlay
+  --parsec-elevation-3xl: 0 32px 48px -12px #{ms.color('shadow-neutral-moderate')}, 0 32px 48px -12px #{ms.color('shadow-neutral-lighter')};
 
   // ----- specific shadows -----
   --parsec-shadow-light: var(--parsec-elevation-sm);
