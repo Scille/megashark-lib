@@ -3,9 +3,10 @@
 <template>
   <div class="ms-grid-list-toggle">
     <!-- grid -->
-    <ion-button
-      fill="clear"
+    <div
+      button
       class="button-view"
+      :class="modelValue === DisplayState.Grid ? 'button-disabled' : ''"
       id="grid-view"
       :disabled="modelValue === DisplayState.Grid"
       @click="$emit('update:modelValue', modelValue === DisplayState.Grid ? DisplayState.List : DisplayState.Grid)"
@@ -14,11 +15,12 @@
         class="button-icon"
         :icon="grid"
       />
-    </ion-button>
+    </div>
     <!-- list -->
-    <ion-button
-      fill="clear"
+    <div
+      button
       class="button-view"
+      :class="modelValue === DisplayState.List ? 'button-disabled' : ''"
       id="list-view"
       :disabled="modelValue === DisplayState.List"
       @click="$emit('update:modelValue', modelValue === DisplayState.Grid ? DisplayState.List : DisplayState.Grid)"
@@ -27,12 +29,12 @@
         class="button-icon"
         :icon="list"
       />
-    </ion-button>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { IonButton, IonIcon } from '@ionic/vue';
+import { IonIcon } from '@ionic/vue';
 import { DisplayState } from '@lib/components/ms-toggle/types';
 import { grid, list } from 'ionicons/icons';
 
@@ -55,9 +57,9 @@ defineExpose({
 .ms-grid-list-toggle {
   display: flex;
   align-items: center;
-  border-radius: ms.radius("lg");
-  padding: ms.spacing("padding-sm");
-  background: ms.color("surface-base-page-secondary");
+  border-radius: ms.radius('lg');
+  padding: ms.spacing('padding-sm');
+  background: ms.color('surface-base-page-secondary');
   flex-shrink: 0;
   overflow: hidden;
 }
@@ -65,25 +67,24 @@ defineExpose({
 .button-view {
   min-height: 1rem;
   height: 100%;
-  --ripple-color: transparent;
-  border-radius: ms.radius("md");
+  border-radius: ms.radius('md');
+  display: flex;
 
   .button-icon {
-    color: ms.color("icon-neutral-default");
+    color: ms.color('icon-neutral-default');
     font-size: 1.125rem;
-    padding: ms.spacing("padding-sm");
+    padding: ms.spacing('padding-sm');
   }
 
   &:not(.button-disabled) {
     cursor: pointer;
-    opacity: ms.opacity("disabled");
-    --background-hover: none;
+    opacity: ms.opacity('disabled');
 
     &:hover {
-      opacity: 1;
+      background: ms.color('surface-base-default');
 
       .button-icon {
-        color: ms.color("icon-neutral-default-hover");
+        color: ms.color('icon-neutral-default-hover');
       }
     }
   }
@@ -93,14 +94,13 @@ defineExpose({
   }
 }
 
-// eslint-disable-next-line vue-scoped-css/no-unused-selector
 .button-disabled {
-  background: ms.color("surface-base-default");
+  background: ms.color('surface-base-default');
   opacity: 1;
-  box-shadow: ms.shadow("toggle");
+  box-shadow: ms.shadow('toggle');
 
   .button-icon {
-    color: ms.color("icon-neutral-default");
+    color: ms.color('icon-neutral-default');
   }
 }
 </style>
