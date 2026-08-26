@@ -1,8 +1,9 @@
 /* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
 
-@use 'colors-light';
+@use '../_root/colors-light';
 
-/**** Aliases dynamiques (pointent vers light par défaut, surchargés en dark via body.ms-theme-dark) ****/
+/* **** Should be deleted after color style component replacement **** */
+
 :root {
   /* gradient */
   --parsec-color-gradient: var(--parsec-color-light-gradient);

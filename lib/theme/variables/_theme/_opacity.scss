@@ -3,6 +3,6 @@
 /* **** Parsec opacity **** */
 
 :root {
-  --parsec-opacity-disabled: 0.4;
-  --parsec-opacity-description: 0.8;
+  --parsec-opacity-disabled: var(--parsec-root-opacity-4);
+  --parsec-opacity-description: var(--parsec-root-opacity-8);
 }
