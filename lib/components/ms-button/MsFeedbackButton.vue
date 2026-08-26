@@ -5,11 +5,13 @@
     v-bind="$attrs"
     @click="onClick"
     :disabled="state !== State.Normal"
+    :slot="!currentTextAndIcon.text && currentTextAndIcon.icon ? 'icon-only' : ''"
   >
     <ion-icon
       :slot="iconPosition === 'left' ? 'start' : 'end'"
       v-if="currentTextAndIcon.icon"
       :icon="currentTextAndIcon.icon"
+      :class="currentTextAndIcon.text ? (iconPosition === 'left' ? 'button-icon-left' : 'button-icon-right') : ''"
     />
     <span v-if="currentTextAndIcon.text">{{ $msTranslate(currentTextAndIcon.text) }}</span>
   </ion-button>

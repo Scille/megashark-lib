@@ -1,29 +1,94 @@
 /* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
 
+@use 'sass:map';
+@use '@lib/theme' as ms;
+
 /* **** Parsec button **** */
+
+$button-sizes: (
+  small: (
+    height: ms.size('lg'),
+    padding-y: ms.spacing('padding-sm'),
+    padding-x: ms.spacing('padding-xl'),
+    radius: ms.radius('lg'),
+    font-size: ms.font('label-md-text-size'),
+    icon-size: 1rem,
+    icon-gap: ms.spacing('gap-sm'),
+    width: 4rem,
+  ),
+  medium: (
+    height: ms.size('xl'),
+    padding-y: ms.spacing('padding-lg'),
+    padding-x: ms.spacing('padding-3xl'),
+    radius: ms.radius('xl'),
+    font-size: ms.font('label-md-text-size'),
+    icon-size: 1rem,
+    icon-gap: ms.spacing('gap-lg'),
+    width: 5rem,
+  ),
+  large: (
+    height: ms.size('2xl'),
+    padding-y: ms.spacing('padding-xl'),
+    padding-x: ms.spacing('padding-3xl'),
+    radius: ms.radius('2xl'),
+    font-size: ms.font('label-lg-text-size'),
+    icon-size: 1.125rem,
+    icon-gap: ms.spacing('gap-xl'),
+    width: 6rem,
+  ),
+);
+
+@mixin button-size($tier) {
+  $props: map.get($button-sizes, $tier);
+  $height: map.get($props, height);
+  $paddingY: map.get($props, padding-y);
+  $paddingX: map.get($props, padding-x);
+  $gap: map.get($props, icon-gap);
+
+  min-height: $height;
+  font-size: map.get($props, font-size);
+  min-width: map.get($props, width);
+
+  &::part(native) {
+    padding: $paddingY $paddingX;
+    border-radius: map.get($props, radius);
+  }
+
+  ion-icon {
+    font-size: map.get($props, icon-size);
+    max-width: map.get($props, icon-size);
+  }
+
+  &:has(:not(.button-has-icon-only)) {
+    .button-icon-right {
+      margin-left: $gap;
+    }
+
+    .button-icon-left {
+      margin-right: $gap;
+    }
+  }
+
+  &[slot='icon-only'] {
+    min-width: $height;
+
+    &::part(native) {
+      padding: $paddingY;
+    }
+  }
+}
 
 ion-button {
   text-transform: none;
-  --border-radius: var(--parsec-radius-8);
+  --border-radius: #{ms.radius('lg')};
   --box-shadow: none;
   margin-inline-start: 0;
   margin-inline-end: 0;
   margin: 0;
   flex-shrink: 0;
-  min-height: 0 !important;
   letter-spacing: 0.01rem;
-  --padding-top: 0.75rem;
-  --padding-end: 1.125rem;
-  --padding-bottom: 0.75rem;
-  --padding-start: 1.125rem;
 
-  .button-icon-right {
-    margin-left: 0.5rem;
-  }
-
-  .button-icon-left {
-    margin-right: 0.5rem;
-  }
+  @include button-size(medium);
 
   &.ios {
     --background-activated: transparent;
@@ -32,33 +97,29 @@ ion-button {
 }
 
 /* button size */
-ion-button.button-large {
-  --padding-top: 1rem;
-  --padding-end: 1.25rem;
-  --padding-bottom: 1em;
-  --padding-start: 1.25rem;
-
-  &::part(native) {
-    padding: 0.75rem 1.25rem;
-  }
-
-  ion-icon {
-    font-size: 1.125rem;
-  }
+ion-button.button-small {
+  @include button-size(small);
 }
 
-ion-button.button-small {
-  --padding-top: 0.625rem;
-  --padding-end: 0.75rem;
-  --padding-bottom: 0.625rem;
-  --padding-start: 0.75rem;
+ion-button.button-default {
+  @include button-size(medium);
+}
+
+ion-button.button-large {
+  @include button-size(large);
 }
 
 /* button default */
 ion-button:not(.button-outline):not(.button-clear) {
-  --background: var(--parsec-color-primary-500);
-  --background-hover: var(--parsec-color-primary-700);
+  --background: #{ms.color('surface-brand-default')};
+  --background-hover: #{ms.color('surface-brand-default-hover')};
   --background-hover-opacity: none;
+  --background-activated: #{ms.color('surface-brand-default-pressed')};
+  --background-focused: #{ms.color('surface-brand-default-hover')};
+
+  &.ion-focused::part(native) {
+    box-shadow: var(--parsec-focus-brand);
+  }
 }
 
 /* button outline */
