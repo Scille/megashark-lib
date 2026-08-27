@@ -134,10 +134,11 @@
 
 // error message
 .form-error {
+  @include ms.font('body-md-regular');
   color: var(--parsec-color-danger-500);
   display: flex;
   align-items: center;
-  gap: 0.2rem;
+  gap: ms.spacing('gap-sm');
 }
 
 .datetime-picker {
