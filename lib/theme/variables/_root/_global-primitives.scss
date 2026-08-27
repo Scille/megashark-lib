@@ -1,0 +1,136 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+/**** Parsec global primitives (theme-agnostic) ****/
+:root {
+  // ----- space -----
+  --parsec-root-space-0: 0;
+  --parsec-root-space-1: 0.125rem;
+  --parsec-root-space-2: 0.25rem;
+  --parsec-root-space-3: 0.375rem;
+  --parsec-root-space-4: 0.5rem;
+  --parsec-root-space-5: 0.625rem;
+  --parsec-root-space-6: 0.75rem;
+  --parsec-root-space-7: 1rem;
+  --parsec-root-space-8: 1.125rem;
+  --parsec-root-space-9: 1.5rem;
+  --parsec-root-space-10: 2rem;
+  --parsec-root-space-11: 2.5rem;
+  --parsec-root-space-12: 3rem;
+  --parsec-root-space-13: 4rem;
+  --parsec-root-space-14: 5rem;
+  --parsec-root-space-15: 6rem;
+  --parsec-root-space-16: 10rem;
+  --parsec-root-space-17: 16.25rem;
+
+  // ----- gutter -----
+  --parsec-root-gutter-xs: 0.5rem;
+  --parsec-root-gutter-sm: 1rem;
+  --parsec-root-gutter-md: 1.25rem;
+  --parsec-root-gutter-lg: 1.5rem;
+
+  // ----- border-width -----
+  --parsec-root-border-width-0: 0;
+  --parsec-root-border-width-1: 0.0625rem;
+  --parsec-root-border-width-2: 0.125rem;
+  --parsec-root-border-width-3: 0.1875rem;
+  --parsec-root-border-width-4: 0.25rem;
+  --parsec-root-border-width-5: 0.375rem;
+  --parsec-root-border-width-6: 0.5rem;
+
+  // ----- radius -----
+  --parsec-root-radius-0: 0;
+  --parsec-root-radius-1: 0.125rem;
+  --parsec-root-radius-2: 0.25rem;
+  --parsec-root-radius-3: 0.375rem;
+  --parsec-root-radius-4: 0.5rem;
+  --parsec-root-radius-5: 0.625rem;
+  --parsec-root-radius-6: 0.75rem;
+  --parsec-root-radius-7: 1rem;
+  --parsec-root-radius-8: 1.125rem;
+  --parsec-root-radius-9: 1.5rem;
+  --parsec-root-radius-10: 2rem;
+  --parsec-root-radius-full: 62.4375rem;
+
+  // ----- size -----
+  --parsec-root-size-1: 0.25rem;
+  --parsec-root-size-2: 0.375rem;
+  --parsec-root-size-3: 0.5rem;
+  --parsec-root-size-4: 0.75rem;
+  --parsec-root-size-5: 1rem;
+  --parsec-root-size-6: 1.25rem;
+  --parsec-root-size-7: 1.5rem;
+  --parsec-root-size-8: 2rem;
+  --parsec-root-size-9: 2.5rem;
+  --parsec-root-size-10: 2.75rem;
+  --parsec-root-size-11: 3.5rem;
+  --parsec-root-size-12: 4rem;
+  --parsec-root-size-13: 4.5rem;
+  --parsec-root-size-14: 5rem;
+  --parsec-root-size-15: 6rem;
+  --parsec-root-size-16: 8rem;
+
+  // ----- opacity -----
+  --parsec-root-opacity-1: 0.1;
+  --parsec-root-opacity-2: 0.2;
+  --parsec-root-opacity-3: 0.3;
+  --parsec-root-opacity-4: 0.4;
+  --parsec-root-opacity-5: 0.5;
+  --parsec-root-opacity-6: 0.6;
+  --parsec-root-opacity-7: 0.7;
+  --parsec-root-opacity-8: 0.8;
+  --parsec-root-opacity-9: 0.9;
+  --parsec-root-opacity-10: 1;
+
+  // ----- font-family -----
+  --parsec-root-font-family-heading: 'Albert Sans';
+  --parsec-root-font-family-paragraph: 'Albert Sans';
+
+  // ----- font-weight -----
+  --parsec-root-font-weight-thin: 100;
+  --parsec-root-font-weight-extra-light: 200;
+  --parsec-root-font-weight-light: 300;
+  --parsec-root-font-weight-regular: 400;
+  --parsec-root-font-weight-medium: 500;
+  --parsec-root-font-weight-semi-bold: 600;
+  --parsec-root-font-weight-bold: 700;
+  --parsec-root-font-weight-extra-bold: 800;
+
+  // ----- font-size -----
+  --parsec-root-font-size-2xs: 0.75rem;
+  --parsec-root-font-size-xs: 0.8125rem;
+  --parsec-root-font-size-sm: 0.875rem;
+  --parsec-root-font-size-md: 1rem;
+  --parsec-root-font-size-lg: 1.125rem;
+  --parsec-root-font-size-xl: 1.25rem;
+  --parsec-root-font-size-2xl: 1.5rem;
+  --parsec-root-font-size-3xl: 1.875rem;
+  --parsec-root-font-size-4xl: 2rem;
+  --parsec-root-font-size-5xl: 2.5rem;
+  --parsec-root-font-size-6xl: 3.75rem;
+  --parsec-root-font-size-7xl: 4.5rem;
+  --parsec-root-font-size-8xl: 6rem;
+  --parsec-root-font-size-9xl: 8rem;
+
+  // ----- line-height -----
+  --parsec-root-line-height-xs: 0.875rem;
+  --parsec-root-line-height-sm: 1rem;
+  --parsec-root-line-height-md: 1.125rem;
+  --parsec-root-line-height-lg: 1.25rem;
+  --parsec-root-line-height-xl: 1.375rem;
+  --parsec-root-line-height-2xl: 1.5rem;
+  --parsec-root-line-height-3xl: 1.75rem;
+  --parsec-root-line-height-4xl: 2rem;
+  --parsec-root-line-height-5xl: 2.375rem;
+  --parsec-root-line-height-6xl: 2.5rem;
+  --parsec-root-line-height-7xl: 2.625rem;
+  --parsec-root-line-height-8xl: 3.125rem;
+  --parsec-root-line-height-9xl: 3.375rem;
+  --parsec-root-line-height-10xl: 3.75rem;
+
+  // ----- letter-spacing -----
+  --parsec-root-letter-spacing-xs: -0.2px;
+  --parsec-root-letter-spacing-sm: -0.1px;
+  --parsec-root-letter-spacing-md: 0;
+  --parsec-root-letter-spacing-lg: 0.1px;
+  --parsec-root-letter-spacing-xl: 0.2px;
+}

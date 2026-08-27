@@ -1,15 +1,23 @@
 /* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
 
-@forward 'borders';
-@forward 'colors';
-@forward 'colors-ionic';
-@forward 'colors-primitives';
-@forward 'colors-theme';
-@forward 'fonts';
-@forward 'layout';
-@forward 'opacity';
-@forward 'radius';
-@forward 'shadows';
-@forward 'size';
-@forward 'spacing';
+/** Root variables **/
+@forward '_root/colors-ionic';
+@forward '_root/colors-light';
+@forward '_root/colors-primitives';
+@forward '_root/global-primitives';
+
+/** Theme variables **/
+@forward '_theme/borders';
+@forward '_theme/colors';
+@forward '_theme/colors-old'; //should be removed when all components will have _colors.scss variables.
+@forward '_theme/fonts';
+@forward '_theme/fonts-old'; //should be removed when all components will have _fonts.scss variables.
+@forward '_theme/opacity';
+@forward '_theme/radius';
+@forward '_theme/radius-old'; //should be removed when all components will have _radius.scss variables.
+@forward '_theme/shadows';
+@forward '_theme/size';
+@forward '_theme/spacing';
+
+/** Specific style **/
 @forward 'width';
