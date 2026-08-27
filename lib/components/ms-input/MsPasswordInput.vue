@@ -42,7 +42,7 @@
     </div>
     <span
       v-show="errorMessage"
-      class="form-error form-helperText"
+      class="form-error"
     >
       <ion-icon
         class="form-error-icon"

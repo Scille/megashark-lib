@@ -179,16 +179,16 @@ export type StripeCardElementChangeEventType =
 
 export const StripeElementBaseStyle = {
   base: {
-    color: '#002C66',
+    color: '#454569', // equivalent to ms.color('text-base-label')
     fontFamily: '"Albert Sans", Montserrat, "Helvetica Neue", Helvetica, sans-serif',
     fontSize: '15px',
     '::placeholder': {
-      color: '#8585AD',
+      color: '#B2B2CC', // equivalent to ms.color('text-base-placeholder')
     },
     backgroundColor: 'transparent',
   },
   invalid: {
-    color: '#cc3347',
+    color: '#C20A22', // equivalent to ms.color('text-error-default')
   },
 };
 
