@@ -1,96 +1,79 @@
 /* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
 
+@use '@lib/theme' as ms;
+
 /* **** Parsec button **** */
 
 ion-button {
   text-transform: none;
-  --border-radius: var(--parsec-radius-8);
+  --border-radius: #{ms.radius('lg')};
   --box-shadow: none;
   margin-inline-start: 0;
   margin-inline-end: 0;
   margin: 0;
   flex-shrink: 0;
-  min-height: 0 !important;
-  letter-spacing: 0.01rem;
-  --padding-top: 0.75rem;
-  --padding-end: 1.125rem;
-  --padding-bottom: 0.75rem;
-  --padding-start: 1.125rem;
+  letter-spacing: 0;
 
-  .button-icon-right {
-    margin-left: 0.5rem;
-  }
-
-  .button-icon-left {
-    margin-right: 0.5rem;
-  }
+  @include ms.button-size(medium);
 
   &.ios {
     --background-activated: transparent;
     --background-focused: transparent;
   }
+
+  &.ion-focused::part(native) {
+    box-shadow: ms.shadow('focus-brand');
+  }
 }
 
 /* button size */
-ion-button.button-large {
-  --padding-top: 1rem;
-  --padding-end: 1.25rem;
-  --padding-bottom: 1em;
-  --padding-start: 1.25rem;
-
-  &::part(native) {
-    padding: 0.75rem 1.25rem;
-  }
-
-  ion-icon {
-    font-size: 1.125rem;
-  }
+ion-button.button-small {
+  @include ms.button-size(small);
 }
 
-ion-button.button-small {
-  --padding-top: 0.625rem;
-  --padding-end: 0.75rem;
-  --padding-bottom: 0.625rem;
-  --padding-start: 0.75rem;
+ion-button.button-default {
+  @include ms.button-size(medium);
+}
+
+ion-button.button-large {
+  @include ms.button-size(large);
 }
 
 /* button default */
 ion-button:not(.button-outline):not(.button-clear) {
-  --background: var(--parsec-color-primary-500);
-  --background-hover: var(--parsec-color-primary-700);
+  --background: #{ms.color('surface-brand-default')};
+  --background-hover: #{ms.color('surface-brand-default-hover')};
   --background-hover-opacity: none;
+  --background-activated: #{ms.color('surface-brand-default-pressed')};
+  --background-focused: #{ms.color('surface-brand-default-hover')};
 }
 
 /* button outline */
 ion-button.button-outline {
-  --border-color: var(--parsec-color-primary-500);
-  --border-width: 1px;
+  --border-color: #{ms.color('border-brand-default')};
+  --border-width: #{ms.border('thin')};
   --background: none;
-  --color: var(--parsec-color-primary-500);
-  --color-hover: var(--parsec-color-primary-600);
+  --color: #{ms.color('text-brand-default')};
+  --color-hover: #{ms.color('text-brand-default-hover')};
   --background-hover: none;
   --background-hover-opacity: none;
 
   &:hover {
-    --border-color: var(--parsec-color-primary-600);
+    --border-color: #{ms.color('border-brand-default-hover')};
   }
 }
 
 /* ghost */
 .sc-ion-buttons-md-s .button-clear,
 .button-clear {
-  --color: var(--parsec-color-primary-500);
-  --color-hover: var(--parsec-color-primary-700);
-  --background-hover: var(--parsec-color-primary-50);
+  --color: #{ms.color('text-brand-default')};
+  --color-hover: #{ms.color('text-brand-default-hover')};
+  --background: #{ms.color('surface-brand-default-subtle')};
+  --background-hover: #{ms.color('surface-brand-default-subtle-hover')};
   --background-hover-opacity: none;
 }
 
-/* solid */
-ion-button.button-solid {
-  --background: var(--parsec-color-primary-100);
-}
-
 .danger {
-  color: var(--parsec-color-danger-500);
-  --background-hover: var(--parsec-color-danger-100) !important;
+  color: #{ms.color('text-error-default')};
+  --background-hover: #{ms.color('surface-error-default-subtle-pressed')} !important;
 }
