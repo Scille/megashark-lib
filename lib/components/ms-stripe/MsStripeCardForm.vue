@@ -125,14 +125,16 @@ defineExpose({
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .form-content {
-  gap: 1em;
+  gap: ms.spacing('gap-3xl');
   display: flex;
   flex-direction: column;
 
   .form-row {
     display: flex;
-    gap: 1em;
+    gap: ms.spacing('gap-3xl');
 
     > * {
       flex: 1;
@@ -146,12 +148,12 @@ defineExpose({
   }
 
   .form-input {
-    padding-left: 0.625rem !important;
+    padding-left: ms.spacing('padding-xl') !important;
   }
 
   .icon {
     font-size: 1.125em;
-    color: var(--parsec-color-secondary-light);
+    color: ms.color('icon-disabled-default');
   }
 }
 </style>
