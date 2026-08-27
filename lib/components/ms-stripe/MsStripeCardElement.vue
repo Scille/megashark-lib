@@ -138,24 +138,26 @@ defineExpose({
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .input-content {
-  padding: 0 0.75rem;
+  padding: 0 ms.spacing('padding-2xl');
   align-items: center;
   flex-grow: unset;
 
   &:has(.StripeElement--focus) {
-    border: 1px solid var(--parsec-color-primary-400);
-    background: var(--parsec-color-secondary-surface);
-    outline: 0.25rem solid var(--parsec-color-outline);
+    border: ms.border('thin') solid ms.color('border-brand-default');
+    background: ms.color('surface-base-default');
+    box-shadow: ms.shadow('focus-brand');
   }
 }
 
 .icon {
   font-size: 1.125em;
-  color: var(--parsec-color-secondary-light);
+  color: ms.color('icon-disabled-default');
 
   &-error {
-    color: var(--parsec-color-danger-500);
+    color: ms.color('icon-error-default');
   }
 }
 </style>
