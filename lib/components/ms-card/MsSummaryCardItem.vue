@@ -1,10 +1,10 @@
 <template>
   <div class="ms-summary-card-item">
-    <p class="ms-summary-card-item__label form-label">{{ $msTranslate(label) }}</p>
-    <p class="ms-summary-card-item__text subtitles-normal">{{ $msTranslate(text) }}</p>
+    <p class="ms-summary-card-item__label">{{ $msTranslate(label) }}</p>
+    <p class="ms-summary-card-item__text">{{ $msTranslate(text) }}</p>
     <p
       v-show="error"
-      class="form-error body"
+      class="form-error"
     >
       {{ $msTranslate(error) }}
     </p>
@@ -15,7 +15,7 @@
       {{ $msTranslate(secondLine.text) }}
       <p
         v-show="secondLine.error"
-        class="form-error body"
+        class="form-error"
       >
         {{ $msTranslate(secondLine.error) }}
       </p>
@@ -30,6 +30,8 @@ defineProps<MsSummaryCardItemData>();
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .ms-summary-card-item {
   display: flex;
   flex-direction: column;
@@ -42,10 +44,12 @@ defineProps<MsSummaryCardItemData>();
   }
 
   &__label {
+    @include ms.font('label-md-medium');
     color: var(--parsec-color-secondary-soft-grey);
   }
 
   &__text {
+    @include ms.font('label-lg-medium');
     color: var(--parsec-color-secondary-text);
     display: block;
     gap: 0.5rem;

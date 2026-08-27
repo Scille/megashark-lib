@@ -140,7 +140,7 @@
   color: ms.color('text-error-default');
   display: flex;
   align-items: center;
-  gap: 0.2rem;
+  gap: ms.spacing('gap-sm');
 }
 
 .datetime-picker {

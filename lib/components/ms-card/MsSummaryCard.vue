@@ -36,7 +36,7 @@
     </template>
 
     <ion-button
-      class="update-button button-small"
+      class="update-button"
       fill="outline"
       @click="$emit('update')"
       v-show="!readOnly"
