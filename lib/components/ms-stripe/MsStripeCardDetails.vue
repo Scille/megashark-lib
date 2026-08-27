@@ -60,6 +60,8 @@ function getBrandImageUrl(brand: string): string {
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .ms-stripe-card {
   display: flex;
 
@@ -68,21 +70,20 @@ function getBrandImageUrl(brand: string): string {
     background: v-bind(brandCSS) no-repeat center center;
     background-size: contain;
     padding: 1.25em;
-    border-radius: var(--parsec-radius-8);
+    border-radius: ms.radius('lg');
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    gap: 0.75rem;
-    letter-spacing: 0.15em;
+    gap: ms.spacing('gap-2lg');
 
     p {
-      color: var(--parsec-color-secondary-surface);
+      color: ms.color('text-on-color-heading');
       margin: 0;
     }
 
     .row-fields {
       display: flex;
-      gap: 1em;
+      gap: ms.spacing('gap-3xl');
     }
   }
 
@@ -98,7 +99,7 @@ function getBrandImageUrl(brand: string): string {
 
   &--small {
     display: flex;
-    gap: 0.75rem;
+    gap: ms.spacing('gap-2lg');
     align-items: center;
     margin-top: auto;
 
@@ -112,14 +113,14 @@ function getBrandImageUrl(brand: string): string {
       flex-direction: column;
 
       .number-digits {
-        color: var(--parsec-color-secondary-soft-text);
+        color: ms.color('text-neutral-default');
         font-size: 1rem;
-        font-weight: 500;
+        font-weight: ms.font('weight-medium');
         margin: 0;
       }
 
       .number-expiration {
-        color: var(--parsec-color-secondary-hard-grey);
+        color: ms.color('text-base-description');
         font-size: 0.875rem;
         margin: 0;
       }
