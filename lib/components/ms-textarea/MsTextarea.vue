@@ -28,7 +28,7 @@
       :rows="rows"
     />
     <span
-      class="subtitles-sm count"
+      class="count"
       :class="{
         'count-default': getCountColor() === 'low',
         'count-warn': getCountColor() === 'high',
@@ -142,37 +142,28 @@ async function onChange(value: string): Promise<void> {
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .textarea {
-  border: 1px solid var(--parsec-color-secondary-disabled);
-  border-radius: var(--parsec-radius-8);
-  color: var(--parsec-color-primary-800);
-  padding: 0.625rem 0.625rem 0;
-
-  &:focus-within {
-    border: 1px solid var(--parsec-color-primary-400);
-    background: var(--parsec-color-secondary-surface);
-    outline: 0.25rem solid var(--parsec-color-outline);
-  }
-
-  &:hover {
-    border: 1px solid var(--parsec-color-primary-300);
-  }
+  padding: ms.spacing('padding-xl') ms.spacing('padding-xl') 0;
 }
 
 .count {
   display: flex;
   margin-left: auto;
+  @include ms.font('label-md-medium');
 
   &-default {
-    color: var(--parsec-color-secondary-grey);
+    color: ms.color('text-neutral-default');
+    opacity: ms.opacity('disabled');
   }
 
   &-warn {
-    color: var(--parsec-color-warning-500);
+    color: ms.color('text-warning-default');
   }
 
   &-full {
-    color: var(--parsec-color-danger-500);
+    color: ms.color('text-error-default');
   }
 }
 </style>

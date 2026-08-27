@@ -34,22 +34,17 @@
     </div>
     <span
       v-show="errorMessage !== '' && lostFocus && modelValue"
-      class="form-error form-helperText"
+      class="form-error"
     >
-      <ion-icon
-        class="form-error-icon"
-        :icon="warning"
-      />
       {{ $msTranslate(errorMessage) }}
     </span>
   </div>
 </template>
 
 <script setup lang="ts">
-import { IonIcon, IonInput } from '@ionic/vue';
+import { IonInput } from '@ionic/vue';
 import { IValidator, Validity } from '@lib/common/validation';
 import { Translatable } from '@lib/services';
-import { warning } from 'ionicons/icons';
 import { computed, Ref, ref, useTemplateRef } from 'vue';
 
 const props = defineProps<{
