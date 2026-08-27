@@ -37,7 +37,7 @@
     "@ionic/core": "^8.8.1",
     "@ionic/vue": "^8.8.1",
     "luxon": "^3.4.4",
-    "vue": "^3.5.30",
+    "vue": "^3.5.41",
     "vue-i18n": "^11.3.0"
   },
   "dependencies": {
