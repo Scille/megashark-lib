@@ -12,7 +12,7 @@ $button-sizes: (
     padding-x: ms.spacing('padding-xl'),
     radius: ms.radius('lg'),
     font-size: ms.font('label-md-text-size'),
-    icon-size: 1rem,
+    icon-size: ms.size('xs'),
     icon-gap: ms.spacing('gap-sm'),
     width: 4rem,
   ),
@@ -22,7 +22,7 @@ $button-sizes: (
     padding-x: ms.spacing('padding-3xl'),
     radius: ms.radius('xl'),
     font-size: ms.font('label-md-text-size'),
-    icon-size: 1rem,
+    icon-size: ms.size('xs'),
     icon-gap: ms.spacing('gap-lg'),
     width: 5rem,
   ),
@@ -86,13 +86,17 @@ ion-button {
   margin-inline-end: 0;
   margin: 0;
   flex-shrink: 0;
-  letter-spacing: 0.01rem;
+  letter-spacing: 0;
 
   @include button-size(medium);
 
   &.ios {
     --background-activated: transparent;
     --background-focused: transparent;
+  }
+
+  &.ion-focused::part(native) {
+    box-shadow: ms.shadow('focus-brand');
   }
 }
 
@@ -116,42 +120,34 @@ ion-button:not(.button-outline):not(.button-clear) {
   --background-hover-opacity: none;
   --background-activated: #{ms.color('surface-brand-default-pressed')};
   --background-focused: #{ms.color('surface-brand-default-hover')};
-
-  &.ion-focused::part(native) {
-    box-shadow: var(--parsec-focus-brand);
-  }
 }
 
 /* button outline */
 ion-button.button-outline {
-  --border-color: var(--parsec-color-primary-500);
-  --border-width: 1px;
+  --border-color: #{ms.color('border-brand-default')};
+  --border-width: #{ms.border('thin')};
   --background: none;
-  --color: var(--parsec-color-primary-500);
-  --color-hover: var(--parsec-color-primary-600);
+  --color: #{ms.color('text-brand-default')};
+  --color-hover: #{ms.color('text-brand-default-hover')};
   --background-hover: none;
   --background-hover-opacity: none;
 
   &:hover {
-    --border-color: var(--parsec-color-primary-600);
+    --border-color: #{ms.color('border-brand-default-hover')};
   }
 }
 
 /* ghost */
 .sc-ion-buttons-md-s .button-clear,
 .button-clear {
-  --color: var(--parsec-color-primary-500);
-  --color-hover: var(--parsec-color-primary-700);
-  --background-hover: var(--parsec-color-primary-50);
+  --color: #{ms.color('text-brand-default')};
+  --color-hover: #{ms.color('text-brand-default-hover')};
+  --background: #{ms.color('surface-brand-default-subtle')};
+  --background-hover: #{ms.color('surface-brand-default-subtle-hover')};
   --background-hover-opacity: none;
 }
 
-/* solid */
-ion-button.button-solid {
-  --background: var(--parsec-color-primary-100);
-}
-
 .danger {
-  color: var(--parsec-color-danger-500);
-  --background-hover: var(--parsec-color-danger-100) !important;
+  color: #{ms.color('text-error-default')};
+  --background-hover: #{ms.color('surface-error-default-subtle-pressed')} !important;
 }
