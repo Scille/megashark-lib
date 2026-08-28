@@ -1,0 +1,80 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+@use 'sass:map';
+@use 'size' as *;
+@use 'spacing' as *;
+@use 'radius' as *;
+@use 'fonts' as *;
+
+$button-sizes: (
+  small: (
+    height: size('lg'),
+    padding-y: spacing('padding-sm'),
+    padding-x: spacing('padding-xl'),
+    radius: radius('lg'),
+    font-size: font('label-md-text-size'),
+    icon-size: size('xs'),
+    icon-gap: spacing('gap-sm'),
+    width: 4rem,
+  ),
+  medium: (
+    height: size('xl'),
+    padding-y: spacing('padding-lg'),
+    padding-x: spacing('padding-3xl'),
+    radius: radius('xl'),
+    font-size: font('label-md-text-size'),
+    icon-size: size('xs'),
+    icon-gap: spacing('gap-lg'),
+    width: 5rem,
+  ),
+  large: (
+    height: size('2xl'),
+    padding-y: spacing('padding-xl'),
+    padding-x: spacing('padding-3xl'),
+    radius: radius('2xl'),
+    font-size: font('label-lg-text-size'),
+    icon-size: 1.125rem,
+    icon-gap: spacing('gap-xl'),
+    width: 6rem,
+  ),
+);
+
+@mixin button-size($tier) {
+  $props: map.get($button-sizes, $tier);
+  $height: map.get($props, height);
+  $paddingY: map.get($props, padding-y);
+  $paddingX: map.get($props, padding-x);
+  $gap: map.get($props, icon-gap);
+
+  min-height: $height;
+  font-size: map.get($props, font-size);
+  min-width: map.get($props, width);
+
+  &::part(native) {
+    padding: $paddingY $paddingX;
+    border-radius: map.get($props, radius);
+  }
+
+  ion-icon {
+    font-size: map.get($props, icon-size);
+    max-width: map.get($props, icon-size);
+  }
+
+  &:has(:not(.button-has-icon-only)) {
+    .button-icon-right {
+      margin-left: $gap;
+    }
+
+    .button-icon-left {
+      margin-right: $gap;
+    }
+  }
+
+  &[slot='icon-only'] {
+    min-width: $height;
+
+    &::part(native) {
+      padding: $paddingY;
+    }
+  }
+}
