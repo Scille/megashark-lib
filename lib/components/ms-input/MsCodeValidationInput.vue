@@ -22,13 +22,13 @@
       v-if="validationFunction !== undefined"
     >
       <ion-text
-        class="code-input-message__invalid subtitle-sm"
+        class="code-input-message__invalid"
         v-if="isFinalCodeValid === false"
       >
         {{ $msTranslate('lib.components.msCodeValidationInput.codeNotValid') }}
       </ion-text>
       <ion-text
-        class="code-input-message__valid subtitle-sm"
+        class="code-input-message__valid"
         v-if="isFinalCodeValid === true"
       >
         {{ $msTranslate('lib.components.msCodeValidationInput.codeValid') }}
@@ -239,24 +239,25 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
 
 .code-input-list {
   display: flex;
-  gap: 1rem;
+  gap: ms.spacing('gap-3xl');
   margin: 0.25rem;
 
   @include ms.responsive-breakpoint('sm') {
-    gap: 0.5rem;
+    gap: ms.spacing('gap-lg');
   }
+
   &__item {
     --highlight-color-focused: none;
-    color: var(--parsec-color-secondary-text);
-    background-color: var(--parsec-color-secondary-premiere);
+    color: ms.color('text-base-body');
+    background-color: ms.color('surface-base-default-secondary');
     caret-color: transparent;
-    border-radius: var(--parsec-radius-8);
-    width: 3.5rem;
-    height: 4.5rem;
+    border-radius: ms.radius('lg');
+    width: ms.size('2xl');
+    height: 3.5rem;
     display: flex;
     text-align: center;
     position: relative;
-    font-size: 1.75rem !important;
+    font-size: 1.375rem !important;
 
     @include ms.responsive-breakpoint('sm') {
       width: 3rem;
@@ -264,8 +265,8 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
     }
 
     &:is(.has-focus) {
-      border: 1px solid var(--parsec-color-primary-200);
-      background: var(--parsec-color-secondary-inversed-contrast);
+      border: ms.border('thin') solid ms.color('border-brand-default');
+      background: ms.color('surface-base-default-secondary');
 
       &::after {
         content: '';
@@ -274,14 +275,14 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
         left: 0;
         width: 100%;
         height: 100%;
-        outline: 5px solid var(--parsec-color-outline);
+        box-shadow: ms.shadow('focus-brand');
         animation: blinking 1.4s infinite ease-out;
-        border-radius: var(--parsec-radius-8);
+        border-radius: ms.radius('md');
       }
     }
 
     &:is(.has-value) {
-      background-color: var(--parsec-color-secondary-medium);
+      background-color: ms.color('surface-base-page-secondary');
     }
   }
 }
@@ -289,23 +290,24 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
 .code-input-message {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: ms.spacing('gap-lg');
+  @include ms.font('label-sm-medium');
 
   &__invalid {
-    color: var(--parsec-color-danger-500);
+    color: ms.color('text-error-default');
     margin-top: 0.75rem;
 
     @include ms.responsive-breakpoint('sm') {
-      font-size: 0.875rem;
+      font-size: ms.font('label-md-medium-text-size');
     }
   }
 
   &__valid {
-    color: var(--parsec-color-success-500);
+    color: ms.color('text-success-default');
     margin-top: 0.75rem;
 
     @include ms.responsive-breakpoint('sm') {
-      font-size: 0.875rem;
+      font-size: ms.font('label-md-medium-text-size');
     }
   }
 }

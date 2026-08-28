@@ -10,7 +10,7 @@
         :image="PasswordLock"
         class="info__img"
       />
-      <ion-text class="info__text subtitles-sm">
+      <ion-text class="info__text">
         {{ $msTranslate('lib.components.msChoosePasswordInput.description') }}
       </ion-text>
     </div>
@@ -33,6 +33,11 @@
       <div class="inputs-container-item">
         <ms-password-input
           :label="'lib.components.msChoosePasswordInput.confirmPasswordInputLabel'"
+          :error-message="
+            showNoMatchError && password !== passwordConfirm && passwordConfirm.length > 0
+              ? 'lib.components.msChoosePasswordInput.noMatch'
+              : ''
+          "
           v-model="passwordConfirm"
           auto-complete-info="new-password"
           name="confirmPassword"
@@ -40,12 +45,6 @@
           @blur="showNoMatchError = true"
           @change="showNoMatchError = false"
         />
-        <span
-          class="form-helperText"
-          v-if="showNoMatchError && password !== passwordConfirm && passwordConfirm.length > 0"
-        >
-          {{ $msTranslate('lib.components.msChoosePasswordInput.noMatch') }}
-        </span>
       </div>
     </form>
     <div class="password-criteria">
@@ -172,13 +171,6 @@ function clear(): void {
 
   &-item {
     width: 100%;
-  }
-
-  .form-helperText {
-    display: flex;
-    flex-direction: column;
-    margin-top: 0.5rem;
-    color: var(--parsec-color-danger-500);
   }
 }
 

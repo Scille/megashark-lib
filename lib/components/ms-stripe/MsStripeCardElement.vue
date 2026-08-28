@@ -27,7 +27,7 @@
       />
     </div>
     <span
-      class="form-error form-helperText"
+      class="form-error"
       v-if="errorMessage"
     >
       {{ errorMessage }}
