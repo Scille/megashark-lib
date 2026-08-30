@@ -2,9 +2,10 @@
 
 <template>
   <ion-button
-    class="ms-action-bar-button button-medium"
+    class="ms-action-bar-button"
     size="default"
     ref="actionBarButton"
+    fill="clear"
   >
     <ion-icon
       class="ms-action-bar-button-icon__left"
@@ -51,9 +52,13 @@ function getWidth(): number {
 </script>
 
 <style lang="scss" scoped>
+@use '@lib/theme' as ms;
+
 .ms-action-bar-button {
   --background: none !important;
   --background-hover: none !important;
+  color: ms.color('text-neutral-default');
+  --fill-color: #{ms.color('icon-neutral-default')};
   margin-inline: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -61,14 +66,13 @@ function getWidth(): number {
   --padding-end: 0.5rem;
   --padding-bottom: 0.25rem;
   --padding-start: 0.5rem;
-  color: var(--parsec-color-secondary-soft-text);
-  --fill-color: var(--parsec-color-secondary-soft-text);
   border-radius: var(--parsec-radius-8);
+  transition: background ease-in-out 100ms;
 
   &:hover {
-    color: var(--parsec-color-primary-600);
-    --fill-color: var(--parsec-color-primary-600);
-    background: var(--parsec-color-secondary-medium);
+    color: ms.color('text-neutral-default-hover');
+    --fill-color: #{ms.color('icon-neutral-default-hover')};
+    background: ms.color('surface-base-page-secondary');
   }
 
   &-icon__left {
