@@ -2,7 +2,7 @@
   <ion-page class="dropdown">
     <div class="dropdown-top">
       <ion-text
-        class="dropdown-title title-h3"
+        class="dropdown-title"
         v-if="title"
       >
         {{ $msTranslate(title) }}
@@ -20,7 +20,7 @@
     </div>
     <ion-list>
       <ion-item
-        class="option body"
+        class="option"
         :class="{ selected: selectedOption?.key === option.key, 'item-disabled': option.disabled }"
         button
         lines="none"
@@ -29,12 +29,12 @@
         @click="onOptionClick(option)"
       >
         <ion-text class="option-text">
-          <span class="option-text__label body">
+          <span class="option-text__label">
             {{ $msTranslate(option.label) }}
           </span>
           <span
             v-if="option.description"
-            class="option-text__description body-sm"
+            class="option-text__description"
           >
             {{ $msTranslate(option.description) }}
           </span>
@@ -59,14 +59,14 @@
         class="buttons-cancel"
         size="default"
         @click="cancel"
-        :fill="'clear'"
+        fill="clear"
       >
         {{ $msTranslate(cancelText || 'lib.components.msModal.cancelButtonLabel') }}
       </ion-button>
       <ion-button
         @click="confirm"
         size="default"
-        :fill="'solid'"
+        fill="solid"
         :disabled="selectedOption === undefined"
       >
         {{ $msTranslate(validateText || 'lib.components.msModal.confirmButtonLabel') }}
@@ -108,18 +108,21 @@ async function cancel(): Promise<void> {
 </script>
 
 <style lang="scss" scoped>
+@use '@lib/theme' as ms;
+
 .closeBtn {
-  top: 1rem;
-  right: 1rem;
+  top: ms.spacing('padding-3xl');
+  right: ms.spacing('padding-3xl');
 }
 
 .dropdown {
-  padding-top: 1rem;
+  padding-top: ms.spacing('padding-3xl');
 
   &-title {
     display: flex;
-    padding-left: 1.5rem;
-    padding-top: 0.5rem;
+    padding-left: ms.spacing('padding-4xl');
+    padding-top: ms.spacing('padding-lg');
+    @include ms.font('heading-h4');
   }
 
   &-top {
@@ -132,21 +135,27 @@ async function cancel(): Promise<void> {
   width: 100%;
 
   &::part(native) {
-    padding: 0 1rem;
+    padding: ms.spacing('padding-md') ms.spacing('padding-lg');
+  }
+
+  &::part(inner) {
+    padding: 0;
   }
 
   &-text {
     margin: 0;
     display: flex;
     flex-direction: column;
-    padding: 0.5rem;
+    padding: ms.spacing('padding-lg');
 
     &__label {
-      color: var(--parsec-color-secondary-text);
+      color: ms.color('text-base-body');
+      @include ms.font('label-lg-medium');
     }
 
     &__description {
-      color: var(--parsec-color-secondary-grey);
+      color: ms.color('text-base-description');
+      @include ms.font('body-md-regular');
     }
   }
 
@@ -155,7 +164,7 @@ async function cancel(): Promise<void> {
       content: '';
       position: absolute;
       width: 100%;
-      outline: 1px solid var(--parsec-color-secondary-medium);
+      outline: ms.border('thin') solid ms.color('border-neutral-default-subtle');
     }
   }
 
@@ -163,55 +172,74 @@ async function cancel(): Promise<void> {
     content: '';
     position: absolute;
     width: 100%;
-    outline: 1px solid var(--parsec-color-secondary-medium);
+    outline: ms.border('thin') solid ms.color('border-neutral-default-subtle');
   }
 
   &:hover:not(.item-disabled) {
-    background: var(--parsec-color-secondary-background);
-  }
-
-  &.selected {
-    background: var(--parsec-color-secondary-background);
+    background: ms.color('surface-neutral-default-subtle-hover');
 
     .option-text {
       &__label {
-        color: var(--parsec-color-primary-700);
+        color: ms.color('text-neutral-default-hover');
+      }
+    }
+  }
+
+  &.selected {
+    background: ms.color('surface-brand-default-subtle');
+
+    .option-text {
+      &__label {
+        color: ms.color('text-brand-default');
       }
 
       &__description {
-        color: var(--parsec-color-secondary-grey);
+        color: ms.color('text-base-description');
       }
     }
 
     .icon {
-      color: var(--parsec-color-primary-700);
+      color: ms.color('icon-brand-default');
+      font-size: 1.25rem;
+    }
+
+    &:hover {
+      background: ms.color('surface-brand-default-subtle-hover');
+      --background-hover: #{ms.color('surface-brand-default-subtle-hover')};
+      --background-hover-opacity: #{ms.opacity('10')};
+
+      .option-text {
+        &__label {
+          color: ms.color('text-brand-default-hover');
+        }
+      }
     }
   }
 
   .icon {
     margin: 0;
-    margin-left: 1em;
+    padding: ms.spacing('padding-none') ms.spacing('padding-lg');
   }
 
   &.item-disabled {
-    opacity: 1;
+    opacity: ms.opacity('10');
     pointer-events: none;
 
     .option-text {
-      opacity: 0.5;
+      opacity: ms.opacity('5');
 
       &__label {
-        --color: var(--parsec-color-secondary-text);
+        --color: #{ms.color('text-base-body')};
       }
 
       &__description {
-        --color: var(--parsec-color-secondary-grey);
+        --color: #{ms.color('text-base-description')};
       }
     }
 
     .disabled-icon {
       pointer-events: initial;
-      opacity: 0.8;
+      opacity: ms.opacity('8');
       position: relative;
     }
   }
@@ -220,11 +248,11 @@ async function cancel(): Promise<void> {
 .buttons {
   display: flex;
   justify-content: end;
-  gap: 1rem;
-  padding: 1rem 1rem 2rem;
+  gap: ms.spacing('gap-3xl');
+  padding: ms.spacing('padding-3xl') ms.spacing('padding-3xl') ms.spacing('padding-5xl');
 
   &-cancel {
-    color: var(--parsec-color-secondary-text);
+    color: ms.color('text-base-body');
   }
 }
 </style>

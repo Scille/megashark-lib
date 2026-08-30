@@ -12,18 +12,16 @@
       :fill="appearanceRef"
       @click="openPopover($event)"
       id="dropdown-popover-button"
-      class="dropdown-button form-input"
+      class="dropdown-button"
       :class="isPopoverOpen ? 'active' : ''"
       :disabled="disabled"
     >
-      <div class="dropdown-button-content">
-        <span class="input-text">{{ $msTranslate(labelRef) }}</span>
-        <ion-icon
-          :class="{ 'popover-is-open': isPopoverOpen }"
-          class="ms-dropdown-icon"
-          :icon="getIcon()"
-        />
-      </div>
+      <span class="input-text">{{ $msTranslate(labelRef) }}</span>
+      <ion-icon
+        :class="{ 'popover-is-open': isPopoverOpen }"
+        class="ms-dropdown-icon button-icon-right"
+        :icon="getIcon()"
+      />
     </ion-button>
   </div>
 </template>
@@ -132,76 +130,70 @@ function getIcon(): string {
 </script>
 
 <style lang="scss" scoped>
+@use '@lib/theme' as ms;
+
 .dropdown-button {
-  background: none;
-  color: var(--parsec-color-primary-800);
   margin: 0;
+  @include ms.font('label-md-medium');
 
   .input-text {
     width: 100%;
     text-align: left;
     pointer-events: none;
+    color: ms.color('text-base-body');
   }
 
   &::part(native) {
-    border-radius: var(--parsec-radius-8);
-    border-color: var(--parsec-color-secondary-light);
-    padding: 0 !important;
-    --ripple-color: transparent;
+    border-radius: ms.radius('lg');
+    border-color: ms.color('border-base-default');
+    background: ms.color('surface-base-default');
   }
 
   &:hover {
-    &::part(native) {
-      border-color: var(--parsec-color-primary-300);
+    .input-text {
+      color: ms.color('text-neutral-default-hover');
     }
-  }
 
-  &-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    gap: 0.5rem;
-    padding: 0.625rem 1rem;
+    &::part(native) {
+      background: ms.color('surface-neutral-default-subtle-hover');
+      border-color: ms.color('border-brand-default');
+    }
   }
 }
 
 .dropdown-container {
-  // offset necessary to simulate border 3px on focus with outline (outline 2px + border 1px)
-  --offset: 4px;
-  --padding-start: 0;
-  --padding-end: 0;
-  --padding-top: 0;
-  --padding-bottom: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: ms.spacing('gap-lg');
 
   .active {
-    --background: var(--parsec-color-secondary-background);
-    outline: var(--offset) solid var(--parsec-color-outline);
-    border-radius: var(--parsec-radius-8);
+    --background: #{ms.color('surface-neutral-default-subtle')};
+    box-shadow: ms.shadow('focus-brand');
+    border-radius: ms.radius('lg');
 
     &::part(native) {
-      border: 1px solid var(--parsec-color-primary-300);
+      border: ms.border('thin') solid ms.color('border-brand-default');
     }
   }
 
   .form-label {
-    color: var(--parsec-color-primary-700);
+    color: ms.color('text-base-label');
   }
 
   &.large {
+    @include ms.responsive-breakpoint('sm') {
+      width: 100%;
+    }
+
     .dropdown-button::part(native) {
-      padding: 0.625rem 1rem;
+      padding: ms.spacing('padding-xl') ms.spacing('padding-3xl');
     }
   }
 }
 
 .ms-dropdown-icon {
-  font-size: 1.125rem;
   transition: transform ease-out 300ms;
-  color: var(--parsec-color-secondary-grey);
+  color: ms.color('icon-neutral-default');
 
   &.popover-is-open {
     transform: rotate(180deg);

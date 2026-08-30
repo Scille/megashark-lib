@@ -137,10 +137,22 @@ ion-modal .inner-content {
   &::part(content) {
     border-radius: var(--parsec-radius-12) var(--parsec-radius-12) 0 0;
   }
+
   // manage the handle
   &::part(handle) {
     margin: 0.5rem auto;
     background: var(--parsec-color-secondary-light);
+  }
+
+  @media screen and (min-width: 768px) {
+    &::part(content) {
+      border-radius: var(--parsec-radius-12);
+    }
+
+    // manage the handle
+    &::part(handle) {
+      display: none;
+    }
   }
 }
 
