@@ -3,7 +3,7 @@
 <template>
   <ion-list class="container">
     <ion-item
-      class="option body"
+      class="option"
       :class="{ selected: defaultOptionKey === option.key, 'item-disabled': option.disabled }"
       button
       lines="none"
@@ -12,12 +12,12 @@
       @click="onOptionClick(option)"
     >
       <ion-text class="option-text">
-        <span class="option-text__label body">
+        <span class="option-text__label">
           {{ $msTranslate(option.label) }}
         </span>
         <span
           v-if="option.description"
-          class="option-text__description body-sm"
+          class="option-text__description"
         >
           {{ $msTranslate(option.description) }}
         </span>
@@ -58,20 +58,22 @@ async function onOptionClick(option: MsOption): Promise<void> {
 </script>
 
 <style lang="scss" scoped>
+@use '@lib/theme' as ms;
+
 .container {
-  padding: 0.5rem;
+  padding: ms.spacing('padding-lg');
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: ms.spacing('gap-lg');
 }
 
 // eslint-disable-next-line vue-scoped-css/no-unused-selector
 .option {
-  --background-hover: none;
-  --color: var(--parsec-color-secondary-grey);
-  padding: 0.375rem 0.75rem;
   --background: none;
-  border-radius: var(--parsec-radius-6);
+  --background-hover: none;
+  --color: #{ms.color('text-base-description')};
+  padding: ms.spacing('padding-md') ms.spacing('padding-2xl');
+  border-radius: ms.radius('md');
   --min-height: 0;
   --inner-padding-end: 0;
   position: relative;
@@ -79,65 +81,92 @@ async function onOptionClick(option: MsOption): Promise<void> {
   pointer-events: auto;
 
   &:hover:not(.item-disabled) {
-    background: var(--parsec-color-primary-50);
-    --background-hover: var(--parsec-color-primary-50);
+    background: ms.color('surface-neutral-default-subtle-hover');
+    --background-hover: #{ms.color('surface-neutral-default-subtle-hover')};
+
+    .option-text {
+      &__label {
+        color: ms.color('text-neutral-default-hover');
+      }
+    }
   }
 
   &::part(native) {
-    padding: 0;
+    padding: ms.spacing('padding-none');
   }
 
   &-text {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: ms.spacing('gap-sm');
 
     &__label {
-      color: var(--parsec-color-secondary-text);
+      color: ms.color('text-base-body');
+      @include ms.font('label-md-medium');
+    }
+
+    &__description {
+      @include ms.font('body-sm-regular');
     }
   }
 
   .icon {
     margin: 0;
-    margin-left: 1em;
+    font-size: 1.125rem;
+    padding-left: ms.spacing('padding-lg');
   }
 
   &.selected {
+    background: ms.color('surface-brand-default-subtle');
+
     .option-text {
       &__label {
-        color: var(--parsec-color-primary-700);
+        color: ms.color('text-brand-default');
       }
 
       &__description {
-        color: var(--parsec-color-secondary-grey);
+        color: ms.color('text-base-description');
       }
     }
 
     .icon {
-      color: var(--parsec-color-primary-700);
+      color: ms.color('icon-brand-default');
+      font-size: 1.25rem;
+    }
+
+    &:hover {
+      background: ms.color('surface-brand-default-subtle-hover');
+      --background-hover: #{ms.color('surface-brand-default-subtle-hover')};
+      --background-hover-opacity: #{ms.opacity('10')};
+
+      .option-text {
+        &__label {
+          color: ms.color('text-brand-default-hover');
+        }
+      }
     }
   }
 
   &.item-disabled {
-    opacity: 1;
+    opacity: ms.opacity('10');
     pointer-events: none;
 
     .option-text {
-      opacity: 0.5;
+      opacity: ms.opacity('5');
 
       &__label {
-        --color: var(--parsec-color-secondary-text);
+        --color: #{ms.color('text-base-body')};
       }
 
       &__description {
-        --color: var(--parsec-color-secondary-grey);
+        --color: #{ms.color('text-base-description')};
       }
     }
 
     .disabled-icon {
       pointer-events: initial;
-      opacity: 0.8;
+      opacity: ms.opacity('8');
       position: relative;
     }
   }
