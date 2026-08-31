@@ -1,7 +1,7 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <ion-list class="container">
+  <ion-list class="container dropdown-list">
     <ion-item
       class="option"
       :class="{ selected: defaultOptionKey === option.key, 'item-disabled': option.disabled }"
@@ -60,7 +60,7 @@ async function onOptionClick(option: MsOption): Promise<void> {
 <style lang="scss" scoped>
 @use '@lib/theme' as ms;
 
-.container {
+.dropdown-list {
   padding: ms.spacing('padding-lg');
   display: flex;
   flex-direction: column;
@@ -72,7 +72,6 @@ async function onOptionClick(option: MsOption): Promise<void> {
   --background: none;
   --background-hover: none;
   --color: #{ms.color('text-base-description')};
-  padding: ms.spacing('padding-md') ms.spacing('padding-2xl');
   border-radius: ms.radius('md');
   --min-height: 0;
   --inner-padding-end: 0;
@@ -92,7 +91,7 @@ async function onOptionClick(option: MsOption): Promise<void> {
   }
 
   &::part(native) {
-    padding: ms.spacing('padding-none');
+    padding: ms.spacing('padding-md') ms.spacing('padding-2xl');
   }
 
   &-text {
@@ -115,6 +114,11 @@ async function onOptionClick(option: MsOption): Promise<void> {
     margin: 0;
     font-size: 1.125rem;
     padding-left: ms.spacing('padding-lg');
+  }
+
+  &.ion-focused {
+    box-shadow: ms.shadow('focus-brand');
+    --background-focused: ms.color('surface-base-default');
   }
 
   &.selected {

@@ -1,11 +1,11 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <ion-list class="sorter-container">
+  <div class="sorter-container">
     <ion-item
       v-if="sorterLabels"
       id="sort-order-button"
-      class="order-button body"
+      class="order-button"
       button
       @click="onOptionClick()"
     >
@@ -13,17 +13,15 @@
       <ion-icon
         :icon="sortByAsc ? arrowUp : arrowDown"
         slot="end"
+        class="arrow-icon"
       />
     </ion-item>
-    <div
-      class="sorter-list"
-      id="sort-item-list"
-    >
-      <ion-text class="sorter-list__title body-sm">
+    <ion-list class="sorter-list">
+      <ion-text class="sorter-list__title">
         {{ $msTranslate('lib.components.msSorter.sortBy') }}
       </ion-text>
       <ion-item
-        class="sorter-list-item body"
+        class="sorter-list-item"
         :class="{ selected: selectedOption?.key === option.key }"
         :disabled="option.disabled"
         button
@@ -32,17 +30,17 @@
         :key="option.key"
         @click="onOptionClick(option)"
       >
-        <span class="body">{{ $msTranslate(option.label) }}</span>
+        {{ $msTranslate(option.label) }}
         <ion-icon
           slot="end"
           :icon="checkmark"
-          class="checked"
+          class="checked item-icon"
           :class="{ selected: selectedOption?.key === option.key }"
           v-if="selectedOption?.key === option.key"
         />
       </ion-item>
-    </div>
-  </ion-list>
+    </ion-list>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -83,26 +81,27 @@ function getSorterLabel(): Translatable {
 </script>
 
 <style lang="scss" scoped>
+@use '@lib/theme' as ms;
+
 .sorter-container {
-  padding: 0;
   display: flex;
   flex-direction: column;
 }
 
 #sort-order-button {
   --background: none;
-  --color: var(--parsec-color-secondary-grey);
-  --border-radius: var(--parsec-radius-4);
-  --padding-top: 0.375rem;
-  --padding-bottom: 0.375rem;
-  --padding-start: 0.75rem;
-  --padding-end: 0.75rem;
-  --inner-padding-end: 0;
-  padding: 0.25rem;
+  --color: #{ms.color('text-base-description')};
+  --border-radius: #{ms.radius('sm')};
+  --padding-top: #{ms.spacing('padding-md')};
+  --padding-bottom: #{ms.spacing('padding-md')};
+  --padding-start: #{ms.spacing('padding-2xl')};
+  --padding-end: #{ms.spacing('padding-2xl')};
+  --inner-padding-end: #{ms.spacing('padding-none')};
+  padding: ms.spacing('padding-sm');
   width: 100%;
   margin-left: auto;
   transition: transform 0.2s ease-in-out;
-  border-bottom: 1px solid var(--parsec-color-secondary-disabled);
+  border-bottom: ms.border('thin') solid ms.color('border-base-default');
   cursor: pointer;
 
   &::part(native) {
@@ -110,63 +109,84 @@ function getSorterLabel(): Translatable {
     margin-left: auto;
   }
 
-  &:hover {
-    background: var(--parsec-color-secondary-background);
-    --background-hover: none;
-    --color-hover: var(--parsec-color-secondary-text);
-
-    ion-icon {
-      color: var(--parsec-color-secondary-text);
-    }
+  .arrow-icon {
+    color: ms.color('icon-neutral-default');
+    margin: 0;
+    padding-left: ms.spacing('padding-md');
+    font-size: 1rem;
   }
 
-  ion-icon {
-    color: var(--parsec-color-secondary-grey);
-    margin: 0;
-    padding-left: 0.375rem;
-    font-size: 1rem;
+  &:hover {
+    background: ms.color('surface-neutral-default-subtle-hover');
+    --background-hover: none;
+    --color-hover: #{ms.color('text-neutral-default-hover')};
+
+    .arrow-icon {
+      color: ms.color('icon-neutral-default-hover');
+    }
   }
 }
 
 .sorter-list {
-  padding: 0.75rem;
+  padding: ms.spacing('padding-2xl');
   display: flex;
+  gap: ms.spacing('gap-lg');
   flex-direction: column;
 
   &__title {
-    color: var(--parsec-color-secondary-grey);
-    opacity: 0.7;
-    margin-bottom: 0.5rem;
+    color: ms.color('text-base-description');
+    opacity: ms.opacity('7');
+    margin-bottom: ms.spacing('padding-lg');
+    @include ms.font('body-sm-regular');
   }
 
+  // eslint-disable-next-line vue-scoped-css/no-unused-selector
   &-item {
-    --background-hover: var(--parsec-color-primary-30);
-    --background-hover-opacity: 1;
-    --color: var(--parsec-color-secondary-soft-text);
-    --color-hover: var(--parsec-color-primary-600);
-    --border-radius: var(--parsec-radius-6);
-    --padding-top: 0.375rem;
-    --padding-bottom: 0.375rem;
-    --padding-start: 0.5rem;
-    --padding-end: 0.5rem;
+    --background: none;
+    --background-hover: none;
+    --color: #{ms.color('text-base-body')};
+    border-radius: ms.radius('md');
+    --min-height: 0;
     --inner-padding-end: 0;
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
+    @include ms.font('label-md-medium');
+
+    .item-icon {
+      margin: 0;
+      font-size: 1.125rem;
+      color: ms.color('text-brand-default');
+    }
+
+    &::part(native) {
+      padding: ms.spacing('padding-md') ms.spacing('padding-2xl');
+    }
+
+    &:hover:not(.item-disabled) {
+      background: ms.color('surface-neutral-default-subtle-hover');
+      --background-hover: #{ms.color('surface-neutral-default-subtle-hover')};
+      color: ms.color('text-neutral-default-hover');
+    }
+
+    &.ion-focused {
+      box-shadow: ms.shadow('focus-brand');
+      --background-focused: ms.color('surface-base-default');
+    }
 
     &.selected {
-      color: var(--parsec-color-primary-700);
-      --color-hover: var(--parsec-color-primary-700);
-      --background-hover: none;
+      background: ms.color('surface-brand-default-subtle');
+      color: ms.color('text-brand-default');
+      --color-hover: #{ms.color('text-brand-default-hover')};
 
-      span {
-        font-weight: 600;
+      &:hover {
+        background: #{ms.color('surface-brand-default-subtle-hover')};
       }
-    }
-    .checked.selected {
-      color: var(--parsec-color-primary-700);
-    }
 
-    ion-icon {
-      margin: 0 0 0 1em;
-      font-size: 1.25rem;
+      &.ion-focused {
+        box-shadow: ms.shadow('focus-brand');
+        --background-focused: ms.color('surface-brand-default-subtle');
+      }
     }
   }
 }
