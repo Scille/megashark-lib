@@ -23,8 +23,10 @@ function isSvg(imageData: string): boolean {
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .svg-container {
-  color: var(--fill-color, var(--parsec-color-primary-700));
+  color: var(--fill-color, ms.color('surface-brand-default'));
   display: flex;
 }
 </style>
