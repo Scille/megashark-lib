@@ -4,7 +4,7 @@
   <div class="tooltip-container">
     <ms-image :image="WavyCaretUp" />
     <div class="tooltip-content">
-      <ion-text class="tooltip-text body">
+      <ion-text class="tooltip-text">
         {{ $msTranslate(text) }}
       </ion-text>
     </div>
@@ -22,31 +22,27 @@ defineProps<{
 </script>
 
 <style lang="scss" scoped>
+@use '@lib/theme' as ms;
+
 .tooltip-container {
   display: flex;
   align-items: center;
   flex-direction: column;
-  --fill-color: var(--parsec-color-primary-900);
-
-  // &.bottom {
-  //   flex-direction: column-reverse;
-
-  //   svg {
-  //     transform: rotate(180deg);
-  //   }
-  // }
+  --fill-color: #{ms.color('surface-elevated-default')};
 }
 
 .tooltip-content {
-  background: var(--parsec-color-primary-900);
-  color: var(--parsec-color-primary-30);
+  background: ms.color('surface-elevated-default');
+  color: ms.color('text-on-color-label');
   max-width: 14.5rem;
   width: fit-content;
-  padding: 0.375rem 0.5rem;
+  padding: ms.spacing('padding-xl') ms.spacing('padding-xl');
   position: relative;
-  border-radius: var(--parsec-radius-6);
-  box-shadow: var(--parsec-shadow-light);
-  text-align: center;
-  white-space: pre-line;
+  border-radius: ms.radius('lg');
+  box-shadow: ms.shadow('sm');
+
+  .tooltip-text {
+    @include ms.font('body-lg-medium');
+  }
 }
 </style>
