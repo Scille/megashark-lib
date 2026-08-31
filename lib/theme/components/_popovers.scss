@@ -1,5 +1,7 @@
 /* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
 
+@use '@lib/theme' as ms;
+
 /* **** Parsec popover **** */
 :root {
   --popover-border-radius: var(--parsec-radius-12);
@@ -38,6 +40,14 @@ ion-popover {
   --background: none;
   --box-shadow: none;
   --width: fit-content;
+
+  .popover-viewport {
+    border-radius: ms.radius('none');
+  }
+
+  &::part(content) {
+    border-radius: ms.radius('none');
+  }
 }
 
 /* --- sorter, dropdown popover --- */
