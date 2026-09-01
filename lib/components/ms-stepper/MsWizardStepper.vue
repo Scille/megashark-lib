@@ -11,7 +11,7 @@
         :status="index < currentIndex ? MsStepStatus.DONE : index === currentIndex ? MsStepStatus.ACTIVE : MsStepStatus.DEFAULT"
       />
       <ion-text
-        class="subtitles-sm step-title"
+        class="step-title"
         :class="{
           done: index < currentIndex,
           active: index === currentIndex,
@@ -39,29 +39,39 @@ defineProps<{
 <!-- "setup" removed to interact with child component style (ms-wizard-stepper-step) -->
 <!-- eslint-disable-next-line vue-scoped-css/enforce-style-type -->
 <style lang="scss">
+@use '@lib/theme' as ms;
+
 .ms-wizard-stepper {
-  background: var(--parsec-color-secondary-background);
+  background: ms.color('surface-base-page');
+  border-bottom: ms.border('thin') solid ms.color('border-base-default');
   display: flex;
-  padding: 2rem 1rem;
+  padding: ms.spacing('padding-5xl') ms.spacing('padding-3xl');
   justify-content: center;
 
   &__step {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: ms.spacing('gap-2xl');
     width: 8.125rem;
 
     .step-title {
-      color: var(--parsec-color-primary-600);
+      color: ms.color('text-brand-default');
+      @include ms.font('label-lg-medium');
     }
 
     .done {
-      opacity: 0.5;
+      opacity: ms.opacity('5');
     }
 
     .default {
-      color: var(--parsec-color-secondary-grey);
+      color: ms.color('text-disabled-on-color');
+    }
+
+    .active {
+      &.step-title {
+        @include ms.font('label-lg-emphasis');
+      }
     }
 
     &:first-of-type {
@@ -72,6 +82,7 @@ defineProps<{
         display: none;
       }
     }
+
     &:last-of-type {
       .ms-wizard-stepper-step {
         justify-content: start;
