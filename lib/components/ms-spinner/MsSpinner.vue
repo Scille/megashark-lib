@@ -4,7 +4,7 @@
   <div class="container">
     <ion-text
       v-if="title"
-      class="subtitles-normal container-text"
+      class="container-text"
     >
       {{ $msTranslate(title) }}
     </ion-text>
@@ -33,13 +33,16 @@ const spinnerSizeFormatted = computed(() => `${spinnerSize.value}px`);
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .container {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: ms.spacing('gap-xl');
 
   &-text {
-    color: var(--parsec-color-secondary-hard-grey);
+    color: ms.color('text-neutral-default');
+    @include ms.font('label-lg-medium');
   }
 }
 
@@ -65,7 +68,7 @@ const spinnerSizeFormatted = computed(() => `${spinnerSize.value}px`);
 }
 
 .circular-progress circle.bg {
-  stroke: var(--parsec-color-primary-50);
+  stroke: ms.color('surface-brand-default-subtle');
 }
 
 .circular-progress circle.fg {
@@ -73,7 +76,7 @@ const spinnerSizeFormatted = computed(() => `${spinnerSize.value}px`);
   transform-origin: var(--half-size) var(--half-size);
   stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
   transition: stroke-dasharray 0.3s linear 0s;
-  stroke: var(--parsec-color-primary-500);
+  stroke: ms.color('surface-brand-default');
 }
 
 @property --progress {
