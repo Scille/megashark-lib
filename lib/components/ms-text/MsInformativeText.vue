@@ -3,7 +3,7 @@
 <template>
   <div class="container-textinfo">
     <ion-icon
-      :icon="icon ?? caretForwardCircle"
+      :icon="icon ?? ellipse"
       size="default"
       class="container-textinfo__icon"
     />
@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { IonIcon, IonText } from '@ionic/vue';
-import { caretForwardCircle } from 'ionicons/icons';
+import { ellipse } from 'ionicons/icons';
 
 defineProps<{
   icon?: string;
@@ -23,22 +23,28 @@ defineProps<{
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .container-textinfo {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  gap: 1rem;
+  gap: ms.spacing('gap-xl');
   background-color: none;
   max-width: 37.5rem;
 
   &__icon {
-    color: var(--parsec-color-primary-600);
-    font-size: 1.25rem;
-    min-width: 1.25rem;
+    color: ms.color('icon-brand-default');
+    font-size: 0.5rem;
+    min-width: 0.5rem;
+    border: ms.border('thin') solid ms.color('border-brand-default');
+    border-radius: ms.radius('full');
+    padding: ms.spacing('padding-xs');
+    margin-top: 0.3rem;
   }
 
   &__text {
-    color: var(--parsec-color-secondary-grey);
+    color: ms.color('text-base-body');
+    @include ms.font('body-lg-medium');
   }
 }
 </style>
