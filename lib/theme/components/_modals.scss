@@ -16,7 +16,7 @@ ion-modal {
   --max-height: auto;
 
   &::part(content) {
-    border-radius: var(--parsec-radius-12);
+    border-radius: ms.radius('2xl');
   }
 
   @media screen and (min-width: 768px) {
@@ -35,7 +35,7 @@ ion-modal {
 
       &::part(content) {
         bottom: 0;
-        border-radius: var(--parsec-radius-12) var(--parsec-radius-12) 0 0;
+        border-radius: ms.radius('2xl') ms.radius('2xl') 0 0;
       }
     }
   }
@@ -91,17 +91,17 @@ ion-modal .ion-page {
   .ms-modal-content {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: ms.spacing('gap-3xl');
   }
 
   @include ms.responsive-breakpoint('sm') {
     &::part(content) {
       height: fit-content;
-      border-radius: var(--parsec-radius-12) var(--parsec-radius-12) 0 0;
+      border-radius: ms.radius('2xl') ms.radius('2xl') 0 0;
     }
 
     .ms-modal-header {
-      padding-bottom: 1rem !important;
+      padding-bottom: ms.spacing('padding-3xl') !important;
 
       &__text {
         display: none;
@@ -135,18 +135,18 @@ ion-modal .inner-content {
   --max-width: 36rem;
 
   &::part(content) {
-    border-radius: var(--parsec-radius-12) var(--parsec-radius-12) 0 0;
+    border-radius: ms.radius('2xl') ms.radius('2xl') 0 0;
   }
 
   // manage the handle
   &::part(handle) {
-    margin: 0.5rem auto;
-    background: var(--parsec-color-secondary-light);
+    margin: #{ms.spacing('padding-lg')} auto;
+    background: ms.color('surface-base-page-secondary');
   }
 
   @media screen and (min-width: 768px) {
     &::part(content) {
-      border-radius: var(--parsec-radius-12);
+      border-radius: ms.radius('2xl');
     }
 
     // manage the handle
@@ -158,41 +158,34 @@ ion-modal .inner-content {
 
 .closeBtn {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  border-radius: var(--parsec-radius-6);
-  margin: 0;
-  width: fit-content;
-  height: fit-content;
-  min-width: 1.75rem;
-  min-height: fit-content;
+  top: ms.spacing('padding-3xl');
+  right: ms.spacing('padding-3xl');
+  border-radius: ms.radius('md');
   z-index: 1000;
 
   &::part(native) {
-    background: var(--parsec-color-secondary-surface);
-    --background-hover: var(--parsec-color-secondary-medium);
-    padding: 0.125rem;
-    height: 2rem;
+    background: ms.color('surface-base-default');
+    --background-hover: #{ms.color('surface-base-page-secondary')};
+    padding: ms.spacing('padding-xs');
   }
 
   @include ms.responsive-breakpoint('sm') {
-    top: 1rem;
-    right: 1rem;
+    top: ms.spacing('padding-3xl');
+    right: ms.spacing('padding-3xl');
   }
 
   &__icon {
-    font-size: 1.75rem;
-    color: var(--parsec-color-secondary-grey);
+    color: ms.color('icon-neutral-default');
   }
 
   &:active {
-    --background: var(--parsec-color-secondary-medium);
-    --border-radius: var(--parsec-radius-6);
+    --background: #{ms.color('surface-base-page-secondary')};
+    --border-radius: #{ms.radius('md')};
   }
 
   &:hover {
     ion-icon {
-      color: var(--parsec-color-secondary-text);
+      color: ms.color('icon-neutral-default-hover');
     }
   }
 }
@@ -212,7 +205,7 @@ ion-modal .inner-content {
   }
 
   .ms-modal {
-    padding: 2rem;
+    padding: ms.spacing('padding-5xl');
 
     &-header {
       display: none;
@@ -222,43 +215,45 @@ ion-modal .inner-content {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
+      gap: ms.spacing('gap-3xl');
     }
   }
-  .spinner-label__text {
-    color: var(--parsec-color-secondary-soft-text);
+
+  .spinner-label {
+    @include ms.font('label-lg-medium');
+    color: ms.color('text-base-body');
   }
 }
 
 /* Theme color definitions */
 .small-display-modal.ms-info,
 .modal.ms-info {
-  --ms-modal-button-background-color: var(--parsec-color-primary-500);
-  --ms-modal-button-background-hover-color: var(--parsec-color-primary-600);
+  --ms-modal-button-background-color: #{ms.color('surface-brand-default')};
+  --ms-modal-button-background-hover-color: #{ms.color('surface-brand-default-hover')};
 }
 
 .small-display-modal.ms-success,
 .modal.ms-success {
-  --ms-modal-button-background-color: var(--parsec-color-success-500);
-  --ms-modal-button-background-hover-color: var(--parsec-color-success-700);
+  --ms-modal-button-background-color: #{ms.color('surface-success-default')};
+  --ms-modal-button-background-hover-color: #{ms.color('surface-success-default-hover')};
 }
 
 .small-display-modal.ms-warning,
 .modal.ms-warning {
-  --ms-modal-button-background-color: var(--parsec-color-warning-500);
-  --ms-modal-button-background-hover-color: var(--parsec-color-warning-700);
+  --ms-modal-button-background-color: #{ms.color('surface-warning-default')};
+  --ms-modal-button-background-hover-color: #{ms.color('surface-warning-default-hover')};
 }
 
 .small-display-modal.ms-error,
 .modal.ms-error {
-  --ms-modal-button-background-color: var(--parsec-color-danger-500);
-  --ms-modal-button-background-hover-color: var(--parsec-color-danger-700);
+  --ms-modal-button-background-color: #{ms.color('surface-error-default')};
+  --ms-modal-button-background-hover-color: #{ms.color('surface-error-default-hover')};
 }
 
 .small-display-modal.ms-light,
 .modal.ms-light {
-  --ms-modal-button-background-color: var(--parsec-color-secondary-text);
-  --ms-modal-button-background-hover-color: var(--parsec-color-secondary-contrast);
+  --ms-modal-button-background-color: #{ms.color('surface-neutral-default')};
+  --ms-modal-button-background-hover-color: #{ms.color('surface-neutral-default-hover')};
 }
 
 .modal.ms-info,
@@ -282,12 +277,12 @@ ion-modal .inner-content {
     margin-top: 0;
 
     #cancel-button {
-      --background: var(--parsec-color-secondary-surface) !important;
-      --color: var(--parsec-color-secondary-soft-text) !important;
+      --background: #{ms.color('surface-base-default')} !important;
+      --color: #{ms.color('text-neutral-default')} !important;
 
       &::part(native) {
-        --background-hover: var(--parsec-color-secondary-premiere) !important;
-        border: 1px solid var(--parsec-color-secondary-medium);
+        --background-hover: #{ms.color('surface-base-page-secondary')} !important;
+        border: ms.border('thin') solid ms.color('border-base-default');
       }
     }
 
