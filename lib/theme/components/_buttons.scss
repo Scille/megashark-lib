@@ -46,20 +46,61 @@ ion-button:not(.button-outline):not(.button-clear) {
   --background-hover-opacity: none;
   --background-activated: #{ms.color('surface-brand-default-pressed')};
   --background-focused: #{ms.color('surface-brand-default-hover')};
+
+  &.color-secondary {
+    --background: #{ms.color('surface-neutral-default')};
+    --background-hover: #{ms.color('surface-neutral-default-hover')};
+    --background-hover-opacity: none;
+    --background-activated: #{ms.color('surface-neutral-default-pressed')};
+    --background-focused: #{ms.color('surface-neutral-default-hover')};
+
+    &.ion-focused::part(native) {
+      box-shadow: ms.shadow('focus-neutral');
+    }
+  }
 }
 
 /* button outline */
 ion-button.button-outline {
-  --border-color: #{ms.color('border-brand-default')};
+  &::part(native) {
+    box-shadow: ms.shadow('input');
+  }
+
+  --border-color: #{ms.color('border-base-default')};
   --border-width: #{ms.border('thin')};
-  --background: none;
-  --color: #{ms.color('text-brand-default')};
-  --color-hover: #{ms.color('text-brand-default-hover')};
-  --background-hover: none;
+  --color: #{ms.color('text-base-label')};
+  --color-hover: #{ms.color('text-neutral-default-hover')};
+  --background: #{ms.color('surface-base-default')};
+  --background-hover: #{ms.color('surface-base-default')};
   --background-hover-opacity: none;
+  --background-activated: #{ms.color('surface-base-default')};
+  --background-focused: #{ms.color('surface-base-default')};
+
+  &.ion-focused::part(native) {
+    box-shadow: ms.shadow('focus-neutral');
+  }
 
   &:hover {
-    --border-color: #{ms.color('border-brand-default-hover')};
+    --border-color: #{ms.color('border-base-default-hover')};
+
+    &::part(native) {
+      box-shadow: none;
+    }
+  }
+
+  &.color-primary {
+    --border-color: #{ms.color('border-brand-default')};
+    --color: #{ms.color('text-brand-default')};
+    --color-hover: #{ms.color('text-brand-default-hover')};
+    --background: #{ms.color('surface-base-default')};
+    --background-hover: #{ms.color('surface-base-default')};
+    --background-hover-opacity: none;
+    --background-activated: #{ms.color('surface-base-default')};
+    --background-focused: #{ms.color('surface-base-default')};
+
+    &.ion-focused::part(native) {
+      box-shadow: ms.shadow('focus-brand');
+    }
   }
 }
 
