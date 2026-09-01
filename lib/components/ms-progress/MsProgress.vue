@@ -13,7 +13,7 @@
       <div class="completed" />
     </div>
     <ion-text
-      class="title-h5 progress-text"
+      class="progress-text"
       v-show="props.appearance === MsProgressAppearance.ProgressBar"
     >
       {{ `${progress}%` }}
@@ -44,10 +44,12 @@ const progressWidthStyle = computed(() => `${props.progress}%`);
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .progress-container {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: ms.spacing('gap-lg');
 }
 
 .progress {
@@ -55,16 +57,16 @@ const progressWidthStyle = computed(() => `${props.progress}%`);
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  height: 0.725rem;
-  background: var(--parsec-color-secondary-premiere);
-  border-radius: var(--parsec-radius-8);
+  height: 0.375rem;
+  background: ms.color('surface-base-page-secondary');
+  border-radius: ms.radius('lg');
 
   .completed {
     transition: width 0.35s ease-in-out;
     width: v-bind(progressWidthStyle);
-    height: 0.5rem;
-    background: var(--parsec-color-gradient);
-    border-radius: var(--parsec-radius-6);
+    height: 0.375rem;
+    background: ms.color('surface-brand-default');
+    border-radius: ms.radius('md');
     flex: none;
     order: 0;
     flex-grow: 1;
@@ -73,19 +75,18 @@ const progressWidthStyle = computed(() => `${props.progress}%`);
 
 .line {
   .progress {
-    height: 0.125rem;
+    height: 0.25rem;
     padding: 0;
 
     .completed {
-      height: 0.125rem;
+      height: 0.25rem;
     }
   }
 }
 
 .bar {
   .progress {
-    height: 0.75rem;
-    padding: 0.125rem;
+    height: 0.5rem;
 
     .completed {
       height: auto;
@@ -95,8 +96,7 @@ const progressWidthStyle = computed(() => `${props.progress}%`);
 
 .progress-bar {
   .progress {
-    height: 0.75rem;
-    padding: 0.125rem;
+    height: 0.5rem;
 
     .completed {
       height: auto;
@@ -105,6 +105,8 @@ const progressWidthStyle = computed(() => `${props.progress}%`);
 }
 
 .progress-text {
-  color: var(--parsec-color-primary-600);
+  width: 3rem;
+  @include ms.font('label-sm-medium');
+  color: ms.color('text-neutral-default');
 }
 </style>
