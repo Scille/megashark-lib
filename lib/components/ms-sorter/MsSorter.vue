@@ -2,21 +2,19 @@
 
 <template>
   <ion-button
-    fill="clear"
+    fill="outline"
     @click="openPopover($event)"
     id="select-popover-button"
     class="sorter-button"
     :disabled="disabled"
   >
-    <div class="sorter-button-content">
-      <ion-icon
-        class="sorter-button-content__icon ms-sorter-icon"
-        :icon="sortByAsc ? arrowUp : arrowDown"
-      />
-      <ion-text class="sorter-button-content__text">
-        {{ $msTranslate(labelRef) }}
-      </ion-text>
-    </div>
+    <ion-icon
+      class="sorter-button__icon ms-sorter-icon button-icon-left"
+      :icon="sortByAsc ? arrowUp : arrowDown"
+    />
+    <ion-text class="sorter-button__text">
+      {{ $msTranslate(labelRef) }}
+    </ion-text>
   </ion-button>
 </template>
 
@@ -90,55 +88,18 @@ async function onDidDismissPopover(popover: any): Promise<void> {
 @use '@lib/theme' as ms;
 
 .sorter-button {
-  --background: transparent;
-  --background-hover: transparent;
-  --color: var(--parsec-color-secondary-hard-grey);
-  min-height: 1rem;
+  min-width: auto;
 
   &::part(native) {
-    padding: 0;
-  }
-
-  &-content {
-    padding: 0.375rem 0.625rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    transition: all 0.15s ease-in-out;
+    padding: ms.spacing('padding-lg') ms.spacing('padding-xl');
 
     @include ms.responsive-breakpoint('sm') {
-      padding: 0.625rem;
-    }
-
-    &__icon {
-      color: var(--parsec-color-secondary-hard-grey);
-      font-size: 1rem;
-
-      @include ms.responsive-breakpoint('sm') {
-        font-size: 1.125rem;
-      }
-    }
-
-    &__text {
-      color: var(--parsec-color-secondary-hard-grey);
-      font-size: 0.8125rem;
-      font-weight: 500;
-    }
-
-    &:hover .sorter-button-content__icon {
-      color: var(--parsec-color-secondary-text);
+      padding: ms.spacing('padding-2xl');
     }
   }
 
-  &:hover {
-    .sorter-button-content {
-      background: var(--parsec-color-secondary-medium);
-
-      &__text {
-        color: var(--parsec-color-secondary-text);
-      }
-    }
+  &__text {
+    @include ms.font('label-sm-medium');
   }
 }
 </style>
