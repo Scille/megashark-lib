@@ -4,7 +4,7 @@
   <ms-modal :close-button="{ visible: false }">
     <ion-text
       v-if="label"
-      class="subtitles-normal spinner-label__text"
+      class="spinner-label"
     >
       <ms-rich-text :text="label" />
     </ion-text>

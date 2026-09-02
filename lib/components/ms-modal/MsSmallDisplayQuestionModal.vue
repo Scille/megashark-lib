@@ -14,11 +14,11 @@
           class="ms-small-display-modal-header"
           v-if="title"
         >
-          <ion-title class="ms-small-display-modal-header__title title-h3">
+          <ion-title class="ms-small-display-modal-header__title">
             <ms-rich-text :text="title" />
           </ion-title>
           <template v-if="subtitle">
-            <ion-text class="ms-small-display-modal-header__text body">
+            <ion-text class="ms-small-display-modal-header__text">
               <ms-rich-text :text="subtitle" />
             </ion-text>
           </template>
@@ -83,27 +83,27 @@ async function cancel(): Promise<boolean> {
 @use '@lib/theme' as ms;
 
 .ms-small-display-modal {
-  padding: 1.5rem;
+  padding: ms.spacing('padding-4xl');
 }
 
 .ms-small-display-modal-header {
   display: flex;
   flex-direction: column;
-  padding-bottom: 0.5rem;
+  padding-bottom: ms.spacing('padding-lg');
 
   &__title {
     padding: 0;
-    margin-bottom: 1rem;
-    color: var(--parsec-color-primary-700);
+    margin-bottom: ms.spacing('padding-3xl');
+    color: ms.color('text-base-heading');
+    @include ms.font('heading-h4');
     display: flex;
     align-items: center;
     max-width: 22rem;
-    font-weight: 600;
   }
 
   &__text {
-    color: var(--parsec-color-secondary-soft-text);
-    font-weight: 400;
+    color: ms.color('text-base-description');
+    @include ms.font('body-md-regular');
   }
 }
 
@@ -112,20 +112,20 @@ async function cancel(): Promise<boolean> {
   z-index: 1;
 
   > :first-child:not([hidden]) {
-    margin-top: 2.5rem;
+    margin-top: ms.spacing('padding-6xl');
   }
 
   &-buttons {
     display: flex;
     justify-content: flex-end;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: ms.spacing('gap-3xl');
+    margin-top: ms.spacing('padding-4xl');
 
     #cancel-button {
       display: flex;
-      --background: var(--parsec-color-secondary-surface) !important;
-      --color: var(--parsec-color-secondary-text) !important;
-      --background-hover: var(--parsec-color-secondary-premiere) !important;
+      --background: #{ms.color('surface-base-default')} !important;
+      --color: #{ms.color('text-neutral-default')} !important;
+      --background-hover: #{ms.color('surface-base-page-secondary')} !important;
     }
 
     #confirm-button {

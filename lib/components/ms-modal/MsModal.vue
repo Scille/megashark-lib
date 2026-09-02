@@ -14,7 +14,9 @@
         v-if="closeButton"
         v-show="closeButton.visible"
         @click="closeButton && closeButton.onClick ? closeButton.onClick() : cancel()"
-        class="closeBtn"
+        class="closeBtn color-secondary"
+        slot="icon-only"
+        size="small"
       >
         <ion-icon
           :icon="close"
@@ -26,11 +28,11 @@
           class="ms-modal-header"
           v-if="title"
         >
-          <ion-text class="ms-modal-header__title title-h3">
+          <ion-text class="ms-modal-header__title">
             <ms-rich-text :text="title" />
           </ion-text>
           <template v-if="subtitle">
-            <ion-text class="ms-modal-header__subtitle body-lg">
+            <ion-text class="ms-modal-header__subtitle">
               <ms-rich-text :text="subtitle" />
             </ion-text>
           </template>
@@ -117,36 +119,37 @@ async function confirm(): Promise<boolean> {
 .ms-modal {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: ms.spacing('padding-4xl');
   height: 100%;
   justify-content: start;
 
   @include ms.responsive-breakpoint('sm') {
-    padding: 0;
+    padding: ms.spacing('padding-none');
   }
 }
 
 .ms-modal-header {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5rem;
-  gap: 1rem;
+  margin-bottom: ms.spacing('padding-4xl');
+  gap: ms.spacing('gap-3xl');
 
   @include ms.responsive-breakpoint('sm') {
-    padding: 1.5rem;
+    padding: ms.spacing('padding-4xl');
     margin-bottom: 0;
     gap: 0;
   }
 
   &:has(.ms-modal-header__subtitle) {
     @include ms.responsive-breakpoint('sm') {
-      gap: 0.75rem;
+      gap: ms.spacing('gap-2lg');
     }
   }
 
   &__title {
     padding: 0;
-    color: var(--parsec-color-secondary-text);
+    color: ms.color('text-base-heading');
+    @include ms.font('heading-h4');
     display: flex;
     align-items: center;
     max-width: calc(100% - 2rem);
@@ -160,20 +163,21 @@ async function confirm(): Promise<boolean> {
       align-items: center;
 
       @include ms.responsive-breakpoint('sm') {
-        padding: 1.5rem 2rem;
-        margin-bottom: 1rem;
-        border-bottom: 1px solid var(--parsec-color-secondary-medium);
+        padding: ms.spacing('padding-4xl') ms.spacing('padding-5xl');
+        margin-bottom: ms.spacing('padding-3xl');
+        border-bottom: ms.border('thin') solid ms.color('border-base-default');
       }
     }
 
     &-icon {
-      color: var(--parsec-color-primary-600);
-      margin-right: 4px;
+      color: ms.color('icon-brand-default');
+      margin-right: ms.spacing('padding-sm');
     }
   }
 
   &__subtitle {
-    color: var(--parsec-color-secondary-hard-grey);
+    color: ms.color('text-base-description');
+    @include ms.font('body-lg-regular');
   }
 }
 
@@ -184,12 +188,12 @@ async function confirm(): Promise<boolean> {
   flex-direction: column;
 
   @include ms.responsive-breakpoint('sm') {
-    padding: 0 1.5rem;
+    padding: 0 ms.spacing('padding-4xl');
   }
 
   &--no-header {
     @include ms.responsive-breakpoint('sm') {
-      margin-top: 1.5rem;
+      margin-top: ms.spacing('padding-4xl');
     }
   }
 }
@@ -200,11 +204,11 @@ async function confirm(): Promise<boolean> {
   margin-top: auto;
 
   @include ms.responsive-breakpoint('sm') {
-    padding: 1.5rem 1.5rem 3rem;
+    padding: ms.spacing('padding-4xl') ms.spacing('padding-4xl') ms.spacing('padding-7xl');
   }
 
   > :first-child:not([hidden]) {
-    margin-top: 2rem;
+    margin-top: ms.spacing('padding-5xl');
   }
 
   &::before {
@@ -224,7 +228,7 @@ async function confirm(): Promise<boolean> {
   &-buttons {
     display: flex;
     justify-content: end;
-    gap: 1rem;
+    gap: ms.spacing('gap-3xl');
     margin: 0;
 
     ion-button {
@@ -232,7 +236,7 @@ async function confirm(): Promise<boolean> {
     }
 
     .confirm-button-spinner {
-      margin-left: 0.5rem;
+      margin-left: ms.spacing('padding-lg');
     }
   }
 }

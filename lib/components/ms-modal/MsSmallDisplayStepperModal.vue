@@ -11,11 +11,11 @@
           v-if="title"
           class="ms-small-display-modal-header"
         >
-          <ion-title class="ms-small-display-modal-header__title title-h3">
+          <ion-title class="ms-small-display-modal-header__title">
             {{ $msTranslate(title) }}
           </ion-title>
           <template v-if="subtitle">
-            <ion-text class="ms-small-display-modal-header__text body-normal">
+            <ion-text class="ms-small-display-modal-header__text">
               {{ $msTranslate(subtitle) }}
             </ion-text>
           </template>
@@ -74,28 +74,30 @@ async function cancel(): Promise<boolean> {
 </script>
 
 <style lang="scss" scoped>
+@use '@lib/theme' as ms;
+
 .ms-small-display-modal {
-  padding: 1.5rem;
+  padding: ms.spacing('padding-4xl');
 }
 
 .ms-small-display-modal-header {
   display: flex;
   flex-direction: column;
-  padding-bottom: 0.5rem;
+  padding-bottom: ms.spacing('padding-lg');
 
   &__title {
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--parsec-color-primary-700);
+    padding: ms.spacing('padding-4xl');
+    margin-bottom: ms.spacing('padding-3xl');
+    color: ms.color('text-base-heading');
+    @include ms.font('heading-h4');
     display: flex;
     align-items: center;
     max-width: 22rem;
-    font-weight: 600;
   }
 
   &__text {
-    color: var(--parsec-color-secondary-soft-text);
-    font-weight: 400;
+    color: ms.color('text-base-description');
+    @include ms.font('body-md-regular');
   }
 }
 
@@ -104,7 +106,7 @@ async function cancel(): Promise<boolean> {
   z-index: 1;
 
   > :first-child:not([hidden]) {
-    margin-top: 2.5rem;
+    margin-top: ms.spacing('padding-6xl');
   }
 
   &::before {
@@ -114,14 +116,14 @@ async function cancel(): Promise<boolean> {
   &-buttons {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: ms.spacing('gap-3xl');
+    margin-top: ms.spacing('padding-4xl');
 
     &-cancel {
       display: flex;
       margin: auto;
       font-size: medium;
-      color: var(--parsec-color-secondary-text);
+      color: ms.color('text-neutral-default');
     }
 
     &-confirm {
