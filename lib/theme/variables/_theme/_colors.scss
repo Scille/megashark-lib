@@ -570,4 +570,8 @@ body.ms-theme-dark {
   --parsec-color-shadow-information-lighter: var(--parsec-color-shadow-blue-300);
   --parsec-color-shadow-information-moderate: var(--parsec-color-shadow-blue-500);
   --parsec-color-shadow-information-strong: var(--parsec-color-shadow-blue-700);
+
+  --parsec-color-light-scrollbar-thumb: --parsec-color-grey-400;
+  --parsec-color-light-scrollbar-thumb-hover: --parsec-color-grey-500;
+  --parsec-color-light-scrollbar-track: --parsec-color-grey-800;
 }
