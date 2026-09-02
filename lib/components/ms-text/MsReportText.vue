@@ -2,15 +2,15 @@
 
 <template>
   <div
-    class="container-textinfo"
+    class="container-textinfo report-text"
     :class="props.theme ?? MsReportTheme.Info"
   >
     <ion-icon
       :icon="getIcon()"
       size="default"
-      class="container-textinfo__icon"
+      class="container-textinfo__icon report-text__icon"
     />
-    <ion-text class="body container-textinfo__text">
+    <ion-text class="container-textinfo__text report-text__text">
       <slot />
     </ion-text>
   </div>
@@ -43,51 +43,53 @@ function getIcon(): string {
 <style scoped lang="scss">
 @use '@lib/theme' as ms;
 .ms-info {
-  --ms-alert-text-background-color: var(--parsec-color-info-50);
-  --ms-alert-text-icon-color: var(--parsec-color-info-700);
+  --ms-alert-text-background-color: #{ms.color('surface-information-default-subtle')};
+  --ms-alert-text-icon-color: #{ms.color('icon-information-default')};
 }
 
 .ms-success {
-  --ms-alert-text-background-color: var(--parsec-color-success-50);
-  --ms-alert-text-icon-color: var(--parsec-color-success-700);
+  --ms-alert-text-background-color: #{ms.color('surface-success-default-subtle')};
+  --ms-alert-text-icon-color: #{ms.color('icon-success-default')};
 }
 
 .ms-warning {
-  --ms-alert-text-background-color: var(--parsec-color-warning-50);
-  --ms-alert-text-icon-color: var(--parsec-color-warning-700);
+  --ms-alert-text-background-color: #{ms.color('surface-warning-default-subtle')};
+  --ms-alert-text-icon-color: #{ms.color('icon-warning-default')};
 }
 
 .ms-error {
-  --ms-alert-text-background-color: var(--parsec-color-danger-50);
-  --ms-alert-text-icon-color: var(--parsec-color-danger-700);
+  --ms-alert-text-background-color: #{ms.color('surface-error-default-subtle')};
+  --ms-alert-text-icon-color: #{ms.color('icon-error-default')};
 }
 
-.container-textinfo {
+.report-text {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  border-radius: var(--parsec-radius-8);
+  gap: ms.spacing('gap-lg');
+  border-radius: ms.radius('lg');
   background-color: var(--ms-alert-text-background-color);
+  @include ms.font('body-lg-medium');
 
   @include ms.responsive-breakpoint('sm') {
-    padding: 0.5rem 0.75rem;
+    padding: ms.spacing('padding-lg') ms.spacing('padding-2xl');
     border: none;
   }
 
   &__icon {
     color: var(--ms-alert-text-icon-color);
-    font-size: 1.25rem;
-    min-width: 1.25rem;
+    font-size: ms.size('sm');
+    min-width: ms.size('sm');
   }
 
   &__text {
-    color: var(--parsec-color-secondary-text);
+    color: ms.color('text-base-body');
   }
+
   &.ms-info,
   &.ms-success,
   &.ms-warning,
   &.ms-error {
-    padding: 0.75rem 1rem;
+    padding: ms.spacing('padding-2xl') ms.spacing('padding-3xl');
   }
 }
 </style>
