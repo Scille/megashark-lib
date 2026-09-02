@@ -61,7 +61,7 @@ async function onOptionClick(option: MsOption): Promise<void> {
 @use '@lib/theme' as ms;
 
 .dropdown-list {
-  padding: ms.spacing('padding-lg');
+  padding: ms.spacing('padding-md');
   display: flex;
   flex-direction: column;
   gap: ms.spacing('gap-lg');
