@@ -19,7 +19,7 @@
           :image="btn.image"
           class="item-content__icon item-content__icon--left"
         />
-        <ion-text class="item-content__label button-medium">{{ $msTranslate(btn.label) }}</ion-text>
+        <ion-text class="item-content__label">{{ $msTranslate(btn.label) }}</ion-text>
         <ion-icon
           v-if="btn.isDropdown"
           :icon="chevronDown"
@@ -54,30 +54,33 @@ async function handleClick(btn: any): Promise<void> {
 </script>
 
 <style lang="scss" scoped>
+@use '@lib/theme' as ms;
+
 .list-action-bar-popover {
-  --background: var(--parsec-color-secondary-soft);
+  --background: #{ms.color('surface-base-default')};
   --ion-item-background: transparent;
-  --ion-item-color: var(--parsec-color-secondary-soft-text);
+  --ion-item-color: #{ms.color('text-neutral-default')};
   --ion-item-border-color: transparent;
-  padding: 0.5rem 0.25rem;
+  padding: ms.spacing('padding-md');
 
   .item-content {
     display: flex;
     align-items: center;
-    gap: 0.375rem;
+    gap: ms.spacing('gap-md');
     flex: 1;
-    padding: 0.5rem 0.5rem;
+    padding: ms.spacing('padding-lg') ms.spacing('padding-lg');
 
     &__label {
-      color: var(--parsec-color-secondary-soft-text);
+      @include ms.font('label-md-medium');
+      color: ms.color('text-neutral-default');
     }
 
     &__icon {
       font-size: 1.125rem;
       width: 1.125rem;
       height: 1.125rem;
-      --fill-color: var(--parsec-color-secondary-soft-text);
-      color: var(--parsec-color-secondary-soft-text);
+      --fill-color: #{ms.color('icon-neutral-default')};
+      color: ms.color('icon-neutral-default');
     }
 
     &__icon--right {
@@ -86,7 +89,7 @@ async function handleClick(btn: any): Promise<void> {
   }
 
   &__item {
-    border-radius: var(--parsec-radius-8);
+    border-radius: ms.radius('lg');
     cursor: pointer;
 
     &::part(native) {
@@ -95,12 +98,12 @@ async function handleClick(btn: any): Promise<void> {
     }
 
     &:hover {
-      background: var(--parsec-color-secondary-premiere);
+      background: ms.color('surface-neutral-default-subtle-hover');
 
       .item-content__icon,
       .item-content__label {
-        --fill-color: var(--parsec-color-primary-600);
-        color: var(--parsec-color-primary-600);
+        --fill-color: #{ms.color('icon-neutral-default-hover')};
+        color: ms.color('text-neutral-default-hover');
       }
     }
   }

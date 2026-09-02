@@ -2,15 +2,16 @@
   <ion-page>
     <ion-content :fullscreen="true">
       <div id="container">
-        <ion-title class="title-h1-xl main-title">{{ $msTranslate('usage.title') }}</ion-title>
-
-        <!-- library categories -->
-        <ms-dropdown
-          class="dropdown"
-          :options="categoryOptions"
-          :default-option-key="Category.Components"
-          @change="category = $event.option.key"
-        />
+        <div class="flex">
+          <ion-title class="main-title">{{ $msTranslate('usage.title') }}</ion-title>
+          <!-- library categories -->
+          <ms-dropdown
+            class="dropdown"
+            :options="categoryOptions"
+            :default-option-key="Category.Components"
+            @change="category = $event.option.key"
+          />
+        </div>
 
         <!-- components -->
         <components-page v-if="category === Category.Components" />
@@ -57,27 +58,26 @@ const category = ref<Category>(Category.Components);
 <style scoped lang="scss">
 @use '@lib/theme' as ms;
 
-.main-title {
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  color: var(--parsec-color-primary-800);
-}
-
-ion-content {
-  --background: var(--parsec-color-secondary-background);
-}
-
 #container {
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 2rem;
-  padding: 3rem;
-  background: var(--parsec-color-secondary-background);
+  gap: ms.spacing('gap-5xl');
+  padding: ms.spacing('padding-7xl');
+  background: ms.color('surface-base-default-secondary');
 
   @include ms.responsive-breakpoint('sm') {
-    padding: 2rem;
+    padding: ms.spacing('padding-5xl');
   }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: ms.spacing('gap-5xl');
+}
+
+.main-title {
+  @include ms.font('heading-h1');
 }
 </style>

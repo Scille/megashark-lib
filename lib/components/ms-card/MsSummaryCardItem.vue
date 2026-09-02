@@ -10,7 +10,7 @@
     </p>
     <div
       v-if="secondLine"
-      class="ms-summary-card-item__text subtitles-normal"
+      class="ms-summary-card-item__text"
     >
       {{ $msTranslate(secondLine.text) }}
       <p
@@ -45,12 +45,13 @@ defineProps<MsSummaryCardItemData>();
 
   &__label {
     @include ms.font('label-md-medium');
-    color: var(--parsec-color-secondary-soft-grey);
+    color: ms.color('text-base-label');
+    opacity: ms.opacity('disabled');
   }
 
   &__text {
     @include ms.font('label-lg-medium');
-    color: var(--parsec-color-secondary-text);
+    color: ms.color('text-base-label');
     display: block;
     gap: 0.5rem;
     overflow: hidden;

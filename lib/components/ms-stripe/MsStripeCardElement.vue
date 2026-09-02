@@ -2,7 +2,7 @@
 <template>
   <div class="input-container">
     <span
-      class="form-label"
+      class="input-label"
       v-show="label"
       @click="setFocus()"
       :class="{ focused: hasFocus }"
@@ -17,7 +17,7 @@
         :icon="_getIcon()"
       />
       <div
-        class="input form-input"
+        class="input input-value"
         :id="type"
       />
       <ms-image

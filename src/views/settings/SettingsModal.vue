@@ -22,7 +22,7 @@
             >
               <div class="item-container">
                 <ion-icon :icon="cog" />
-                <ion-text class="body">
+                <ion-text>
                   {{ $msTranslate('usage.components.modals.settings.general') }}
                 </ion-text>
               </div>
@@ -35,7 +35,7 @@
             >
               <div class="item-container">
                 <ion-icon :icon="options" />
-                <ion-text class="body">
+                <ion-text>
                   {{ $msTranslate('usage.components.modals.settings.advanced') }}
                 </ion-text>
               </div>

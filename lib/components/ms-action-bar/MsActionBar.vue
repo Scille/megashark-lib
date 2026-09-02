@@ -27,7 +27,6 @@
           />
           <ion-button
             id="action-bar-more-button"
-            class="button-medium"
             fill="clear"
             @click="openActionBarPopover($event)"
             v-show="hiddenButtons.length > 0"
@@ -228,8 +227,7 @@ onUnmounted(() => {
 
 .toolbar {
   margin: 0 1.25rem;
-  padding: ms.spacing('padding-none') ms.spacing('padding-3xl');
-  min-height: 3rem;
+  padding: ms.spacing('padding-none') ms.spacing('padding-xl');
   background-color: ms.color('surface-base-default-secondary');
   border-bottom: ms.border('thin') solid ms.color('border-base-default');
   border-radius: ms.radius('2xl');
@@ -250,6 +248,7 @@ onUnmounted(() => {
   --color: #{ms.color('icon-neutral-default')};
   margin-left: 0.5rem;
   min-height: 1rem;
+  height: 100%;
 
   &::part(native) {
     padding: ms.spacing('padding-sm') ms.spacing('padding-lg');
@@ -278,6 +277,8 @@ onUnmounted(() => {
 .action-bar-buttons-content {
   display: flex;
   width: 100%;
+  min-height: 3rem;
+  padding: ms.spacing('padding-sm');
 }
 
 .action-bar-buttons-list {

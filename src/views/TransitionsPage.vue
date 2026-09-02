@@ -1,5 +1,5 @@
 <template>
-  <ion-title class="title-h1 main-title">{{ $msTranslate('usage.transitions.title') }}</ion-title>
+  <ion-title class="main-title">{{ $msTranslate('usage.transitions.title') }}</ion-title>
 
   <!-- slide-horizontal -->
   <example-block title="usage.transitions.slideHorizontal.title">
@@ -61,13 +61,6 @@ function onNextItemSlideHorizontalClick(): void {
 </script>
 
 <style scoped lang="scss">
-.main-title {
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  color: var(--parsec-color-primary-800);
-}
-
 .slider-container ion-label {
   width: 10em;
   display: flex;

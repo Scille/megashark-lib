@@ -1,10 +1,10 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <div class="container">
+  <div class="spinner-container">
     <ion-text
       v-if="title"
-      class="container-text"
+      class="spinner-text"
     >
       {{ $msTranslate(title) }}
     </ion-text>
@@ -35,12 +35,12 @@ const spinnerSizeFormatted = computed(() => `${spinnerSize.value}px`);
 <style scoped lang="scss">
 @use '@lib/theme' as ms;
 
-.container {
+.spinner-container {
   display: flex;
   align-items: center;
   gap: ms.spacing('gap-xl');
 
-  &-text {
+  .spinner-text {
     color: ms.color('text-neutral-default');
     @include ms.font('label-lg-medium');
   }

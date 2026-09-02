@@ -6,7 +6,7 @@
       v-if="requireName"
     >
       <span
-        class="form-label"
+        class="stripe-form-label"
         :class="{ focused: hasFocus }"
         @click="setFocus()"
       >
@@ -19,7 +19,7 @@
           :icon="personCircle"
         />
         <ion-input
-          class="form-input"
+          class="stripe-form-input"
           ref="nameElement"
           :aria-hidden="false"
           :placeholder="$msTranslate('lib.components.msStripe.cardHolderPlaceholder')"
@@ -143,11 +143,16 @@ defineExpose({
 }
 
 .input-container {
+  .stripe-form-label {
+    @include ms.font('label-md-medium');
+  }
+
   .input-content {
     flex-grow: unset;
   }
 
-  .form-input {
+  .stripe-form-input {
+    @include ms.font('body-md-regular');
     padding-left: ms.spacing('padding-xl') !important;
   }
 

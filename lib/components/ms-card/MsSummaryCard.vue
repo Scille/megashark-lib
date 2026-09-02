@@ -1,7 +1,7 @@
 <template>
   <div class="ms-summary-card">
     <ion-header class="ms-summary-card-header">
-      <ion-text class="ms-summary-card-header__title title-h3">{{ $msTranslate(title) }}</ion-text>
+      <ion-text class="ms-summary-card-header__title">{{ $msTranslate(title) }}</ion-text>
     </ion-header>
     <template
       v-for="(row, index) in rows"
@@ -87,7 +87,8 @@ defineEmits<{
     z-index: 1;
 
     &__title {
-      color: var(--parsec-color-secondary-text);
+      color: ms.color('text-base-heading');
+      @include ms.font('heading-h3');
     }
   }
 

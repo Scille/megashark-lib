@@ -7,7 +7,7 @@
       size="default"
       class="container-textinfo__icon"
     />
-    <ion-text class="subtitles-normal container-textinfo__text">
+    <ion-text class="container-textinfo__text">
       <slot />
     </ion-text>
   </div>
@@ -39,12 +39,12 @@ defineProps<{
     border: ms.border('thin') solid ms.color('border-brand-default');
     border-radius: ms.radius('full');
     padding: ms.spacing('padding-xs');
-    margin-top: 0.3rem;
+    margin-top: 0.15rem;
   }
 
   &__text {
     color: ms.color('text-base-body');
-    @include ms.font('body-lg-medium');
+    @include ms.font('label-lg-medium');
   }
 }
 </style>

@@ -22,11 +22,13 @@ defineProps<{
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .icon {
-  --color: var(--parsec-color-secondary-grey);
+  color: ms.color('icon-neutral-default');
 
   &:hover {
-    color: var(--parsec-color-secondary-text);
+    color: ms.color('icon-neutral-default-hover');
   }
 }
 </style>

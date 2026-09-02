@@ -15,7 +15,7 @@
 }
 
 // label
-.form-label {
+.input-label {
   @include ms.font('label-md-medium');
 
   color: ms.color('text-base-label');
@@ -36,13 +36,13 @@
   position: relative;
   height: ms.size('2xl');
 
-  &:not(.form-input-disabled) {
+  &:not(.input-disabled) {
     &:hover {
       border: ms.border('thin') solid ms.color('border-brand-default');
     }
   }
 
-  &:focus-within:not(.form-input-disabled) {
+  &:focus-within:not(.input-disabled) {
     border: ms.border('thin') solid ms.color('border-brand-default');
     background: ms.color('surface-base-default');
     box-shadow: ms.shadow('focus-brand');
@@ -113,13 +113,12 @@
     transition: outline 0.2s ease-in-out;
 
     &:focus-within {
-      outline: 0.5px solid ms.color('border-error-default');
       border: ms.border('thin') solid ms.color('border-error-default');
     }
   }
 }
 
-.form-input-disabled {
+.input-disabled {
   --background: #{ms.color('surface-disabled-default')};
   background: ms.color('surface-disabled-default');
 
@@ -159,6 +158,8 @@
     border-color: ms.color('border-base-default');
     border-radius: ms.radius('lg');
     --dp-border-color-hover: #{ms.color('border-brand-default')};
+    background: ms.color('surface-base-default-secondary');
+    color: ms.color('text-base-label');
     transition: all 0.2s ease-in-out;
   }
 

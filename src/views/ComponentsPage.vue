@@ -1,5 +1,5 @@
 <template>
-  <ion-title class="title-h1 main-title">{{ $msTranslate('usage.components.title') }}</ion-title>
+  <ion-title class="main-title">{{ $msTranslate('usage.components.title') }}</ion-title>
 
   <!-- action-bar -->
   <example-block title="usage.components.actionBar.title">
@@ -68,7 +68,6 @@
       <ms-feedback-button
         :callback="async () => Math.random() < 0.5"
         icon-position="right"
-        size="medium"
         :normal-state="{ text: 'usage.components.button.normalState', icon: create }"
         :failure-state="{ text: 'usage.components.button.failureState', icon: warning }"
         :success-state="{ text: 'usage.components.button.successState', icon: cog }"
@@ -204,7 +203,7 @@
   <example-block title="usage.components.inputs.title">
     <example-block-line>
       <div class="input-item">
-        <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msInput.title') }}</ion-label>
+        <ion-label class="input-item__label">{{ $msTranslate('usage.components.inputs.msInput.title') }}</ion-label>
         <ms-input
           label="usage.components.inputs.msInput.label"
           placeholder="usage.components.inputs.msInput.placeholder"
@@ -229,7 +228,7 @@
         />
       </div>
       <div class="input-item">
-        <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msSearchInput.title') }}</ion-label>
+        <ion-label class="input-item__label">{{ $msTranslate('usage.components.inputs.msSearchInput.title') }}</ion-label>
         <ms-search-input
           placeholder="lib.components.msSearchInput.placeholder"
           v-model="searchInputExample"
@@ -239,7 +238,7 @@
         {{ searchInputExample }}
       </div>
       <div class="input-item">
-        <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msPasswordInput.title') }}</ion-label>
+        <ion-label class="input-item__label">{{ $msTranslate('usage.components.inputs.msPasswordInput.title') }}</ion-label>
         <ms-password-input
           label="usage.components.inputs.msPasswordInput.label"
           v-model="passwordInputExample"
@@ -248,7 +247,7 @@
         />
       </div>
       <div class="input-item">
-        <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msChoosePasswordInput.title') }}</ion-label>
+        <ion-label class="input-item__label">{{ $msTranslate('usage.components.inputs.msChoosePasswordInput.title') }}</ion-label>
         <ms-choose-password-input
           password-label="usage.components.inputs.msChoosePasswordInput.label"
           @on-enter-keyup="onEnterKeyup($event)"
@@ -256,7 +255,7 @@
         />
       </div>
       <div class="input-item">
-        <ion-label class="title-h3">{{ $msTranslate('usage.components.inputs.msPhoneNumberInput.title') }}</ion-label>
+        <ion-label class="input-item__label">{{ $msTranslate('usage.components.inputs.msPhoneNumberInput.title') }}</ion-label>
         <ms-phone-number-input
           @on-enter-keyup="onEnterKeyup($event)"
           ref="phoneNumberInput"
@@ -514,7 +513,7 @@
 <script setup lang="ts">
 import { ExampleBlock, ExampleBlockLine } from '@/views/example-block';
 import SettingsModal from '@/views/settings/SettingsModal.vue';
-import { IonButton, IonIcon, IonLabel, IonTitle, modalController } from '@ionic/vue';
+import { IonButton, IonIcon, IonLabel, IonTitle, IonToggle, modalController } from '@ionic/vue';
 import {
   AllowedInput,
   Answer,
@@ -888,28 +887,18 @@ function onSliderPlayClicked(): void {
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
+.input-item__label {
+  @include ms.font('base-heading-h3');
+}
+
 .ms-progress {
   width: 16em;
 }
 
 .ms-slider {
   width: 24em;
-}
-
-.main-title {
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  color: var(--parsec-color-primary-800);
-}
-
-.input-item {
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  background-color: var(--parsec-color-secondary-surface);
-  flex-shrink: 1;
 }
 
 .address-input {

@@ -4,7 +4,7 @@
   <div class="input-container">
     <span
       id="label"
-      class="form-label"
+      class="input-label"
       :class="{ focused: hasFocus }"
       v-show="label"
       @click="setFocus()"
@@ -13,7 +13,7 @@
     </span>
 
     <ion-textarea
-      class="textarea form-input input-content"
+      class="textarea input-content"
       :class="{
         input: !$props.disabled,
       }"
@@ -143,6 +143,10 @@ async function onChange(value: string): Promise<void> {
 
 <style scoped lang="scss">
 @use '@lib/theme' as ms;
+
+.label {
+  @include ms.font('label-md-medium');
+}
 
 .textarea {
   padding: ms.spacing('padding-xl') ms.spacing('padding-xl') 0;
