@@ -1,74 +1,103 @@
 /* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
 
+@use '@lib/theme' as ms;
+
 /* **** Parsec toggles **** */
 
 ion-toggle {
   width: auto;
-  --handle-width: 22px;
-  --handle-height: 22px;
+  --handle-width: 20px;
+  --handle-height: 20px;
   --handle-max-height: auto;
-  --handle-spacing: 3px;
+  --handle-spacing: 2px;
+  --handle-transition:
+    transform 160ms cubic-bezier(0.4, 0, 0.2, 1), background-color 160ms cubic-bezier(0.4, 0, 0.2, 1), left 150ms ease-in-out,
+    right 150ms ease-in-out;
 
   // uncheck
   &::part(track) {
-    height: 28px;
-    width: 50px;
-    border-radius: var(--parsec-radius-32);
-    background: var(--parsec-color-secondary-light);
-    /* Required for iOS handle to overflow the height of the track */
+    height: 24px;
+    width: 45px;
+    border-radius: ms.radius('full');
+    border: 0.5px solid ms.color('border-neutral-default-subtle');
     overflow: visible;
-    opacity: 0.4;
+    box-shadow: ms.shadow('elevation-sm');
+    background: ms.color('surface-base-page-secondary');
   }
 
-  &::part(handle) {
-    background: var(--parsec-color-secondary-surface);
-    box-shadow: none;
-  }
-
-  // check
-  &.toggle-checked::part(track) {
-    background: var(--parsec-color-primary-600);
-    border: none;
-    opacity: 1;
-  }
-
-  &.toggle-checked::part(handle) {
-    background: var(--parsec-color-secondary-inversed-contrast);
-    box-shadow: var(--parsec-shadow-toggle);
-  }
-
-  &.dark {
-    &::part(track) {
-      background: var(--parsec-color-secondary-inversed-contrast);
-      box-shadow: inset 0px 0px 0px 1px var(--parsec-color-secondary-inversed-contrast);
-    }
-
-    &::part(handle) {
-      background: var(--parsec-color-primary-700);
-    }
-
-    // check
-    &.toggle-checked::part(track) {
-      box-shadow: inset 0px 0px 0px 1px var(--parsec-color-primary-100);
-      background: var(--parsec-color-primary-100);
-      border: none;
-      opacity: 1;
-    }
-
-    &.toggle-checked::part(handle) {
-      background: var(--parsec-color-primary-800);
-      box-shadow: var(--parsec-shadow-toggle);
-    }
-  }
-
-  &.small {
-    --handle-width: 1rem;
-    --handle-height: 1rem;
+  &[size='small'] {
+    --handle-width: 16px;
+    --handle-height: 16px;
     --handle-spacing: 2px;
 
     &::part(track) {
       height: 20px;
       width: 34px;
+    }
+  }
+
+  &:not(.toggle-disabled):hover {
+    --handle-spacing: 4px;
+
+    &::part(track) {
+      background: ms.color('surface-neutral-default-subtle-hover');
+      border-color: ms.color('border-neutral-default-subtle-hover');
+    }
+  }
+
+  &:not(.toggle-disabled):active {
+    --handle-spacing: 6px;
+
+    &::part(track) {
+      background: ms.color('surface-neutral-default-subtle-hover');
+      border-color: ms.color('border-neutral-default-subtle-hover');
+    }
+  }
+
+  &:not(.toggle-disabled):focus-visible {
+    &::part(track) {
+      background: ms.color('surface-neutral-default-subtle-hover');
+      box-shadow: ms.shadow('focus-brand');
+    }
+  }
+
+  &::part(handle) {
+    background: ms.color('surface-base-default');
+    box-shadow: ms.shadow('elevation-xs');
+  }
+
+  // check
+  &.toggle-checked::part(track) {
+    background: ms.color('surface-brand-default');
+    border-color: ms.color('border-brand-default');
+  }
+
+  &.toggle-checked:hover::part(track) {
+    background: ms.color('surface-brand-default-hover');
+    border-color: ms.color('border-brand-default-hover');
+  }
+
+  &.toggle-checked::part(handle) {
+    background: ms.color('surface-base-default');
+    box-shadow: ms.shadow('toggle-checked');
+  }
+
+  &.toggle-disabled {
+    pointer-events: none;
+
+    &::part(track) {
+      background: ms.color('surface-disabled-on-color');
+    }
+
+    &::part(handle) {
+      background: ms.color('icon-disabled-on-color');
+      box-shadow: ms.shadow('elevation-sm');
+    }
+
+    &.toggle-checked {
+      &::part(track) {
+        border-color: ms.color('border-base-default');
+      }
     }
   }
 }

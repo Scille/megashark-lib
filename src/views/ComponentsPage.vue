@@ -96,6 +96,11 @@
     <example-block-line>
       <ms-boolean-toggle v-model="referenceValue" />
       <ms-grid-list-toggle v-model="displayView" />
+      <ion-toggle :disabled="false" />
+      <ion-toggle
+        :disabled="true"
+        size="small"
+      />
     </example-block-line>
   </example-block>
 
