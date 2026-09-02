@@ -208,10 +208,12 @@ function updateCurrentProgress(event: MouseEvent, paused?: boolean): void {
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .slider-container {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: ms.spacing('gap-2xl');
 
   .slider {
     position: relative;
@@ -220,16 +222,16 @@ function updateCurrentProgress(event: MouseEvent, paused?: boolean): void {
     align-items: flex-start;
     width: 100%;
     height: 0.25rem;
-    background: var(--parsec-color-secondary-premiere);
-    border-radius: var(--parsec-radius-8);
+    background: ms.color('surface-base-page-secondary');
+    border-radius: ms.radius('lg');
     transition: height 100ms ease-in;
 
     .full {
       width: v-bind(progressWidthStyle);
-      background: var(--parsec-color-primary-700);
-      opacity: 0.9;
+      background: ms.color('surface-brand-default');
+      opacity: ms.opacity('9');
       height: 0.25rem;
-      border-radius: var(--parsec-radius-6);
+      border-radius: ms.radius('md');
       position: relative;
       transition: height 100ms ease-in;
 
@@ -238,6 +240,19 @@ function updateCurrentProgress(event: MouseEvent, paused?: boolean): void {
         position: absolute;
         right: -0.275rem;
         top: -0.275rem;
+        z-index: 2;
+
+        &::after {
+          content: '';
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          scale: 1.8;
+          border-radius: ms.radius('full');
+          background: ms.color('surface-brand-default');
+          opacity: ms.opacity('2');
+          z-index: 1;
+        }
       }
     }
 
@@ -245,16 +260,16 @@ function updateCurrentProgress(event: MouseEvent, paused?: boolean): void {
       cursor: pointer;
 
       .full {
-        background: var(--parsec-color-gradient);
+        background: ms.color('surface-brand-default');
 
         .dot {
           right: -0.275rem;
           top: -4px;
-          height: 0.75rem;
-          width: 0.75rem;
-          background-color: var(--parsec-color-primary-700);
-          border-radius: var(--parsec-radius-circle);
-          box-shadow: var(--parsec-shadow-strong);
+          height: ms.size('2xs');
+          width: ms.size('2xs');
+          background-color: ms.color('surface-brand-default');
+          border-radius: ms.radius('full');
+          box-shadow: ms.shadow('strong');
         }
       }
     }

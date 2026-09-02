@@ -447,7 +447,10 @@
         @progressing="console.log('progressing')"
         @finished="onSliderFinished()"
       />
-      <ion-button @click="onSliderPlayClicked()">
+      <ion-button
+        @click="onSliderPlayClicked()"
+        slot="icon-only"
+      >
         <ion-icon :icon="sliderStatePlaying.paused === false ? pause : play" />
       </ion-button>
       {{ sliderStatePlaying.progress }}
