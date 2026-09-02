@@ -25,26 +25,28 @@ defineProps<{
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .settings-option {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 1rem 0.75rem 0;
-  border-bottom: 1px solid var(--parsec-color-secondary-disabled);
-  gap: 1.5rem;
+  padding: ms.spacing('padding-2xl') ms.spacing('padding-3xl') ms.spacing('padding-2xl') ms.spacing('padding-none');
+  border-bottom: ms.border('thin') solid ms.color('border-neutral-default-subtle');
+  gap: ms.spacing('gap-4xl');
 
   &__content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    gap: 0.25rem;
+    gap: ms.spacing('gap-sm');
 
     .title {
-      color: var(--parsec-color-primary-700);
+      color: ms.color('text-base-heading');
     }
 
     .description {
-      color: var(--parsec-color-secondary-grey);
+      color: ms.color('text-base-description');
     }
   }
 }
