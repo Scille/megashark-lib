@@ -24,4 +24,10 @@ defineProps<{
 }>();
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use '@lib/theme' as ms;
+
+.spinner-label {
+  @include ms.font('label-md-medium');
+}
+</style>

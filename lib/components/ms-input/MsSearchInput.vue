@@ -12,7 +12,7 @@
       class="icon"
     />
     <ion-input
-      class="form-input input"
+      class="input"
       ref="input"
       :value="modelValue"
       :placeholder="$msTranslate(placeholder)"
@@ -89,9 +89,11 @@ function onChange(value: any): void {
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .ms-search-input {
-  border: 1px solid var(--parsec-color-secondary-disabled);
-  padding: 0.25rem 0 0.25rem 0.75rem;
+  border: ms.border('thin') solid ms.color('border-base-default');
+  padding: ms.spacing('padding-sm') 0 ms.spacing('padding-sm') ms.spacing('padding-2xl');
   width: 100%;
   position: relative;
   display: flex;
@@ -100,7 +102,7 @@ function onChange(value: any): void {
   .icon {
     font-size: 1rem;
     margin: 0 0.25rem 0 0;
-    opacity: 0.4;
+    opacity: ms.opacity('disabled');
   }
 }
 </style>

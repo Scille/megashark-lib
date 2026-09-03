@@ -31,9 +31,9 @@
   --parsec-color-surface-neutral-default: var(--parsec-color-grey-800);
   --parsec-color-surface-neutral-default-hover: var(--parsec-color-grey-900);
   --parsec-color-surface-neutral-default-pressed: var(--parsec-color-grey-950);
-  --parsec-color-surface-neutral-default-subtle: var(--parsec-color-grey-10);
-  --parsec-color-surface-neutral-default-subtle-hover: var(--parsec-color-grey-30);
-  --parsec-color-surface-neutral-default-subtle-pressed: var(--parsec-color-grey-50);
+  --parsec-color-surface-neutral-default-subtle: var(--parsec-color-grey-30);
+  --parsec-color-surface-neutral-default-subtle-hover: var(--parsec-color-grey-50);
+  --parsec-color-surface-neutral-default-subtle-pressed: var(--parsec-color-grey-100);
 
   --parsec-color-surface-error-default: var(--parsec-color-red-600);
   --parsec-color-surface-error-default-hover: var(--parsec-color-red-700);
@@ -547,29 +547,31 @@ body.ms-theme-dark {
   --parsec-color-border-disabled-on-color: var(--parsec-color-grey-600);
 
   // ----------- shadow colors ------------
-  --parsec-color-shadow-brand-lighter: var(--parsec-color-shadow-brand-300);
-  --parsec-color-shadow-brand-moderate: var(--parsec-color-shadow-brand-500);
-  --parsec-color-shadow-brand-strong: var(--parsec-color-shadow-brand-700);
+  // Dark mode needs distinct (stronger) opacity than light — the light-mode primitives read as
+  // near-invisible on a dark surface, so these are hand-tuned per Figma's dark-mode `theme` values.
+  --parsec-color-shadow-brand-lighter: rgba(0, 110, 255, 0.3);
+  --parsec-color-shadow-brand-moderate: rgba(0, 110, 255, 0.5);
+  --parsec-color-shadow-brand-strong: rgba(0, 110, 255, 0.7);
 
-  --parsec-color-shadow-neutral-lighter: var(--parsec-color-shadow-grey-300);
-  --parsec-color-shadow-neutral-moderate: var(--parsec-color-shadow-grey-500);
-  --parsec-color-shadow-neutral-strong: var(--parsec-color-shadow-grey-700);
+  --parsec-color-shadow-neutral-lighter: rgba(178, 178, 204, 0.3);
+  --parsec-color-shadow-neutral-moderate: rgba(178, 178, 204, 0.5);
+  --parsec-color-shadow-neutral-strong: rgba(178, 178, 204, 0.7);
 
-  --parsec-color-shadow-error-lighter: var(--parsec-color-shadow-red-300);
-  --parsec-color-shadow-error-moderate: var(--parsec-color-shadow-red-500);
-  --parsec-color-shadow-error-strong: var(--parsec-color-shadow-red-700);
+  --parsec-color-shadow-error-lighter: rgba(194, 10, 34, 0.3);
+  --parsec-color-shadow-error-moderate: rgba(194, 10, 34, 0.5);
+  --parsec-color-shadow-error-strong: rgba(194, 10, 34, 0.7);
 
-  --parsec-color-shadow-success-lighter: var(--parsec-color-shadow-green-300);
-  --parsec-color-shadow-success-moderate: var(--parsec-color-shadow-green-500);
-  --parsec-color-shadow-success-strong: var(--parsec-color-shadow-green-700);
+  --parsec-color-shadow-success-lighter: rgba(41, 163, 90, 0.3);
+  --parsec-color-shadow-success-moderate: rgba(41, 163, 90, 0.5);
+  --parsec-color-shadow-success-strong: rgba(41, 163, 90, 0.7);
 
-  --parsec-color-shadow-warning-lighter: var(--parsec-color-shadow-yellow-300);
-  --parsec-color-shadow-warning-moderate: var(--parsec-color-shadow-yellow-500);
-  --parsec-color-shadow-warning-strong: var(--parsec-color-shadow-yellow-700);
+  --parsec-color-shadow-warning-lighter: rgba(163, 133, 41, 0.3);
+  --parsec-color-shadow-warning-moderate: rgba(163, 133, 41, 0.5);
+  --parsec-color-shadow-warning-strong: rgba(163, 133, 41, 0.7);
 
-  --parsec-color-shadow-information-lighter: var(--parsec-color-shadow-blue-300);
-  --parsec-color-shadow-information-moderate: var(--parsec-color-shadow-blue-500);
-  --parsec-color-shadow-information-strong: var(--parsec-color-shadow-blue-700);
+  --parsec-color-shadow-information-lighter: rgba(11, 96, 193, 0.3);
+  --parsec-color-shadow-information-moderate: rgba(11, 96, 193, 0.5);
+  --parsec-color-shadow-information-strong: rgba(11, 96, 193, 0.7);
 
   --parsec-color-light-scrollbar-thumb: --parsec-color-grey-400;
   --parsec-color-light-scrollbar-thumb-hover: --parsec-color-grey-500;

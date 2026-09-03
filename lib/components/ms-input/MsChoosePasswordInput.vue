@@ -48,14 +48,14 @@
       </div>
     </form>
     <div class="password-criteria">
-      <ion-text class="password-criteria__title title-h5">
+      <ion-text class="password-criteria__title">
         {{ $msTranslate('lib.components.msChoosePasswordInput.criteria.title') }}
       </ion-text>
       <div class="password-criteria-list">
         <p
           v-for="[criterionName, criterion] in CRITERIA.entries()"
           :key="criterion"
-          class="password-criteria__item body"
+          class="password-criteria__item"
           :class="{ matches: PasswordValidation.matchCriteria(password, criterion) }"
         >
           <ion-icon :icon="PasswordValidation.matchCriteria(password, criterion) ? checkmarkCircle : close" />

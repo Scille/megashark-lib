@@ -4,7 +4,7 @@
   <div class="input-container">
     <span
       id="label"
-      class="form-label"
+      class="input-label"
       :class="{ focused: hasFocus }"
       v-show="label"
       @click="setFocus()"
@@ -16,7 +16,7 @@
       :class="inputClasses"
     >
       <ion-input
-        class="form-input"
+        class="input"
         :class="{
           input: !$props.disabled,
         }"
@@ -78,7 +78,7 @@ defineExpose({
 const inputClasses = computed(() => {
   const invalid = validity.value === Validity.Invalid && lostFocus.value && Boolean(props.modelValue);
   return {
-    'form-input-disabled': props.disabled,
+    'input-disabled': props.disabled,
     'input-valid': validity.value === Validity.Valid,
     'input-invalid': invalid,
     'input-default': (validity.value === Validity.Intermediate || validity.value === Validity.Invalid) && !invalid,

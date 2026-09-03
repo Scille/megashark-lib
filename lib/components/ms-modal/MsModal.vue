@@ -147,6 +147,7 @@ async function confirm(): Promise<boolean> {
   }
 
   &__title {
+    @include ms.font('heading-h3');
     padding: 0;
     color: ms.color('text-base-heading');
     @include ms.font('heading-h4');

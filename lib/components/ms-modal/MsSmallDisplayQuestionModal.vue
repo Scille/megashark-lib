@@ -92,6 +92,8 @@ async function cancel(): Promise<boolean> {
   padding-bottom: ms.spacing('padding-lg');
 
   &__title {
+    @include ms.font('heading-h3');
+
     padding: 0;
     margin-bottom: ms.spacing('padding-3xl');
     color: ms.color('text-base-heading');

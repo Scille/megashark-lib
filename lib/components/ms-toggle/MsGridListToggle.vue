@@ -59,6 +59,7 @@ defineExpose({
   align-items: center;
   border-radius: ms.radius('lg');
   padding: ms.spacing('padding-sm');
+  gap: ms.spacing('gap-xs');
   background: ms.color('surface-base-page-secondary');
   flex-shrink: 0;
   overflow: hidden;
@@ -73,7 +74,7 @@ defineExpose({
   .button-icon {
     color: ms.color('icon-neutral-default');
     font-size: 1.25rem;
-    padding: ms.spacing('padding-sm');
+    padding: ms.spacing('padding-md');
   }
 
   &:not(.button-disabled) {

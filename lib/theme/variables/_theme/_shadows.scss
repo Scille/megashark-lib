@@ -41,10 +41,10 @@
   --parsec-shadow-3d-light: 0px 0px 25px 0px rgba(34, 129, 254, 0.1) inset, 0px 0px 12px 0px rgba(64, 146, 255, 0.1); // used in parsec-sign
   --parsec-shadow-3d-strong: 0px 0px 49px 0px rgba(0, 0, 0, 0.05), 0px 4px 84px 0px rgba(58, 160, 255, 0.25) inset;
 
-  --parsec-shadow-focus-brand: 0 0 0 3px #{ms.color('shadow-brand-moderate')};
-  --parsec-shadow-focus-neutral: 0 0 0 3px #{ms.color('shadow-neutral-moderate')};
-  --parsec-shadow-focus-error: 0 0 0 3px #{ms.color('shadow-error-moderate')};
-  --parsec-shadow-focus-success: 0 0 0 3px #{ms.color('shadow-success-moderate')};
-  --parsec-shadow-focus-warning: 0 0 0 3px #{ms.color('shadow-warning-moderate')};
-  --parsec-shadow-focus-information: 0 0 0 3px #{ms.color('shadow-information-moderate')};
+  --parsec-shadow-focus-brand: 0 0 0 4px #{ms.color('shadow-brand-moderate')};
+  --parsec-shadow-focus-neutral: 0 0 0 4px #{ms.color('shadow-neutral-moderate')};
+  --parsec-shadow-focus-error: 0 0 0 4px #{ms.color('shadow-error-moderate')};
+  --parsec-shadow-focus-success: 0 0 0 4px #{ms.color('shadow-success-moderate')};
+  --parsec-shadow-focus-warning: 0 0 0 4px #{ms.color('shadow-warning-moderate')};
+  --parsec-shadow-focus-information: 0 0 0 4px #{ms.color('shadow-information-moderate')};
 }

@@ -1,5 +1,5 @@
 <template>
-  <ion-title class="title-h1 main-title">{{ $msTranslate('usage.services.title') }}</ion-title>
+  <ion-title class="main-title">{{ $msTranslate('usage.services.title') }}</ion-title>
 
   <!-- translation -->
   <example-block title="usage.services.translation.title">
@@ -145,11 +145,4 @@ async function changeLocale(event: MsDropdownChangeEvent): Promise<void> {
 }
 </script>
 
-<style scoped lang="scss">
-.main-title {
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  color: var(--parsec-color-primary-800);
-}
-</style>
+<style scoped lang="scss"></style>

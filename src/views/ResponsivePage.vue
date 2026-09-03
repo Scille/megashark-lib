@@ -1,5 +1,5 @@
 <template>
-  <ion-title class="title-h1 main-title">{{ $msTranslate('usage.responsive.title') }}</ion-title>
+  <ion-title class="main-title">{{ $msTranslate('usage.responsive.title') }}</ion-title>
 
   <!-- responsive mixin -->
   <example-block title="usage.responsive.mixin.title">
@@ -99,26 +99,19 @@ const noResponsiveMixinOverlap = ref(false);
 <style scoped lang="scss">
 @use '@lib/theme' as ms;
 
-.main-title {
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  color: var(--parsec-color-primary-800);
-}
-
 .responsive-mixin-block {
   display: none;
-  padding: 0.5em;
-  border-radius: 0.5em;
-  background: var(--parsec-color-primary-500);
+  padding: ms.spacing('padding-lg');
+  border-radius: ms.radius('lg');
+  background: ms.color('surface-brand-default');
   &-no-mixin {
     display: block;
-    color: white;
+    color: ms.color('text-on-color-label');
   }
 
   @include ms.responsive-breakpoint('xxl') {
-    background: var(--parsec-color-primary-700);
-    color: var(--parsec-color-secondary-white);
+    background: ms.color('surface-brand-default-pressed');
+    color: ms.color('text-brand-on-color');
     &-xxl {
       display: block;
     }
@@ -129,7 +122,7 @@ const noResponsiveMixinOverlap = ref(false);
   }
 
   @include ms.responsive-breakpoint('xl') {
-    background: var(--parsec-color-primary-600);
+    background: ms.color('surface-brand-default-hover');
     &-xl {
       display: block;
     }
@@ -140,7 +133,7 @@ const noResponsiveMixinOverlap = ref(false);
   }
 
   @include ms.responsive-breakpoint('lg') {
-    background: var(--parsec-color-primary-400);
+    background: ms.color('surface-brand-default');
 
     &-lg {
       display: block;
@@ -152,7 +145,7 @@ const noResponsiveMixinOverlap = ref(false);
   }
 
   @include ms.responsive-breakpoint('md') {
-    color: var(--parsec-color-secondary-black);
+    color: ms.color('text-base-body');
     &-md {
       display: block;
     }
@@ -163,7 +156,9 @@ const noResponsiveMixinOverlap = ref(false);
   }
 
   @include ms.responsive-breakpoint('sm') {
-    background: var(--parsec-color-primary-200);
+    background: ms.color('surface-brand-default');
+    opacity: ms.opacity('20');
+
     &-sm {
       display: block;
     }
@@ -174,7 +169,9 @@ const noResponsiveMixinOverlap = ref(false);
   }
 
   @include ms.responsive-breakpoint('xs') {
-    background: var(--parsec-color-primary-100);
+    background: ms.color('surface-brand-default');
+    opacity: ms.opacity('10');
+
     &-xs {
       display: block;
     }

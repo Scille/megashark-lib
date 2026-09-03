@@ -4,7 +4,7 @@
   <div class="input-container">
     <span
       id="passwordLabel"
-      class="form-label"
+      class="input-label"
       :class="{ focused: hasFocus }"
       v-show="label"
       @click="setFocus()"
@@ -16,7 +16,7 @@
       :class="passwordIsInvalid ? 'input-invalid' : ''"
     >
       <ion-input
-        class="form-input input"
+        class="input"
         ref="input"
         aria-labelledby="passwordLabel"
         aria-hidden="false"

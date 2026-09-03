@@ -6,6 +6,7 @@ http://ionicframework.com/docs/theming/ */
 @use 'ionic' as ionic;
 @use 'variables' as variables;
 @use 'components' as components;
+@use '@lib/theme' as theme;
 
 /**** Global CSS overloads ****/
 
@@ -61,7 +62,11 @@ ion-checkbox {
 
 a {
   text-decoration: none;
-  color: var(--parsec-color-primary-500);
+  color: theme.color('text-brand-default');
+
+  &:hover {
+    color: theme.color('text-brand-default-hover');
+  }
 }
 
 svg {

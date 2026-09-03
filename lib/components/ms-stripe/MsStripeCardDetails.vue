@@ -8,9 +8,9 @@
   >
     <div class="ms-stripe-card-content">
       <div v-if="size === 'large'">
-        <p class="title-h4">{{ digits }}</p>
+        <p class="card-heading">{{ digits }}</p>
         <div class="row-fields">
-          <p class="title-h4">{{ expirationDate }}</p>
+          <p class="card-heading">{{ expirationDate }}</p>
         </div>
       </div>
     </div>
@@ -18,8 +18,8 @@
       class="ms-stripe-card--small-number"
       v-if="size === 'small'"
     >
-      <p class="subtitles-small number-digits">{{ digits }}</p>
-      <p class="subtitles-small number-expiration">{{ expirationDate }}</p>
+      <p class="number-digits">{{ digits }}</p>
+      <p class="number-expiration">{{ expirationDate }}</p>
     </div>
   </div>
 </template>
@@ -81,6 +81,10 @@ function getBrandImageUrl(brand: string): string {
       margin: 0;
     }
 
+    .card-heading {
+      @include ms.font('heading-h4');
+    }
+
     .row-fields {
       display: flex;
       gap: ms.spacing('gap-3xl');
@@ -113,15 +117,16 @@ function getBrandImageUrl(brand: string): string {
       flex-direction: column;
 
       .number-digits {
+        @include ms.font('label-sm-medium');
+
         color: ms.color('text-neutral-default');
-        font-size: 1rem;
-        font-weight: ms.font('weight-medium');
         margin: 0;
       }
 
       .number-expiration {
+        @include ms.font('label-sm-medium');
+
         color: ms.color('text-base-description');
-        font-size: 0.875rem;
         margin: 0;
       }
     }

@@ -1,6 +1,6 @@
 <template>
   <div class="example-block">
-    <ion-label class="title-h2">{{ $msTranslate(title) }}</ion-label>
+    <ion-label class="example-block__title">{{ $msTranslate(title) }}</ion-label>
     <slot />
   </div>
 </template>
@@ -13,28 +13,28 @@ defineProps<{ title: Translatable }>();
 </script>
 
 <style scoped lang="scss">
+@use '@lib/theme' as ms;
+
 .example-block {
-  // multiple lines for cross-browser compatibility
   width: 100%;
-  width: -webkit-fill-available;
-  width: stretch;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: start;
-  background-color: var(--parsec-color-secondary-surface);
-  border-radius: var(--parsec-radius-12);
-  box-shadow: var(--parsec-shadow-light);
+  background-color: ms.color('surface-base-default');
+  border-radius: ms.radius('2xl');
+  box-shadow: ms.shadow('light');
   --inner-padding-end: 0;
   overflow: visible;
 
-  ion-label.title-h2 {
-    background: var(--parsec-color-secondary-medium);
-    color: var(--parsec-color-secondary-text);
+  &__title {
+    background: ms.color('surface-base-page-secondary');
+    color: ms.color('text-base-body');
     width: 100%;
-    border-radius: var(--parsec-radius-8) var(--parsec-radius-8) 0 0;
+    border-radius: ms.radius('lg') ms.radius('lg') 0 0;
     margin: 0;
-    padding: 0.75em 1rem;
+    padding: 0.75em ms.spacing('padding-3xl');
+    @include ms.font('heading-h4');
   }
 }
 </style>

@@ -128,15 +128,15 @@ function getSorterLabel(): Translatable {
 }
 
 .sorter-list {
-  padding: ms.spacing('padding-2xl');
+  padding: ms.spacing('padding-md');
   display: flex;
-  gap: ms.spacing('gap-lg');
+  gap: ms.spacing('gap-sm');
   flex-direction: column;
 
   &__title {
     color: ms.color('text-base-description');
     opacity: ms.opacity('7');
-    margin-bottom: ms.spacing('padding-lg');
+    margin: ms.spacing('padding-md');
     @include ms.font('body-sm-regular');
   }
 
@@ -160,7 +160,7 @@ function getSorterLabel(): Translatable {
     }
 
     &::part(native) {
-      padding: ms.spacing('padding-md') ms.spacing('padding-2xl');
+      padding: ms.spacing('padding-lg') ms.spacing('padding-2xl');
     }
 
     &:hover:not(.item-disabled) {

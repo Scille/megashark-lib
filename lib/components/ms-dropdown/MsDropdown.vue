@@ -3,7 +3,7 @@
 <template>
   <div class="dropdown-container large">
     <ion-text
-      class="form-label"
+      class="input-label"
       v-if="title && appearanceRef === MsAppearance.Outline"
     >
       {{ $msTranslate(title) }}
@@ -176,8 +176,9 @@ function getIcon(): string {
     }
   }
 
-  .form-label {
+  .input-label {
     color: ms.color('text-base-label');
+    @include ms.font('label-md-medium');
   }
 
   &.large {

@@ -64,7 +64,7 @@ async function onOptionClick(option: MsOption): Promise<void> {
   padding: ms.spacing('padding-md');
   display: flex;
   flex-direction: column;
-  gap: ms.spacing('gap-lg');
+  gap: ms.spacing('gap-md');
 }
 
 // eslint-disable-next-line vue-scoped-css/no-unused-selector
@@ -91,7 +91,7 @@ async function onOptionClick(option: MsOption): Promise<void> {
   }
 
   &::part(native) {
-    padding: ms.spacing('padding-md') ms.spacing('padding-2xl');
+    padding: ms.spacing('padding-lg') ms.spacing('padding-2xl');
   }
 
   &-text {

@@ -6,7 +6,7 @@
         :key="`${i}`"
         aria-hidden="false"
         ref="inputs"
-        class="code-input-list__item title-h1"
+        class="code-input-list__item"
         :class="{ 'has-values': codes[i - 1] !== '' }"
         type="text"
         :inputmode="allowedInput === AllowedInput.Numeric ? 'numeric' : 'text'"
@@ -247,6 +247,7 @@ async function focusInputElement(input: HTMLIonInputElement | undefined): Promis
   }
 
   &__item {
+    @include ms.font('heading-h1');
     --highlight-color-focused: none;
     color: ms.color('text-base-body');
     background-color: ms.color('surface-base-default-secondary');
