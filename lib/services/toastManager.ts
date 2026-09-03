@@ -3,7 +3,7 @@
 import { toastController } from '@ionic/vue';
 import { MsReportTheme } from '@lib/components';
 import { I18n, Translatable, WindowSizeBreakpoints, getBreakpointFromWidth } from '@lib/services';
-import { checkmark, closeCircle, information, warning } from 'ionicons/icons';
+import { alertCircle, checkmarkCircle, informationCircle, warning } from 'ionicons/icons';
 
 const DEFAULT_TOAST_DURATION = 5000;
 
@@ -92,13 +92,13 @@ export class ToastManager {
   private _getIcon(theme: MsReportTheme): string {
     switch (theme) {
       case MsReportTheme.Info:
-        return information;
+        return informationCircle;
       case MsReportTheme.Success:
-        return checkmark;
+        return checkmarkCircle;
       case MsReportTheme.Warning:
         return warning;
       case MsReportTheme.Error:
-        return closeCircle;
+        return alertCircle;
     }
   }
 }

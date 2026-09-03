@@ -16,36 +16,36 @@ ion-toast.notification-toast {
   --start: var(--ms-toast-offset);
 
   @include ms.responsive-breakpoint('xs') {
-    --start: 1rem;
-    --end: 1rem;
+    --start: #{ms.spacing('padding-3xl')};
+    --end: #{ms.spacing('padding-3xl')};
   }
 
   &.ms-info {
-    --ms-notification-toast-text-color: var(--parsec-color-info-700);
-    --ms-notification-toast-border-color: var(--parsec-color-info-500);
-    --ms-notification-toast-progress-bg-color: var(--parsec-color-info-100);
-    --ms-notification-toast-progress-color: var(--parsec-color-info-500);
+    --ms-notification-toast-icon-color: #{ms.color('icon-information-default')};
+    --ms-notification-toast-border-color: #{ms.color('border-information-default')};
+    --ms-notification-toast-progress-bg-color: #{ms.color('surface-information-default-subtle')};
+    --ms-notification-toast-progress-color: #{ms.color('surface-information-default')};
   }
 
   &.ms-success {
-    --ms-notification-toast-text-color: var(--parsec-color-success-700);
-    --ms-notification-toast-border-color: var(--parsec-color-success-500);
-    --ms-notification-toast-progress-bg-color: var(--parsec-color-success-100);
-    --ms-notification-toast-progress-color: var(--parsec-color-success-500);
+    --ms-notification-toast-icon-color: #{ms.color('icon-success-default')};
+    --ms-notification-toast-border-color: #{ms.color('border-success-default')};
+    --ms-notification-toast-progress-bg-color: #{ms.color('surface-success-default-subtle')};
+    --ms-notification-toast-progress-color: #{ms.color('surface-success-default')};
   }
 
   &.ms-warning {
-    --ms-notification-toast-text-color: var(--parsec-color-warning-700);
-    --ms-notification-toast-border-color: var(--parsec-color-warning-500);
-    --ms-notification-toast-progress-bg-color: var(--parsec-color-warning-100);
-    --ms-notification-toast-progress-color: var(--parsec-color-warning-500);
+    --ms-notification-toast-icon-color: #{ms.color('icon-warning-default')};
+    --ms-notification-toast-border-color: #{ms.color('border-warning-default')};
+    --ms-notification-toast-progress-bg-color: #{ms.color('surface-warning-default-subtle')};
+    --ms-notification-toast-progress-color: #{ms.color('surface-warning-default')};
   }
 
   &.ms-error {
-    --ms-notification-toast-text-color: var(--parsec-color-danger-700);
-    --ms-notification-toast-border-color: var(--parsec-color-danger-500);
-    --ms-notification-toast-progress-bg-color: var(--parsec-color-danger-100);
-    --ms-notification-toast-progress-color: var(--parsec-color-danger-500);
+    --ms-notification-toast-icon-color: #{ms.color('icon-error-default')};
+    --ms-notification-toast-border-color: #{ms.color('border-error-default')};
+    --ms-notification-toast-progress-bg-color: #{ms.color('surface-error-default-subtle')};
+    --ms-notification-toast-progress-color: #{ms.color('surface-error-default')};
   }
 
   &.ms-info,
@@ -53,24 +53,24 @@ ion-toast.notification-toast {
   &.ms-warning,
   &.ms-error {
     &::part(container) {
-      --background: var(--parsec-color-secondary-background);
+      --background: #{ms.color('surface-base-default-secondary')};
       --border-color: var(--ms-notification-toast-border-color);
-      --border-radius: var(--parsec-radius-12);
-      --button-color: var(--parsec-color-secondary-text);
-      color: var(--ms-notification-toast-text-color);
+      --border-radius: #{ms.radius('2xl')};
+      --button-color: #{ms.color('text-base-body')};
+      color: ms.color('text-base-heading');
     }
   }
 
   &::part(container) {
-    background-color: var(--parsec-color-secondary-inversed-contrast);
-    border-radius: var(--parsec-radius-12);
+    background-color: ms.color('surface-base-page');
+    border-radius: ms.radius('2xl');
     overflow: hidden;
     max-width: 27rem;
-    padding: 0.5rem 1rem;
+    padding: #{ms.spacing('padding-md')} #{ms.spacing('padding-3xl')};
     position: relative;
-    margin: 0.5rem auto 2rem;
+    margin: #{ms.spacing('padding-lg')} auto #{ms.spacing('padding-5xl')};
     bottom: 0;
-    box-shadow: var(--parsec-shadow-light);
+    box-shadow: ms.shadow('elevation-lg');
 
     &::before {
       content: '';
@@ -78,7 +78,7 @@ ion-toast.notification-toast {
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 0.25rem;
+      height: #{ms.spacing('padding-xs')};
       background: var(--ms-notification-toast-progress-bg-color);
     }
 
@@ -88,7 +88,7 @@ ion-toast.notification-toast {
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 0.25rem;
+      height: #{ms.spacing('padding-xs')};
       background: var(--ms-notification-toast-progress-color);
     }
   }
@@ -106,23 +106,34 @@ ion-toast.notification-toast {
     display: none;
   }
 
+  &::part(content) {
+    padding: ms.spacing('padding-xl') ms.spacing('padding-2xl');
+  }
+
+  &::part(header) {
+    color: ms.color('text-base-body');
+  }
+
   &::part(message) {
-    color: var(--parsec-color-secondary-text);
+    color: ms.color('text-base-description');
   }
 
   &::part(icon) {
     margin: 0;
-    padding: 0.25rem;
-    background: var(--ms-notification-toast-text-color);
-    border-radius: var(--parsec-radius-8);
-    color: var(--parsec-color-secondary-inversed-contrast);
+    padding: ms.spacing('padding-sm');
+    background: ms.color('surface-base-default-secondary');
+    border-radius: ms.radius('lg');
+    border: 0.5px solid ms.color('border-base-default');
+    color: var(--ms-notification-toast-icon-color);
   }
 
   &::part(button) {
-    background: var(--parsec-color-secondary-background);
-    padding: 0.375rem 0.75rem;
-    font-size: 0.875rem;
+    background: ms.color('surface-base-default-secondary');
+    padding: ms.spacing('padding-md') ms.spacing('padding-xl');
+    border: ms.border('thin') solid ms.color('border-base-default');
     min-height: 0;
-    letter-spacing: 0.015rem;
+    border-radius: ms.radius('lg');
+    box-shadow: ms.shadow('input');
+    @include ms.font('label-sm-medium');
   }
 }
