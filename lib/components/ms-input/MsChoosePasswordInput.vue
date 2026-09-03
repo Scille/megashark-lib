@@ -134,32 +134,33 @@ function clear(): void {
 .choose-password {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: ms.spacing('gap-3xl');
 }
 
 .info {
-  background: var(--parsec-color-primary-30);
+  background: ms.color('surface-brand-default-subtle');
   display: flex;
   align-items: center;
-  gap: 0.625rem;
+  gap: ms.spacing('gap-md');
   width: 100%;
-  padding: 0.625rem;
-  border-radius: var(--parsec-radius-6);
+  padding: ms.spacing('padding-xl');
+  border-radius: ms.radius('xl');
   margin-bottom: 0.5rem;
 
   &__img {
-    width: 1.75rem;
-    height: 1.75rem;
+    width: 1.5rem;
+    height: 1.5rem;
   }
 
   &__text {
-    color: var(--parsec-color-secondary-text);
+    color: ms.color('text-base-body');
+    @include ms.font('body-lg-medium');
   }
 }
 
 .inputs-container {
   display: flex;
-  gap: 1.5rem;
+  gap: ms.spacing('gap-3xl');
 
   @include ms.responsive-breakpoint('sm') {
     flex-direction: column;
@@ -177,32 +178,36 @@ function clear(): void {
 .password-criteria {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: ms.spacing('gap-lg');
 
   &__title {
-    color: var(--parsec-color-secondary-grey);
+    color: ms.color('text-base-description');
+    opacity: ms.opacity('6');
+    @include ms.font('body-md-medium');
   }
 
   &-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5em;
+    gap: ms.spacing('gap-lg');
   }
 
   &__item {
     display: flex;
     align-items: center;
-    padding: 0 0.5rem;
-    gap: 0.5em;
-    background: var(--parsec-color-secondary-premiere);
-    color: var(--parsec-color-secondary-hard-grey);
+    padding: ms.spacing('padding-none') ms.spacing('padding-lg');
+    gap: ms.spacing('gap-md');
+    background: ms.color('surface-base-page-secondary');
+    color: ms.color('text-base-description');
     margin: 0;
-    border-radius: var(--parsec-radius-12);
+    border-radius: ms.radius('3xl');
+    @include ms.font('body-md-regular');
 
     &.matches {
-      color: var(--parsec-color-success-700);
-      background: var(--parsec-color-success-50);
+      color: ms.color('text-success-default');
+      background: ms.color('surface-success-default-subtle');
       font-weight: 500;
+      box-shadow: ms.shadow('input');
     }
   }
 }
