@@ -111,43 +111,43 @@ async function changeLang(lang: Locale): Promise<void> {
 @use '@lib/theme' as ms;
 
 .page {
-  --border-radius: var(--parsec-radius-8);
+  --border-radius: #{ms.radius('lg')};
   --background: none;
 
   &-content {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: ms.spacing('gap-4xl');
   }
 
   .menu {
     display: flex;
-    gap: 2rem;
+    gap: ms.spacing('gap-5xl');
 
     @include ms.responsive-breakpoint('sm') {
       flex-direction: column;
-      gap: 1rem;
+      gap: ms.spacing('gap-3xl');
     }
   }
 
   .menu-list {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: ms.spacing('gap-lg');
     width: 100%;
     max-width: 11.25rem;
 
     // eslint-disable-next-line vue-scoped-css/no-unused-selector
     &__item {
-      color: var(--parsec-color-secondary-grey);
-      border-radius: var(--parsec-radius-6);
+      color: ms.color('text-base-label');
+      border-radius: ms.radius('md');
 
       .item-container {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0.375rem 0.75em;
-        gap: 0.375rem;
+        padding: ms.spacing('padding-lg') ms.spacing('padding-2xl');
+        gap: ms.spacing('gap-md');
       }
 
       &::part(container) {
@@ -155,13 +155,13 @@ async function changeLang(lang: Locale): Promise<void> {
       }
 
       &.radio-checked {
-        color: var(--parsec-color-secondary-text);
-        background: var(--parsec-color-secondary-premiere);
+        color: ms.color('text-base-body');
+        background: ms.color('surface-neutral-default-subtle');
       }
 
       &:hover:not(.radio-checked) {
-        background: var(--parsec-color-secondary-premiere);
-        color: var(--parsec-color-secondary-text);
+        background: ms.color('surface-neutral-default-subtle-hover');
+        color: ms.color('text-base-body');
       }
 
       ion-icon {
@@ -179,9 +179,10 @@ async function changeLang(lang: Locale): Promise<void> {
     .settings-list {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      padding-top: 0px;
-      padding-bottom: 0px;
+      gap: ms.spacing('gap-4xl');
+      padding-top: ms.spacing('padding-none');
+      padding-bottom: ms.spacing('padding-none');
+      background: transparent;
     }
   }
 
