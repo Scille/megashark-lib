@@ -1,7 +1,10 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <ion-list class="container">
+  <ion-list
+    class="dropdown-list"
+    id="address-dropdown-list"
+  >
     <ion-item
       class="option"
       button
@@ -11,10 +14,10 @@
       @click="$emit('addressSelected', addr)"
     >
       <ion-text class="option-text">
-        <span class="option-text__label subtitles-sm">
+        <span class="option-text__label">
           {{ addr.address }}
         </span>
-        <span class="option-text__description subtitles-sm">
+        <span class="option-text__description">
           {{ `${addr.city}, ${addr.country}` }}
         </span>
       </ion-text>
@@ -36,51 +39,69 @@ defineEmits<{
 </script>
 
 <style lang="scss" scoped>
-.container {
-  padding: 0.5rem 0;
+@use '@lib/theme' as ms;
+
+.dropdown-list {
+  padding: ms.spacing('padding-md');
   display: flex;
   flex-direction: column;
   position: absolute;
   width: 100%;
-  border: 1px solid var(--parsec-color-secondary-medium);
-  background: var(--parsec-color-secondary-surface);
-  border-radius: var(--parsec-radius-8);
-  margin-top: 0.5rem;
+  border: ms.border('thin') solid ms.color('border-base-default');
+  background: ms.color('surface-base-default');
+  border-radius: ms.radius('lg');
+  margin-top: ms.spacing('padding-lg');
   z-index: 12;
+  gap: ms.spacing('gap-sm');
 }
 
+// eslint-disable-next-line vue-scoped-css/no-unused-selector
 .option {
-  --background-hover: none;
-  --color: var(--parsec-color-secondary-hard-grey);
-  padding: 0.75rem 1rem;
   --background: none;
+  --background-hover: none;
+  --color: #{ms.color('text-base-description')};
+  border-radius: ms.radius('md');
   --min-height: 0;
   --inner-padding-end: 0;
-  --ripple-color: transparent;
   position: relative;
   z-index: 2;
   pointer-events: auto;
   cursor: pointer;
 
-  &:hover:not(.item-disabled) {
-    background: var(--parsec-color-primary-30);
-    --background-hover: var(--parsec-color-primary-30);
-  }
   &::part(native) {
-    padding: 0;
+    padding: ms.spacing('padding-xl') ms.spacing('padding-2xl');
   }
+
+  &:hover:not(.item-disabled) {
+    background: ms.color('surface-neutral-default-subtle-hover');
+    --background-hover: #{ms.color('surface-neutral-default-subtle-hover')};
+
+    .option-text {
+      &__label {
+        color: ms.color('text-neutral-default-hover');
+      }
+    }
+  }
+
   &-text {
     margin: 0;
     display: flex;
-    gap: 0.375rem;
+    gap: ms.spacing('gap-sm');
 
     &__label {
-      color: var(--parsec-color-secondary-text);
+      color: ms.color('text-base-body');
+      @include ms.font('label-md-medium');
     }
 
     &__description {
-      color: var(--parsec-color-secondary-grey);
+      @include ms.font('body-sm-regular');
+      color: ms.color('text-base-description');
     }
+  }
+
+  &.ion-focused {
+    box-shadow: ms.shadow('focus-brand');
+    --background-focused: ms.color('surface-base-default');
   }
 }
 </style>
