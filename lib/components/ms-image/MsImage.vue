@@ -28,5 +28,10 @@ function isSvg(imageData: string): boolean {
 .svg-container {
   color: var(--fill-color, ms.color('surface-brand-default'));
   display: flex;
+
+  :deep(svg) {
+    width: 100%;
+    height: auto;
+  }
 }
 </style>
