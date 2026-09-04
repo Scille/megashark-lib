@@ -24,7 +24,7 @@ defineProps<{ title: Translatable }>();
   background-color: ms.color('surface-base-default');
   border-radius: ms.radius('2xl');
   box-shadow: ms.shadow('light');
-  --inner-padding-end: 0;
+  --inner-padding-end: #{ms.spacing('padding-none')};
   overflow: visible;
 
   &__title {

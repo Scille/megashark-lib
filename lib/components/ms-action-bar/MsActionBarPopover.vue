@@ -93,7 +93,7 @@ async function handleClick(btn: any): Promise<void> {
     cursor: pointer;
 
     &::part(native) {
-      --inner-padding-end: 0;
+      --inner-padding-end: #{ms.spacing('padding-none')};
       padding: 0;
     }
 

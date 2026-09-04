@@ -49,7 +49,7 @@
         "confirmButtonLabel": "Confirm"
       },
       "msSorter": {
-        "sortBy": "Sort by:",
+        "sortBy": "Sort by",
         "asc": "Ascending",
         "desc": "Descending"
       },

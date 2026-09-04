@@ -235,6 +235,7 @@ onUnmounted(() => {
   width: -webkit-fill-available;
   --inner-padding-end: ms.spacing('padding-none');
   box-shadow: none;
+  min-height: 3rem;
 }
 
 .action-bar {

@@ -168,10 +168,9 @@ function getIcon(): string {
 
   .active {
     --background: #{ms.color('surface-neutral-default-subtle')};
-    box-shadow: ms.shadow('focus-brand');
-    border-radius: ms.radius('lg');
 
     &::part(native) {
+      box-shadow: ms.shadow('focus-brand');
       border: ms.border('thin') solid ms.color('border-brand-default');
     }
   }
