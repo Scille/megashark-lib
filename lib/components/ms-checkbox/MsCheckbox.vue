@@ -211,14 +211,14 @@ async function onChange(_event: Event): Promise<void> {
   transform: rotate(45deg) scale(1.25);
   opacity: 1;
   top: 9px;
-  right: 8px;
+  right: 9px;
 }
 
 .ms-checkbox:checked::after {
   transform: rotate(-50deg) scale(1.25);
   opacity: 1;
   top: 7px;
-  right: 2.3px;
+  right: 3px;
 }
 
 .ms-checkbox[ms-indeterminate='true'] {

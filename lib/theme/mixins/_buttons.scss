@@ -60,7 +60,7 @@ $button-sizes: (
     max-width: map.get($props, icon-size);
   }
 
-  &:has(:not(.button-has-icon-only)) {
+  &:has(:not([slot='icon-only'])) {
     .button-icon-right {
       margin-left: $gap;
     }

@@ -62,7 +62,7 @@ defineEmits<{
   --color: #{ms.color('text-base-description')};
   border-radius: ms.radius('md');
   --min-height: 0;
-  --inner-padding-end: 0;
+  --inner-padding-end: #{ms.spacing('padding-none')};
   position: relative;
   z-index: 2;
   pointer-events: auto;

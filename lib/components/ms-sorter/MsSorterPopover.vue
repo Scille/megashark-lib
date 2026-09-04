@@ -103,6 +103,7 @@ function getSorterLabel(): Translatable {
   transition: transform 0.2s ease-in-out;
   border-bottom: ms.border('thin') solid ms.color('border-base-default');
   cursor: pointer;
+  @include ms.font('label-md-medium');
 
   &::part(native) {
     width: auto;
@@ -136,8 +137,8 @@ function getSorterLabel(): Translatable {
   &__title {
     color: ms.color('text-base-description');
     opacity: ms.opacity('7');
-    margin: ms.spacing('padding-md');
-    @include ms.font('body-sm-regular');
+    margin: 0.25rem 0.5rem;
+    @include ms.font('body-sm-medium');
   }
 
   // eslint-disable-next-line vue-scoped-css/no-unused-selector
@@ -147,7 +148,7 @@ function getSorterLabel(): Translatable {
     --color: #{ms.color('text-base-body')};
     border-radius: ms.radius('md');
     --min-height: 0;
-    --inner-padding-end: 0;
+    --inner-padding-end: #{ms.spacing('padding-none')};
     position: relative;
     z-index: 2;
     pointer-events: auto;

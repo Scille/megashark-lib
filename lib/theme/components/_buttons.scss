@@ -31,12 +31,12 @@ ion-button.button-small {
   @include ms.button-size(small);
 }
 
-ion-button.button-default {
-  @include ms.button-size(medium);
-}
-
 ion-button.button-large {
   @include ms.button-size(large);
+}
+
+ion-button:not(.button-small):not(.button-large) {
+  @include ms.button-size(medium);
 }
 
 /* button default */
