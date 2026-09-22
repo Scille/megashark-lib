@@ -437,6 +437,10 @@
         {{ $msTranslate('usage.components.dateTimePicker.formatShort') }}
         {{ $msTranslate(I18n.formatDate(DateTime.fromJSDate(selectedDateTime), 'short')) }}
       </div>
+      <div class="date-block">
+        {{ $msTranslate('usage.components.dateTimePicker.formatISO') }}
+        {{ $msTranslate(I18n.formatDate(DateTime.fromJSDate(selectedDateTime), 'iso8601')) }}
+      </div>
     </example-block-line>
   </example-block>
 
