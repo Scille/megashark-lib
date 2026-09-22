@@ -421,7 +421,26 @@
         :max-date="DateTime.now().plus({ days: 7 }).toJSDate()"
         :locale="I18n.getLocale()"
       />
-      {{ DateTime.fromJSDate(selectedDateTime).toISO() }}
+      <div class="date-block">
+        {{ $msTranslate('usage.components.dateTimePicker.formatLong') }}
+        {{ $msTranslate(I18n.formatDate(DateTime.fromJSDate(selectedDateTime), 'long')) }}
+      </div>
+      <div class="date-block">
+        {{ $msTranslate('usage.components.dateTimePicker.formatFull') }}
+        {{ $msTranslate(I18n.formatDate(DateTime.fromJSDate(selectedDateTime), 'full')) }}
+      </div>
+      <div class="date-block">
+        {{ $msTranslate('usage.components.dateTimePicker.formatNarrow') }}
+        {{ $msTranslate(I18n.formatDate(DateTime.fromJSDate(selectedDateTime), 'narrow')) }}
+      </div>
+      <div class="date-block">
+        {{ $msTranslate('usage.components.dateTimePicker.formatShort') }}
+        {{ $msTranslate(I18n.formatDate(DateTime.fromJSDate(selectedDateTime), 'short')) }}
+      </div>
+      <div class="date-block">
+        {{ $msTranslate('usage.components.dateTimePicker.formatISO') }}
+        {{ $msTranslate(I18n.formatDate(DateTime.fromJSDate(selectedDateTime), 'iso8601')) }}
+      </div>
     </example-block-line>
   </example-block>
 
@@ -921,5 +940,10 @@ function onSliderPlayClicked(): void {
   align-items: center;
   height: 5em;
   background-color: red;
+}
+
+.date-block {
+  width: 50em;
+  flex-direction: column;
 }
 </style>

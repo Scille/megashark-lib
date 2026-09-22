@@ -217,7 +217,12 @@
         }
       },
       "dateTimePicker": {
-        "title": "Date Time Picker"
+        "title": "Date Time Picker",
+        "formatLong": "Long:",
+        "formatFull": "Full:",
+        "formatNarrow": "Narrow:",
+        "formatShort": "Short:",
+        "formatISO": "ISO8601:"
       },
       "slider": {
         "title": "Slider"

@@ -22,7 +22,7 @@ export interface TranslationData {
 export type Translatable = string | TranslationData;
 
 export type Locale = 'fr-FR' | 'en-US';
-export type DateFormat = 'long' | 'short' | 'narrow';
+export type DateFormat = 'long' | 'short' | 'narrow' | 'full' | 'iso8601';
 
 export interface LocaleOption {
   key: Locale;
@@ -148,6 +148,14 @@ function init(config?: I18nConfig): any {
           hour: 'numeric',
           minute: 'numeric',
         },
+        full: {
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+          second: 'numeric',
+        },
       },
       'fr-FR': {
         narrow: {
@@ -166,6 +174,14 @@ function init(config?: I18nConfig): any {
           weekday: 'long',
           hour: 'numeric',
           minute: 'numeric',
+        },
+        full: {
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+          second: 'numeric',
         },
       },
     },
@@ -194,6 +210,10 @@ function formatCurrency(total: number): string {
 }
 
 function formatDate(date: DateTime, format: DateFormat = 'long'): Translatable {
+  if (format === 'iso8601') {
+    return { key: 'lib.services.translation.date.asIs', data: { date: date.toISO({ includeOffset: true, precision: 'milliseconds' }) } };
+  }
+
   const { d } = i18n.global;
 
   // Bit of a trickery.
