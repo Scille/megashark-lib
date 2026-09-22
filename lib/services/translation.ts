@@ -22,7 +22,7 @@ export interface TranslationData {
 export type Translatable = string | TranslationData;
 
 export type Locale = 'fr-FR' | 'en-US';
-export type DateFormat = 'long' | 'short' | 'narrow';
+export type DateFormat = 'long' | 'short' | 'narrow' | 'full';
 
 export interface LocaleOption {
   key: Locale;
@@ -148,6 +148,14 @@ function init(config?: I18nConfig): any {
           hour: 'numeric',
           minute: 'numeric',
         },
+        full: {
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+          second: 'numeric',
+        },
       },
       'fr-FR': {
         narrow: {
@@ -166,6 +174,14 @@ function init(config?: I18nConfig): any {
           weekday: 'long',
           hour: 'numeric',
           minute: 'numeric',
+        },
+        full: {
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+          second: 'numeric',
         },
       },
     },
