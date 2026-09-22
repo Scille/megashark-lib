@@ -221,7 +221,8 @@
         "formatLong": "Long:",
         "formatFull": "Full:",
         "formatNarrow": "Narrow:",
-        "formatShort": "Short:"
+        "formatShort": "Short:",
+        "formatISO": "ISO8601:"
       },
       "slider": {
         "title": "Slider"

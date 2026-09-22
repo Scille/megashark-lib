@@ -222,7 +222,8 @@
         "formatLong": "Long :",
         "formatFull": "Complet :",
         "formatNarrow": "Étroit :",
-        "formatShort": "Court :"
+        "formatShort": "Court :",
+        "formatISO": "ISO8601 :"
       },
       "slider": {
         "title": "Slider"
