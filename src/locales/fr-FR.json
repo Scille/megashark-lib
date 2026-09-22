@@ -218,7 +218,11 @@
         }
       },
       "dateTimePicker": {
-        "title": "Sélecteur de date et heure"
+        "title": "Sélecteur de date et heure",
+        "formatLong": "Long :",
+        "formatFull": "Complet :",
+        "formatNarrow": "Étroit :",
+        "formatShort": "Court :"
       },
       "slider": {
         "title": "Slider"
