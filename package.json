@@ -34,8 +34,8 @@
     "knip:fix": "knip --fix"
   },
   "peerDependencies": {
-    "@ionic/core": "^8.8.1",
-    "@ionic/vue": "^8.8.1",
+    "@ionic/core": "^9.0.5",
+    "@ionic/vue": "^9.0.5",
     "luxon": "^3.4.4",
     "vue": "^3.5.41",
     "vue-i18n": "^11.3.0"
@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@ionic/vue-router": "^8.8.16",
+    "@ionic/vue-router": "^9.0.5",
     "@types/luxon": "^3.3.4",
     "@types/node": "^26.4.0",
     "@typescript-eslint/parser": "^8.65.0",
@@ -75,7 +75,7 @@
     "vite-plugin-lib-inject-css": "^2.2.2",
     "vitest": "^4.1.10",
     "vue-eslint-parser": "^10.4.1",
-    "vue-router": "^5.2.0",
+    "vue-router": "^5.3.1",
     "vue-tsc": "^3.3.9"
   },
   "description": "The megashark-lib UI component library"
