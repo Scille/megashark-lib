@@ -58,6 +58,18 @@ ion-button:not(.button-outline):not(.button-clear) {
       box-shadow: ms.shadow('focus-neutral');
     }
   }
+
+  &.color-danger {
+    --background: #{ms.color('surface-error-default')};
+    --background-hover: #{ms.color('surface-error-default-hover')};
+    --background-hover-opacity: none;
+    --background-activated: #{ms.color('surface-error-default-pressed')};
+    --background-focused: #{ms.color('surface-error-default-hover')};
+
+    &.ion-focused::part(native) {
+      box-shadow: ms.shadow('focus-error');
+    }
+  }
 }
 
 /* button outline */
