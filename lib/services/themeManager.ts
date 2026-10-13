@@ -1,5 +1,7 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
+import { Ref, readonly, ref } from 'vue';
+
 enum Theme {
   Light = 'light',
   Dark = 'dark',
@@ -87,4 +89,26 @@ class ThemeManager {
   }
 }
 
-export { Theme, ThemeManager };
+interface _ThemeAttributes {
+  isDarkTheme: Readonly<Ref<boolean>>;
+}
+
+let _isDarkTheme: Ref<boolean> | undefined;
+
+function _bodyHasDarkTheme(): boolean {
+  return document.body.classList.contains(`ms-theme-${Theme.Dark}`);
+}
+
+// Reads the theme class set by ThemeManager on the body, so it works without inject (modals, plain files)
+function useTheme(): _ThemeAttributes {
+  if (!_isDarkTheme) {
+    const isDarkTheme = ref(_bodyHasDarkTheme());
+    new MutationObserver(() => {
+      isDarkTheme.value = _bodyHasDarkTheme();
+    }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    _isDarkTheme = isDarkTheme;
+  }
+  return { isDarkTheme: readonly(_isDarkTheme) };
+}
+
+export { Theme, ThemeManager, useTheme };
