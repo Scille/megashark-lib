@@ -119,6 +119,21 @@
   --parsec-font-body-sm-regular-letter-spacing: normal;
   --parsec-font-body-sm-regular-weight: var(--parsec-font-weight-regular);
 
+  --parsec-font-body-xs-bold-text-size: var(--parsec-root-font-size-2xs);
+  --parsec-font-body-xs-bold-line-height: var(--parsec-root-line-height-md);
+  --parsec-font-body-xs-bold-letter-spacing: normal;
+  --parsec-font-body-xs-bold-weight: var(--parsec-font-weight-bold);
+
+  --parsec-font-body-xs-medium-text-size: var(--parsec-root-font-size-2xs);
+  --parsec-font-body-xs-medium-line-height: var(--parsec-root-line-height-md);
+  --parsec-font-body-xs-medium-letter-spacing: normal;
+  --parsec-font-body-xs-medium-weight: var(--parsec-font-weight-medium);
+
+  --parsec-font-body-xs-regular-text-size: var(--parsec-root-font-size-2xs);
+  --parsec-font-body-xs-regular-line-height: var(--parsec-root-line-height-md);
+  --parsec-font-body-xs-regular-letter-spacing: normal;
+  --parsec-font-body-xs-regular-weight: var(--parsec-font-weight-regular);
+
   // ----- label (emphasis / medium per size) -----
   --parsec-font-label-lg-emphasis-text-size: var(--parsec-root-font-size-md);
   --parsec-font-label-lg-emphasis-line-height: normal;
