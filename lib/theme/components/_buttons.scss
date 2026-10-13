@@ -8,6 +8,7 @@ ion-button {
   text-transform: none;
   --border-radius: #{ms.radius('lg')};
   --box-shadow: none;
+  --border-width: 1px;
   margin-inline-start: 0;
   margin-inline-end: 0;
   margin: 0;
@@ -58,6 +59,18 @@ ion-button:not(.button-outline):not(.button-clear) {
       box-shadow: ms.shadow('focus-neutral');
     }
   }
+
+  &.color-danger {
+    --background: #{ms.color('surface-error-default')};
+    --background-hover: #{ms.color('surface-error-default-hover')};
+    --background-hover-opacity: none;
+    --background-activated: #{ms.color('surface-error-default-pressed')};
+    --background-focused: #{ms.color('surface-error-default-hover')};
+
+    &.ion-focused::part(native) {
+      box-shadow: ms.shadow('focus-error');
+    }
+  }
 }
 
 /* button outline */
@@ -66,10 +79,9 @@ ion-button.button-outline {
     box-shadow: ms.shadow('input');
   }
 
-  --border-color: #{ms.color('border-base-default')};
-  --border-width: #{ms.border('thin')};
-  --color: #{ms.color('text-base-label')};
-  --color-hover: #{ms.color('text-neutral-default-hover')};
+  --border-color: #{ms.color('border-brand-default')};
+  --color: #{ms.color('text-brand-default')};
+  --color-hover: #{ms.color('text-brand-default-hover')};
   --background: #{ms.color('surface-base-default')};
   --background-hover: #{ms.color('surface-base-default')};
   --background-hover-opacity: none;
@@ -88,10 +100,11 @@ ion-button.button-outline {
     }
   }
 
-  &.color-primary {
-    --border-color: #{ms.color('border-brand-default')};
-    --color: #{ms.color('text-brand-default')};
-    --color-hover: #{ms.color('text-brand-default-hover')};
+  &.color-secondary {
+    --border-color: #{ms.color('border-neutral-default-subtle')};
+    --border-width: #{ms.border('thin')};
+    --color: #{ms.color('text-base-label')};
+    --color-hover: #{ms.color('text-neutral-default-hover')};
     --background: #{ms.color('surface-base-default')};
     --background-hover: #{ms.color('surface-base-default')};
     --background-hover-opacity: none;
@@ -101,6 +114,12 @@ ion-button.button-outline {
     &.ion-focused::part(native) {
       box-shadow: ms.shadow('focus-brand');
     }
+  }
+
+  &[slot='icon-only'] {
+    --background: #{ms.color('surface-base-default')};
+    --background-hover: #{ms.color('surface-neutral-default-subtle-hover')};
+    --background-focused: #{ms.color('surface-neutral-default-subtle-pressed')};
   }
 }
 
@@ -112,9 +131,42 @@ ion-button.button-outline {
   --background: #{ms.color('surface-brand-default-subtle')};
   --background-hover: #{ms.color('surface-brand-default-subtle-hover')};
   --background-hover-opacity: none;
+
+  &.color-secondary {
+    --color: #{ms.color('text-neutral-default')};
+    --color-hover: #{ms.color('text-neutral-default-hover')};
+    --background: #{ms.color('surface-neutral-default-subtle')};
+    --background-hover: #{ms.color('surface-neutral-default-subtle-hover')};
+    --background-hover-opacity: none;
+    --background-activated: #{ms.color('surface-neutral-default-subtle-pressed')};
+    --background-focused: #{ms.color('surface-neutral-default-subtle-hover')};
+
+    &.ion-focused::part(native) {
+      box-shadow: ms.shadow('focus-neutral');
+    }
+  }
 }
 
-.danger {
+ion-button.link {
+  width: fit-content !important;
+  max-width: fit-content !important;
+  min-height: 1.5rem !important;
+  background: none !important;
+  min-width: 0 !important;
+
+  &::part(native) {
+    --background: none;
+    --background-hover: none;
+    --background-hover: none;
+    padding: ms.spacing('padding-none');
+  }
+
+  &:hover {
+    color: ms.color('text-brand-default-hover');
+  }
+}
+
+ion-button.danger {
   color: #{ms.color('text-error-default')};
   --background-hover: #{ms.color('surface-error-default-subtle-pressed')} !important;
 }
