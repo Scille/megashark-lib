@@ -14,9 +14,11 @@
 ion-modal {
   --height: auto;
   --max-height: auto;
+  --background: #{ms.color('surface-base-default')};
 
   &::part(content) {
     border-radius: ms.radius('2xl');
+    border: ms.border('thin') solid ms.color('border-neutral-default-subtle');
   }
 
   @media screen and (min-width: 768px) {
