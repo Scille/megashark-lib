@@ -220,6 +220,7 @@ async function confirm(): Promise<boolean> {
     --padding: 0;
     --min-height: 0;
     --margin-inline: 0;
+    --background: transparent;
 
     @include ms.responsive-breakpoint('sm') {
       margin-top: 0 !important;

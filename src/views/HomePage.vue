@@ -64,7 +64,7 @@ const category = ref<Category>(Category.Components);
   align-items: start;
   gap: ms.spacing('gap-5xl');
   padding: ms.spacing('padding-7xl');
-  background: ms.color('surface-base-default-secondary');
+  background: ms.color('surface-base-page');
 
   @include ms.responsive-breakpoint('sm') {
     padding: ms.spacing('padding-5xl');
