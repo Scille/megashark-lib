@@ -23,7 +23,7 @@ ion-popover {
 
   &::part(content) {
     border-radius: var(--popover-border-radius);
-    border: none;
+    border: ms.border('thin') solid ms.color('border-neutral-default-subtle');
   }
 }
 
