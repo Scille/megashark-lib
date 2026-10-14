@@ -14,6 +14,13 @@ ion-button {
   flex-shrink: 0;
   letter-spacing: 0;
 
+  &::part(native) {
+    --background: none !important;
+    --background-hover: none !important;
+    --background-hover: none !important;
+    padding: ms.spacing('padding-none') !important;
+  }
+
   @include ms.button-size(medium);
 
   &.ios {
@@ -114,6 +121,12 @@ ion-button.button-outline {
       box-shadow: ms.shadow('focus-brand');
     }
   }
+
+  &[slot='icon-only'] {
+    --background: #{ms.color('surface-base-default')};
+    --background-hover: inherit;
+    --background-focused: inherit;
+  }
 }
 
 /* ghost */
@@ -126,7 +139,18 @@ ion-button.button-outline {
   --background-hover-opacity: none;
 }
 
-.danger {
+ion-button.link {
+  width: fit-content !important;
+  max-width: fit-content !important;
+  min-height: 1.5rem !important;
+  background: none !important;
+
+  &:hover {
+    color: ms.color('text-brand-default-hover');
+  }
+}
+
+ion-button.danger {
   color: #{ms.color('text-error-default')};
   --background-hover: #{ms.color('surface-error-default-subtle-pressed')} !important;
 }
