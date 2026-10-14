@@ -14,12 +14,12 @@ ion-button {
   flex-shrink: 0;
   letter-spacing: 0;
 
-  &::part(native) {
-    --background: none !important;
-    --background-hover: none !important;
-    --background-hover: none !important;
-    padding: ms.spacing('padding-none') !important;
-  }
+  // &::part(native) {
+  //   --background: none;
+  //   --background-hover: none;
+  //   --background-hover: none;
+  //   padding: ms.spacing('padding-none');
+  // }
 
   @include ms.button-size(medium);
 
