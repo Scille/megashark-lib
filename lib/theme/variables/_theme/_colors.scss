@@ -316,7 +316,7 @@ body.ms-theme-dark {
   --parsec-color-surface-gradient-to-hover: var(--parsec-color-brand-200);
   --parsec-color-surface-gradient-to: var(--parsec-color-brand-300);
 
-  --parsec-color-surface-brand-default: color-mix(in srgb, var(--parsec-color-brand-500) 50%, transparent);
+  --parsec-color-surface-brand-default: var(--parsec-color-brand-500);
   --parsec-color-surface-brand-default-hover: color-mix(in srgb, var(--parsec-color-brand-400) 50%, transparent);
   --parsec-color-surface-brand-default-pressed: color-mix(in srgb, var(--parsec-color-brand-400) 40%, transparent);
   --parsec-color-surface-brand-default-subtle: color-mix(in srgb, var(--parsec-color-brand-800) 50%, transparent);
