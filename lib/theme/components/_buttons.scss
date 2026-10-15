@@ -8,6 +8,7 @@ ion-button {
   text-transform: none;
   --border-radius: #{ms.radius('lg')};
   --box-shadow: none;
+  --border-width: 1px;
   margin-inline-start: 0;
   margin-inline-end: 0;
   margin: 0;
@@ -107,7 +108,7 @@ ion-button.button-outline {
   }
 
   &.color-secondary {
-    --border-color: #{ms.color('border-base-default')};
+    --border-color: #{ms.color('border-neutral-default-subtle')};
     --border-width: #{ms.border('thin')};
     --color: #{ms.color('text-base-label')};
     --color-hover: #{ms.color('text-neutral-default-hover')};
