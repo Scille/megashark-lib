@@ -5,7 +5,7 @@
     fill="outline"
     @click="openPopover($event)"
     id="select-popover-button"
-    class="sorter-button"
+    class="sorter-button color-secondary"
     :disabled="disabled"
   >
     <ion-icon
