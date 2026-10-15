@@ -138,6 +138,7 @@ ion-button.link {
   max-width: fit-content !important;
   min-height: 1.5rem !important;
   background: none !important;
+  min-width: 0 !important;
 
   &::part(native) {
     --background: none;

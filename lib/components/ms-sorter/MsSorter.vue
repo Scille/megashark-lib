@@ -84,22 +84,4 @@ async function onDidDismissPopover(popover: any): Promise<void> {
 }
 </script>
 
-<style lang="scss" scoped>
-@use '@lib/theme' as ms;
-
-.sorter-button {
-  min-width: auto;
-
-  &::part(native) {
-    padding: ms.spacing('padding-lg') ms.spacing('padding-xl');
-
-    @include ms.responsive-breakpoint('sm') {
-      padding: ms.spacing('padding-2xl');
-    }
-  }
-
-  &__text {
-    @include ms.font('label-sm-medium');
-  }
-}
-</style>
+<style lang="scss" scoped></style>
