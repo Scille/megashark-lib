@@ -15,13 +15,6 @@ ion-button {
   flex-shrink: 0;
   letter-spacing: 0;
 
-  // &::part(native) {
-  //   --background: none;
-  //   --background-hover: none;
-  //   --background-hover: none;
-  //   padding: ms.spacing('padding-none');
-  // }
-
   @include ms.button-size(medium);
 
   &.ios {
@@ -145,6 +138,13 @@ ion-button.link {
   max-width: fit-content !important;
   min-height: 1.5rem !important;
   background: none !important;
+
+  &::part(native) {
+    --background: none;
+    --background-hover: none;
+    --background-hover: none;
+    padding: ms.spacing('padding-none');
+  }
 
   &:hover {
     color: ms.color('text-brand-default-hover');

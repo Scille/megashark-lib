@@ -18,7 +18,7 @@
 // Global popover style
 ion-popover {
   --width: var(--popover-default-width);
-  --box-shadow: #{ms.shadow('elevation-xl')};
+  --box-shadow: #{ms.shadow('elevation-md')};
   --height: fit-content;
 
   &::part(content) {
