@@ -131,6 +131,20 @@ ion-button.button-outline {
   --background: #{ms.color('surface-brand-default-subtle')};
   --background-hover: #{ms.color('surface-brand-default-subtle-hover')};
   --background-hover-opacity: none;
+
+  &.color-secondary {
+    --color: #{ms.color('text-neutral-default')};
+    --color-hover: #{ms.color('text-neutral-default-hover')};
+    --background: #{ms.color('surface-neutral-default-subtle')};
+    --background-hover: #{ms.color('surface-neutral-default-subtle-hover')};
+    --background-hover-opacity: none;
+    --background-activated: #{ms.color('surface-neutral-default-subtle-pressed')};
+    --background-focused: #{ms.color('surface-neutral-default-subtle-hover')};
+
+    &.ion-focused::part(native) {
+      box-shadow: ms.shadow('focus-neutral');
+    }
+  }
 }
 
 ion-button.link {
