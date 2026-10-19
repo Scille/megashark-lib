@@ -39,15 +39,31 @@ import Mail from '@lib/assets/images/mail.svg?raw';
 import Move from '@lib/assets/images/move.svg?raw';
 import Music from '@lib/assets/images/music.svg?raw';
 import NoActiveUser from '@lib/assets/images/no-active-user.svg?raw';
+import NoActiveUserDark from '@lib/assets/images/no-active-user-dark.svg?raw';
 import NoImportDone from '@lib/assets/images/no-file-done.svg?raw';
 import NoImportError from '@lib/assets/images/no-file-error.svg?raw';
-import EmptyFolder from '@lib/assets/images/no-file-imported.svg?raw';
+import NoFileImported from '@lib/assets/images/no-file-imported.svg?raw';
+import NoFileImportedDark from '@lib/assets/images/no-file-imported-dark.svg?raw';
 import NoImportInProgress from '@lib/assets/images/no-file-in-progress.svg?raw';
 import NoInvitation from '@lib/assets/images/no-invitation.svg?raw';
+import NoInvitationDark from '@lib/assets/images/no-invitation-dark.svg?raw';
 import NoNotification from '@lib/assets/images/no-notification.svg?raw';
 import NoOrganization from '@lib/assets/images/no-organization.svg?raw';
+import NoOrganizationDark from '@lib/assets/images/no-organization-dark.svg?raw';
+import NoRecentWorkspace from '@lib/assets/images/no-recent-workspace.svg?raw';
+import NoRecentWorkspaceDark from '@lib/assets/images/no-recent-workspace-dark.svg?raw';
+import NoFavoriteWorkspace from '@lib/assets/images/no-favorite-workspace.svg?raw';
+import NoFavoriteWorkspaceDark from '@lib/assets/images/no-favorite-workspace-dark.svg?raw';
+import NoHiddenWorkspace from '@lib/assets/images/no-hidden-workspace.svg?raw';
+import NoHiddenWorkspaceDark from '@lib/assets/images/no-hidden-workspace-dark.svg?raw';
+import NoArchivedWorkspace from '@lib/assets/images/no-archived-workspace.svg?raw';
+import NoArchivedWorkspaceDark from '@lib/assets/images/no-archived-workspace-dark.svg?raw';
+import NoTrashedWorkspace from '@lib/assets/images/no-trashed-workspace.svg?raw';
+import NoTrashedWorkspaceDark from '@lib/assets/images/no-trashed-workspace-dark.svg?raw';
 import NoRevokedUser from '@lib/assets/images/no-revoked-user.svg?raw';
+import NoRevokedUserDark from '@lib/assets/images/no-revoked-user-dark.svg?raw';
 import NoWorkspace from '@lib/assets/images/no-workspace.svg?raw';
+import NoWorkspaceDark from '@lib/assets/images/no-workspace-dark.svg?raw';
 import OpenIcon from '@lib/assets/images/open-icon.svg?raw';
 import PasswordLock from '@lib/assets/images/password-lock.svg?raw';
 import Pdf from '@lib/assets/images/pdf.svg?raw';
@@ -106,7 +122,23 @@ export {
   Device,
   DocumentImport,
   DownloadIcon,
-  EmptyFolder,
+  NoFileImported,
+  NoFileImportedDark,
+  NoRecentWorkspace,
+  NoRecentWorkspaceDark,
+  NoActiveUserDark,
+  NoInvitationDark,
+  NoOrganizationDark,
+  NoFavoriteWorkspace,
+  NoFavoriteWorkspaceDark,
+  NoHiddenWorkspace,
+  NoHiddenWorkspaceDark,
+  NoArchivedWorkspace,
+  NoArchivedWorkspaceDark,
+  NoTrashedWorkspace,
+  NoTrashedWorkspaceDark,
+  NoRevokedUserDark,
+  NoWorkspaceDark,
   ExpandIcon,
   EyeOpenIcon,
   File,
