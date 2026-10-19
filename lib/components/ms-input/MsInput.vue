@@ -12,7 +12,7 @@
       {{ $msTranslate(label) }}
     </span>
     <div
-      class="input-content ion-no-padding"
+      class="input-content"
       :class="inputClasses"
     >
       <ion-input

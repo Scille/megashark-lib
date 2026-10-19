@@ -14,6 +14,7 @@ ion-button {
   margin: 0;
   flex-shrink: 0;
   letter-spacing: 0;
+  transition: all 0.1s ease-in-out;
 
   @include ms.button-size(medium);
 
@@ -23,6 +24,7 @@ ion-button {
   }
 
   &.ion-focused::part(native) {
+    scale: 0.98;
     box-shadow: ms.shadow('focus-brand');
   }
 }
@@ -92,6 +94,12 @@ ion-button.button-outline {
     box-shadow: ms.shadow('focus-neutral');
   }
 
+  // Ionic overrides the activated background with the toolbar colors when the button is in a toolbar
+  &.in-toolbar.ion-activated:not(.ion-color):not(.in-toolbar-color)::part(native) {
+    background: var(--background-activated);
+    color: var(--color);
+  }
+
   &:hover {
     --border-color: #{ms.color('border-base-default-hover')};
 
@@ -158,7 +166,7 @@ ion-button.link {
     --background: none;
     --background-hover: none;
     --background-hover: none;
-    padding: ms.spacing('padding-none');
+    padding: ms.spacing('padding-none') !important;
   }
 
   &:hover {

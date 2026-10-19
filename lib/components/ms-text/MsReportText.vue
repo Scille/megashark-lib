@@ -68,7 +68,7 @@ function getIcon(): string {
   gap: ms.spacing('gap-lg');
   border-radius: ms.radius('lg');
   background-color: var(--ms-alert-text-background-color);
-  @include ms.font('body-lg-medium');
+  @include ms.font('body-md-medium');
 
   @include ms.responsive-breakpoint('sm') {
     padding: ms.spacing('padding-lg') ms.spacing('padding-2xl');
