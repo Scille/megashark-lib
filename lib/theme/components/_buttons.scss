@@ -92,6 +92,12 @@ ion-button.button-outline {
     box-shadow: ms.shadow('focus-neutral');
   }
 
+  // Ionic overrides the activated background with the toolbar colors when the button is in a toolbar
+  &.in-toolbar.ion-activated:not(.ion-color):not(.in-toolbar-color)::part(native) {
+    background: var(--background-activated);
+    color: var(--color);
+  }
+
   &:hover {
     --border-color: #{ms.color('border-base-default-hover')};
 
@@ -158,7 +164,7 @@ ion-button.link {
     --background: none;
     --background-hover: none;
     --background-hover: none;
-    padding: ms.spacing('padding-none');
+    padding: ms.spacing('padding-none') !important;
   }
 
   &:hover {

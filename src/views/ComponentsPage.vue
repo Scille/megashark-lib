@@ -179,20 +179,20 @@
       <ms-image :image="ChevronExpand" />
       <ms-image :image="Device" />
       <ms-image :image="DocumentImport" />
-      <ms-image :image="EmptyFolder" />
       <ms-image :image="FileImport" />
       <ms-image :image="Folder" />
       <ms-image :image="LogoIconGradient" />
       <ms-image :image="LogoRowWhite" />
-      <ms-image :image="NoActiveUser" />
-      <ms-image :image="NoImportDone" />
       <ms-image :image="NoImportError" />
       <ms-image :image="NoImportInProgress" />
-      <ms-image :image="NoInvitation" />
       <ms-image :image="NoNotification" />
-      <ms-image :image="NoOrganization" />
-      <ms-image :image="NoRevokedUser" />
-      <ms-image :image="NoWorkspace" />
+      <ms-image :image="isDarkTheme ? NoInvitationDark : NoInvitation" />
+      <ms-image :image="isDarkTheme ? NoFileImportedDark : NoFileImported" />
+      <ms-image :image="isDarkTheme ? NoFileImportedDark : NoActiveUser" />
+      <ms-image :image="isDarkTheme ? NoFileImportedDark : NoImportDone" />
+      <ms-image :image="isDarkTheme ? NoOrganizationDark : NoOrganization" />
+      <ms-image :image="isDarkTheme ? NoRevokedUserDark : NoRevokedUser" />
+      <ms-image :image="isDarkTheme ? NoWorkspaceDark : NoWorkspace" />
       <ms-image :image="PasswordLock" />
       <ms-image :image="SwapArrows" />
       <ms-image :image="WavyCaretUp" />
@@ -540,7 +540,6 @@ import {
   Device,
   DisplayState,
   DocumentImport,
-  EmptyFolder,
   FileImport,
   Folder,
   LockClosedIcon,
@@ -581,14 +580,20 @@ import {
   MsTextarea,
   MsWizardStepper,
   NoActiveUser,
+  NoFileImported,
+  NoFileImportedDark,
   NoImportDone,
   NoImportError,
   NoImportInProgress,
   NoInvitation,
+  NoInvitationDark,
   NoNotification,
   NoOrganization,
+  NoOrganizationDark,
   NoRevokedUser,
+  NoRevokedUserDark,
   NoWorkspace,
+  NoWorkspaceDark,
   PasswordLock,
   SliderState,
   SwapArrows,
@@ -609,6 +614,7 @@ import {
   PaymentMethodResult,
   StripeService,
   StripeServiceKey,
+  useTheme,
   useWindowSize,
 } from '@lib/services';
 import { chevronBack, chevronForward, cog, create, helpCircle, pause, play, warning } from 'ionicons/icons';
@@ -617,6 +623,7 @@ import { Ref, computed, inject, onMounted, ref, useTemplateRef } from 'vue';
 
 const referenceValue = ref<Answer>(Answer.No);
 const { isLargeDisplay } = useWindowSize();
+const { isDarkTheme } = useTheme();
 
 const msDropdownOptions: MsOptions = new MsOptions([
   {
