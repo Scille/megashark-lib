@@ -92,17 +92,13 @@ function onChange(value: any): void {
 @use '@lib/theme' as ms;
 
 .ms-search-input {
-  border: ms.border('thin') solid ms.color('border-base-default');
-  padding: ms.spacing('padding-sm') 0 ms.spacing('padding-sm') ms.spacing('padding-2xl');
   width: 100%;
-  position: relative;
-  display: flex;
   overflow: hidden;
 
   .icon {
-    font-size: 1rem;
-    margin: 0 0.25rem 0 0;
-    opacity: ms.opacity('disabled');
+    flex-shrink: 0;
+    font-size: 1.125rem;
+    color: ms.color('icon-neutral-default');
   }
 }
 </style>
