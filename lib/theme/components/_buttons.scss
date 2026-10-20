@@ -164,7 +164,7 @@ ion-button.link {
     --background: none;
     --background-hover: none;
     --background-hover: none;
-    padding: ms.spacing('padding-none');
+    padding: ms.spacing('padding-none') !important;
   }
 
   &:hover {
