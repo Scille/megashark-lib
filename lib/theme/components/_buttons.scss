@@ -14,6 +14,7 @@ ion-button {
   margin: 0;
   flex-shrink: 0;
   letter-spacing: 0;
+  transition: all 0.1s ease-in-out;
 
   @include ms.button-size(medium);
 
@@ -23,6 +24,7 @@ ion-button {
   }
 
   &.ion-focused::part(native) {
+    scale: 0.98;
     box-shadow: ms.shadow('focus-brand');
   }
 }
