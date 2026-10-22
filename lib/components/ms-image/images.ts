@@ -98,6 +98,7 @@ import Default from '@lib/assets/images/text.svg?raw';
 import { default as Text, default as TextDark } from '@lib/assets/images/txt.svg?raw';
 import UnsavedIcon from '@lib/assets/images/unsaved-icon.svg?raw';
 import UpdateRocket from '@lib/assets/images/update-rocket.svg?raw';
+import UpdateRocketDark from '@lib/assets/images/update-rocket-dark.svg?raw';
 import VectorDark from '@lib/assets/images/vector-dark.svg?raw';
 import Vector from '@lib/assets/images/vector.svg?raw';
 import VideoDark from '@lib/assets/images/video-dark.svg?raw';
@@ -224,6 +225,7 @@ export {
   SwapArrows,
   UnsavedIcon,
   UpdateRocket,
+  UpdateRocketDark,
   VisaCard,
   VisaCardSmall,
   WavyCaretUp,
