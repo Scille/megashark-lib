@@ -51,7 +51,8 @@
             <div class="ms-modal-footer-buttons">
               <ion-button
                 v-if="cancelButton"
-                fill="clear"
+                class="color-secondary"
+                fill="outline"
                 size="default"
                 id="cancel-button"
                 @click="cancelButton && cancelButton.onClick ? cancelButton.onClick() : cancel()"
@@ -61,8 +62,6 @@
               </ion-button>
               <ion-button
                 v-if="confirmButton"
-                fill="solid"
-                size="default"
                 id="next-button"
                 type="submit"
                 @click="confirmButton && confirmButton.onClick ? confirmButton.onClick() : confirm()"
