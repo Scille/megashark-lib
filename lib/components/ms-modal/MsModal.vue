@@ -51,8 +51,8 @@
             <div class="ms-modal-footer-buttons">
               <ion-button
                 v-if="cancelButton"
-                fill="clear"
-                size="default"
+                class="color-secondary"
+                fill="outline"
                 id="cancel-button"
                 @click="cancelButton && cancelButton.onClick ? cancelButton.onClick() : cancel()"
                 :disabled="cancelButton.disabled"
@@ -61,8 +61,6 @@
               </ion-button>
               <ion-button
                 v-if="confirmButton"
-                fill="solid"
-                size="default"
                 id="next-button"
                 type="submit"
                 @click="confirmButton && confirmButton.onClick ? confirmButton.onClick() : confirm()"
@@ -220,6 +218,7 @@ async function confirm(): Promise<boolean> {
     --padding: 0;
     --min-height: 0;
     --margin-inline: 0;
+    --background: transparent;
 
     @include ms.responsive-breakpoint('sm') {
       margin-top: 0 !important;

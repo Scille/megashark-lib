@@ -26,9 +26,8 @@
             class="ms-small-display-modal-footer-buttons"
           >
             <ion-button
-              class="ms-small-display-modal-footer-buttons-cancel"
-              fill="clear"
-              size="default"
+              class="ms-small-display-modal-footer-buttons-cancel color-secondary"
+              fill="outline"
               id="cancel-button"
               @click="cancel()"
             >
