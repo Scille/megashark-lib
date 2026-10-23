@@ -99,6 +99,7 @@ function onChange(value: any): void {
     flex-shrink: 0;
     font-size: 1.125rem;
     color: ms.color('icon-neutral-default');
+    opacity: ms.opacity('disabled');
   }
 }
 </style>
