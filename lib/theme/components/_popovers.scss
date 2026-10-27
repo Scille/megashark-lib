@@ -18,12 +18,12 @@
 // Global popover style
 ion-popover {
   --width: var(--popover-default-width);
-  --box-shadow: var(--parsec-shadow-strong);
+  --box-shadow: #{ms.shadow('elevation-md')};
   --height: fit-content;
 
   &::part(content) {
     border-radius: var(--popover-border-radius);
-    border: none;
+    border: ms.border('thin') solid ms.color('border-neutral-default-subtle');
   }
 }
 
@@ -47,13 +47,8 @@ ion-popover {
 
   &::part(content) {
     border-radius: ms.radius('none');
+    border: none;
   }
-}
-
-/* --- sorter, dropdown popover --- */
-.sorter-popover,
-.dropdown-popover {
-  --width: fit-content;
 }
 
 /* --- dropdown outline popover --- */

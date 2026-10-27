@@ -14,9 +14,11 @@
 ion-modal {
   --height: auto;
   --max-height: auto;
+  --background: #{ms.color('surface-base-default')};
 
   &::part(content) {
     border-radius: ms.radius('2xl');
+    border: ms.border('thin') solid ms.color('border-neutral-default-subtle');
   }
 
   @media screen and (min-width: 768px) {
@@ -200,8 +202,15 @@ ion-modal .inner-content {
 
 .ms-spinner-modal {
   &::part(content) {
-    min-width: 22rem;
-    width: 22rem;
+    min-width: 10rem;
+    width: 10rem;
+  }
+
+  &:has(.hasLabel) {
+    &::part(content) {
+      min-width: 20rem;
+      width: 20rem;
+    }
   }
 
   .ms-modal {
@@ -230,30 +239,35 @@ ion-modal .inner-content {
 .modal.ms-info {
   --ms-modal-button-background-color: #{ms.color('surface-brand-default')};
   --ms-modal-button-background-hover-color: #{ms.color('surface-brand-default-hover')};
+  --ms-modal-button-background-pressed-color: #{ms.color('surface-brand-default-pressed')};
 }
 
 .small-display-modal.ms-success,
 .modal.ms-success {
   --ms-modal-button-background-color: #{ms.color('surface-success-default')};
   --ms-modal-button-background-hover-color: #{ms.color('surface-success-default-hover')};
+  --ms-modal-button-background-pressed-color: #{ms.color('surface-success-default-pressed')};
 }
 
 .small-display-modal.ms-warning,
 .modal.ms-warning {
   --ms-modal-button-background-color: #{ms.color('surface-warning-default')};
   --ms-modal-button-background-hover-color: #{ms.color('surface-warning-default-hover')};
+  --ms-modal-button-background-pressed-color: #{ms.color('surface-warning-default-pressed')};
 }
 
 .small-display-modal.ms-error,
 .modal.ms-error {
   --ms-modal-button-background-color: #{ms.color('surface-error-default')};
   --ms-modal-button-background-hover-color: #{ms.color('surface-error-default-hover')};
+  --ms-modal-button-background-pressed-color: #{ms.color('surface-error-default-pressed')};
 }
 
 .small-display-modal.ms-light,
 .modal.ms-light {
   --ms-modal-button-background-color: #{ms.color('surface-neutral-default')};
   --ms-modal-button-background-hover-color: #{ms.color('surface-neutral-default-hover')};
+  --ms-modal-button-background-pressed-color: #{ms.color('surface-neutral-default-pressed')};
 }
 
 .modal.ms-info,
@@ -282,6 +296,7 @@ ion-modal .inner-content {
 
       &::part(native) {
         --background-hover: #{ms.color('surface-base-page-secondary')} !important;
+        --background-activated: #{ms.color('surface-neutral-default-subtle-pressed')} !important;
         border: ms.border('thin') solid ms.color('border-base-default');
       }
     }
@@ -290,6 +305,7 @@ ion-modal .inner-content {
     #confirm-button {
       --background: var(--ms-modal-button-background-color);
       --background-hover: var(--ms-modal-button-background-hover-color);
+      --background-activated: var(--ms-modal-button-background-pressed-color);
 
       &::part(native) {
         box-shadow: var(--parsec-shadow-toggle);
