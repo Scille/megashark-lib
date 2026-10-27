@@ -135,6 +135,8 @@ function getIcon(): string {
 .dropdown-button {
   margin: 0;
   @include ms.font('label-md-medium');
+  // should be forced because of ion-button size in medium size
+  font-size: ms.font('label-md-medium-text-size') !important;
 
   .input-text {
     width: 100%;

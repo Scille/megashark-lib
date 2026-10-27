@@ -145,6 +145,7 @@ defineExpose({
 .input-container {
   .stripe-form-label {
     @include ms.font('label-md-medium');
+    color: ms.color('text-base-label');
   }
 
   .input-content {
@@ -152,8 +153,10 @@ defineExpose({
   }
 
   .stripe-form-input {
-    @include ms.font('body-md-regular');
-    padding-left: ms.spacing('padding-xl') !important;
+    @include ms.font('label-md-medium');
+    color: ms.color('text-base-label');
+    --placeholder-color: #{ms.color('text-base-placeholder')};
+    --placeholder-opacity: #{ms.opacity('10')};
   }
 
   .icon {

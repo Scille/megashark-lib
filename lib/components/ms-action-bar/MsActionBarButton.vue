@@ -62,17 +62,18 @@ function getWidth(): number {
   margin-inline: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
-  --padding-top: 0.25rem;
-  --padding-end: 0.5rem;
-  --padding-bottom: 0.25rem;
-  --padding-start: 0.5rem;
   border-radius: var(--parsec-radius-8);
   transition: background ease-in-out 100ms;
+
+  // Needs to be more specific than the global medium button size applied to every ion-button
+  &:not(.button-small):not(.button-large)::part(native) {
+    padding: ms.spacing('padding-sm') ms.spacing('padding-lg');
+  }
 
   &:hover {
     color: ms.color('text-neutral-default-hover');
     --fill-color: #{ms.color('icon-neutral-default-hover')};
-    background: ms.color('surface-base-page-secondary');
+    background: ms.color('surface-neutral-default-subtle-hover');
   }
 
   &-icon__left {

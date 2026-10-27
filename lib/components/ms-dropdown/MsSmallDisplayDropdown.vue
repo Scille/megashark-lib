@@ -56,17 +56,14 @@
     </ion-list>
     <div class="buttons">
       <ion-button
-        class="buttons-cancel"
-        size="default"
+        class="buttons-cancel color-secondary"
         @click="cancel"
-        fill="clear"
+        fill="outline"
       >
         {{ $msTranslate(cancelText || 'lib.components.msModal.cancelButtonLabel') }}
       </ion-button>
       <ion-button
         @click="confirm"
-        size="default"
-        fill="solid"
         :disabled="selectedOption === undefined"
       >
         {{ $msTranslate(validateText || 'lib.components.msModal.confirmButtonLabel') }}

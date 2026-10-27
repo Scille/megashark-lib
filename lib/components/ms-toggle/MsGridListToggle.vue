@@ -8,7 +8,7 @@
       class="button-view"
       :class="modelValue === DisplayState.Grid ? 'button-disabled' : ''"
       id="grid-view"
-      :disabled="modelValue === DisplayState.Grid"
+      :disabled="modelValue === DisplayState.Grid || undefined"
       @click="$emit('update:modelValue', modelValue === DisplayState.Grid ? DisplayState.List : DisplayState.Grid)"
     >
       <ion-icon
@@ -22,7 +22,7 @@
       class="button-view"
       :class="modelValue === DisplayState.List ? 'button-disabled' : ''"
       id="list-view"
-      :disabled="modelValue === DisplayState.List"
+      :disabled="modelValue === DisplayState.List || undefined"
       @click="$emit('update:modelValue', modelValue === DisplayState.Grid ? DisplayState.List : DisplayState.Grid)"
     >
       <ion-icon

@@ -39,18 +39,21 @@
 import { IonIcon } from '@ionic/vue';
 import { LogoMastercard, LogoVisa, MsImage } from '@lib/components/ms-image';
 import {
+  getStripeElementStyle,
   StripeCardElementChangeEventType,
   StripeCardElementType,
   StripeCardNumberElementChangeEvent,
   StripeService,
   StripeServiceKey,
   Translatable,
+  useTheme,
 } from '@lib/services';
 import { calendarNumber, card, lockClosed } from 'ionicons/icons';
-import { inject, onMounted, onUnmounted, ref } from 'vue';
+import { inject, onMounted, onUnmounted, ref, watch } from 'vue';
 
 let stripeElement: StripeCardElementType | undefined;
 const stripeService: StripeService = inject(StripeServiceKey)!;
+const { isDarkTheme } = useTheme();
 const isValid = ref(false);
 const hasFocus = ref(false);
 const errorMessage = ref<string>('');
@@ -80,6 +83,10 @@ onMounted(async () => {
       hasFocus.value = false;
     });
   }
+});
+
+watch(isDarkTheme, (dark) => {
+  stripeElement?.update({ style: getStripeElementStyle(dark) });
 });
 
 function setFocus(): void {

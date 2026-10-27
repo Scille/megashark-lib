@@ -2,7 +2,6 @@
 
 <template>
   <div class="tooltip-container">
-    <ms-image :image="WavyCaretUp" />
     <div class="tooltip-content">
       <ion-text class="tooltip-text">
         {{ $msTranslate(text) }}
@@ -13,7 +12,6 @@
 
 <script setup lang="ts">
 import { IonText } from '@ionic/vue';
-import { MsImage, WavyCaretUp } from '@lib/components/ms-image';
 import { Translatable } from '@lib/services';
 
 defineProps<{
@@ -39,10 +37,11 @@ defineProps<{
   padding: ms.spacing('padding-xl') ms.spacing('padding-xl');
   position: relative;
   border-radius: ms.radius('lg');
+  border: ms.border('thin') solid ms.color('border-neutral-default-subtle');
   box-shadow: ms.shadow('sm');
 
   .tooltip-text {
-    @include ms.font('body-lg-medium');
+    @include ms.font('body-md-medium');
   }
 }
 </style>
