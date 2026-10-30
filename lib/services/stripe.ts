@@ -1,6 +1,7 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
 import { EnvironmentType } from '@lib/common/environment';
+import { useTheme } from '@lib/services/themeManager';
 import type {
   PaymentMethodCreateParams,
   PaymentMethodResult,
@@ -138,7 +139,7 @@ export class StripeService implements IStripeService {
     let cardElement: StripeCardElementType;
 
     const options: StripeCardElementOptions = {
-      style: StripeElementBaseStyle,
+      style: getStripeElementStyle(useTheme().isDarkTheme.value),
     };
     switch (type) {
       case 'cardNumber':
@@ -177,20 +178,43 @@ export type StripeCardElementType = StripeCardCvcElement | StripeCardExpiryEleme
 export type StripeCardElementChangeEventType =
   StripeCardCvcElementChangeEvent | StripeCardExpiryElementChangeEvent | StripeCardNumberElementChangeEvent;
 
-export const StripeElementBaseStyle = {
-  base: {
-    color: '#454569', // equivalent to ms.color('text-base-label')
-    fontFamily: '"Albert Sans", Montserrat, "Helvetica Neue", Helvetica, sans-serif',
-    fontSize: '15px',
-    '::placeholder': {
-      color: '#B2B2CC', // equivalent to ms.color('text-base-placeholder')
-    },
-    backgroundColor: 'transparent',
+const STRIPE_COLORS = {
+  light: {
+    label: '#454569', // equivalent to ms.color('text-base-label')
+    placeholder: '#B2B2CC', // equivalent to ms.color('text-base-placeholder')
+    error: '#C20A22', // equivalent to ms.color('text-error-default')
+    disabled: '#8585AD', // equivalent to ms.color('text-disabled-on-color')
   },
-  invalid: {
-    color: '#C20A22', // equivalent to ms.color('text-error-default')
+  dark: {
+    label: '#EDEDF3', // equivalent to ms.color('text-base-label')
+    placeholder: 'rgba(178, 178, 204, 0.5)', // equivalent to ms.color('text-base-placeholder')
+    error: '#E18490', // equivalent to ms.color('text-error-default')
+    disabled: '#B2B2CC', // equivalent to ms.color('text-disabled-on-color')
   },
 };
+
+export function getStripeElementStyle(isDarkTheme: boolean): StripeCardElementOptions['style'] {
+  const colors = isDarkTheme ? STRIPE_COLORS.dark : STRIPE_COLORS.light;
+  return {
+    base: {
+      color: colors.label,
+      fontFamily: '"Albert Sans", Montserrat, "Helvetica Neue", Helvetica, sans-serif',
+      fontSize: '14px',
+      fontWeight: '500',
+      fontSmoothing: 'antialiased',
+      '::placeholder': {
+        color: colors.placeholder,
+      },
+      ':disabled': {
+        color: colors.disabled,
+      },
+      backgroundColor: 'transparent',
+    },
+    invalid: {
+      color: colors.error,
+    },
+  };
+}
 
 class MockStripeService implements IStripeService {
   async init(): Promise<boolean> {

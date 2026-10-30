@@ -35,7 +35,7 @@ import { MsDropdownChangeEvent } from '@lib/components/ms-dropdown/types';
 import { MsAppearance, MsOption, MsOptions } from '@lib/components/ms-types';
 import { Translatable, useWindowSize } from '@lib/services';
 import { caretDown, chevronDown } from 'ionicons/icons';
-import { computed, Ref, ref } from 'vue';
+import { computed, Ref, ref, watch } from 'vue';
 
 const props = defineProps<{
   defaultOptionKey?: any;
@@ -63,6 +63,11 @@ const selectedOption: Ref<MsOption | undefined> = ref(
 const labelRef = computed(() => (selectedOption.value ? selectedOption.value.label : props.label));
 const isPopoverOpen = ref(false);
 const appearanceRef = ref(props.appearance ?? MsAppearance.Outline);
+
+watch(
+  () => props.defaultOptionKey,
+  (key) => setCurrentKey(key),
+);
 
 function setCurrentKey(key: any): void {
   const opt = props.options.set.find((o) => o.key === key);
@@ -135,6 +140,8 @@ function getIcon(): string {
 .dropdown-button {
   margin: 0;
   @include ms.font('label-md-medium');
+  // should be forced because of ion-button size in medium size
+  font-size: ms.font('label-md-medium-text-size') !important;
 
   .input-text {
     width: 100%;

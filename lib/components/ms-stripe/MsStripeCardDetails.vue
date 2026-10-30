@@ -74,7 +74,7 @@ function getBrandImageUrl(brand: string): string {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    gap: ms.spacing('gap-2lg');
+    gap: ms.spacing('gap-lg');
 
     p {
       color: ms.color('text-on-color-heading');
@@ -103,7 +103,7 @@ function getBrandImageUrl(brand: string): string {
 
   &--small {
     display: flex;
-    gap: ms.spacing('gap-2lg');
+    gap: ms.spacing('gap-lg');
     align-items: center;
     margin-top: auto;
 

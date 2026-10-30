@@ -102,7 +102,7 @@ function getClass(status: MsStepStatus): string {
     background: ms.color('surface-brand-default');
 
     .icon-checkmark {
-      color: ms.color('icon-neutral-on-color');
+      color: ms.color('icon-on-color-body');
     }
   }
 }

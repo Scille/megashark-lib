@@ -227,7 +227,7 @@ onUnmounted(() => {
 
 .toolbar {
   margin: 0 1.25rem;
-  padding: ms.spacing('padding-none') ms.spacing('padding-xl');
+  padding: ms.spacing('padding-none') ms.spacing('padding-xl') ms.spacing('padding-none') ms.spacing('padding-none');
   background-color: ms.color('surface-base-default-secondary');
   border-bottom: ms.border('thin') solid ms.color('border-base-default');
   border-radius: ms.radius('2xl');
@@ -286,7 +286,7 @@ onUnmounted(() => {
   width: calc(100% - 2rem);
   display: flex;
   align-items: center;
-  gap: ms.spacing('gap-lg');
+  gap: ms.spacing('gap-md');
 }
 
 .ms-action-bar-button--visible {

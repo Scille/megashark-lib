@@ -111,7 +111,7 @@ const noResponsiveMixinOverlap = ref(false);
 
   @include ms.responsive-breakpoint('xxl') {
     background: ms.color('surface-brand-default-pressed');
-    color: ms.color('text-brand-on-color');
+    color: ms.color('text-on-color-body');
     &-xxl {
       display: block;
     }

@@ -1,7 +1,10 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <ms-modal :close-button="{ visible: false }">
+  <ms-modal
+    :close-button="{ visible: false }"
+    :class="label ? 'hasLabel' : ''"
+  >
     <ion-text
       v-if="label"
       class="spinner-label"

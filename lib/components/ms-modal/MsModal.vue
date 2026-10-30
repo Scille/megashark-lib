@@ -51,8 +51,8 @@
             <div class="ms-modal-footer-buttons">
               <ion-button
                 v-if="cancelButton"
-                fill="clear"
-                size="default"
+                class="color-secondary"
+                fill="outline"
                 id="cancel-button"
                 @click="cancelButton && cancelButton.onClick ? cancelButton.onClick() : cancel()"
                 :disabled="cancelButton.disabled"
@@ -61,8 +61,6 @@
               </ion-button>
               <ion-button
                 v-if="confirmButton"
-                fill="solid"
-                size="default"
                 id="next-button"
                 type="submit"
                 @click="confirmButton && confirmButton.onClick ? confirmButton.onClick() : confirm()"
@@ -132,7 +130,7 @@ async function confirm(): Promise<boolean> {
   display: flex;
   flex-direction: column;
   margin-bottom: ms.spacing('padding-4xl');
-  gap: ms.spacing('gap-3xl');
+  gap: ms.spacing('gap-xl');
 
   @include ms.responsive-breakpoint('sm') {
     padding: ms.spacing('padding-4xl');
@@ -142,7 +140,7 @@ async function confirm(): Promise<boolean> {
 
   &:has(.ms-modal-header__subtitle) {
     @include ms.responsive-breakpoint('sm') {
-      gap: ms.spacing('gap-2lg');
+      gap: ms.spacing('gap-lg');
     }
   }
 
@@ -220,6 +218,7 @@ async function confirm(): Promise<boolean> {
     --padding: 0;
     --min-height: 0;
     --margin-inline: 0;
+    --background: transparent;
 
     @include ms.responsive-breakpoint('sm') {
       margin-top: 0 !important;
