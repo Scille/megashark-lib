@@ -41,20 +41,44 @@ updates:
     pull-request-branch-name:
       separator: "-"
     groups:
-      dev-eslint:
-        dependency-type: development
-        patterns:
-          - "@typescript-eslint*"
-          - "@vue/eslint*"
-          - eslint*
-          - vue/eslint*
-      dev-prettier:
-        dependency-type: development
-        patterns:
-          - prettier*
       dev-vite:
         dependency-type: development
         patterns:
           - "@vitejs/*"
           - vite*
           - vitest
+      # Ionic packages are released together and must stay on the same version.
+      ionic:
+        patterns:
+          - "@ionic/*"
+          - ionicons
+      vue:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "@vue/test-utils"
+          - vue
+          - vue-i18n
+          - vue-router
+          - vue-tsc
+      dev-deps:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "*"
+        exclude-patterns:
+          - typescript
+      prod-deps:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "*"
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
