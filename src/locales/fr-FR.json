@@ -262,11 +262,7 @@
       "theme": {
         "title": "Thème",
         "dark": "Sombre",
-        "light": "Clair",
-        "rainbow": "Arc-en-ciel",
-        "synthwave": "Synthwave",
-        "spooky": "Frisson",
-        "christmas": "Noël"
+        "light": "Clair"
       },
       "base64": {
         "encodeTitle": "Encoder en Base64",

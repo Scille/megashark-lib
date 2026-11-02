@@ -69,8 +69,8 @@
                   <ms-dropdown
                     class="dropdown"
                     :options="themeOptions"
-                    :default-option-key="themeManager.theme"
-                    @change="themeManager.use($event.option.key)"
+                    :default-option-key="themePreference"
+                    @change="themePreference = $event.option.key"
                   />
                 </settings-option>
               </ion-list>
@@ -86,13 +86,13 @@
 import SettingsOption from '@/views/settings/SettingsOption.vue';
 import { IonIcon, IonList, IonPage, IonRadio, IonRadioGroup, IonText } from '@ionic/vue';
 import { MsDropdown, MsModal, MsOptions } from '@lib/components';
-import { I18n, Locale, LocaleOptions, Theme, ThemeManager, ThemeOptions } from '@lib/services';
+import { I18n, Locale, LocaleOptions, ThemeOptions, useTheme } from '@lib/services';
 import { cog, options } from 'ionicons/icons';
 import { ref } from 'vue';
 
 const languageOptions: MsOptions = new MsOptions(LocaleOptions);
 const themeOptions: MsOptions = new MsOptions(ThemeOptions);
-const themeManager = new ThemeManager(Theme.Light);
+const { themePreference } = useTheme();
 
 enum SettingsTabs {
   General = 'General',
