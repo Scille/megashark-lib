@@ -85,10 +85,6 @@
         "themes": {
           "dark": "Sombre",
           "light": "Clair",
-          "rainbow": "Arc-en-ciel",
-          "synthwave": "Synthwave",
-          "spooky": "Frisson",
-          "christmas": "Noël",
           "system": "Système"
         }
       },

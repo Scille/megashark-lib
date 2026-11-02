@@ -1,7 +1,7 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
 import { EnvironmentType } from '@lib/common/environment';
-import { useTheme } from '@lib/services/themeManager';
+import { Theme, useTheme } from '@lib/services/themeManager';
 import type {
   PaymentMethodCreateParams,
   PaymentMethodResult,
@@ -139,7 +139,7 @@ export class StripeService implements IStripeService {
     let cardElement: StripeCardElementType;
 
     const options: StripeCardElementOptions = {
-      style: getStripeElementStyle(useTheme().isDarkTheme.value),
+      style: getStripeElementStyle(useTheme().theme.value),
     };
     switch (type) {
       case 'cardNumber':
@@ -193,8 +193,8 @@ const STRIPE_COLORS = {
   },
 };
 
-export function getStripeElementStyle(isDarkTheme: boolean): StripeCardElementOptions['style'] {
-  const colors = isDarkTheme ? STRIPE_COLORS.dark : STRIPE_COLORS.light;
+export function getStripeElementStyle(theme: Theme): StripeCardElementOptions['style'] {
+  const colors = STRIPE_COLORS[theme];
   return {
     base: {
       color: colors.label,
