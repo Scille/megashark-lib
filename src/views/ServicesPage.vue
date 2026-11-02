@@ -22,8 +22,8 @@
       <ms-dropdown
         class="dropdown"
         :options="msThemeOptions"
-        :default-option-key="themeManager.theme"
-        @change="themeManager.use($event.option.key)"
+        :default-option-key="themePreference"
+        @change="themePreference = $event.option.key"
       />
     </example-block-line>
   </example-block>
@@ -80,7 +80,7 @@ import { ExampleBlock, ExampleBlockLine } from '@/views/example-block';
 import { IonButton, IonTitle } from '@ionic/vue';
 import { MsDropdown, MsDropdownChangeEvent, MsInput, MsOptions, MsReportTheme } from '@lib/components';
 import { Base64 } from '@lib/main';
-import { I18n, LocaleOptions, StripeService, StripeServiceKey, Theme, ThemeManager, ThemeOptions, ToastManager } from '@lib/services';
+import { I18n, LocaleOptions, StripeService, StripeServiceKey, ThemeOptions, ToastManager, useTheme } from '@lib/services';
 import { inject, ref } from 'vue';
 
 const msDropdownOptions: MsOptions = new MsOptions([
@@ -109,7 +109,7 @@ const stripeService: StripeService = inject(StripeServiceKey)!;
 const toastOffset = ref('0');
 const toastManager = new ToastManager();
 const toastTheme = ref(MsReportTheme.Success);
-const themeManager = new ThemeManager(Theme.Light);
+const { themePreference } = useTheme();
 const b64BaseString = ref('/a/Ñ/ĩ');
 const b64EncodedString = ref('');
 const b64DecodedResult = ref('');

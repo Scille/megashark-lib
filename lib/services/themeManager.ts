@@ -1,114 +1,89 @@
 // Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS
 
-import { Ref, readonly, ref } from 'vue';
+import { ComputedRef, Ref, computed, effectScope, ref, watch } from 'vue';
 
 enum Theme {
   Light = 'light',
   Dark = 'dark',
-  Rainbow = 'rainbow',
-  Synthwave = 'synthwave',
-  Spooky = 'spooky',
-  Christmas = 'christmas',
+}
+
+enum ThemePreference {
+  Light = 'light',
+  Dark = 'dark',
   System = 'system',
 }
 
 export interface ThemeOption {
-  key: Theme;
+  key: ThemePreference;
   label: string;
 }
 
 export const ThemeOptions: ThemeOption[] = [
   {
-    key: Theme.Light,
+    key: ThemePreference.Light,
     label: 'lib.services.themeManager.themes.light',
   },
   {
-    key: Theme.Dark,
+    key: ThemePreference.Dark,
     label: 'lib.services.themeManager.themes.dark',
   },
   {
-    key: Theme.Rainbow,
-    label: 'lib.services.themeManager.themes.rainbow',
-  },
-  {
-    key: Theme.Synthwave,
-    label: 'lib.services.themeManager.themes.synthwave',
-  },
-  {
-    key: Theme.Spooky,
-    label: 'lib.services.themeManager.themes.spooky',
-  },
-  {
-    key: Theme.Christmas,
-    label: 'lib.services.themeManager.themes.christmas',
-  },
-  {
-    key: Theme.System,
+    key: ThemePreference.System,
     label: 'lib.services.themeManager.themes.system',
   },
 ];
 
-class ThemeManager {
-  private _theme: Theme;
-
-  constructor(theme: Theme) {
-    this._theme = theme;
-    this.addTheme(this._theme);
-  }
-
-  use(newTheme: Theme): void {
-    if (newTheme === this._theme) {
-      return;
-    }
-    this.removeTheme(this._theme);
-    this._theme = newTheme;
-    this.addTheme(this._theme);
-  }
-
-  get theme(): Theme {
-    return this._theme;
-  }
-
-  private classNameFromTheme(theme: Theme): string {
-    if (theme === Theme.System) {
-      theme = this.isDarkModeEnabledInBrowser() ? Theme.Dark : Theme.Light;
-    }
-    return `ms-theme-${theme}`;
-  }
-
-  private removeTheme(theme: Theme): void {
-    document.body.classList.remove(this.classNameFromTheme(theme));
-  }
-
-  private addTheme(theme: Theme): void {
-    document.body.classList.add(this.classNameFromTheme(theme));
-  }
-
-  private isDarkModeEnabledInBrowser(): boolean {
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  }
-}
-
 interface _ThemeAttributes {
-  isDarkTheme: Readonly<Ref<boolean>>;
+  themePreference: Ref<ThemePreference>;
+  theme: ComputedRef<Theme>;
 }
 
-let _isDarkTheme: Ref<boolean> | undefined;
+let _themeAttributes: _ThemeAttributes | undefined;
 
-function _bodyHasDarkTheme(): boolean {
-  return document.body.classList.contains(`ms-theme-${Theme.Dark}`);
+function _getSystemTheme(darkModeQuery: MediaQueryList | undefined): Theme {
+  return darkModeQuery?.matches ? Theme.Dark : Theme.Light;
 }
 
-// Reads the theme class set by ThemeManager on the body, so it works without inject (modals, plain files)
+function _createThemeAttributes(): _ThemeAttributes {
+  const darkModeQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : undefined;
+  const themePreference = ref(ThemePreference.System);
+  const systemTheme = ref(_getSystemTheme(darkModeQuery));
+
+  const theme = computed<Theme>(() => {
+    switch (themePreference.value) {
+      case ThemePreference.Light:
+        return Theme.Light;
+      case ThemePreference.Dark:
+        return Theme.Dark;
+      case ThemePreference.System:
+        return systemTheme.value;
+    }
+  });
+
+  darkModeQuery?.addEventListener('change', () => {
+    systemTheme.value = _getSystemTheme(darkModeQuery);
+  });
+
+  watch(
+    theme,
+    (newTheme, oldTheme) => {
+      if (oldTheme) {
+        document.body.classList.remove(`ms-theme-${oldTheme}`);
+      }
+      document.body.classList.add(`ms-theme-${newTheme}`);
+    },
+    { immediate: true, flush: 'sync' },
+  );
+
+  return { themePreference, theme };
+}
+
+// The state is shared, so the scope is detached to outlive the component that happens to call this first
 function useTheme(): _ThemeAttributes {
-  if (!_isDarkTheme) {
-    const isDarkTheme = ref(_bodyHasDarkTheme());
-    new MutationObserver(() => {
-      isDarkTheme.value = _bodyHasDarkTheme();
-    }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
-    _isDarkTheme = isDarkTheme;
+  if (!_themeAttributes) {
+    _themeAttributes = effectScope(true).run(_createThemeAttributes)!;
   }
-  return { isDarkTheme: readonly(_isDarkTheme) };
+  return _themeAttributes;
 }
 
-export { Theme, ThemeManager, useTheme };
+export { Theme, ThemePreference, useTheme };

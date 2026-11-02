@@ -261,11 +261,7 @@
       "theme": {
         "title": "Theme",
         "dark": "Dark",
-        "light": "Light",
-        "rainbow": "Rainbow",
-        "synthwave": "Synthwave",
-        "spooky": "Spooky",
-        "christmas": "Christmas"
+        "light": "Light"
       },
       "base64": {
         "encodeTitle": "Encode to Base64",

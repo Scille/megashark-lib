@@ -85,10 +85,6 @@
         "themes": {
           "dark": "Dark",
           "light": "Light",
-          "rainbow": "Rainbow",
-          "synthwave": "Synthwave",
-          "spooky": "Spooky",
-          "christmas": "Christmas",
           "system": "System"
         }
       },

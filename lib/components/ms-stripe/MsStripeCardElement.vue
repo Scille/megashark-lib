@@ -53,7 +53,7 @@ import { inject, onMounted, onUnmounted, ref, watch } from 'vue';
 
 let stripeElement: StripeCardElementType | undefined;
 const stripeService: StripeService = inject(StripeServiceKey)!;
-const { isDarkTheme } = useTheme();
+const { theme } = useTheme();
 const isValid = ref(false);
 const hasFocus = ref(false);
 const errorMessage = ref<string>('');
@@ -85,8 +85,8 @@ onMounted(async () => {
   }
 });
 
-watch(isDarkTheme, (dark) => {
-  stripeElement?.update({ style: getStripeElementStyle(dark) });
+watch(theme, (newTheme) => {
+  stripeElement?.update({ style: getStripeElementStyle(newTheme) });
 });
 
 function setFocus(): void {

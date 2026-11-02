@@ -187,12 +187,12 @@
       <ms-image :image="NoImportInProgress" />
       <ms-image :image="NoNotification" />
       <ms-image :image="NoImportDone" />
-      <ms-image :image="isDarkTheme ? NoInvitationDark : NoInvitation" />
-      <ms-image :image="isDarkTheme ? NoFileImportedDark : NoFileImported" />
-      <ms-image :image="isDarkTheme ? NoActiveUserDark : NoActiveUser" />
-      <ms-image :image="isDarkTheme ? NoOrganizationDark : NoOrganization" />
-      <ms-image :image="isDarkTheme ? NoRevokedUserDark : NoRevokedUser" />
-      <ms-image :image="isDarkTheme ? NoWorkspaceDark : NoWorkspace" />
+      <ms-image :image="theme === Theme.Dark ? NoInvitationDark : NoInvitation" />
+      <ms-image :image="theme === Theme.Dark ? NoFileImportedDark : NoFileImported" />
+      <ms-image :image="theme === Theme.Dark ? NoActiveUserDark : NoActiveUser" />
+      <ms-image :image="theme === Theme.Dark ? NoOrganizationDark : NoOrganization" />
+      <ms-image :image="theme === Theme.Dark ? NoRevokedUserDark : NoRevokedUser" />
+      <ms-image :image="theme === Theme.Dark ? NoWorkspaceDark : NoWorkspace" />
       <ms-image :image="PasswordLock" />
       <ms-image :image="SwapArrows" />
       <ms-image :image="WavyCaretUp" />
@@ -615,6 +615,7 @@ import {
   PaymentMethodResult,
   StripeService,
   StripeServiceKey,
+  Theme,
   useTheme,
   useWindowSize,
 } from '@lib/services';
@@ -624,7 +625,7 @@ import { Ref, computed, inject, onMounted, ref, useTemplateRef } from 'vue';
 
 const referenceValue = ref<Answer>(Answer.No);
 const { isLargeDisplay } = useWindowSize();
-const { isDarkTheme } = useTheme();
+const { theme } = useTheme();
 
 const msDropdownOptions: MsOptions = new MsOptions([
   {
