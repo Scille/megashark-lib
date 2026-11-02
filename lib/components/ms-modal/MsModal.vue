@@ -15,6 +15,7 @@
         v-show="closeButton.visible"
         @click="closeButton && closeButton.onClick ? closeButton.onClick() : cancel()"
         class="closeBtn color-secondary"
+        fill="clear"
         slot="icon-only"
         size="small"
       >
