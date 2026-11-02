@@ -1,7 +1,7 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <div class="dropdown-container large">
+  <div class="dropdown-container">
     <ion-text
       class="input-label"
       v-if="title && appearanceRef === MsAppearance.Outline"
@@ -188,7 +188,7 @@ function getIcon(): string {
   }
 
   &.large {
-    @include ms.responsive-breakpoint('sm') {
+    @include ms.responsive-breakpoint('xs') {
       width: 100%;
     }
 

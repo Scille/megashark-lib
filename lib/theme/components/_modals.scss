@@ -166,8 +166,6 @@ ion-modal .inner-content {
   z-index: 1000;
 
   &::part(native) {
-    background: ms.color('surface-base-default');
-    --background-hover: #{ms.color('surface-base-page-secondary')};
     padding: ms.spacing('padding-xs');
   }
 
@@ -181,7 +179,6 @@ ion-modal .inner-content {
   }
 
   &:active {
-    --background: #{ms.color('surface-base-page-secondary')};
     --border-radius: #{ms.radius('md')};
   }
 
