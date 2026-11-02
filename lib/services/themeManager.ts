@@ -5,11 +5,15 @@ import { ComputedRef, Ref, computed, effectScope, ref, watch } from 'vue';
 enum Theme {
   Light = 'light',
   Dark = 'dark',
+  Pumpkin = 'pumpkin',
+  Synthwave = 'synthwave',
 }
 
 enum ThemePreference {
   Light = 'light',
   Dark = 'dark',
+  Pumpkin = 'pumpkin',
+  Synthwave = 'synthwave',
   System = 'system',
 }
 
@@ -26,6 +30,14 @@ export const ThemeOptions: ThemeOption[] = [
   {
     key: ThemePreference.Dark,
     label: 'lib.services.themeManager.themes.dark',
+  },
+  {
+    key: ThemePreference.Pumpkin,
+    label: 'lib.services.themeManager.themes.pumpkin',
+  },
+  {
+    key: ThemePreference.Synthwave,
+    label: 'lib.services.themeManager.themes.synthwave',
   },
   {
     key: ThemePreference.System,
@@ -55,6 +67,10 @@ function _createThemeAttributes(): _ThemeAttributes {
         return Theme.Light;
       case ThemePreference.Dark:
         return Theme.Dark;
+      case ThemePreference.Pumpkin:
+        return Theme.Pumpkin;
+      case ThemePreference.Synthwave:
+        return Theme.Synthwave;
       case ThemePreference.System:
         return systemTheme.value;
     }

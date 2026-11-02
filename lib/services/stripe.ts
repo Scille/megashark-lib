@@ -178,19 +178,25 @@ export type StripeCardElementType = StripeCardCvcElement | StripeCardExpiryEleme
 export type StripeCardElementChangeEventType =
   StripeCardCvcElementChangeEvent | StripeCardExpiryElementChangeEvent | StripeCardNumberElementChangeEvent;
 
+const STRIPE_LIGHT_COLORS = {
+  label: '#454569', // equivalent to ms.color('text-base-label')
+  placeholder: '#B2B2CC', // equivalent to ms.color('text-base-placeholder')
+  error: '#C20A22', // equivalent to ms.color('text-error-default')
+  disabled: '#8585AD', // equivalent to ms.color('text-disabled-on-color')
+};
+
+const STRIPE_DARK_COLORS = {
+  label: '#EDEDF3', // equivalent to ms.color('text-base-label')
+  placeholder: 'rgba(178, 178, 204, 0.5)', // equivalent to ms.color('text-base-placeholder')
+  error: '#E18490', // equivalent to ms.color('text-error-default')
+  disabled: '#B2B2CC', // equivalent to ms.color('text-disabled-on-color')
+};
+
 const STRIPE_COLORS = {
-  light: {
-    label: '#454569', // equivalent to ms.color('text-base-label')
-    placeholder: '#B2B2CC', // equivalent to ms.color('text-base-placeholder')
-    error: '#C20A22', // equivalent to ms.color('text-error-default')
-    disabled: '#8585AD', // equivalent to ms.color('text-disabled-on-color')
-  },
-  dark: {
-    label: '#EDEDF3', // equivalent to ms.color('text-base-label')
-    placeholder: 'rgba(178, 178, 204, 0.5)', // equivalent to ms.color('text-base-placeholder')
-    error: '#E18490', // equivalent to ms.color('text-error-default')
-    disabled: '#B2B2CC', // equivalent to ms.color('text-disabled-on-color')
-  },
+  light: STRIPE_LIGHT_COLORS,
+  pumpkin: STRIPE_LIGHT_COLORS,
+  dark: STRIPE_DARK_COLORS,
+  synthwave: STRIPE_DARK_COLORS,
 };
 
 export function getStripeElementStyle(theme: Theme): StripeCardElementOptions['style'] {

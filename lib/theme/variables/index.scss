@@ -10,6 +10,8 @@
 @forward '_theme/borders';
 @forward '_theme/colors';
 @forward '_theme/colors-old'; //should be removed when all components will have _colors.scss variables.
+@forward '_theme/colors-pumpkin';
+@forward '_theme/colors-synthwave';
 @forward '_theme/fonts';
 @forward '_theme/fonts-old'; //should be removed when all components will have _fonts.scss variables.
 @forward '_theme/opacity';

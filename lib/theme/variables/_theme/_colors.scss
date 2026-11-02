@@ -304,7 +304,8 @@
   --parsec-color-scrollbar-track: transparent;
 }
 
-body.ms-theme-dark {
+body.ms-theme-dark,
+body.ms-theme-synthwave {
   // ------------ background colors ------------
   --parsec-color-surface-base-default: var(--parsec-color-grey-990);
   --parsec-color-surface-base-default-secondary: var(--parsec-color-grey-900);

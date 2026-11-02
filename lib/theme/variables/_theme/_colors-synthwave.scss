@@ -1,0 +1,111 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+/**** Synthwave theme: the dark theme tokens on top of neon primitives ****/
+
+/* Primitives are declared on :root, see _colors-pumpkin.scss */
+:root:has(body.ms-theme-synthwave) {
+  --parsec-color-brand-30: #fff0f8;
+  --parsec-color-brand-50: #ffe0f1;
+  --parsec-color-brand-100: #ffc9e6;
+  --parsec-color-brand-200: #ff9dd2;
+  --parsec-color-brand-300: #ff6ebd;
+  --parsec-color-brand-400: #ff3fa8;
+  --parsec-color-brand-500: #ff1f96;
+  --parsec-color-brand-600: #d6007a;
+  --parsec-color-brand-700: #a3005d;
+  --parsec-color-brand-800: #700040;
+  --parsec-color-brand-900: #3d0023;
+
+  --parsec-color-grey-10: #fbf8ff;
+  --parsec-color-grey-30: #f5effd;
+  --parsec-color-grey-50: #ece3fa;
+  --parsec-color-grey-100: #e6dbf8;
+  --parsec-color-grey-200: #d9caf3;
+  --parsec-color-grey-300: #c4b0ea;
+  --parsec-color-grey-400: #a98fdc;
+  --parsec-color-grey-500: #8468c0;
+  --parsec-color-grey-600: #5f449c;
+  --parsec-color-grey-700: #463079;
+  --parsec-color-grey-800: #35235f;
+  --parsec-color-grey-900: #2a1a52;
+  --parsec-color-grey-950: #1f123f;
+  --parsec-color-grey-970: #170c31;
+  --parsec-color-grey-990: #100824;
+
+  --parsec-color-blue-30: #eafcff;
+  --parsec-color-blue-50: #d2f8ff;
+  --parsec-color-blue-100: #b3f2ff;
+  --parsec-color-blue-200: #80e9ff;
+  --parsec-color-blue-300: #4de0ff;
+  --parsec-color-blue-400: #1ad6ff;
+  --parsec-color-blue-500: #00b8e6;
+  --parsec-color-blue-600: #0099c2;
+  --parsec-color-blue-700: #007591;
+  --parsec-color-blue-800: #005066;
+  --parsec-color-blue-900: #002b38;
+
+  --parsec-color-orange-300: #ffb066;
+  --parsec-color-orange-400: #ff9233;
+  --parsec-color-orange-500: #ff7a00;
+  --parsec-color-orange-600: #e66a00;
+
+  --parsec-color-purple-300: #c77dff;
+  --parsec-color-purple-400: #b14dff;
+  --parsec-color-purple-500: #9d1fff;
+  --parsec-color-purple-600: #8000e6;
+
+  --parsec-color-shadow-brand-100: rgba(255, 31, 150, 0.05);
+  --parsec-color-shadow-brand-200: rgba(255, 31, 150, 0.1);
+  --parsec-color-shadow-brand-300: rgba(255, 31, 150, 0.15);
+  --parsec-color-shadow-brand-400: rgba(255, 31, 150, 0.22);
+  --parsec-color-shadow-brand-500: rgba(255, 31, 150, 0.25);
+  --parsec-color-shadow-brand-600: rgba(255, 31, 150, 0.3);
+  --parsec-color-shadow-brand-700: rgba(255, 31, 150, 0.35);
+  --parsec-color-shadow-brand-800: rgba(255, 31, 150, 0.4);
+  --parsec-color-shadow-brand-900: rgba(255, 31, 150, 0.45);
+
+  --parsec-color-light-gradient: linear-gradient(113.02deg, #ff7a00 -1.49%, #ff1f96 50%, #9d1fff 100%);
+  --parsec-color-light-outline: rgba(255, 31, 150, 0.25);
+  --parsec-color-light-primary-30-opacity15: rgba(255, 240, 248, 0.15);
+  --parsec-color-light-primary-30: #fff0f8;
+  --parsec-color-light-primary-50: #ffe0f1;
+  --parsec-color-light-primary-100: #ffc9e6;
+  --parsec-color-light-primary-200: #ff9dd2;
+  --parsec-color-light-primary-300: #ff6ebd;
+  --parsec-color-light-primary-400: #ff3fa8;
+  --parsec-color-light-primary-500: #ff1f96;
+  --parsec-color-light-primary-600: #d6007a;
+  --parsec-color-light-primary-700: #a3005d;
+  --parsec-color-light-primary-800: #700040;
+  --parsec-color-light-primary-900: #3d0023;
+}
+
+/* Those are set by the dark blocks on body itself, `:root` is there to outweigh `.md body` and `.ios body` */
+:root body.ms-theme-synthwave {
+  --parsec-color-surface-gradient-from: #ff1f96;
+  --parsec-color-surface-gradient-to: #9d1fff;
+  --parsec-color-surface-gradient-from-hover: #ff6ebd;
+  --parsec-color-surface-gradient-to-hover: #c77dff;
+
+  --ion-color-primary: #2a1a52;
+  --ion-color-primary-rgb: 42, 26, 82;
+  --ion-color-primary-shade: #251748;
+  --ion-color-primary-tint: #3f3163;
+
+  --ion-color-secondary: #ff1f96;
+  --ion-color-secondary-rgb: 255, 31, 150;
+  --ion-color-secondary-shade: #e01b84;
+  --ion-color-secondary-tint: #ff35a1;
+
+  --ion-color-tertiary: #1ad6ff;
+  --ion-color-tertiary-rgb: 26, 214, 255;
+  --ion-color-tertiary-shade: #17bce0;
+  --ion-color-tertiary-tint: #31daff;
+
+  --ion-background-color: #100824;
+  --ion-background-color-rgb: 16, 8, 36;
+  --ion-border-color: #35235f;
+  --ion-item-background: #1f123f;
+  --ion-toolbar-background: #170c31;
+  --ion-card-background: #1f123f;
+}

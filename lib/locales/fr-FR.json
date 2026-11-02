@@ -85,6 +85,8 @@
         "themes": {
           "dark": "Sombre",
           "light": "Clair",
+          "pumpkin": "Citrouille",
+          "synthwave": "Synthwave",
           "system": "Système"
         }
       },

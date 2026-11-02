@@ -1,0 +1,51 @@
+/* Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS */
+
+/**** Pumpkin theme: the light theme with orange accents ****/
+
+/*
+* Set on :root and not on body, since the semantic tokens are declared on :root:
+* their var() are resolved there and body would only inherit the final blue values.
+*/
+:root:has(body.ms-theme-pumpkin) {
+  --parsec-color-brand-30: #fff7ed;
+  --parsec-color-brand-50: #ffedd5;
+  --parsec-color-brand-100: #fed7aa;
+  --parsec-color-brand-200: #fdba74;
+  --parsec-color-brand-300: #fb923c;
+  --parsec-color-brand-400: #f97316;
+  --parsec-color-brand-500: #ea580c;
+  --parsec-color-brand-600: #c2410c;
+  --parsec-color-brand-700: #9a3412;
+  --parsec-color-brand-800: #7c2d12;
+  --parsec-color-brand-900: #431407;
+
+  --parsec-color-light-gradient: linear-gradient(113.02deg, #ea580c -1.49%, #c2410c 100%);
+  --parsec-color-light-outline: rgba(234, 88, 12, 0.25);
+  --parsec-color-light-primary-30-opacity15: rgba(255, 247, 237, 0.15);
+  --parsec-color-light-primary-30: #fff7ed;
+  --parsec-color-light-primary-50: #ffedd5;
+  --parsec-color-light-primary-100: #fed7aa;
+  --parsec-color-light-primary-200: #fdba74;
+  --parsec-color-light-primary-300: #fb923c;
+  --parsec-color-light-primary-400: #f97316;
+  --parsec-color-light-primary-500: #ea580c;
+  --parsec-color-light-primary-600: #c2410c;
+  --parsec-color-light-primary-700: #9a3412;
+  --parsec-color-light-primary-800: #7c2d12;
+  --parsec-color-light-primary-900: #431407;
+
+  --ion-color-primary: #f97316;
+  --ion-color-primary-rgb: 249, 115, 22;
+  --ion-color-primary-shade: #db6513;
+  --ion-color-primary-tint: #fa8133;
+
+  --ion-color-secondary: #fff7ed;
+  --ion-color-secondary-rgb: 154, 52, 18;
+  --ion-color-secondary-shade: #882e10;
+  --ion-color-secondary-tint: #a44829;
+
+  --ion-color-tertiary: #9a3412;
+  --ion-color-tertiary-rgb: 253, 186, 116;
+  --ion-color-tertiary-shade: #dfa466;
+  --ion-color-tertiary-tint: #fdc182;
+}
