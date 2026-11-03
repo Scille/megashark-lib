@@ -113,7 +113,7 @@ function getClass(status: MsStepStatus): string {
   }
   .circle {
     border: none;
-    background: ms.color('shadow-brand-400');
+    background: ms.color('shadow-brand-moderate');
 
     .inner-circle-active {
       background: ms.color('surface-brand-default');
