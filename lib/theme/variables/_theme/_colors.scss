@@ -278,25 +278,25 @@
   --parsec-color-shadow-brand-moderate: color-mix(in srgb, var(--parsec-color-brand-500) 25%, transparent);
   --parsec-color-shadow-brand-strong: color-mix(in srgb, var(--parsec-color-brand-500) 35%, transparent);
 
-  --parsec-color-shadow-neutral-lighter: color-mix(in srgb, var(--parsec-color-grey-300) 15%, transparent);
+  --parsec-color-shadow-neutral-lighter: color-mix(in srgb, var(--parsec-color-grey-500) 15%, transparent);
   --parsec-color-shadow-neutral-moderate: color-mix(in srgb, var(--parsec-color-grey-500) 25%, transparent);
-  --parsec-color-shadow-neutral-strong: color-mix(in srgb, var(--parsec-color-grey-700) 35%, transparent);
+  --parsec-color-shadow-neutral-strong: color-mix(in srgb, var(--parsec-color-grey-500) 35%, transparent);
 
-  --parsec-color-shadow-error-lighter: color-mix(in srgb, var(--parsec-color-red-300) 15%, transparent);
+  --parsec-color-shadow-error-lighter: color-mix(in srgb, var(--parsec-color-red-500) 15%, transparent);
   --parsec-color-shadow-error-moderate: color-mix(in srgb, var(--parsec-color-red-500) 25%, transparent);
-  --parsec-color-shadow-error-strong: color-mix(in srgb, var(--parsec-color-red-700) 35%, transparent);
+  --parsec-color-shadow-error-strong: color-mix(in srgb, var(--parsec-color-red-500) 35%, transparent);
 
-  --parsec-color-shadow-success-lighter: color-mix(in srgb, var(--parsec-color-green-300) 15%, transparent);
+  --parsec-color-shadow-success-lighter: color-mix(in srgb, var(--parsec-color-green-500) 15%, transparent);
   --parsec-color-shadow-success-moderate: color-mix(in srgb, var(--parsec-color-green-500) 25%, transparent);
-  --parsec-color-shadow-success-strong: color-mix(in srgb, var(--parsec-color-green-700) 35%, transparent);
+  --parsec-color-shadow-success-strong: color-mix(in srgb, var(--parsec-color-green-500) 35%, transparent);
 
-  --parsec-color-shadow-warning-lighter: color-mix(in srgb, var(--parsec-color-yellow-300) 15%, transparent);
+  --parsec-color-shadow-warning-lighter: color-mix(in srgb, var(--parsec-color-yellow-500) 15%, transparent);
   --parsec-color-shadow-warning-moderate: color-mix(in srgb, var(--parsec-color-yellow-500) 25%, transparent);
-  --parsec-color-shadow-warning-strong: color-mix(in srgb, var(--parsec-color-yellow-700) 35%, transparent);
+  --parsec-color-shadow-warning-strong: color-mix(in srgb, var(--parsec-color-yellow-500) 35%, transparent);
 
-  --parsec-color-shadow-information-lighter: color-mix(in srgb, var(--parsec-color-blue-300) 15%, transparent);
+  --parsec-color-shadow-information-lighter: color-mix(in srgb, var(--parsec-color-blue-500) 15%, transparent);
   --parsec-color-shadow-information-moderate: color-mix(in srgb, var(--parsec-color-blue-500) 25%, transparent);
-  --parsec-color-shadow-information-strong: color-mix(in srgb, var(--parsec-color-blue-700) 35%, transparent);
+  --parsec-color-shadow-information-strong: color-mix(in srgb, var(--parsec-color-blue-500) 35%, transparent);
 
   // ----------- scrollbar colors ------------
   --parsec-color-scrollbar-thumb: var(--parsec-color-grey-400);
