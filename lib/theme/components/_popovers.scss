@@ -4,12 +4,12 @@
 
 /* **** Parsec popover **** */
 :root {
-  --popover-border-radius: var(--parsec-radius-12);
+  --popover-border-radius: #{ms.radius('2xl')};
   --popover-default-width: 20rem;
   --popover-option-width: 17rem;
   --popover-option-height: 25rem;
   --popover-dropdown-width: var(--popover-default-width);
-  --popover-notification-center-width: 28rem;
+  --popover-menu-center-width: 28rem;
   --popover-dropdown-settings-width: 9rem;
   --popover-dropdown-sort-width: 15.5rem;
   --popover-dropdown-filter-width: 14rem;

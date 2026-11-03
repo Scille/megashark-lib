@@ -62,7 +62,7 @@ function getWidth(): number {
   margin-inline: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
-  border-radius: var(--parsec-radius-8);
+  border-radius: ms.radius('lg');
   transition: background ease-in-out 100ms;
 
   // Needs to be more specific than the global medium button size applied to every ion-button
