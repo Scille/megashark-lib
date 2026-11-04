@@ -8,9 +8,11 @@
         {{ $msTranslate(title) }}
       </ion-text>
       <ion-button
-        slot="icon-only"
         @click="cancel()"
-        class="closeBtn"
+        class="closeBtn color-secondary"
+        fill="clear"
+        slot="icon-only"
+        size="small"
       >
         <ion-icon
           :icon="close"

@@ -3,10 +3,10 @@
 <template>
   <div class="settings-option">
     <div class="settings-option__content">
-      <ion-text class="body title">
+      <ion-text class="title">
         {{ $msTranslate(title) }}
       </ion-text>
-      <ion-text class="body-sm description">
+      <ion-text class="description">
         {{ $msTranslate(description) }}
       </ion-text>
     </div>
@@ -42,10 +42,14 @@ defineProps<{
     gap: ms.spacing('gap-sm');
 
     .title {
+      @include ms.font('body-md-regular');
+
       color: ms.color('text-base-heading');
     }
 
     .description {
+      @include ms.font('body-sm-regular');
+
       color: ms.color('text-base-description');
     }
   }

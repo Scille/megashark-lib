@@ -13,8 +13,8 @@ http://ionicframework.com/docs/theming/ */
 /* fix issue on global */
 * {
   --inner-border-width: 0px;
-  --box-shadow: var(--parsec-shadow-light);
-  --background-activated-opacity: ms.opacity('10');
+  --box-shadow: #{theme.shadow('elevation-sm')};
+  --background-activated-opacity: #{theme.opacity('10')};
   --min-height: 0;
   --ripple-color: transparent;
 

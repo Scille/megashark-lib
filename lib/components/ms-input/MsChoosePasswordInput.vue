@@ -206,7 +206,6 @@ function clear(): void {
     &.matches {
       color: ms.color('text-success-default');
       background: ms.color('surface-success-default-subtle');
-      font-weight: 500;
       box-shadow: ms.shadow('input');
     }
   }
