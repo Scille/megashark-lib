@@ -184,9 +184,9 @@
       <ms-image :image="LogoIconGradient" />
       <ms-image :image="LogoRowWhite" />
       <ms-image :image="NoImportError" />
-      <ms-image :image="NoImportInProgress" />
       <ms-image :image="NoNotification" />
       <ms-image :image="NoImportDone" />
+      <ms-image :image="theme === Theme.Dark ? NoImportInProgressDark : NoImportInProgress" />
       <ms-image :image="theme === Theme.Dark ? NoInvitationDark : NoInvitation" />
       <ms-image :image="theme === Theme.Dark ? NoFileImportedDark : NoFileImported" />
       <ms-image :image="theme === Theme.Dark ? NoActiveUserDark : NoActiveUser" />
@@ -586,6 +586,7 @@ import {
   NoImportDone,
   NoImportError,
   NoImportInProgress,
+  NoImportInProgressDark,
   NoInvitation,
   NoInvitationDark,
   NoNotification,

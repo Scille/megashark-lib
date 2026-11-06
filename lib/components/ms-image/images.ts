@@ -59,9 +59,10 @@ import NoImportDone from '@lib/assets/images/no-file-done.svg?raw';
 import NoImportError from '@lib/assets/images/no-file-error.svg?raw';
 import NoFileImportedDark from '@lib/assets/images/no-file-imported-dark.svg?raw';
 import NoFileImported from '@lib/assets/images/no-file-imported.svg?raw';
-import NoImportInProgress from '@lib/assets/images/no-file-in-progress.svg?raw';
 import NoHiddenWorkspaceDark from '@lib/assets/images/no-hidden-workspace-dark.svg?raw';
 import NoHiddenWorkspace from '@lib/assets/images/no-hidden-workspace.svg?raw';
+import NoImportInProgressDark from '@lib/assets/images/no-import-in-progress-dark.svg?raw';
+import NoImportInProgress from '@lib/assets/images/no-import-in-progress.svg?raw';
 import NoInvitationDark from '@lib/assets/images/no-invitation-dark.svg?raw';
 import NoInvitation from '@lib/assets/images/no-invitation.svg?raw';
 import NoNotification from '@lib/assets/images/no-notification.svg?raw';
@@ -199,6 +200,7 @@ export {
   NoImportDone,
   NoImportError,
   NoImportInProgress,
+  NoImportInProgressDark,
   NoInvitation,
   NoInvitationDark,
   NoNotification,
