@@ -730,6 +730,13 @@ const actionBarButtons = computed(() => {
       },
     },
     {
+      label: 'usage.components.actionBar.buttons.getText.titleDanger',
+      icon: create,
+      onClick: async (): Promise<void> => {
+        await openTextInputModal(true);
+      },
+    },
+    {
       label: 'usage.components.actionBar.buttons.getPassword.title',
       image: LockClosedIcon,
       onClick: async (): Promise<void> => {
@@ -852,7 +859,7 @@ async function openQuestionModal(): Promise<void> {
   });
 }
 
-async function openTextInputModal(): Promise<void> {
+async function openTextInputModal(yesIsDangerous: boolean = false): Promise<void> {
   await getTextFromUser(
     {
       title: 'usage.components.modals.askQuestion.title',
@@ -862,8 +869,9 @@ async function openTextInputModal(): Promise<void> {
       okButtonText: 'usage.components.modals.askQuestion.create',
       additionalMessage: {
         message: { key: 'usage.components.richText.text', data: { value1: 42, value2: 'VALUE' } },
-        theme: MsReportTheme.Info,
+        theme: yesIsDangerous ? MsReportTheme.Warning : MsReportTheme.Info,
       },
+      yesIsDangerous: yesIsDangerous,
     },
     isLargeDisplay.value,
   );

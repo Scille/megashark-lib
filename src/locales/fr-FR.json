@@ -25,7 +25,8 @@
             "title": "Poser une question"
           },
           "getText": {
-            "title": "Demander une saisie"
+            "title": "Demander une saisie",
+            "titleDanger": "Demander une saisie (danger)"
           },
           "importDocument": {
             "title": "Importer"

@@ -25,7 +25,8 @@
             "title": "Ask a question"
           },
           "getText": {
-            "title": "Get text"
+            "title": "Get text",
+            "titleDanger": "Get text (danger)"
           },
           "importDocument": {
             "title": "Import"

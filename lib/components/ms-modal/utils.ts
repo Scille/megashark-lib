@@ -91,18 +91,7 @@ export async function getTextFromUser(options: GetTextOptions, isLargeDisplay: b
     handle: false,
     initialBreakpoint: isLargeDisplay ? undefined : 1,
     cssClass: 'text-input-modal',
-    componentProps: {
-      title: options.title,
-      subtitle: options.subtitle,
-      trim: options.trim,
-      validator: options.validator,
-      inputLabel: options.inputLabel,
-      placeholder: options.placeholder,
-      okButtonText: options.okButtonText,
-      defaultValue: options.defaultValue,
-      selectionRange: options.selectionRange,
-      additionalMessage: options.additionalMessage,
-    },
+    componentProps: options,
   });
   await modal.present();
   const result = await modal.onWillDismiss();
