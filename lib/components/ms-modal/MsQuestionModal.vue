@@ -17,7 +17,7 @@
       label: yesText || 'lib.components.msQuestionModal.confirmButtonLabel',
       onClick: onYes,
     }"
-    @on-enter-keyup="onYes"
+    @on-enter-keyup="yesIsDangerous ? onNo() : onYes()"
   >
     <ms-report-text
       v-if="additionalMessage"
