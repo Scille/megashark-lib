@@ -4,7 +4,12 @@
   <ion-button
     v-bind="$attrs"
     @click="onClick"
-    :disabled="state !== State.Normal"
+    class="feedback-button"
+    :class="{
+      'feedback-button--success': state === State.Success,
+      'feedback-button--failure': state === State.Failure,
+    }"
+    :aria-disabled="state !== State.Normal"
     :slot="!currentTextAndIcon.text && currentTextAndIcon.icon ? 'icon-only' : ''"
   >
     <ion-icon
@@ -63,6 +68,10 @@ const currentTextAndIcon = computed(() => {
 const state = ref<State>(State.Normal);
 
 async function onClick(event: MouseEvent): Promise<void> {
+  if (state.value !== State.Normal) {
+    return;
+  }
+
   const result = await callback(event);
 
   if (result === undefined) {
@@ -81,4 +90,32 @@ async function onClick(event: MouseEvent): Promise<void> {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@use '@lib/theme' as ms;
+
+@mixin feedback-state($surface, $text, $icon) {
+  --background: #{ms.color($surface)};
+  --background-hover: #{ms.color($surface)};
+  --background-activated: #{ms.color($surface)};
+  --background-focused: #{ms.color($surface)};
+  --border-color: #{ms.color($text)};
+  --color: #{ms.color($text)};
+  --color-hover: #{ms.color($text)};
+  cursor: default;
+  pointer-events: none;
+
+  ion-icon {
+    color: ms.color($icon);
+  }
+}
+
+ion-button.feedback-button {
+  &.feedback-button--success {
+    @include feedback-state('surface-success-default-subtle', 'text-success-default', 'icon-success-default');
+  }
+
+  &.feedback-button--failure {
+    @include feedback-state('surface-error-default-subtle', 'text-error-default', 'icon-error-default');
+  }
+}
+</style>

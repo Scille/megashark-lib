@@ -74,8 +74,9 @@
         :timeout="2000"
       />
       <ms-feedback-button
-        fill="clear"
+        fill="outline"
         size="small"
+        class="color-secondary"
         :callback="async () => Math.random() < 0.5"
         :normal-state="{ icon: create }"
         :timeout="2000"
