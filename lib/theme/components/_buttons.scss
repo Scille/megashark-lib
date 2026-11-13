@@ -116,6 +116,7 @@ ion-button.button-outline {
     --color: #{ms.color('text-base-label')};
     --color-hover: #{ms.color('text-neutral-default-hover')};
     --background: #{ms.color('surface-base-default')};
+    --background-hover: #{ms.color('surface-neutral-default-subtle-hover')};
     --background-activated: #{ms.color('surface-neutral-default-subtle-hover')};
     --background-hover-opacity: #{ms.opacity('6')};
     --background-activated: #{ms.color('surface-neutral-default-subtle-pressed')};

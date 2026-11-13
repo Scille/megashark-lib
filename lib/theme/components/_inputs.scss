@@ -36,7 +36,7 @@
   background: ms.color('surface-base-default');
   color: ms.color('text-base-body');
   position: relative;
-  height: 2.625rem;
+  height: ms.size('xl');
 
   &:not(.input-disabled) {
     &:hover {

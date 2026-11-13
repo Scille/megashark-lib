@@ -8,31 +8,31 @@
 
 $button-sizes: (
   small: (
-    height: size('lg'),
+    height: 2.0625rem,
     padding-y: spacing('padding-sm'),
     padding-x: spacing('padding-xl'),
     radius: radius('lg'),
-    font-size: font('label-md-medium-text-size'),
+    font: 'label-md-medium',
     icon-size: size('xs'),
     icon-gap: spacing('gap-sm'),
     width: 4rem,
   ),
   medium: (
-    height: size('xl'),
+    height: 2.3125rem,
     padding-y: spacing('padding-lg'),
     padding-x: spacing('padding-3xl'),
     radius: radius('xl'),
-    font-size: font('label-md-medium-text-size'),
+    font: 'label-md-medium',
     icon-size: size('xs'),
     icon-gap: spacing('gap-lg'),
     width: 5rem,
   ),
   large: (
-    height: size('2xl'),
+    height: size('xl'),
     padding-y: spacing('padding-xl'),
     padding-x: spacing('padding-3xl'),
     radius: radius('2xl'),
-    font-size: font('label-lg-medium-text-size'),
+    font: 'label-lg-medium',
     icon-size: 1.125rem,
     icon-gap: spacing('gap-xl'),
     width: 6rem,
@@ -47,7 +47,7 @@ $button-sizes: (
   $gap: map.get($props, icon-gap);
 
   min-height: $height;
-  font-size: map.get($props, font-size);
+  @include font(map.get($props, font));
   min-width: map.get($props, width);
 
   &::part(native) {
