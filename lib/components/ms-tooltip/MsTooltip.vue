@@ -1,7 +1,10 @@
 <!-- Parsec Cloud (https://parsec.cloud) Copyright (c) BUSL-1.1 2016-present Scille SAS -->
 
 <template>
-  <div class="tooltip-container">
+  <div
+    ref="container"
+    class="tooltip-container"
+  >
     <div class="tooltip-content">
       <ion-text class="tooltip-text">
         {{ $msTranslate(text) }}
@@ -13,10 +16,33 @@
 <script setup lang="ts">
 import { IonText } from '@ionic/vue';
 import { Translatable } from '@lib/services';
+import { onMounted, onUnmounted, ref } from 'vue';
 
-defineProps<{
+const props = defineProps<{
   text: Translatable;
+  // Called whenever the content size changes, so that the caller (attachMouseOverTooltip)
+  // can adjust the popover position, which Ionic only computes once when presenting.
+  onSizeChange?: (size: { width: number; height: number }) => void;
 }>();
+
+const container = ref<HTMLElement>();
+let resizeObserver: ResizeObserver | undefined;
+
+onMounted((): void => {
+  if (!container.value) {
+    return;
+  }
+  resizeObserver = new ResizeObserver((entries): void => {
+    const size = entries[0].contentRect;
+    props.onSizeChange?.({ width: Math.round(size.width), height: Math.round(size.height) });
+  });
+  resizeObserver.observe(container.value);
+});
+
+onUnmounted((): void => {
+  resizeObserver?.disconnect();
+  resizeObserver = undefined;
+});
 </script>
 
 <style lang="scss" scoped>
@@ -31,8 +57,8 @@ defineProps<{
 
 .tooltip-content {
   background: ms.color('surface-elevated-default');
-  color: ms.color('text-on-color-label');
-  max-width: 14.5rem;
+  color: ms.color('text-elevated-body');
+  max-width: 20rem;
   width: fit-content;
   padding: ms.spacing('padding-xl') ms.spacing('padding-xl');
   position: relative;
