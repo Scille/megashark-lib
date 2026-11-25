@@ -70,10 +70,6 @@ ion-button:not(.button-outline):not(.button-clear) {
     --background-hover-opacity: none;
     --background-activated: #{ms.color('surface-error-default-pressed')};
     --background-focused: --background;
-
-    &.ion-focused::part(native) {
-      box-shadow: ms.shadow('focus-error');
-    }
   }
 }
 
@@ -157,6 +153,16 @@ ion-button.button-outline {
       box-shadow: ms.shadow('focus-neutral');
     }
   }
+
+  &.color-danger {
+    --color: #{ms.color('text-error-default')};
+    --color-hover: #{ms.color('text-error-default-hover')};
+    --background: #{ms.color('surface-error-default-subtle')};
+    --background-hover: #{ms.color('surface-error-default-subtle-hover')};
+    --background-hover-opacity: none;
+    --background-activated: #{ms.color('surface-error-default-subtle-pressed')};
+    --background-focused: --background;
+  }
 }
 
 ion-button.link {
@@ -182,4 +188,8 @@ ion-button.danger {
   color: #{ms.color('text-error-default')};
   --background-hover: #{ms.color('surface-error-default-subtle-hover')} !important;
   --background-activated: #{ms.color('surface-error-default-subtle-pressed')} !important;
+}
+
+ion-button.color-danger.ion-focused::part(native) {
+  box-shadow: ms.shadow('focus-error');
 }
