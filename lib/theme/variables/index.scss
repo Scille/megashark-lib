@@ -9,12 +9,9 @@
 /** Theme variables **/
 @forward '_theme/borders';
 @forward '_theme/colors';
-@forward '_theme/colors-old'; //should be removed when all components will have _colors.scss variables.
 @forward '_theme/fonts';
-@forward '_theme/fonts-old'; //should be removed when all components will have _fonts.scss variables.
 @forward '_theme/opacity';
 @forward '_theme/radius';
-@forward '_theme/radius-old'; //should be removed when all components will have _radius.scss variables.
 @forward '_theme/shadows';
 @forward '_theme/size';
 @forward '_theme/spacing';
