@@ -44,6 +44,9 @@ ion-button:not(.button-small):not(.button-large) {
 
 /* button default */
 ion-button:not(.button-outline):not(.button-clear) {
+  &::part(native) {
+    color: var(--color);
+  }
   --color: #{ms.color('text-on-color-label')};
   --color-hover: #{ms.color('text-on-color-label')};
   --background: #{ms.color('surface-brand-default')};

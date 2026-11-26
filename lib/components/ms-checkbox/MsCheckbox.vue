@@ -131,7 +131,7 @@ async function onChange(_event: Event): Promise<void> {
     position: absolute;
     width: 4px;
     height: 1.5px;
-    background: ms.color('surface-base-default');
+    background: ms.color('icon-brand-on-color');
     opacity: 0;
     border-radius: 1px;
     transform: rotate(0deg) scale(1);
@@ -147,7 +147,7 @@ async function onChange(_event: Event): Promise<void> {
     position: absolute;
     width: 8px;
     height: 1.25px;
-    background: ms.color('surface-base-default');
+    background: ms.color('icon-brand-on-color');
     opacity: 0;
     border-radius: 1px;
     transform: rotate(0deg) scale(1);
@@ -183,8 +183,6 @@ async function onChange(_event: Event): Promise<void> {
   }
 
   &:hover .ms-checkbox {
-    background: ms.color('surface-neutral-default-subtle-hover');
-
     &:checked,
     &[ms-indeterminate='true'] {
       background: ms.color('surface-brand-default-hover');
